@@ -1,4 +1,7 @@
-*{
-    margin: 0;
-    box-sizing: border-box;
+@import "./components/stay-list";
+@import "./components/stay-preview";
+
+* {
+  margin: 0;
+  box-sizing: border-box;
 }

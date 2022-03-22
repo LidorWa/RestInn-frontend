@@ -1,0 +1,17 @@
+li {
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 180px;
+  height: 210px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
+  background-color: rgb(40, 68, 130);
+  color: antiquewhite;
+  border-radius: 10px;
+}

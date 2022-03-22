@@ -24,7 +24,7 @@ export default {
     // },
   },
   created() {
-    // console.log(this.stays);
+    console.log(this.stays);
   },
   methods: {
     // setFilter(filterBy) {
