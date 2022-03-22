@@ -1,10 +1,8 @@
 export const storageService = {
-    query,
-    get,
-    post,
-    put,
-    remove,
-    postMany,
-  }
-
-  
+  query,
+  get,
+  post,
+  put,
+  remove,
+  postMany,
+};
