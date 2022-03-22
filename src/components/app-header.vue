@@ -1,13 +1,10 @@
 <template>
-  <header class="main-header">
-    <span class="logo">restInn</span>
-    <div>
-      <router-link to="/">Lidor</router-link>
-      <router-link to="/">Ya</router-link>
-      <router-link to="/">Maniac</router-link>
-      <router-link to="/">About</router-link>
-    </div>
-  </header>
+    <nav class="main-header">
+    <router-link to="/">Home</router-link>
+    <router-link to="/about">About</router-link>
+    <router-link to="/stay">Explore</router-link>
+
+  </nav>
 </template>
 
 <script>
