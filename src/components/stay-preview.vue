@@ -1,17 +1,12 @@
 <template>
-  <li
-    class="card"
-    :style="{
-      background: 'url(' + stay.img + ') ',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-    }"
-  >
+  <li class="card">
+    <div class="card-img">
+      <div class="carusele"></div>
+      <div class="like"></div>
+    </div>
     <span>{{ stay.name }}</span>
     <!-- <img v-if="stay.img" :src="stay.img" class="stay-img" /> -->
     <span>{{ $filters.currencyUSD(stay.price) }}</span>
-
-    <router-link :to="'/stay/' + stay._id">Details</router-link>
   </li>
 </template>
 
@@ -32,6 +27,10 @@ export default {
   components: {
     // carPreview,
   },
-  methods: {},
+  methods: {
+    getImgUrl(file) {
+      return `../assets/images/${file}`;
+    },
+  },
 };
 </script>
