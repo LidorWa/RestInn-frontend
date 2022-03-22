@@ -1,9 +1,12 @@
 <template>
-  <section></section>
+  <section>
+    <stay-list :stays="stays"></stay-list>
+  </section>
 </template>
 
 <script>
 import { stayService } from "../services/stay-service.js";
+import stayList from "../components/stay-list.vue";
 
 export default {
   name: "stay-app",
@@ -21,16 +24,16 @@ export default {
     // },
   },
   created() {
-    console.log(this.stays);
+    // console.log(this.stays);
   },
   methods: {
-    setFilter(filterBy) {
-      this.$store.dispatch({ type: "filter", filterBy });
-    },
+    // setFilter(filterBy) {
+    //   this.$store.dispatch({ type: "filter", filterBy });
+    // },
   },
 
   components: {
-    // stayList,
+    stayList,
     // stayFilter,
     // addStay,
   },
