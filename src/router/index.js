@@ -14,12 +14,27 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
-
+      name: 'home-page',
+      path: '/',
+      component: homePage
     },
     {
-
+      name: 'about-page',
+      path: '/about',
+      component: aboutPage
       
-    }
+    },
+    {
+      name: 'stay-app',
+      path: '/stay',
+      component: stayApp
+      
+    },
+    {
+    name: 'stay-details',
+    path: '/stay/:stayId',
+    component: stayDetails 
+  },  
   ]
 })
 
