@@ -4,7 +4,11 @@
 
 <script>
 export default {
-
+data(){
+    return {
+        stay: {}
+    }
+}
 }
 </script>
 
