@@ -1,7 +1,12 @@
 .card-cont {
-  display: flex;
-  flex-wrap: wrap;
-  margin: auto;
-  padding: 0;
-  width: 97vw;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0px, 1fr));
+
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   margin: auto;
+  //   padding: 0;
+  //   width: 97vw;
 }
+
+// @media screen and (min-width: 550px);

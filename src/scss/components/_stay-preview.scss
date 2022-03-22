@@ -6,8 +6,7 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 180px;
-  height: 210px;
+  height: calc(50px + 18vw);
   padding: 10px;
   margin: 10px;
   border: 1px solid black;
