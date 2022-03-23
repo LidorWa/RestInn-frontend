@@ -3,7 +3,6 @@
     <div>
       <div class="carusele">
         <div class="block">
-          <div :style="'backgroundImage: ' + getImgUrl()"></div>
           <el-carousel :autoplay="false">
             <el-carousel-item v-for="item in stay.imgUrls" :key="item">
               <img class="card-img" :src="getImgUrl(item)" />
@@ -41,9 +40,7 @@ export default {
       required: true,
     },
   },
-  components: {
-    // carPreview,
-  },
+
   methods: {
     stayClicked() {
       this.$router.push(`/stay/${this.stay._id}`);

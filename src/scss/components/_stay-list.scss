@@ -10,12 +10,6 @@
   font-size: rem(20px);
 }
 
-.explore-filter {
-  padding-left: 10px;
-  border: 1px solid black;
-  border-radius: 20px;
-}
-
 //Break point
 //Break point
 //Break point
@@ -23,7 +17,7 @@
 @media (min-width: 551px) {
   .card-cont {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0px, 1fr));
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
     gap: 10px;
   }
 }
@@ -34,7 +28,7 @@
 
 @media (min-width: 950px) {
   .card-cont {
-    grid-template-columns: repeat(3, minmax(0px, 1fr));
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
   }
 }
 
@@ -44,7 +38,7 @@
 
 @media (min-width: 1230px) {
   .card-cont {
-    grid-template-columns: repeat(4, minmax(0px, 1fr));
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
   }
 }
 
@@ -54,6 +48,6 @@
 
 @media (min-width: 1500px) {
   .card-cont {
-    grid-template-columns: repeat(5, minmax(0px, 1fr));
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
   }
 }

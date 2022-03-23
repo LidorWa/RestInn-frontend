@@ -6,8 +6,6 @@ import "./scss/styles.scss";
 import "material-icons/iconfont/material-icons.css";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
-import HistogramSlider from "vue-histogram-slider";
-import "vue-histogram-slider/dist/histogram-slider.css";
 
 const app = createApp(App);
 
@@ -54,6 +52,5 @@ app.config.globalProperties.$filters = {
 app.use(router);
 app.use(store);
 app.use(ElementPlus);
-Vue.component(HistogramSlider.name, HistogramSlider);
 
 app.mount("#app");

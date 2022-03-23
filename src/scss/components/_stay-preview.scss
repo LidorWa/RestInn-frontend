@@ -11,6 +11,14 @@ li {
   margin: 10px;
   font-size: em(15px);
   cursor: pointer;
+
+  p {
+    margin: 0;
+    margin-top: 1px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 .el-carousel__container {
@@ -34,11 +42,6 @@ li {
 
 .el-carousel__container {
   height: calc(140px + 35vw);
-}
-
-.card p {
-  margin: 0;
-  margin-top: 1px;
 }
 
 .el-carousel__arrow {
