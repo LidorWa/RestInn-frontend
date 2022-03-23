@@ -1,28 +1,44 @@
 <template>
   <section class="app-container">
-    <app-header />
+    <app-header :headerStatus="headerStatus" />
+    <!-- addd prop showSearch -->
     <router-view />
   </section>
 </template>
 
 <script>
-import appHeader from "./components/app-header.vue";
-import appFooter from "./components/app-footer.vue";
+import appHeader from './components/app-header.vue'
+import appFooter from './components/app-footer.vue'
 export default {
-  name: "app",
+  name: 'app',
   components: {
     appHeader,
     appFooter,
   },
   data() {
-    return {};
+    return {
+      headerStatus: 'top',
+    }
   },
   computed: {},
   created() {
     // this.$store.dispatch({ type: 'loadStays' })
+    window.addEventListener('scroll', this.onScroll)
   },
-  methods: {},
-};
+  methods: {
+    onScroll() {
+      // this.showSearch=false
+      console.log(window.scrollY)
+      if (window.scrollY > 0 && window.scrollY <= 20) {
+        this.headerStatus = 'firstScroll'
+      } else if (window.scrollY > 20) {
+        this.headerStatus = 'shrinkSearchBar'
+      } else {
+        this.headerStatus = 'top'
+      }
+    },
+  },
+}
 </script>
 
 <style></style>
