@@ -1,0 +1,57 @@
+.main-header-container{
+    position: fixed;
+    width: 100vw;
+    font-size: rem(40px);
+    height: rem(158px);
+
+}
+
+.main-header-container.top {
+    color: $clr3;
+    
+    a {
+        color: $clr3;
+    }
+}
+.main-header-container.firstScroll{
+    color: $clr1;
+    background-color: $clr3;
+  
+    
+    a {
+        color: $clr2;
+    }
+}
+
+
+
+
+
+////// main search bar //////
+//date-picker:
+.block {
+    padding: 30px 0;
+    text-align: center;
+    border-right: solid 1px var(--el-border-color);
+    flex: 1;
+  }
+  .block:last-child {
+    border-right: none;
+  }
+  .block .demonstration {
+    display: block;
+    color: var(--el-text-color-secondary);
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .search-form-container{
+    justify-content: center;   
+    align-items: center;   
+}
+
+  .input-container{
+    // background-color: $clr3;
+    padding: em(10px);
+    border: none;
+  }
