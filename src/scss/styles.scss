@@ -9,11 +9,14 @@
 @import "base/base";
 @import "base/layout";
 
+//VIEWS
+@import "./views/home-page";
+@import "./views/app-page";
+@import "./views/stay-details";
+
 // COMPONENTS
 @import "./components/header";
-@import "./components/home-page";
 @import "./components/stay-list";
 @import "./components/stay-preview";
-@import "./components/stay-details";
 @import "./components/explore-filter";
 @import "./components/images-container";

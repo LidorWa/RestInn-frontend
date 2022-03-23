@@ -1,41 +1,43 @@
 <template>
   <div class="explore-filter">
     <!-- Price range -->
-    <div class="explore-filter-item">
-      <span>Price range</span>
-      <el-slider
-        class="price-range"
-        v-model="filterBy.price"
-        @input="setFilter"
-        :min="10"
-        :max="700"
-        :show-input="true"
-        range
-      />
-    </div>
-    <!-- Select type -->
-    <div
-      class="explore-filter-item select-type-cont"
-      :class="{ typeSelected: isTypeSelected }"
-    >
-      <span class="flex align-center">
-        <span class="type-span">{{ getTypeMenuTitle }}</span
-        ><span class="material-icons-outlined"> arrow_drop_down </span>
-      </span>
-      <el-select
-        v-model="filterBy.type"
-        @change="setFilter"
-        class="m-2 type-select"
-        placeholder="Type"
-        size="small"
-      >
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
+    <div class="price-and-type-filters-cont">
+      <div class="explore-filter-item">
+        <span>Price range</span>
+        <el-slider
+          class="price-range"
+          v-model="filterBy.price"
+          @input="setFilter"
+          :min="10"
+          :max="700"
+          :show-input="true"
+          range
         />
-      </el-select>
+      </div>
+      <!-- Select type -->
+      <div
+        class="explore-filter-item select-type-cont"
+        :class="{ typeSelected: isTypeSelected }"
+      >
+        <span class="flex align-center">
+          <span class="type-span">{{ getTypeMenuTitle }}</span
+          ><span class="material-icons-outlined"> arrow_drop_down </span>
+        </span>
+        <el-select
+          v-model="filterBy.type"
+          @change="setFilter"
+          class="m-2 type-select"
+          placeholder="Type"
+          size="small"
+        >
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          />
+        </el-select>
+      </div>
     </div>
     <!-- More amenities -->
     <div class="amenities-icons-cont">
