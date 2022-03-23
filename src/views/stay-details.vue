@@ -1,13 +1,26 @@
 <template>
   <section class="stay-details-page">
     <section class="stay-details" v-if="stay">
-      <router-link to="/stay" class="link home-link">Back</router-link>
+      <div class="secondary-header">
+        <div class="stay-name">
+          <h1>{{ stay.name }}</h1>
+        </div>
+        <div class="below-stay-name">
+          <div class="rating-reviews-location">
+            ⭐<span>{{stay.reviewScores.rating / 20}} ·</span> 
+            <button>{{stay.reviews.length}} reviews</button>
+            <span class="dot-above-pictures">·</span>
+            <span class="location-above-pictures">{{stay.address.city}}, {{stay.address.country}}</span>
+          </div>
+          <div class="share-save"></div>
+        </div>
+      </div>
 
       <br />
       <h1>Stay Details</h1>
       <br />
       <br />
-      <h1 class="stay-name">{{ stay.name }}</h1>
+
       <h1>{{ $filters.currencyUSD(stay.price) }}</h1>
       <!-- <div v-if="reviews">
         <h1>Reviews</h1>
@@ -24,7 +37,7 @@
           </span>
           <button @click="removeReview(review._id)">❌</button>
         </h3>
-      </div> -->
+      </div>-->
     </section>
     <!-- <section class="add-review">
       <button v-if="!isAdding" @click="isAdding = true">Add review</button>
@@ -33,7 +46,7 @@
         <button>Save</button>
         <button @click="closeForm">Cancel</button>
       </form>
-    </section> -->
+    </section>-->
   </section>
 </template>
 
