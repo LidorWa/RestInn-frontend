@@ -1,36 +1,39 @@
-// Flex 
+// Flex
 .flex {
-    display: flex;
+  display: flex;
 }
 .inline-flex {
-    display: inline-flex;
+  display: inline-flex;
 }
 
-.space-between{
-justify-content: space-between;
+.space-between {
+  justify-content: space-between;
 }
 
-.flex-columns{
-    flex-direction: column;
+.align-center {
+  text-align: center;
+  align-items: center;
 }
 
-// List 
+.flex-columns {
+  flex-direction: column;
+}
+
+// List
 .clean-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .grid {
-    display: grid;
+  display: grid;
 }
 
-
-
-// Text 
+// Text
 // .vertical-text {
 //     writing-mode: tb-rl;
-//     transform: rotate(-180deg);  
+//     transform: rotate(-180deg);
 // }
 
 // .tag-text {

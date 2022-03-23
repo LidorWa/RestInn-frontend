@@ -1,20 +1,5 @@
 <template>
-  <div class="explore-filter">
-    <!-- Select type -->
-    <el-select
-      v-model="filterBy.type"
-      class="m-2"
-      placeholder="Type"
-      size="small"
-    >
-      <el-option
-        v-for="item in options"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
-      />
-    </el-select>
-  </div>
+  <explore-filter :stays="stays" />
   <p class="stays-count">{{ stays.length }} stays</p>
   <ul class="card-cont">
     <stay-preview v-for="stay in stays" :key="stay._id" :stay="stay" />
@@ -23,6 +8,7 @@
 
 <script>
 import stayPreview from "./stay-preview.vue";
+import exploreFilter from "./explore-filter.vue";
 
 export default {
   props: {
@@ -33,7 +19,12 @@ export default {
   },
   data() {
     return {
+      value: "",
       filterBy: {
+        price: {
+          min: 0,
+          max: 700,
+        },
         type: "",
       },
       options: [
@@ -58,6 +49,7 @@ export default {
   },
   components: {
     stayPreview,
+    exploreFilter,
   },
   methods: {},
 };
