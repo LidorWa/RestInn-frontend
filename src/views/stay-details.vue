@@ -1,60 +1,35 @@
 <template>
   <section class="stay-details-page" v-if="stay">
     <section class="stay-details" v-if="stay">
-      <div class="secondary-header">
-
-        <div class="stay-name">
-          <h1>{{ stay.name }}</h1>
-        </div>
-
-        <div class="below-stay-name">
-          <div class="rating-reviews-location">
-            <img class="star-rating-svg" src="../assets/svgs/star-rating.svg" />
-            <span>{{ stay.reviewScores.rating / 20 }} </span>
-            <span>·</span>
-            <span>{{ stay.reviews.length }} reviews</span>
-            <span class="dot-above-pictures">·</span>
-            <span
-              class="location-above-pictures"
-            >{{ stay.address.city }}, {{ stay.address.country }}</span>
-          </div>
-          <div class="share-save">
-            <div class="share">
-              <img class="share-svg" src="../assets/svgs/share.svg" />
-              <span>Share</span>
-            </div>
-            <div class="save-like">
-              <img class="like-svg" src="../assets/svgs/like.svg" />
-              <span>Save</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <images-container :stayImgs="stay.imgUrls"></images-container> 
+      <secondary-header :stay="stay" />
+      <images-container :stayImgs="stay.imgUrls" />
       <section class="hero-modal-and-general-info">
         <section class="general-info">
           <article class="type-host-and-stay-properties">
-            <h2 class="stay-type-host-name">{{stay.propertyType}} hosted by {{stay.host.fullname}} </h2>
+            <h2
+              class="stay-type-host-name"
+            >{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
             <ul class="stay-properties">
-              <li>{{stay.capacity}} guests</li>
-              <li>{{stay.bedrooms}} bedroom</li>
-              <li>{{stay.beds}} bed</li>
-              <li>{{stay.bathrooms}} baths</li>
+              <li>{{ stay.capacity }} guests</li>
+              <li>{{ stay.bedrooms }} bedroom</li>
+              <li>{{ stay.beds }} bed</li>
+              <li>{{ stay.bathrooms }} baths</li>
             </ul>
-            <img :src="stay.host.thumbnailUrl">
+            <img :src="stay.host.thumbnailUrl" />
           </article>
-          <section class="selected-stay-features">
-            <div>
-              <!-- WHAT TO RENDER IN HERE? THE SECTION BENEATH THE TYPE OF THE STAY -->
-            </div>
-          </section>
+          <selected-popular-amenities :stay="stay" />
+  
           <section class="section-stay-summary">
-            <p class="stay-summary">{{stay.summary}}</p>
+            <p class="stay-summary">{{ stay.summary }}</p>
+          </section>
+          <section class="main-amenities-list">
+              <div class="amenities-list-title">
+                <h1>What this place offers</h1>
+                </div>
+                <!-- TODO: a component and a v-for array on this section -->
           </section>
         </section>
-        <section class="hero-modal">
-
-        </section>
+        <section class="hero-modal"></section>
       </section>
 
       <!-- <h1>{{ $filters.currencyUSD(stay.price) }}</h1> -->
@@ -89,6 +64,8 @@
 <script>
 import { stayService } from "../services/stay-service";
 import imagesContainer from '../components/stay-details-cmps/images-container.vue'
+import SecondaryHeader from '../components/stay-details-cmps/secondary-header.vue'
+import SelectedPopularAmenities from "../components/stay-details-cmps/selected-popular-amenities.vue";
 
 // _id: 307,
 // name: "velit in",
@@ -112,8 +89,10 @@ export default {
     };
   },
   components: {
-    imagesContainer
-  },
+    imagesContainer,
+    SecondaryHeader,
+    SelectedPopularAmenities
+},
   created() {
     const stayId = this.$route.params.stayId;
     // const stay = this.$store.dispatch({ type: "getStayById", stayId });
@@ -140,7 +119,7 @@ export default {
     // }
   },
   methods: {
-        getImgUrl(file) {
+    getImgUrl(file) {
       const imgUrl = new URL(`../assets/images/${file}`, import.meta.url);
       return imgUrl;
     },
@@ -176,7 +155,7 @@ export default {
     },
   },
   computed: {
-    hostThumbnail(){
+    hostThumbnail() {
       console.log(this.stay.host.thumbnailUrl)
       return new URL(this.stay.host.thumbnailUrl, import.meta.url);
     }
