@@ -6,23 +6,56 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(110px + 35vw);
+  height: calc(170px + 35vw);
   padding: 1px;
   margin: 10px;
-  border: 1px solid black;
-  border-radius: 10px;
+  font-size: em(15px);
   cursor: pointer;
+}
+
+.el-carousel__container {
+  height: calc(90px + 35vw) !important;
+}
+
+.el-carousel__item {
+  background-color: white !important;
 }
 
 .card-img {
   border-radius: 10px;
-  height: 65%;
+  height: 100%;
 }
 
-.card-review-cont {
+.el-carousel__button {
+  width: calc(1px + 1vw) !important;
+  height: calc(1px + 1vw) !important;
+  border-radius: 50px;
+}
+
+.el-carousel__container {
+  height: calc(140px + 35vw);
+}
+
+.card p {
+  margin: 0;
+  margin-top: 1px;
+}
+
+.el-carousel__arrow {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  color: rgb(58, 58, 58, 0.95) !important;
+}
+.el-carousel__arrow:hover {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.card-preview-line {
   display: flex;
   align-items: center;
-  margin: 0;
+}
+
+.preview-dot {
+  margin: 0px 4px;
 }
 
 .material-icons-outlined.star {
@@ -30,7 +63,7 @@ li {
   font-size: 18px;
 }
 
-.card-review-cont .card-rate {
+.card-rate {
   color: $clr2;
   font-size: 14px;
   margin-left: 3px;
@@ -42,14 +75,28 @@ li {
   font-size: 14px;
 }
 
+.card-preview-price {
+  font-weight: bold;
+}
+
 //Break point
 //Break point
 //Break point
 
 @media (min-width: 551px) {
   .card {
-    height: calc(90px + 19vw);
+    height: calc(170px + 19vw);
+    font-size: em(16px);
     margin: 0;
+  }
+
+  .el-carousel__container {
+    height: calc(80px + 19vw) !important;
+  }
+
+  .el-carousel__button {
+    width: calc(1px + 0.5vw) !important;
+    height: calc(1px + 0.5vw) !important;
   }
 }
 
@@ -59,6 +106,53 @@ li {
 
 @media (min-width: 950px) {
   .card {
-    height: calc(130px + 10vw);
+    height: calc(200px + 10vw);
+  }
+
+  .el-carousel__container {
+    height: calc(110px + 10vw) !important;
+  }
+
+  .el-carousel__button {
+    width: calc(1px + 0.3vw) !important;
+    height: calc(1px + 0.3vw) !important;
+  }
+}
+
+//Break point
+//Break point
+//Break point
+
+@media (min-width: 1230px) {
+  .card {
+    height: calc(170px + 10vw);
+  }
+
+  .el-carousel__container {
+    height: calc(80px + 10vw) !important;
+  }
+
+  .el-carousel__button {
+    width: calc(1px + 0.3vw) !important;
+    height: calc(1px + 0.3vw) !important;
+  }
+}
+
+//Break point
+//Break point
+//Break point
+
+@media (min-width: 1500px) {
+  .card {
+    height: calc(140px + 10vw);
+  }
+
+  .el-carousel__container {
+    height: calc(50px + 10vw) !important;
+  }
+
+  .el-carousel__button {
+    width: calc(1px + 0.3vw) !important;
+    height: calc(1px + 0.3vw) !important;
   }
 }

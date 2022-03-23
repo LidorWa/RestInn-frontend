@@ -3,6 +3,19 @@
   padding: 10px;
 }
 
+.stays-count {
+  font-weight: bold;
+  padding-left: 10px;
+  margin: 0;
+  font-size: rem(20px);
+}
+
+.explore-filter {
+  padding-left: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
 //Break point
 //Break point
 //Break point
@@ -21,7 +34,26 @@
 
 @media (min-width: 950px) {
   .card-cont {
-    display: grid;
     grid-template-columns: repeat(3, minmax(0px, 1fr));
+  }
+}
+
+//Break point
+//Break point
+//Break point
+
+@media (min-width: 1230px) {
+  .card-cont {
+    grid-template-columns: repeat(4, minmax(0px, 1fr));
+  }
+}
+
+//Break point
+//Break point
+//Break point
+
+@media (min-width: 1500px) {
+  .card-cont {
+    grid-template-columns: repeat(5, minmax(0px, 1fr));
   }
 }
