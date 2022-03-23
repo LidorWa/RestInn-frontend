@@ -7,7 +7,6 @@ import "material-icons/iconfont/material-icons.css";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 
-
 const app = createApp(App);
 
 app.config.globalProperties.$filters = {

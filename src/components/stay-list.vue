@@ -1,4 +1,6 @@
 <template>
+  <explore-filter :stays="stays" />
+  <p class="stays-count">{{ stays.length }} stays</p>
   <ul class="card-cont">
     <stay-preview v-for="stay in stays" :key="stay._id" :stay="stay" />
   </ul>
@@ -6,6 +8,7 @@
 
 <script>
 import stayPreview from "./stay-preview.vue";
+import exploreFilter from "./explore-filter.vue";
 
 export default {
   props: {
@@ -14,8 +17,39 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      value: "",
+      filterBy: {
+        price: {
+          min: 0,
+          max: 700,
+        },
+        type: "",
+      },
+      options: [
+        {
+          value: "",
+          label: "All",
+        },
+        {
+          value: "Apartment",
+          label: "Apartment",
+        },
+        {
+          value: "Serviced apartment",
+          label: "Serviced apartment",
+        },
+        {
+          value: "Option1",
+          label: "Option1",
+        },
+      ],
+    };
+  },
   components: {
     stayPreview,
+    exploreFilter,
   },
   methods: {},
 };

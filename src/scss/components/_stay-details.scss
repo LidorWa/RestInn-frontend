@@ -3,14 +3,37 @@
     font-size: 26px;
     color: $clr2;
   }
-  button {
-    color: $clr2;
+}
+.rating-reviews-location {
+  color: $clr2;
+  span:nth-of-type(1), span:nth-of-type(3) {
+    text-decoration: underline;
   }
 }
+
 .dot-above-pictures {
   margin: 8px 8px 0px;
   color: $clr5;
 }
 .location-above-pictures {
   color: $clr5;
+}
+
+.below-stay-name {
+  .star-rating-svg {
+    width: em(14px);
+  }
+}
+
+.share-save {
+  .share-svg {
+    width: em(14px);
+  }
+  .like-svg {
+    width: em(14px);
+  }
+}
+
+.selected-popular-amenities img{
+  width: em(24px);
 }

@@ -1,0 +1,81 @@
+.explore-filter {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin: 9px;
+  border-radius: 20px;
+  justify-content: center;
+}
+
+.explore-filter-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 0px 15px;
+  margin: 0px 5px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.select-type-cont {
+  position: relative !important;
+  border: 1px solid rgb(121, 121, 121);
+  transition: 0.2s;
+  //   display: inline-block !important;
+}
+
+.typeSelected {
+  border: 2px solid rgb(0, 255, 170);
+}
+
+.select-type-cont:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.el-select--small {
+  width: 110px;
+}
+
+.type-select {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute !important;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100% !important;
+}
+
+.type-span {
+  font-weight: bold;
+  font-size: em(25px);
+  cursor: pointer;
+}
+
+.price-range {
+  width: 150px !important;
+}
+
+.amenity-icon {
+  font-size: rem(30px) !important;
+  cursor: pointer;
+  border: 1px solid rgb(121, 121, 121);
+  transition: 0.2s;
+  padding: 5px;
+  width: 55px;
+  border-radius: 35px;
+  height: 50px;
+  text-align: center;
+  margin: 0px 3px;
+  line-height: 38px !important;
+  align-self: center !important;
+}
+
+.amenitySelected {
+  border: 2px solid rgb(0, 255, 170) !important;
+}
+
+.amenity-icon:hover {
+  background-color: rgb(123, 255, 106, 0.2);
+}
