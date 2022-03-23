@@ -1,5 +1,5 @@
 <template>
-  <section class="stay-details-page">
+  <section class="stay-details-page" v-if="stay">
     <section class="stay-details" v-if="stay">
       <div class="secondary-header">
         <div class="stay-name">
@@ -7,12 +7,25 @@
         </div>
         <div class="below-stay-name">
           <div class="rating-reviews-location">
-            ⭐<span>{{stay.reviewScores.rating / 20}} ·</span> 
+            <!-- <span class="material-icons-outlined star">star</span> -->
+            <img class="star-rating-svg" src="../assets/svgs/star-rating.svg">
+            <span>{{stay.reviewScores.rating / 20}} ·</span> 
             <button>{{stay.reviews.length}} reviews</button>
             <span class="dot-above-pictures">·</span>
             <span class="location-above-pictures">{{stay.address.city}}, {{stay.address.country}}</span>
           </div>
-          <div class="share-save"></div>
+          <div class="share-save">
+            <div class="share">
+            <!-- <span class="material-icons-outlined short-info-logo">ios_share</span> -->
+            <img class="share-svg" src="../assets/svgs/share.svg">
+            <span>Share</span>
+            </div>
+            <div class="save-like">
+            <!-- <span class="material-icons-outlined short-heart">favorite</span> -->
+            <img class="like-svg" src="../assets/svgs/like.svg">
+            <span>Save</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -77,8 +90,9 @@ export default {
   components: {},
   created() {
     const stayId = this.$route.params.stayId;
-    const stay = this.$store.dispatch({ type: "getStayById", stayId });
-    this.stay = { name: "Lidorrrrr", price: 99 };
+    // const stay = this.$store.dispatch({ type: "getStayById", stayId });
+    this.stay = stayService.getById(stayId)
+    
 
     //   const user = this.$store.getters.user;
     //   console.log(user);
