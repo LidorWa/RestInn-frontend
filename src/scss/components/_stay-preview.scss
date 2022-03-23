@@ -19,6 +19,29 @@ li {
   height: 65%;
 }
 
+.card-review-cont {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.material-icons-outlined.star {
+  color: $clr1;
+  font-size: 18px;
+}
+
+.card-review-cont .card-rate {
+  color: $clr2;
+  font-size: 14px;
+  margin-left: 3px;
+}
+
+.reviews-count {
+  color: $clr5;
+  margin-left: 3px;
+  font-size: 14px;
+}
+
 //Break point
 //Break point
 //Break point
