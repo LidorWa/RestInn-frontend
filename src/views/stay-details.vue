@@ -28,16 +28,36 @@
               <span>Save</span>
             </div>
           </div>
-            <images-container :stayImgs="stay.imgUrls"></images-container> 
         </div>
       </div>
+      <images-container :stayImgs="stay.imgUrls"></images-container> 
+      <section class="hero-modal-and-general-info">
+        <section class="general-info">
+          <article class="type-host-and-stay-properties">
+            <h2 class="stay-type-host-name">{{stay.propertyType}} hosted by {{stay.host.fullname}} </h2>
+            <ul class="stay-properties">
+              <li>{{stay.capacity}} guests</li>
+              <li>{{stay.bedrooms}} bedroom</li>
+              <li>{{stay.beds}} bed</li>
+              <li>{{stay.bathrooms}} baths</li>
+            </ul>
+            <img :src="stay.host.thumbnailUrl">
+          </article>
+          <section class="selected-stay-features">
+            <div>
+              <!-- WHAT TO RENDER IN HERE? THE SECTION BENEATH THE TYPE OF THE STAY -->
+            </div>
+          </section>
+          <section class="section-stay-summary">
+            <p class="stay-summary">{{stay.summary}}</p>
+          </section>
+        </section>
+        <section class="hero-modal">
 
-      <br />
-      <h1>Stay Details</h1>
-      <br />
-      <br />
+        </section>
+      </section>
 
-      <h1>{{ $filters.currencyUSD(stay.price) }}</h1>
+      <!-- <h1>{{ $filters.currencyUSD(stay.price) }}</h1> -->
       <!-- <div v-if="reviews">
         <h1>Reviews</h1>
         <h3 v-for="review in reviews" :key="review._id">
@@ -120,6 +140,10 @@ export default {
     // }
   },
   methods: {
+        getImgUrl(file) {
+      const imgUrl = new URL(`../assets/images/${file}`, import.meta.url);
+      return imgUrl;
+    },
     // async addReview() {
     //   if (!this.reviewToAdd.content) return;
     //   await this.$store.dispatch({
@@ -152,6 +176,10 @@ export default {
     },
   },
   computed: {
+    hostThumbnail(){
+      console.log(this.stay.host.thumbnailUrl)
+      return new URL(this.stay.host.thumbnailUrl, import.meta.url);
+    }
     // user() {
     //   return this.$store.getters.user;
     // },

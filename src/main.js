@@ -53,6 +53,5 @@ app.config.globalProperties.$filters = {
 app.use(router);
 app.use(store);
 app.use(ElementPlus);
-Vue.component(HistogramSlider.name, HistogramSlider);
 
 app.mount("#app");
