@@ -1,6 +1,10 @@
 <template>
     <section class="imgs-container-grid" v-if="stayImgs">
         <img :src="getImgUrl(stayImgs[0])" >
+        <img :src="getImgUrl(stayImgs[1])" >
+        <img :src="getImgUrl(stayImgs[2])" >
+        <img :src="getImgUrl(stayImgs[3])" >
+        <img :src="getImgUrl(stayImgs[4])" >
     </section>
 </template>
 
@@ -15,7 +19,7 @@ export default {
     methods:{
         
     getImgUrl(file) {
-      const imgUrl = new URL(`../assets/images/${file}`, import.meta.url);
+      const imgUrl = new URL(`../../assets/images/${file}`, import.meta.url);
       return imgUrl;
     },
     }
