@@ -5,7 +5,7 @@
       <images-container :stayImgs="stay.imgUrls" />
       <section class="hero-modal-and-general-info">
         <section class="general-info">
-          <article class="type-host-and-stay-properties">
+          <section class="type-host-and-stay-properties">
             <h2
               class="stay-type-host-name"
             >{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
@@ -16,7 +16,7 @@
               <li>{{ stay.bathrooms }} baths</li>
             </ul>
             <img :src="stay.host.thumbnailUrl" />
-          </article>
+          </section>
           <selected-popular-amenities :stay="stay" />
   
           <section class="section-stay-summary">
