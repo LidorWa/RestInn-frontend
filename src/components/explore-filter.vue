@@ -144,7 +144,7 @@ export default {
       }
       this.isAmenityInFilter[currAmenity] =
         !this.isAmenityInFilter[currAmenity];
-      console.log(this.isAmenityInFilter);
+      console.log(this.filterBy);
     },
   },
   computed: {
