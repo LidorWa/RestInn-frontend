@@ -1,5 +1,5 @@
 <template>
-  <section class="stay-details-page">
+  <section class="stay-details-page" v-if="stay">
     <section class="stay-details" v-if="stay">
       <div class="secondary-header">
         <div class="stay-name">
@@ -77,8 +77,9 @@ export default {
   components: {},
   created() {
     const stayId = this.$route.params.stayId;
-    const stay = this.$store.dispatch({ type: "getStayById", stayId });
-    this.stay = { name: "Lidorrrrr", price: 99 };
+    // const stay = this.$store.dispatch({ type: "getStayById", stayId });
+    this.stay = stayService.getById(stayId)
+    
 
     //   const user = this.$store.getters.user;
     //   console.log(user);

@@ -2,6 +2,7 @@
 
 export const stayService = {
   query,
+  getById
   // get,
   // post,
   // put,
@@ -11,6 +12,11 @@ export const stayService = {
 
 function query() {
   return gStays;
+}
+
+function getById(stayId){
+  let stay = gStays.find(currStay => currStay._id === stayId)
+  return stay;
 }
 
 const gStays = [
