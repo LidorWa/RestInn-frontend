@@ -3,6 +3,7 @@
 @import "setup/variables";
 @import 'setup/mixins';
 @import "setup/functions";
+@import "setup/typography";
 
 // BASICS
 @import "base/helpers";
@@ -16,6 +17,7 @@
 
 // COMPONENTS
 @import "./components/header";
+@import "./components/main-search";
 @import "./components/stay-list";
 @import "./components/stay-preview";
 @import "./components/explore-filter";

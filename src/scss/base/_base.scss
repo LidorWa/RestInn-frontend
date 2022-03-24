@@ -36,7 +36,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
-    margin: 0 0 1rem;
+    margin: 0 0;
     // line-height: lh(40px, 29px);
 }
 
@@ -95,7 +95,7 @@ img {
 //     }
 // }
 
-.btn {
+// .btn {
     
 //     @include btn;
     
@@ -106,7 +106,7 @@ img {
 //     &-light {
 //         @include btn($type: light);
 //     }
-}
+// }
 
 
 // links

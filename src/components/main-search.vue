@@ -1,20 +1,21 @@
 <template>
   <section>
     <form @submit.prevent="" class="main-search-container flex justify-center align-center btn">
-      <div class="input-container location-input-container">
+      <div class="header-input location-input flex flex-column">
         <label for="location-input" class="location-input">Location</label>
         <input type="text" id="location-input" name="location-input" placeholder="Where are you going?" autocomplete="off" spellcheck="false" />
       </div>
       <span></span>
-      <div class="input-container date-picker-container">
-        <div class="block">
+      <div class="date-picker">
+        <div class="block header-input">
           <el-date-picker v-model="value1" type="datetimerange" start-placeholder="Start Date" end-placeholder="End Date" :default-time="defaultTime1" />
         </div>
       </div>
       <span></span>
-      <div class="input-container guestsInput-container">
+      <div class="header-input guestsInput flex flex-column">
         <label for="guestsInput" class="">Guests</label>
-        <input type="number" id="guestsInput" name="guestsInput" placeholder="How Many?" />
+        <input type="number" id="guestsInput" name="guestsInput" placeholder="Add guests" />
+        <!-- <img src="../assets/svgs/search.svg" alt="search Icon" /> -->
       </div>
     </form>
   </section>
@@ -49,6 +50,7 @@ export default {
     // },
   },
   computed: {
+    //TODO: check if needed, delete hour
     defaultTime1() {
       ;[new Date(2000, 1, 1, 12, 0, 0)] // '12:00:00'
     },
