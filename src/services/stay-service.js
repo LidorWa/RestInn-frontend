@@ -4338,6 +4338,175 @@ function _createStays() {
       _id: "622f337a75c7d36e498aab01",
       imgUrls: ["042.jpeg", "110.jpeg", "037.jpeg", "005.jpeg", "075.jpeg"],
     },
+    {
+      name: "Beautiful 1 Bedroom Apartment",
+      summary:
+        "This one bedroom apartment in Sheung Wan/Central is the perfect hideaway for a young couple or single person looking to explore everything that Hong Kong has to offer.",
+      interaction:
+        "I will most likely be out of town when the flat is available, thus the reason for renting it out. However, I will be available via email or phone to provide you with any assitance you need. I am more than happy to help in any way I can to make your stay as enjoyable as possible.",
+      houseRules:
+        "Please treat the house and its content as you would expect someone to treat your own.",
+      propertyType: "Apartment",
+      roomType: "Entire home/apt",
+      bedType: "Real Bed",
+      cancellationPolicy: "strict_14_with_grace_period",
+      capacity: 2,
+      bedrooms: 1,
+      beds: 1,
+      numOfReviews: 10,
+      amenities: [
+        "Wifi",
+        "Air conditioning",
+        "Kitchen",
+        "Buzzer/wireless intercom",
+        "Washer",
+        "Essentials",
+        "Laptop friendly workspace",
+      ],
+      host: {
+        _id: "622f3404e36c59e6164fb5c6",
+        fullname: "Mai-Britt",
+        location: "Hong Kong",
+        about:
+          "Hong Kong is a beautiful city, so vibrant and diverse. I have been living in Hong Kong since 2010. I enjoy traveling and use my personal experience to point you to fantastic restaurants, exciting cafes and bars, the best shopping areas and of course to the local grocer and great supermarkets.",
+        responseTime: "within a few hours",
+        thumbnailUrl:
+          "https://a0.muscache.com/im/pictures/22a8b8ef-e551-4341-b5a4-abf0b3e51ff6.jpg?aki_policy=profile_small",
+        pictureUrl:
+          "https://a0.muscache.com/im/pictures/22a8b8ef-e551-4341-b5a4-abf0b3e51ff6.jpg?aki_policy=profile_x_medium",
+        isSuperhost: false,
+        id: "36481278",
+      },
+      address: {
+        street: "Sheung Wan, Hong Kong Island, Hong Kong",
+        country: "Hong Kong",
+        location: {
+          lat: 114.15241,
+          lan: 22.28351,
+        },
+        countryCode: "HK",
+        city: "Hong Kong",
+      },
+      id: "10659534",
+      bathrooms: 1,
+      price: 997,
+      securityDeposit: 1000,
+      cleaningFee: 500,
+      extraPeople: 0,
+      reviewScores: {
+        accuracy: 9,
+        cleanliness: 10,
+        checkin: 9,
+        communication: 10,
+        location: 10,
+        value: 9,
+        rating: 95,
+      },
+      reviews: [
+        {
+          at: "2016-01-26T05:00:00.000Z",
+          by: {
+            _id: "622f3404e36c59e6164fb2d3",
+            fullname: "William",
+            imgUrl: "https://robohash.org/9060469?set=set1",
+            id: "9060469",
+          },
+          txt: "The host canceled this reservation 7 days before arrival. This is an automated posting.",
+        },
+        {
+          at: "2016-02-01T05:00:00.000Z",
+          by: {
+            _id: "622f3407e36c59e6164fbd59",
+            fullname: "Kevin",
+            imgUrl: "https://robohash.org/20163551?set=set1",
+            id: "20163551",
+          },
+          txt: "Mai's apartment is really nice. Lovely decor. Nice and bright with lots of natural sunlight.. and the balcony is cool :) The location is great. Very close to both Sheung Wan and Central. Mai responded quickly to all messages. Thank you Mai!",
+        },
+        {
+          at: "2016-02-11T05:00:00.000Z",
+          by: {
+            _id: "622f3403e36c59e6164fb1e1",
+            fullname: "Chuying",
+            imgUrl: "https://robohash.org/30317869?set=set1",
+            id: "30317869",
+          },
+          txt: "Mai-Britt's flat is so lovely and clean. I can find everything in her flat. I prefer to stay in Mai-Britt's house than hotel. And the bed is so comfortable i can have a deep sleep. I never seen Mai in person but she send message and take some pictures. I can easily connect with her and easily find her place. the flat is located on Gough street. From central about 7mins to walk. close to SheungWan. Everything is perfect. And this nice flat i can't easily find in HK. If i back to HK, i will stay in her flat again. thank you so much!  ",
+        },
+        {
+          at: "2016-03-02T05:00:00.000Z",
+          by: {
+            _id: "622f3407e36c59e6164fbd58",
+            fullname: "Sophie",
+            imgUrl: "https://robohash.org/11547925?set=set1",
+            id: "11547925",
+          },
+          txt: "Clean & still very new! Location is pretty good, it's about 10 mins walk to the MTR, but it's the major Hong Kong & Central stations, from which you can access many lines! Lots of great eateries & convenience stores nearby as well, including the famous Kau Kee Beef Brisket Noodles! Do note the small details like that there is (currently) no wifi & no lift, but we knew about these so we were prepared for it. One small thing, the curtains are quite sheer over the full-length windows which makes the whole place bright & airy, but if you're used to sleeping in darkness then I recommend bringing eyeshades.",
+        },
+        {
+          at: "2016-04-17T04:00:00.000Z",
+          by: {
+            _id: "622f3405e36c59e6164fb7ac",
+            fullname: "Rodion",
+            imgUrl: "https://robohash.org/1599685?set=set1",
+            id: "1599685",
+          },
+          txt: "Mai was a super friendly host the apt was clean had everything you needed to make for a comfortable stay - can't beat the location close to everything you want to be near in Hong Kong.\r\n\r\n",
+        },
+        {
+          at: "2016-09-05T04:00:00.000Z",
+          by: {
+            _id: "622f3403e36c59e6164fb293",
+            fullname: "Anna",
+            imgUrl: "https://robohash.org/75878955?set=set1",
+            id: "75878955",
+          },
+          txt: "The host canceled this reservation 23 days before arrival. This is an automated posting.",
+        },
+        {
+          at: "2016-11-18T05:00:00.000Z",
+          by: {
+            _id: "622f3403e36c59e6164faf6a",
+            fullname: "Mark",
+            imgUrl: "https://robohash.org/103064855?set=set1",
+            id: "103064855",
+          },
+          txt: "Fantastic location with a couple of renowned local eateries a stone's throw away, Airport Express and Central MTR station within easy walking distance, yet quietly nestled away from the hustle and bustle of the nearby financial district. Apartment itself is spacious enough for one (and I reckon up to two) and has most essentials required - although this being HK, didn't get to spend much time in it. The lack of a lift in this block means legging it up several flights of stairs (as host has made known to her credit) but even that is a perfect antidote to the great food and drink the city has to offer. Mai-Britt was most friendly and welcoming, and the whole experience (as a first-time user) was smoother than I'd expected.",
+        },
+        {
+          at: "2016-12-03T05:00:00.000Z",
+          by: {
+            _id: "622f3405e36c59e6164fb64a",
+            fullname: "Erin",
+            imgUrl: "https://robohash.org/18954566?set=set1",
+            id: "18954566",
+          },
+          txt: "Located in the heart of Hong Kong, this apartment is perfect for a weekend in Hong Kong. Mai-Britt is the perfect host, and her apartment is set up to feel spacious and bright despite the tight space common in Hong Kong.\r\n\r\nThe spot is close to restaurants, shops and the MTR. ",
+        },
+        {
+          at: "2016-12-29T05:00:00.000Z",
+          by: {
+            _id: "622f3403e36c59e6164fb08d",
+            fullname: "William",
+            imgUrl: "https://robohash.org/66616934?set=set1",
+            id: "66616934",
+          },
+          txt: "Super stay at Mai-Britt's place. Great and clear communication through out. The tasteful apartment is quiet, yet in the middle of the hippest neighborhood, in the center of everything. \nThank you for a wonderful stay.",
+        },
+        {
+          at: "2017-12-29T05:00:00.000Z",
+          by: {
+            _id: "622f3404e36c59e6164fb48c",
+            fullname: "Brittney",
+            imgUrl: "https://robohash.org/6931896?set=set1",
+            id: "6931896",
+          },
+          txt: "I couldn’t ask for more Perfect location and accommodations for living like a hip local!",
+        },
+      ],
+      _id: "622f337a75c7d36e498aab24",
+      imgUrls: ["004.jpeg", "002.jpeg", "080.jpeg", "054.jpeg", "043.jpeg"],
+    },
   ];
 
   storageService.postMany(KEY, stays);

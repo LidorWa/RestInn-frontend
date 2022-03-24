@@ -10,13 +10,13 @@
         <img src="../assets/images/Barcelona.jpg" alt="Barcelona" />
         <h3>Barcelona</h3>
       </a>
-      <a href="#/stay?destination=London">
-        <img src="../assets/images/London.jpg" alt="London" />
-        <h3>London</h3>
+      <a href="#/stay?destination=Hong$Kong">
+        <img src="../assets/images/Hongkong.jpg" alt="Hongkong" />
+        <h3>Hong Kong</h3>
       </a>
-      <a href="#/stay?destination=Rome">
-        <img src="../assets/images/Rome.jpg" alt="Rome" />
-        <h3>Rome</h3>
+      <a href="#/stay?destination=Maui">
+        <img src="../assets/images/Maui.jpg" alt="Maui" />
+        <h3>Maui</h3>
       </a>
       <a href="#/stay?destination=Istanbul">
         <img src="../assets/images/Istanbul.jpg" alt="Istanbul" />
