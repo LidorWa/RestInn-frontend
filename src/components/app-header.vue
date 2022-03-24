@@ -1,5 +1,5 @@
 <template>
-  <section :class="'main-header-container flex flex-columns ' + headerStatus">
+  <header :class="'main-header-container flex flex-columns ' + headerStatus">
     <div class="logo-nav-container flex space-between">
       <div class="logo flex align-center" @click="goHome">
         <i class="fa-brands fa-airbnb"></i>
@@ -12,21 +12,31 @@
       >
         <button class="btn">
           Start your search
-          <div></div>
+          <div class="search-btn">
+            <img src="../assets/svgs/search.svg" alt="search Icon" />
+          </div>
         </button>
       </div>
       <nav class="main-header-nav">
-        <router-link to="/">Home</router-link> |
         <router-link to="/stay">Explore</router-link> |
         <router-link to="/about">About</router-link>
-        <div class="hamburger-user-menu">
-          <button class="button flex">
-            <img src="../assets/svgs/menu_black_24dp.svg" alt="menu-icon" />
-            <img src="../assets/system-imgs/user_pic-50x50.png" alt="house" />
-          </button>
+        <div
+          class="hamburger-user-menu btn flex"
+          @click="isShowingHamburger = !isShowingHamburger"
+        >
+          <img
+            class="hamburger-img"
+            src="../assets/svgs/menu_black_24dp.svg"
+            alt="menu-icon"
+          />
+          <img
+            class="hamburger-avatar"
+            src="../assets/system-imgs/user_pic-50x50.png"
+            alt="house"
+          />
         </div>
       </nav>
-      <header-user-menu />
+      <header-user-menu :class="{ showHamburger: isShowingHamburger }" />
     </div>
     <div
       v-if="
@@ -37,7 +47,7 @@
     >
       <main-search />
     </div>
-  </section>
+  </header>
 </template>
 
 <script>
@@ -54,6 +64,7 @@ export default {
   data() {
     return {
       showSearch: false,
+      isShowingHamburger: false,
     };
   },
   components: {

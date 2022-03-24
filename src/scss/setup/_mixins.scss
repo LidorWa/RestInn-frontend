@@ -56,16 +56,25 @@
 //   }
 // }
 
-// // Mixin for removing hover efects on iphone screen
-// @mixin hover-supported {
-//   @media not all and (pointer: coarse) {
-//     &:hover {
-//       @content;
-//     }
-//   }
-// }
+// Mixin for removing hover efects on iphone screen
+@mixin hover-supported {
+  @media not all and (pointer: coarse) {
+    &:hover {
+      @content;
+    }
+  }
+}
 
 // Buttons
+//search btn
+
+@mixin search-btn {
+    border-radius: 50%;
+    background-color: $clr1;
+    color: $clr3;
+    display: inline-flex;
+    
+}
 
 // @mixin btn($type: regular, $bg: $clr1, $clr: $clr3, $padding: em(24px) em(44px), $hover: darken($bg, 8%)) {
 //   display: inline-flex;
