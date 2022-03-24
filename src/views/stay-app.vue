@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import { stayService } from "../services/stay-service.js";
 import stayList from "../components/stay-list.vue";
 import stayFilter from "../components/stay-filter.vue";
 import exploreFilter from "../components/explore-filter.vue";
@@ -57,11 +56,22 @@ export default {
           )
         );
       }
-      console.log(this.filterBy);
+
       if (this.filterBy.city) {
-        stays = stays.filter(
-          (stay) => stay.address.city === this.filterBy.city
-        );
+        let city;
+        if (this.filterBy.city.includes("$")) {
+          city = this.filterBy.city
+            .split("$")
+            .map(
+              (word) =>
+                (word = word.charAt(0).toUpperCase() + word.substring(1))
+            )
+            .join(" ");
+        } else {
+          city = this.filterBy.city;
+        }
+
+        stays = stays.filter((stay) => stay.address.city === city);
       }
 
       return stays;
