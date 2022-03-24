@@ -57,7 +57,6 @@ export default {
   },
   computed: {
     topRatedStays() {
-      console.log("hey");
       return this.$store.getters.getTopRatedStays;
     },
     // getImgUrl() {

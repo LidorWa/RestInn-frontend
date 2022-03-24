@@ -25,14 +25,10 @@ async function query(filterBy = null) {
 
 async function getById(stayId) {
   let stay = await storageService.get(KEY, stayId);
-  console.log(stay)
   return stay;
 }
 
 function _createStays() {
-  console.log("heyyyy");
-  console.log("heyyyy");
-  console.log("heyyyy");
   const stays = [
     {
       name: "Westin Kaanapali KORVN 2BR",

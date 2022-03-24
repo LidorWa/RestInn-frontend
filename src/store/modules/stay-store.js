@@ -11,7 +11,6 @@ export default {
     },
     getTopRatedStays(state) {
       const stays = JSON.parse(JSON.stringify(state.stays));
-      console.log("heyyyyyyyyy");
       stays.sort((a, b) => b.reviewScores.rating - a.reviewScores.rating);
       stays.splice(4);
       return stays;
@@ -27,8 +26,13 @@ export default {
     },
   },
   actions: {
-    getStayById(context, { stayId }) {
-      return stayService.getById(stayId);
+    async getStayById(context, { stayId }) {
+      try {
+        const stay = await stayService.getById(stayId);
+        return stay;
+      } catch (err) {
+        console.log("Error while getting stay:", err);
+      }
     },
     async loadStays({ commit, state }) {
       const stays = await stayService.query(state.filterBy);
