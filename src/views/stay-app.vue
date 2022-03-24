@@ -1,7 +1,12 @@
 <template>
   <section v-if="stays" class="app-page">
     <stay-filter />
-    <explore-filter :stays="stays" @setFilter="setFilter" />
+    <explore-filter
+      :stays="staysForDisplay"
+      :filerByCity="filterBy.city"
+      :filerByType="filterBy.type"
+      @setFilter="setFilter"
+    />
     <stay-list :stays="staysForDisplay" />
   </section>
 </template>
@@ -18,7 +23,7 @@ export default {
     return {
       stays: null,
       filterBy: {
-        price: [10, 700],
+        price: [1, 3000],
         type: "",
         city: "",
         amenities: [],
@@ -28,21 +33,26 @@ export default {
   created() {
     const stays = this.$store.getters.getStays;
     this.stays = stays;
-    console.log(stays[0]);
-
     const city = this.$route.query.destination;
     if (city) {
       this.filterBy.city = city;
+    }
+    const type = this.$route.query.type;
+    if (type) {
+      console.log("type from params:", type);
+      this.filterBy.type = type;
     }
   },
   computed: {
     staysForDisplay() {
       let stays = JSON.parse(JSON.stringify(this.stays));
+
       if (this.filterBy.type) {
         stays = stays.filter(
           (stay) => stay.propertyType === this.filterBy.type
         );
       }
+
       stays = stays.filter(
         (stay) =>
           stay.price >= this.filterBy.price[0] &&
@@ -81,29 +91,6 @@ export default {
   methods: {
     setFilter(filterBy) {
       this.filterBy = filterBy;
-    },
-    parseURLParams(url) {
-      var queryStart = url.indexOf("?") + 1,
-        queryEnd = url.indexOf("#") + 1 || url.length + 1,
-        query = url.slice(queryStart, queryEnd - 1),
-        pairs = query.replace(/\+/g, " ").split("&"),
-        parms = {},
-        i,
-        n,
-        v,
-        nv;
-
-      if (query === url || query === "") return;
-
-      for (i = 0; i < pairs.length; i++) {
-        nv = pairs[i].split("=", 2);
-        n = decodeURIComponent(nv[0]);
-        v = decodeURIComponent(nv[1]);
-
-        if (!parms.hasOwnProperty(n)) parms[n] = [];
-        parms[n].push(nv.length === 2 ? v : null);
-      }
-      return parms;
     },
   },
 

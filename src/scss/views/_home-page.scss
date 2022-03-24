@@ -14,9 +14,9 @@
 
 .destinations-header {
   margin: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   margin-top: 30px;
-  font-size: 5.5vw;
+  font-size: 5vw;
   color: $clr2;
 }
 
@@ -44,12 +44,14 @@
     font-size: calc(em(1px) + 3.3vw);
     font-weight: 550;
     color: $clr2;
+    margin-bottom: 30px;
   }
 
   h4 {
     margin-top: calc(1px + 0.5vw);
     font-size: calc(em(1px) + 3.5vw);
     color: $clr2;
+    margin-bottom: 30px;
   }
 }
 
@@ -61,7 +63,7 @@
   .destinations-header {
     margin: 40px;
     margin-bottom: 0px;
-    font-size: calc(em(5px) + 2vw);
+    font-size: calc(em(7px) + 2vw);
   }
 
   .destinations-containter {
@@ -88,6 +90,11 @@
 //Break point
 
 @media (min-width: 950px) {
+  .destinations-header {
+    margin-top: 80px;
+    font-size: calc(em(7px) + 1.8vw);
+  }
+
   .destinations-containter {
     grid-template-columns: repeat(4, 1fr);
     margin-top: 40px;

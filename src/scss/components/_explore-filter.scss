@@ -8,8 +8,20 @@
   justify-content: center;
 }
 
-.amenities-icons-cont {
+.amenities-container {
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.amenity-mini-container {
+  margin-top: 10px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .price-and-type-filters-cont {
@@ -26,7 +38,7 @@
   padding: 0px 15px;
   margin: 0px 5px;
   height: 50px;
-  height: auto;
+
   border-radius: 50px;
 }
 
@@ -43,7 +55,7 @@
 }
 
 .select-type-cont:hover {
-  background-color: rgb(240, 240, 240);
+  color: black;
 }
 
 .el-select--small {
@@ -67,22 +79,21 @@
 }
 
 .price-range {
-  width: 150px !important;
+  width: 170px !important;
 }
 
-.amenity-icon {
-  font-size: rem(30px) !important;
+.amenity {
+  font-size: rem(20px) !important;
   cursor: pointer;
   color: $clr5;
   border: 1px solid rgb(121, 121, 121);
   transition: 0.2s;
   padding: 5px;
-  width: 55px;
   border-radius: 35px;
-  height: 50px;
+  height: 35px;
   text-align: center;
   margin: 0px 3px;
-  line-height: 38px !important;
+  line-height: 27px !important;
   align-self: center !important;
 }
 
@@ -90,8 +101,8 @@
   border: 1px solid $clr1 !important;
 }
 
-.amenity-icon:hover {
-  background-color: rgb(123, 255, 106, 0.2);
+.amenity:hover {
+  color: black;
 }
 
 //Break point
@@ -102,18 +113,27 @@
   .explore-filter-item {
     height: 50px;
   }
+
+  .price-range {
+    width: 190px !important;
+  }
 }
 
 //Break point
 //Break point
 //Break point
 
-@media (min-width: 845px) {
-  .explore-filter {
+@media (min-width: 565px) {
+  .amenities-container {
+    margin-top: 10px;
+    display: flex;
     flex-direction: row;
-  }
-
-  .amenities-icons-cont {
-    margin-top: 0px;
+    align-items: center;
+    justify-content: center;
   }
 }
+
+//   .amenities-containerainer {
+//     margin-top: 0px;
+//   }
+// }

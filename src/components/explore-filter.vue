@@ -8,8 +8,8 @@
           class="price-range"
           v-model="filterBy.price"
           @input="setFilter"
-          :min="10"
-          :max="700"
+          :min="min"
+          :max="max"
           :show-input="true"
           range
         />
@@ -40,47 +40,52 @@
       </div>
     </div>
     <!-- More amenities -->
-    <div class="amenities-icons-cont">
-      <span
-        class="material-icons-outlined amenity-icon"
-        title="free WiFi connection"
-        @click="toggleAmenity(`Wifi`)"
-        :class="{ amenitySelected: isAmenityInFilter[`Wifi`] }"
-      >
-        wifi
-      </span>
-      <span
-        class="material-icons-outlined amenity-icon"
-        title="Pets alowed"
-        @click="toggleAmenity(`Pets allowed`)"
-        :class="{ amenitySelected: isAmenityInFilter[`Pets allowed`] }"
-      >
-        pets
-      </span>
-      <span
-        class="material-icons amenity-icon"
-        title="Smoking allowed"
-        @click="toggleAmenity(`Smoking allowed`)"
-        :class="{ amenitySelected: isAmenityInFilter[`Smoking allowed`] }"
-      >
-        smoking_rooms
-      </span>
-      <span
-        class="material-icons amenity-icon"
-        title="Air conditioner"
-        @click="toggleAmenity('Air conditioning')"
-        :class="{ amenitySelected: isAmenityInFilter[`Air conditioning`] }"
-      >
-        ac_unit
-      </span>
-      <span
-        class="material-icons-outlined amenity-icon"
-        title="Cable TV"
-        @click="toggleAmenity('Cable TV')"
-        :class="{ amenitySelected: isAmenityInFilter[`Cable TV`] }"
-      >
-        tv
-      </span>
+    <div class="amenities-container">
+      <div class="amenity-mini-container">
+        <span
+          class="amenity"
+          title="free WiFi connection"
+          @click="toggleAmenity(`Wifi`)"
+          :class="{ amenitySelected: isAmenityInFilter[`Wifi`] }"
+        >
+          WiFi
+        </span>
+        <span
+          class="amenity"
+          title="Pets alowed"
+          @click="toggleAmenity(`Pets allowed`)"
+          :class="{ amenitySelected: isAmenityInFilter[`Pets allowed`] }"
+        >
+          Pets allowed
+        </span>
+        <span
+          class="amenity"
+          title="Air conditioner"
+          @click="toggleAmenity('Air conditioning')"
+          :class="{ amenitySelected: isAmenityInFilter[`Air conditioning`] }"
+        >
+          A/C
+        </span>
+      </div>
+      <div class="amenity-mini-container">
+        <span
+          class="amenity"
+          title="Smoking allowed"
+          @click="toggleAmenity(`Smoking allowed`)"
+          :class="{ amenitySelected: isAmenityInFilter[`Smoking allowed`] }"
+        >
+          Smoking allowed
+        </span>
+
+        <span
+          class="amenity"
+          title="Cable TV"
+          @click="toggleAmenity('Cable TV')"
+          :class="{ amenitySelected: isAmenityInFilter[`Cable TV`] }"
+        >
+          Cable TV
+        </span>
+      </div>
     </div>
   </div>
 </template>
@@ -92,9 +97,17 @@ export default {
       type: Array,
       required: true,
     },
+    filerByCity: {
+      type: String,
+    },
+    filerByType: {
+      type: String,
+    },
   },
   data() {
     return {
+      min: 1,
+      max: 3000,
       isAmenityInFilter: {
         "Pets allowed": false,
         Wifi: false,
@@ -103,10 +116,11 @@ export default {
         "Cable TV": false,
       },
       isTypeSelected: false,
-      value: "",
+
       filterBy: {
-        price: [10, 700],
+        price: [1, 3000],
         type: "",
+        city: "",
         amenities: [],
       },
       options: [
@@ -130,8 +144,25 @@ export default {
           value: "Condominium",
           label: "Condominium",
         },
+        {
+          value: "Villa",
+          label: "Villa",
+        },
+        {
+          value: "Cabin",
+          label: "Cabin",
+        },
       ],
     };
+  },
+  created() {
+    this.filterBy.city = this.filerByCity;
+    this.filterBy.type = this.filerByType;
+    const stayPrices = this.stays.map((stay) => stay.price);
+    if (stayPrices.length === 1) return;
+    stayPrices.sort((a, b) => a - b);
+    this.min = stayPrices[0];
+    this.max = stayPrices[stayPrices.length - 1];
   },
   components: {},
   methods: {
