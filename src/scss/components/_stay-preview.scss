@@ -1,7 +1,3 @@
-li {
-  list-style: none;
-}
-
 .carousele {
   .block {
     padding: 4px;
@@ -12,6 +8,7 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  list-style: none;
   height: calc(180px + 35vw);
   padding: 1px;
   margin: 10px;

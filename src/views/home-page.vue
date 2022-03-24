@@ -31,7 +31,9 @@
 export default {
   name: "home-page",
   data() {
-    return {};
+    return {
+      stays: stayService.query(),
+    };
   },
   components: {
     // homePageImg,
@@ -39,6 +41,11 @@ export default {
   created() {},
   methods: {},
   computed: {
+    topRatedStays() {
+      let stays = JSON.parse(JSON.stringify(this.stays));
+
+      return stays;
+    },
     // getImgUrl() {
     //   const imgUrl = new URL(`../assets/home-page.png`, import.meta.url)
     //   return imgUrl
