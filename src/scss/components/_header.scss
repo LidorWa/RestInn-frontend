@@ -4,54 +4,48 @@
     font-size: rem(40px);
     height: rem(158px);
 
-}
-
-.main-header-container.top {
-    color: $clr3;
     
-    a {
+    &.top {
         color: $clr3;
+        
+        a {
+            color: $clr3;
+        }
     }
-}
-.main-header-container.firstScroll{
-    color: $clr1;
-    background-color: $clr3;
-  
+
+    &.firstScroll{
+        color: $clr1;
+        background-color: $clr3;
     
-    a {
-        color: $clr2;
+        a {
+          color: $clr2;
+        }
     }
+
 }
 
 
 
-
-
-////// main search bar //////
-//date-picker:
-.block {
-    padding: 30px 0;
-    text-align: center;
-    border-right: solid 1px var(--el-border-color);
-    flex: 1;
-  }
-  .block:last-child {
-    border-right: none;
-  }
-  .block .demonstration {
-    display: block;
-    color: var(--el-text-color-secondary);
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-
-  .search-form-container{
-    justify-content: center;   
-    align-items: center;   
+.logo{
+  cursor: pointer;
 }
 
-  .input-container{
-    // background-color: $clr3;
-    padding: em(10px);
-    border: none;
+//mini-search
+
+.mini-search{
+
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+line-height: 20px;
+box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
+background-color: #fff;
+border: 1px solid #ddd;
+border-radius: 40px;
+height: 48px;
+padding: 0 7px 0 16px;
+width: 300px;
+font-size: 14px;
+text-indent: 5px;
   }

@@ -28,7 +28,7 @@ export default {
   methods: {
     onScroll() {
       // this.showSearch=false
-      console.log(window.scrollY)
+      // console.log(window.scrollY)
       if (window.scrollY > 0 && window.scrollY <= 20) {
         this.headerStatus = 'firstScroll'
       } else if (window.scrollY > 20) {

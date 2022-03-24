@@ -1,6 +1,6 @@
 <template>
   <section>
-    <form @submit.prevent="" class="search-form-container flex">
+    <form @submit.prevent="" class="search-form-container flex justify-center align-center btn">
       <div class="input-container location-input-container">
         <label for="location-input" class="location-input">Location</label>
         <input type="text" id="location-input" name="location-input" placeholder="Where are you going?" autocomplete="off" spellcheck="false" />

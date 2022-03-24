@@ -93,7 +93,8 @@ img {
 //     }
 // }
 
-// .btn {
+.btn {
+    
 //     @include btn;
     
 //     &-dark {
@@ -103,7 +104,7 @@ img {
 //     &-light {
 //         @include btn($type: light);
 //     }
-// }
+}
 
 
 // links
