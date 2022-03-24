@@ -28,6 +28,7 @@
 
 <script>
 // import homePageImg from '@/assets/homepage.png'
+import { stayService } from "../services/stay-service";
 export default {
   name: "home-page",
   data() {
@@ -43,7 +44,8 @@ export default {
   computed: {
     topRatedStays() {
       let stays = JSON.parse(JSON.stringify(this.stays));
-
+      stays.sort((a, b) => a.reviewScores.rating - b.reviewScores.rating);
+      console.log(stays);
       return stays;
     },
     // getImgUrl() {
