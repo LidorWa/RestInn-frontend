@@ -126,6 +126,10 @@ export default {
           value: "Loft",
           label: "Loft",
         },
+        {
+          value: "Condominium",
+          label: "Condominium",
+        },
       ],
     };
   },
