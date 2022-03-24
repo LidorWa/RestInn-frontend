@@ -23,8 +23,9 @@ async function query(filterBy = null) {
   return stays;
 }
 
-function getById(stayId) {
-  let stay = storageService.get(KEY, stayId);
+async function getById(stayId) {
+  let stay = await storageService.get(KEY, stayId);
+  console.log(stay)
   return stay;
 }
 
