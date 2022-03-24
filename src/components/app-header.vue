@@ -1,5 +1,5 @@
 <template>
-  <section :class="'main-header-container flex flex-columns ' + headerStatus">
+  <header :class="'main-header-container flex flex-columns ' + headerStatus">
     <div class="logo-nav-container flex space-between">
       <div class="logo flex align-center" @click="goHome">
         <i class="fa-brands fa-airbnb"></i>
@@ -8,24 +8,24 @@
       <div v-if="headerStatus === 'shrinkSearchBar' && !showSearch" @click="toggleShowSearch" class="search">
         <button class="btn">
           Start your search
-          <div></div>
+          <div class="search-btn">
+            <img src="../assets/svgs/search.svg" alt="search Icon" />
+          </div>
         </button>
       </div>
       <nav class="main-header-nav">
-        <router-link to="/">Home</router-link> | <router-link to="/stay">Explore</router-link> |
+        <router-link to="/stay">Explore</router-link> |
         <router-link to="/about">About</router-link>
-        <div class="hamburger-user-menu">
-          <button class="button flex">
-            <img src="../assets/svgs/menu_black_24dp.svg" alt="menu-icon" />
-            <img src="../assets/system-imgs/user_pic-50x50.png" alt="house" />
-          </button>
+        <div class="hamburger-user-menu btn flex">
+          <img src="../assets/svgs/menu_black_24dp.svg" alt="menu-icon" />
+          <img src="../assets/system-imgs/user_pic-50x50.png" alt="house" />
         </div>
       </nav>
     </div>
     <div v-if="(showSearch && headerStatus === 'shrinkSearchBar') || headerStatus !== 'shrinkSearchBar'" class="main-search-bar">
       <main-search />
     </div>
-  </section>
+  </header>
 </template>
 
 <script>
