@@ -29,9 +29,10 @@
             src="../assets/svgs/menu_black_24dp.svg"
             alt="menu-icon"
           />
+
           <img
             class="hamburger-avatar"
-            src="../assets/system-imgs/user_pic-50x50.png"
+            src="../assets/svgs/user-avatar.svg"
             alt="house"
           />
         </div>
