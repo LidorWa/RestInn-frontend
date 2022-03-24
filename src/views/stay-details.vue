@@ -27,6 +27,13 @@
           <!-- TODO: HERE SHOULD COME THE CALENDAR -->
 
         <reviews-section :stay="stay" />
+        <!-- TODO: TO CHECK - HERE BENEATH THE REVIEWS SHOULD BE A MAP WITH THE STAY LOCATION.
+        TODO IT? IN KUMBA THEY DIDNT -->
+        <!-- TODO: TO CHECK - HERE BENEATH THE MAP SHOULD BE SECTION WITH DETAILS ABOUT THE HOST.
+        TODO IT? IN KUMBA THEY DIDNT -->
+        <!-- TODO: TO CHECK - HERE BENEATH THE DETAILS ABOUT THE HOST SHOULD BE SECTION 
+        WITH THINGS TO KNOW.
+        TODO IT? IN KUMBA THEY DIDNT -->
         </section>
         <section class="hero-modal"></section>
       </section>
