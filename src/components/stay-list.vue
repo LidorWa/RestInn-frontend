@@ -1,14 +1,13 @@
 <template>
-  <explore-filter :stays="stays" />
   <p class="stays-count">{{ stays.length }} stays</p>
-  <ul class="card-cont">
+  <ul v-if="stays.length" class="card-cont">
     <stay-preview v-for="stay in stays" :key="stay._id" :stay="stay" />
   </ul>
+  <h1 v-else class="no-results">No results</h1>
 </template>
 
 <script>
 import stayPreview from "./stay-preview.vue";
-import exploreFilter from "./explore-filter.vue";
 
 export default {
   props: {
@@ -49,7 +48,6 @@ export default {
   },
   components: {
     stayPreview,
-    exploreFilter,
   },
   methods: {},
 };

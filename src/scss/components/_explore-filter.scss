@@ -1,10 +1,21 @@
 .explore-filter {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 5px;
+  padding: 8px;
   margin: 9px;
   border-radius: 20px;
   justify-content: center;
+}
+
+.amenities-icons-cont {
+  margin-top: 10px;
+}
+
+.price-and-type-filters-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .explore-filter-item {
@@ -15,6 +26,7 @@
   padding: 0px 15px;
   margin: 0px 5px;
   height: 50px;
+  height: auto;
   border-radius: 50px;
 }
 
@@ -22,11 +34,12 @@
   position: relative !important;
   border: 1px solid rgb(121, 121, 121);
   transition: 0.2s;
+  color: $clr5;
   //   display: inline-block !important;
 }
 
 .typeSelected {
-  border: 2px solid rgb(0, 255, 170);
+  border: 1px solid $clr1;
 }
 
 .select-type-cont:hover {
@@ -60,6 +73,7 @@
 .amenity-icon {
   font-size: rem(30px) !important;
   cursor: pointer;
+  color: $clr5;
   border: 1px solid rgb(121, 121, 121);
   transition: 0.2s;
   padding: 5px;
@@ -73,9 +87,33 @@
 }
 
 .amenitySelected {
-  border: 2px solid rgb(0, 255, 170) !important;
+  border: 1px solid $clr1 !important;
 }
 
 .amenity-icon:hover {
   background-color: rgb(123, 255, 106, 0.2);
+}
+
+//Break point
+//Break point
+//Break point
+
+@media (min-width: 540px) {
+  .explore-filter-item {
+    height: 50px;
+  }
+}
+
+//Break point
+//Break point
+//Break point
+
+@media (min-width: 845px) {
+  .explore-filter {
+    flex-direction: row;
+  }
+
+  .amenities-icons-cont {
+    margin-top: 0px;
+  }
 }

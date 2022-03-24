@@ -1,10 +1,10 @@
 <template>
     <section class="imgs-container-grid" v-if="stayImgs">
-        <img :src="getImgUrl(stayImgs[0])" >
-        <img :src="getImgUrl(stayImgs[1])" >
-        <img :src="getImgUrl(stayImgs[2])" >
-        <img :src="getImgUrl(stayImgs[3])" >
-        <img :src="getImgUrl(stayImgs[4])" >
+        <img class="grid-item1" :src="getImgUrl(stayImgs[0])" >
+        <img class="grid-item2" :src="getImgUrl(stayImgs[1])" >
+        <img class="grid-item3" :src="getImgUrl(stayImgs[2])" >
+        <img class="grid-item4" :src="getImgUrl(stayImgs[3])" >
+        <img class="grid-item5" :src="getImgUrl(stayImgs[4])" >
     </section>
 </template>
 

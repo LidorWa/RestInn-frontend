@@ -2,6 +2,12 @@ li {
   list-style: none;
 }
 
+.carousele {
+  .block {
+    padding: 4px;
+  }
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -18,6 +24,7 @@ li {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    padding-left: 4px;
   }
 }
 

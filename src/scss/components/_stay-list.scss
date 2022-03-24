@@ -5,9 +5,16 @@
 
 .stays-count {
   font-weight: bold;
-  padding-left: 10px;
+  padding-left: 14px;
   margin: 0;
   font-size: rem(20px);
+}
+
+.no-results {
+  width: 100%;
+  font-size: em(45px);
+  padding-left: 28px;
+  padding-right: 28px;
 }
 
 //Break point

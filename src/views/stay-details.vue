@@ -5,7 +5,7 @@
       <images-container :stayImgs="stay.imgUrls" />
       <section class="hero-modal-and-general-info">
         <section class="general-info">
-          <article class="type-host-and-stay-properties">
+          <section class="type-host-and-stay-properties">
             <h2
               class="stay-type-host-name"
             >{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
@@ -16,18 +16,17 @@
               <li>{{ stay.bathrooms }} baths</li>
             </ul>
             <img :src="stay.host.thumbnailUrl" />
-          </article>
+          </section>
           <selected-popular-amenities :stay="stay" />
-  
+
           <section class="section-stay-summary">
             <p class="stay-summary">{{ stay.summary }}</p>
           </section>
-          <section class="main-amenities-list">
-              <div class="amenities-list-title">
-                <h1>What this place offers</h1>
-                </div>
-                <!-- TODO: a component and a v-for array on this section -->
-          </section>
+          <amenities-list />
+
+          <!-- TODO: HERE SHOULD COME THE CALENDAR -->
+
+        <reviews-section :stay="stay" />
         </section>
         <section class="hero-modal"></section>
       </section>
@@ -66,6 +65,8 @@ import { stayService } from "../services/stay-service";
 import imagesContainer from '../components/stay-details-cmps/images-container.vue'
 import SecondaryHeader from '../components/stay-details-cmps/secondary-header.vue'
 import SelectedPopularAmenities from "../components/stay-details-cmps/selected-popular-amenities.vue";
+import AmenitiesList from "../components/stay-details-cmps/amenities-list.vue";
+import reviewsSection from '../components/stay-details-cmps/reviews-section.vue'
 
 // _id: 307,
 // name: "velit in",
@@ -91,7 +92,9 @@ export default {
   components: {
     imagesContainer,
     SecondaryHeader,
-    SelectedPopularAmenities
+    SelectedPopularAmenities,
+    AmenitiesList,
+    reviewsSection
 },
   created() {
     const stayId = this.$route.params.stayId;

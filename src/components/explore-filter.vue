@@ -1,83 +1,87 @@
 <template>
   <div class="explore-filter">
     <!-- Price range -->
-    <div class="explore-filter-item">
-      <span>Price range</span>
-      <el-slider
-        class="price-range"
-        v-model="filterBy.price"
-        @change="setFilter"
-        :min="10"
-        :max="700"
-        :show-input="true"
-        range
-      />
-    </div>
-    <!-- Select type -->
-    <div
-      class="explore-filter-item select-type-cont"
-      :class="{ typeSelected: isTypeSelected }"
-    >
-      <span class="flex align-center">
-        <span class="type-span">{{ getTypeMenuTitle }}</span
-        ><span class="material-icons-outlined"> arrow_drop_down </span>
-      </span>
-      <el-select
-        v-model="filterBy.type"
-        @change="setFilter"
-        class="m-2 type-select"
-        placeholder="Type"
-        size="small"
-      >
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
+    <div class="price-and-type-filters-cont">
+      <div class="explore-filter-item">
+        <span>Price range</span>
+        <el-slider
+          class="price-range"
+          v-model="filterBy.price"
+          @input="setFilter"
+          :min="10"
+          :max="700"
+          :show-input="true"
+          range
         />
-      </el-select>
+      </div>
+      <!-- Select type -->
+      <div
+        class="explore-filter-item select-type-cont"
+        :class="{ typeSelected: isTypeSelected }"
+      >
+        <span class="flex align-center">
+          <span class="type-span">{{ getTypeMenuTitle }}</span
+          ><span class="material-icons-outlined"> arrow_drop_down </span>
+        </span>
+        <el-select
+          v-model="filterBy.type"
+          @change="setFilter"
+          class="m-2 type-select"
+          placeholder="Type"
+          size="small"
+        >
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          />
+        </el-select>
+      </div>
     </div>
     <!-- More amenities -->
-    <span
-      class="material-icons-outlined amenity-icon"
-      title="free WiFi connection"
-      @click="toggleAmenity(`WiFi`)"
-      :class="{ amenitySelected: isAmenityInFilter[`WiFi`] }"
-    >
-      wifi
-    </span>
-    <span
-      class="material-icons-outlined amenity-icon"
-      title="Pets alowed"
-      @click="toggleAmenity(`Pets allowed`)"
-      :class="{ amenitySelected: isAmenityInFilter[`Pets allowed`] }"
-    >
-      pets
-    </span>
-    <span
-      class="material-icons amenity-icon"
-      title="Smoking allowed"
-      @click="toggleAmenity(`Smoking allowed`)"
-      :class="{ amenitySelected: isAmenityInFilter[`Smoking allowed`] }"
-    >
-      smoking_rooms
-    </span>
-    <span
-      class="material-icons amenity-icon"
-      title="Air conditioner"
-      @click="toggleAmenity('Air conditioning')"
-      :class="{ amenitySelected: isAmenityInFilter[`Air conditioning`] }"
-    >
-      ac_unit
-    </span>
-    <span
-      class="material-icons-outlined amenity-icon"
-      title="Cable TV"
-      @click="toggleAmenity('Cable TV')"
-      :class="{ amenitySelected: isAmenityInFilter[`Cable TV`] }"
-    >
-      tv
-    </span>
+    <div class="amenities-icons-cont">
+      <span
+        class="material-icons-outlined amenity-icon"
+        title="free WiFi connection"
+        @click="toggleAmenity(`Wifi`)"
+        :class="{ amenitySelected: isAmenityInFilter[`Wifi`] }"
+      >
+        wifi
+      </span>
+      <span
+        class="material-icons-outlined amenity-icon"
+        title="Pets alowed"
+        @click="toggleAmenity(`Pets allowed`)"
+        :class="{ amenitySelected: isAmenityInFilter[`Pets allowed`] }"
+      >
+        pets
+      </span>
+      <span
+        class="material-icons amenity-icon"
+        title="Smoking allowed"
+        @click="toggleAmenity(`Smoking allowed`)"
+        :class="{ amenitySelected: isAmenityInFilter[`Smoking allowed`] }"
+      >
+        smoking_rooms
+      </span>
+      <span
+        class="material-icons amenity-icon"
+        title="Air conditioner"
+        @click="toggleAmenity('Air conditioning')"
+        :class="{ amenitySelected: isAmenityInFilter[`Air conditioning`] }"
+      >
+        ac_unit
+      </span>
+      <span
+        class="material-icons-outlined amenity-icon"
+        title="Cable TV"
+        @click="toggleAmenity('Cable TV')"
+        :class="{ amenitySelected: isAmenityInFilter[`Cable TV`] }"
+      >
+        tv
+      </span>
+    </div>
   </div>
 </template>
 
@@ -93,7 +97,7 @@ export default {
     return {
       isAmenityInFilter: {
         "Pets allowed": false,
-        WiFi: false,
+        Wifi: false,
         "Smoking allowed": false,
         "Air conditioning": false,
         "Cable TV": false,
@@ -101,10 +105,7 @@ export default {
       isTypeSelected: false,
       value: "",
       filterBy: {
-        price: {
-          min: 0,
-          max: 700,
-        },
+        price: [10, 700],
         type: "",
         amenities: [],
       },
@@ -122,8 +123,8 @@ export default {
           label: "Serviced apartment",
         },
         {
-          value: "Cabin",
-          label: "Cabin",
+          value: "Loft",
+          label: "Loft",
         },
       ],
     };
@@ -131,7 +132,9 @@ export default {
   components: {},
   methods: {
     setFilter() {
-      console.log(this.filterBy);
+      const filterByCopy = JSON.parse(JSON.stringify(this.filterBy));
+
+      this.$emit("setFilter", filterByCopy);
     },
     toggleAmenity(currAmenity) {
       if (this.filterBy.amenities.includes(currAmenity)) {
@@ -144,7 +147,7 @@ export default {
       }
       this.isAmenityInFilter[currAmenity] =
         !this.isAmenityInFilter[currAmenity];
-      console.log(this.filterBy);
+      this.setFilter();
     },
   },
   computed: {
