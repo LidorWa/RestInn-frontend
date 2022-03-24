@@ -49,7 +49,7 @@
 
   h4 {
     margin-top: calc(1px + 0.5vw);
-    font-size: calc(em(1px) + 3.5vw);
+    font-size: calc(em(1px) + 3.1vw);
     color: $clr2;
     margin-bottom: 30px;
   }
@@ -61,8 +61,9 @@
 
 @media (min-width: 555px) {
   .destinations-header {
-    margin: 40px;
+    margin: 25px;
     margin-bottom: 0px;
+    margin-left: 40px;
     font-size: calc(em(7px) + 2vw);
   }
 
@@ -74,12 +75,12 @@
     margin-top: 20px;
 
     h3 {
-      font-size: calc(em(1px) + 2.5vw);
+      font-size: calc(em(5px) + 1.7vw);
       margin-top: 5px;
     }
 
     h4 {
-      font-size: calc(em(1px) + 2.2vw);
+      font-size: calc(em(10px) + 0.8vw);
       line-height: 22px;
     }
   }
@@ -91,8 +92,8 @@
 
 @media (min-width: 950px) {
   .destinations-header {
-    margin-top: 80px;
-    font-size: calc(em(7px) + 1.8vw);
+    margin-top: 40px;
+    font-size: calc(em(4px) + 1.8vw);
   }
 
   .destinations-containter {
@@ -100,12 +101,12 @@
     margin-top: 40px;
 
     h3 {
-      font-size: calc(em(1px) + 2vw);
+      font-size: calc(em(10px) + 0.7vw);
       margin-top: 15px;
     }
 
     h4 {
-      font-size: calc(em(1px) + 1.5vw);
+      font-size: calc(em(9px) + 0.5vw);
     }
   }
 }

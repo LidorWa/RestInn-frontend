@@ -25,7 +25,7 @@
         </span>
         <el-select
           v-model="filterBy.type"
-          @change="setFilter"
+          @change="setTypeFilter"
           class="m-2 type-select"
           placeholder="Type"
           size="small"
@@ -107,7 +107,7 @@ export default {
   data() {
     return {
       min: 1,
-      max: 3000,
+      max: 1751,
       isAmenityInFilter: {
         "Pets allowed": false,
         Wifi: false,
@@ -118,7 +118,7 @@ export default {
       isTypeSelected: false,
 
       filterBy: {
-        price: [1, 3000],
+        price: [10, 1751],
         type: "",
         city: "",
         amenities: [],
@@ -166,6 +166,12 @@ export default {
   },
   components: {},
   methods: {
+    setTypeFilter() {
+      this.min = 10;
+      this.max = 1751;
+      console.log(this.filterBy);
+      this.setFilter();
+    },
     setFilter() {
       const filterByCopy = JSON.parse(JSON.stringify(this.filterBy));
 

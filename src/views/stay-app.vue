@@ -3,8 +3,8 @@
     <stay-filter />
     <explore-filter
       :stays="staysForDisplay"
-      :filerByCity="filterBy.city"
-      :filerByType="filterBy.type"
+      :filerByCity="getCityFilter"
+      :filerByType="getTypeFilter"
       @setFilter="setFilter"
     />
     <stay-list :stays="staysForDisplay" />
@@ -23,7 +23,7 @@ export default {
     return {
       stays: null,
       filterBy: {
-        price: [1, 3000],
+        price: [10, 1751],
         type: "",
         city: "",
         amenities: [],
@@ -34,63 +34,29 @@ export default {
     const stays = this.$store.getters.getStays;
     this.stays = stays;
     const city = this.$route.query.destination;
-    if (city) {
-      this.filterBy.city = city;
-    }
+    this.filterBy.city = city ? city : "";
+
     const type = this.$route.query.type;
-    if (type) {
-      console.log("type from params:", type);
-      this.filterBy.type = type;
-    }
+
+    this.filterBy.type = type ? type : "";
+
+    this.setFilter(this.filterBy);
   },
   computed: {
+    getCityFilter() {
+      return this.$store.getters.getCityFilter;
+    },
+    getTypeFilter() {
+      return this.$store.getters.getTypeFilter;
+    },
     staysForDisplay() {
-      let stays = JSON.parse(JSON.stringify(this.stays));
-
-      if (this.filterBy.type) {
-        stays = stays.filter(
-          (stay) => stay.propertyType === this.filterBy.type
-        );
-      }
-
-      stays = stays.filter(
-        (stay) =>
-          stay.price >= this.filterBy.price[0] &&
-          stay.price <= this.filterBy.price[1]
-      );
-
-      if (this.filterBy.amenities.length) {
-        stays = stays.filter((stay) =>
-          this.filterBy.amenities.every((amenity) =>
-            stay.amenities.includes(amenity)
-          )
-        );
-      }
-
-      if (this.filterBy.city) {
-        let city;
-        if (this.filterBy.city.includes("$")) {
-          city = this.filterBy.city
-            .split("$")
-            .map(
-              (word) =>
-                (word = word.charAt(0).toUpperCase() + word.substring(1))
-            )
-            .join(" ");
-        } else {
-          city = this.filterBy.city;
-        }
-
-        stays = stays.filter((stay) => stay.address.city === city);
-      }
-
-      return stays;
+      return this.$store.getters.getStaysForDisplay;
     },
   },
 
   methods: {
     setFilter(filterBy) {
-      this.filterBy = filterBy;
+      this.$store.commit({ type: "setFilter", filterBy });
     },
   },
 
