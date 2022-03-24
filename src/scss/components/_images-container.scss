@@ -8,6 +8,10 @@
     grid-template-areas: 
     "item2 item2 item1 item3"
     "item2 item2 item4 item5";
+    
+    img{
+        object-fit:cover;
+    }
 
     :nth-child(2){
         border-bottom-left-radius: em(15px);
