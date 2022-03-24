@@ -133,11 +133,9 @@
   .section-stay-summary{
     padding: 32px 0px 48px;
     .stay-summary{
-      font-family: circular-light;
-      font-size: 16px;
+
+      font-size: 14px;
       line-height: 24px;
-      // font-weight: 400;
-      // letter-spacing: 0.5px;
       
     }
     .summary-show-more{
@@ -147,10 +145,40 @@
       text-decoration: underline;
       letter-spacing: 1px;
     }
+    border-bottom: 1px solid $clr6;
   }
 
-  .main-amenities-list img {
-    width: em(24px);
+  .main-amenities-section {
+    padding: 48px 0px;
+    h1{
+      padding: 0px 0px 24px;
+      font-size: em(24px);
+      font-weight: 600;
+    }
+    .amenities-list{
+     
+      width:em(500px);
+      .amenity-container{
+        display: flex;
+        flex-wrap: wrap;
+        .amenity{
+          flex: 1 1 180px;
+          display: flex;
+          
+          gap:em(20px);
+          padding: 0 0 16px;
+         img{
+            width: em(24px);   
+          }
+        }
+
+      }
+
+    }
+    border-bottom: 1px solid $clr6;
+
+
+
   }
 
   .reviews-and-rating img {
