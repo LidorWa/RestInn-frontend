@@ -4067,6 +4067,277 @@ function _createStays() {
       _id: "622f337b75c7d36e498aab7f",
       imgUrls: ["003.jpeg", "150.jpeg", "049.jpeg", "121.jpeg", "035.jpeg"],
     },
+    {
+      name: "Nice Cosy Room In Taksim",
+      summary:
+        "Welcome if you want to stay at a cozy flat with local experience.:) It is in the center of Istanbul.The neighborhood is safe and close to attractions.Transportation is easy. I will help you always.",
+      interaction:
+        "After the booking you can reach me from (Hidden by Airbnb) or whatsaap",
+      houseRules: "",
+      propertyType: "Apartment",
+      roomType: "Private room",
+      bedType: "Real Bed",
+      cancellationPolicy: "strict_14_with_grace_period",
+      capacity: 2,
+      bedrooms: 1,
+      beds: 1,
+      numOfReviews: 31,
+      amenities: [
+        "TV",
+        "Cable TV",
+        "Internet",
+        "Wifi",
+        "Air conditioning",
+        "Kitchen",
+        "Heating",
+        "Washer",
+        "Essentials",
+        "Shampoo",
+      ],
+      host: {
+        _id: "622f3402e36c59e6164fae4d",
+        fullname: "Nihat",
+        location: "Istanbul",
+        about:
+          "I live alone in Taksim area and i work at bar.\r\nI like meet new friends from all of the world.\r\nI like to Travel a lot ofcourse if i have free time :) East Asia , Sun , Sea , Sand , Movie  :) ",
+        responseTime: "within an hour",
+        thumbnailUrl:
+          "https://a0.muscache.com/im/pictures/user/6bf03261-e7ac-4e0e-8121-3828612bbb6a.jpg?aki_policy=profile_small",
+        pictureUrl:
+          "https://a0.muscache.com/im/pictures/user/6bf03261-e7ac-4e0e-8121-3828612bbb6a.jpg?aki_policy=profile_x_medium",
+        isSuperhost: true,
+        id: "5823933",
+      },
+      address: {
+        street: "Taksim, Cihangir, Istanbul , Beyoğlu, Turkey",
+        country: "Turkey",
+        location: {
+          lat: 28.98648,
+          lan: 41.03376,
+        },
+        countryCode: "TR",
+        city: "Istanbul",
+      },
+      id: "1058555",
+      bathrooms: 1,
+      price: 105,
+      securityDeposit: null,
+      cleaningFee: 60,
+      extraPeople: 60,
+      reviewScores: {
+        accuracy: 10,
+        cleanliness: 10,
+        checkin: 10,
+        communication: 10,
+        location: 10,
+        value: 9,
+        rating: 96,
+      },
+      reviews: [
+        {
+          at: "2014-04-06T04:00:00.000Z",
+          by: {
+            _id: "622f3406e36c59e6164fbcc7",
+            fullname: "Quentin",
+            imgUrl: "https://robohash.org/12424603?set=set1",
+            id: "12424603",
+          },
+          txt: "I greatly appreciated both the location of the place (very central) and the appartment per se (clean and comfortable, with a very cosy room and with Wi-Fi). \r\n\r\nNihat was perfect host, quite welcoming and helpful about places to go (or avoid) and things to do in town. \r\n\r\nHosça kal!\r\n\r\n\r\n",
+        },
+        {
+          at: "2015-04-02T04:00:00.000Z",
+          by: {
+            _id: "622f3405e36c59e6164fb7f6",
+            fullname: "Steve",
+            imgUrl: "https://robohash.org/10300292?set=set1",
+            id: "10300292",
+          },
+          txt: "Nice room in a flat well located. Nihat is very nce and helpful. Good experience.",
+        },
+        {
+          at: "2015-05-19T04:00:00.000Z",
+          by: {
+            _id: "622f3404e36c59e6164fb624",
+            fullname: "Jess",
+            imgUrl: "https://robohash.org/8641944?set=set1",
+            id: "8641944",
+          },
+          txt: "We had a fantastic stay in this charming apartment. The location was perfect and Nihat welcomed us even when we made a late reservation and arrived early. He works at a bar no far from there- a great place to have a drink after seeing the sites! I highly recommend this place!",
+        },
+        {
+          at: "2015-08-25T04:00:00.000Z",
+          by: {
+            _id: "622f3406e36c59e6164fbcb6",
+            fullname: "Irina",
+            imgUrl: "https://robohash.org/42110174?set=set1",
+            id: "42110174",
+          },
+          txt: "The flat is clean and and very good located, 3 minutes walk to Taksim Square. The bedroom is quiet at night, even though there is a crowded area next to the flat. Nihat was always extremely quick in answering our emails and let us feel comfortable. He is really kind and discrete, we met him few times cause he works in the evening. ",
+        },
+        {
+          at: "2015-09-21T04:00:00.000Z",
+          by: {
+            _id: "622f3402e36c59e6164fae1a",
+            fullname: "Matthew",
+            imgUrl: "https://robohash.org/40562632?set=set1",
+            id: "40562632",
+          },
+          txt: "Nihat went out of his way to accommodate our very early arrival and some unforeseeable challenges.  A great host!",
+        },
+        {
+          at: "2015-11-09T05:00:00.000Z",
+          by: {
+            _id: "622f3407e36c59e6164fc03f",
+            fullname: "Valon",
+            imgUrl: "https://robohash.org/47981428?set=set1",
+            id: "47981428",
+          },
+          txt: "Nice place and host, very good location :)",
+        },
+        {
+          at: "2015-12-28T05:00:00.000Z",
+          by: {
+            _id: "622f3405e36c59e6164fb7a0",
+            fullname: "Amanda",
+            imgUrl: "https://robohash.org/29625938?set=set1",
+            id: "29625938",
+          },
+          txt: "Everything was great about the room and the location.",
+        },
+        {
+          at: "2016-01-09T05:00:00.000Z",
+          by: {
+            _id: "622f3404e36c59e6164fb3fe",
+            fullname: "Mathieu & Hilal",
+            imgUrl: "https://robohash.org/50390021?set=set1",
+            id: "50390021",
+          },
+          txt: "The stay at Nihat's place was really pleasant. The apartment is very clean and confortable, and located in a very vibrant and animated neighborhood with many restaurants, cafes, bars, shops just nearby. Just a 5 min walk to the Taksim Metro station makes it easy to access any other parts of the city pretty quickly. Nihat was also a great and welcoming host. We totally recommend this place for your stay in Istanbul, especially if you want to experience the local life to the fullest ! ",
+        },
+        {
+          at: "2016-03-20T04:00:00.000Z",
+          by: {
+            _id: "622f3403e36c59e6164fb225",
+            fullname: "Christie",
+            imgUrl: "https://robohash.org/48957037?set=set1",
+            id: "48957037",
+          },
+          txt: "The host canceled this reservation 30 days before arrival. This is an automated posting.",
+        },
+        {
+          at: "2017-05-11T04:00:00.000Z",
+          by: {
+            _id: "622f3402e36c59e6164fad81",
+            fullname: "Vanessa",
+            imgUrl: "https://robohash.org/551888?set=set1",
+            id: "551888",
+          },
+          txt: "I stayed at Nihat's for a week. It was exactly as the pics, very nice room. A little bit cold but he offers heating and AC. The apt is cozy and central, close to nice restaurants and bars. Have in mind is on the 4th fl no elevator. Nihat is a very easygoing guy who's open to help with any question or tip about the city. Totally recommend! thanks Nihat! ",
+        },
+        {
+          at: "2017-05-21T04:00:00.000Z",
+          by: {
+            _id: "622f3404e36c59e6164fb2d1",
+            fullname: "Florentin",
+            imgUrl: "https://robohash.org/75066050?set=set1",
+            id: "75066050",
+          },
+          txt: "Nihat is a very nice host, he is very helpful and creates an agreeable atmosphere inside the flat. Thank you :)",
+        },
+        {
+          at: "2017-08-27T04:00:00.000Z",
+          by: {
+            _id: "622f3402e36c59e6164fae29",
+            fullname: "Harshak",
+            imgUrl: "https://robohash.org/19784722?set=set1",
+            id: "19784722",
+          },
+          txt: "Nice cozy place very close to Taksim Square. Nihat is helpful and informative.",
+        },
+        {
+          at: "2017-09-26T04:00:00.000Z",
+          by: {
+            _id: "622f3406e36c59e6164fbc70",
+            fullname: "Haytham",
+            imgUrl: "https://robohash.org/10741329?set=set1",
+            id: "10741329",
+          },
+          txt: "nice apartment with good location. the room was clean and neat. Nihat was helpful and supportive. totally recommend his accommodation",
+        },
+        {
+          at: "2017-10-03T04:00:00.000Z",
+          by: {
+            _id: "622f3404e36c59e6164fb5fd",
+            fullname: "Vural",
+            imgUrl: "https://robohash.org/14053758?set=set1",
+            id: "14053758",
+          },
+          txt: "Nihat is a very friendly host and makes you really feel comfortable. I have had a great stay and recommend it to anyone who wants to stay very central (Cihangir), the hip and modern part of the city with cozy venues and great cafes just a 3min walk. The place is very close to Taksim Square, etc...everything as described in the prior conments. I will definitely come again! Cheers vural",
+        },
+        {
+          at: "2017-12-03T05:00:00.000Z",
+          by: {
+            _id: "622f3406e36c59e6164fba05",
+            fullname: "Wasseem",
+            imgUrl: "https://robohash.org/2072593?set=set1",
+            id: "2072593",
+          },
+          txt: "I totally recommend this place. Great experience staying at Nihat’s apartment. To start with, Nihat is a wonderful friendly person who I was happy to meet. He was very friendly at house, and we had the chance to spend time together outside. Staying with him reflects the true meaning of this website, which is living as a local with a local person. Thank you Nihat. \nRegarding the apartment, it is exactly as described. The room is nice and bed is comfortable. It was clean and well prepared for us. \nRegarding the neighborhood, it is very close to Taksim square and Istiklal Street with few minutes walk. As normal as it is in Istanbul, there is a short hill you need to walk to get to the square, which was totally fine with us. \n\nIn general, next time I visit Istanbul I would first check the availability with Nihat before searching others.",
+        },
+        {
+          at: "2018-02-23T05:00:00.000Z",
+          by: {
+            _id: "622f3402e36c59e6164fac4c",
+            fullname: "Mr Joseph",
+            imgUrl: "https://robohash.org/10668432?set=set1",
+            id: "10668432",
+          },
+          txt: "Nihat was an amazing host. He picked me up from the bus stop, gave me some great tips on what to do in Istanbul and just an all round great guy. If you're looking for somewhere close to Taksim then Nihat's place is great. Highly recommend him! Thanks Nihat.",
+        },
+        {
+          at: "2018-03-05T05:00:00.000Z",
+          by: {
+            _id: "622f3405e36c59e6164fb8b8",
+            fullname: "Gökçe",
+            imgUrl: "https://robohash.org/64172965?set=set1",
+            id: "64172965",
+          },
+          txt: "Nihat is so hospitable person. Me and My boyfriend stayed 6 days in Nihat's place and everything was perfect. Nihat is so tactful person despite he was working so hard, he all the time asked us 'do we need anything?' he was so clean and his house is exactly same with the pictures.\nI'm highly recommend his place! \nthank you Nihat!",
+        },
+        {
+          at: "2018-04-01T04:00:00.000Z",
+          by: {
+            _id: "622f3405e36c59e6164fb952",
+            fullname: "Bruno",
+            imgUrl: "https://robohash.org/6316350?set=set1",
+            id: "6316350",
+          },
+          txt: "Very helping and welcoming host. Perfect location for a few days in Istanbul.",
+        },
+        {
+          at: "2018-04-04T04:00:00.000Z",
+          by: {
+            _id: "622f3405e36c59e6164fb73d",
+            fullname: "Vichapas",
+            imgUrl: "https://robohash.org/68234834?set=set1",
+            id: "68234834",
+          },
+          txt: "Nihat was very nice, polite and very helpful to us. He let us drop our baggages off in the morning and left them for a little longer when we checked out. The location is great as it is near Taksim Square. There are local grocery shops nearby if you want to buy some food or snacks.",
+        },
+        {
+          at: "2018-04-23T04:00:00.000Z",
+          by: {
+            _id: "622f3403e36c59e6164fb0fe",
+            fullname: "Show",
+            imgUrl: "https://robohash.org/107816748?set=set1",
+            id: "107816748",
+          },
+          txt: "Nihat is very nice host, and came to wait for me in the shuttle bus station near Taksim squre, His house is very convenient for travel. He is very experirenced and warm host, the room super clean and warm, and house has everything, next time i will choose his house again in istanbul. miss you nihat. see you next time.",
+        },
+      ],
+      _id: "622f337a75c7d36e498aab01",
+      imgUrls: ["042.jpeg", "110.jpeg", "037.jpeg", "005.jpeg", "075.jpeg"],
+    },
   ];
 
   storageService.postMany(KEY, stays);
