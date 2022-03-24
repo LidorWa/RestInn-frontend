@@ -1,57 +1,105 @@
-.stay-name {
-  h1 {
-    font-size: 26px;
-    color: $clr2;
-  }
-}
-.rating-reviews-location {
+.stay-details-page{
   color: $clr2;
-  span:nth-of-type(1), span:nth-of-type(3) {
-    text-decoration: underline;
+  margin-right: 5%;
+  margin-left: 5%;
+
+  .stay-name {
+    h1 {
+      font-size: em(30px);
+      font-weight: 600;
+    }
   }
-}
 
-.dot-above-pictures {
-  margin: 8px 8px 0px;
-  color: $clr5;
-}
-.location-above-pictures {
-  color: $clr5;
-}
+  .below-stay-name{
+    display: flex;
+    justify-content: space-between;
+    
 
-.below-stay-name {
-  .star-rating-svg {
+    .star-rating-svg {
+      width: em(14px);
+    }
+
+    .rating-reviews-location {
+      // margin: em(8px) 0px 0px;
+      span:first-of-type {
+        padding-left: em(4px);
+      }
+      span:nth-of-type(3){
+        padding: 0px 0px 0px 4px;
+        text-decoration: underline;
+        font-weight: 600;
+      }
+      .dot-above-pictures {
+        margin: 8px 8px 0px;
+        color: $clr5;
+        font-weight: bold;
+      }
+      .location-above-pictures {
+        color: $clr5;
+        text-decoration: underline;
+      }
+    }
+.share-save{
+  display: flex;
+
+  .share{
+    display: flex;
+      .share-svg {
     width: em(14px);
   }
-}
-
-.share-save {
-  .share-svg {
-    width: em(14px);
+    span{
+      margin: 0px 8px;
+    }
   }
   .like-svg {
     width: em(14px);
   }
 }
-.type-host-and-stay-properties{
-  img{
-    width: em(56px);
-    border-radius: 50%;
+.save-like{
+  display: flex;
+  span{
+    margin: 0px 8px;
+  }
+}
+
   }
 
-}
-.selected-popular-amenities img{
-  width: em(24px);
-}
+  .imgs-container-grid {
+    padding: em(24px) 0px 0px;
+  }
+  .type-host-and-stay-properties{
+    display: flex;
+    padding: 48px 0 24px;
+    justify-content: space-between;
+    .type-host-and-stay-property-text{
+      display: flex;
+      flex-direction: column;
+    }
+    .stay-properties{
+      display: flex;
+      flex-direction: row;
+      list-style-type: circle;
+    }
+    img{
+      width: em(56px);
+      border-radius: 50%;
+    }
+  
+  }
+  .selected-popular-amenities img{
+    width: em(24px);
+  }
+  
+  .main-amenities-list img{
+    width: em(24px);
+  }
+  
+  .reviews-and-rating img{
+    width: em(16px);
+  }
+  
+  .review-guest-name-date{
+    width: em(56px);
+  }
 
-.main-amenities-list img{
-  width: em(24px);
-}
-
-.reviews-and-rating img{
-  width: em(16px);
-}
-
-.review-guest-name-date{
-  width: em(56px);
 }
