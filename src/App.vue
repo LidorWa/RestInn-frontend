@@ -1,7 +1,7 @@
 <template>
   <section class="app-container">
     <app-header :headerStatus="headerStatus" />
-    <!-- addd prop showSearch -->
+    <!-- add prop showSearch -->
     <router-view />
   </section>
 </template>
@@ -10,6 +10,7 @@
 import appHeader from './components/app-header.vue'
 import appFooter from './components/app-footer.vue'
 import { propsToAttrMap } from '@vue/shared'
+
 export default {
   name: 'app',
   components: {

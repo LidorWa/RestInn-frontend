@@ -1,22 +1,20 @@
 <template>
-  <header :class="'main-header-container flex flex-columns align-center' + headerStatus">
+  <header :class="'main-header-container flex flex-column align-center' + headerStatus">
     <div class="logo-nav-container flex space-between">
       <div class="logo flex align-center" @click="goHome">
         <i class="fa-brands fa-airbnb"></i>
         <h1 class="logo-txt">RestInn</h1>
       </div>
       <!--  -->
-      <div v-if="headerStatus === 'shrinkSearchBar' && !showSearch" @click="toggleShowSearch" class="mini-search-btn inline-flex search">
-        <button>
-          Start your search
-          <div class="search-icon">
-            <img src="../assets/svgs/search.svg" alt="search Icon" />
-          </div>
-        </button>
+      <div v-if="headerStatus === 'shrinkSearchBar' && !showSearch" @click="toggleShowSearch" class="search mini-search inline-flex justify-center align-center space-between">
+        <div>Start your search</div>
+        <div class="search-icon">
+          <img src="../assets/svgs/search.svg" alt="search Icon" />
+        </div>
       </div>
       <!--  -->
-      <nav class="main-header-nav">
-        <router-link to="/stay">Explore</router-link> |
+      <nav class="main-header-nav flex justify-center align-center">
+        <router-link to="/stay">Explore</router-link>
         <router-link to="/about">About</router-link>
         <div class="hamburger-user-menu btn flex" @click="isShowingHamburger = !isShowingHamburger">
           <img class="hamburger-img" src="../assets/svgs/menu_black_24dp.svg" alt="menu-icon" />
@@ -26,7 +24,7 @@
       </nav>
       <header-user-menu :class="{ showHamburger: isShowingHamburger }" />
     </div>
-    <div v-if="(showSearch && headerStatus === 'shrinkSearchBar') || headerStatus !== 'shrinkSearchBar'" class="main-search-bar">
+    <div v-if="(showSearch && headerStatus === 'shrinkSearchBar') || headerStatus !== 'shrinkSearchBar'" class="main-search-bar flex justify-center align-center">
       <main-search />
     </div>
   </header>
