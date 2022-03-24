@@ -20,7 +20,8 @@
         <router-link to="/about">About</router-link>
         <div class="hamburger-user-menu btn flex" @click="isShowingHamburger = !isShowingHamburger">
           <img class="hamburger-img" src="../assets/svgs/menu_black_24dp.svg" alt="menu-icon" />
-          <img class="hamburger-avatar" src="../assets/system-imgs/user_pic-50x50.png" alt="house" />
+
+          <img class="hamburger-avatar" src="../assets/svgs/user-avatar.svg" alt="house" />
         </div>
       </nav>
       <header-user-menu :class="{ showHamburger: isShowingHamburger }" />

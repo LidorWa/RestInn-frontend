@@ -35,12 +35,13 @@
 //Hamburger menu
 .hamburger-user-menu {
   background-color: white;
-  width: 100px;
-  height: 50px;
+  width: 80px;
+  height: 40px;
   border: 1px solid rgb(201, 201, 201);
   padding: 7px;
   border-radius: 30px;
   justify-content: space-around;
+  align-items: center;
   cursor: pointer;
   transition: 0.2s;
 }
@@ -79,3 +80,28 @@ background-color: lightgreen;
 // font-size: 14px;
 // text-indent: 5px;
   }
+.hamburger-avatar {
+  width: 28px;
+  height: 28px;
+}
+
+.hamburger-img {
+  width: 22px;
+}
+.mini-search {
+  @include search-btn;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 20px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 40px;
+  height: 48px;
+  padding: 0 7px 0 16px;
+  width: 300px;
+  font-size: 14px;
+  text-indent: 5px;
+}
