@@ -9,7 +9,8 @@
             <section class="type-host-and-stay-properties-text">
             <h2
               class="stay-type-host-name"
-            >{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
+            >{{ stay.propertyType }} hosted by {{ stay.host.fullname }}
+            </h2>
             <ul class="stay-properties">
               <li>{{ stay.capacity }} guests</li>
               <li>{{ stay.bedrooms }} bedroom</li>
@@ -23,6 +24,9 @@
 
           <section class="section-stay-summary">
             <p class="stay-summary">{{ stay.summary }}</p>
+            <div class="summary-show-more">Show more...</div>
+              
+            
           </section>
           <amenities-list />
 
@@ -98,10 +102,10 @@ export default {
     AmenitiesList,
     reviewsSection
 },
-  created() {
+  async created() {
     const stayId = this.$route.params.stayId;
     // const stay = this.$store.dispatch({ type: "getStayById", stayId });
-    this.stay = stayService.getById(stayId)
+    this.stay = await stayService.getById(stayId)
 
 
     //   const user = this.$store.getters.user;
