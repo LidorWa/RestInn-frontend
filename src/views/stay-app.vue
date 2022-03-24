@@ -21,6 +21,7 @@ export default {
       filterBy: {
         price: [10, 700],
         type: "",
+        city: "",
         amenities: [],
       },
     };
@@ -28,8 +29,12 @@ export default {
   created() {
     const stays = this.$store.getters.getStays;
     this.stays = stays;
-    const params = this.$route.params;
-    console.log(params);
+    console.log(stays[0]);
+
+    const city = this.$route.query.destination;
+    if (city) {
+      this.filterBy.city = city;
+    }
   },
   computed: {
     staysForDisplay() {
@@ -52,6 +57,13 @@ export default {
           )
         );
       }
+      console.log(this.filterBy);
+      if (this.filterBy.city) {
+        stays = stays.filter(
+          (stay) => stay.address.city === this.filterBy.city
+        );
+      }
+
       return stays;
     },
   },
@@ -59,6 +71,29 @@ export default {
   methods: {
     setFilter(filterBy) {
       this.filterBy = filterBy;
+    },
+    parseURLParams(url) {
+      var queryStart = url.indexOf("?") + 1,
+        queryEnd = url.indexOf("#") + 1 || url.length + 1,
+        query = url.slice(queryStart, queryEnd - 1),
+        pairs = query.replace(/\+/g, " ").split("&"),
+        parms = {},
+        i,
+        n,
+        v,
+        nv;
+
+      if (query === url || query === "") return;
+
+      for (i = 0; i < pairs.length; i++) {
+        nv = pairs[i].split("=", 2);
+        n = decodeURIComponent(nv[0]);
+        v = decodeURIComponent(nv[1]);
+
+        if (!parms.hasOwnProperty(n)) parms[n] = [];
+        parms[n].push(nv.length === 2 ? v : null);
+      }
+      return parms;
     },
   },
 
