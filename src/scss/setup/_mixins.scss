@@ -69,11 +69,20 @@
 //search btn
 
 @mixin search-btn {
+    //TODO remember to put flex on element
+    display: flex;
+    width: em(32px);
+    height: em(32px);
     border-radius: 50%;
     background-color: $clr1;
     color: $clr3;
-    display: inline-flex;
-    
+    align-items: center;
+    justify-content: center;
+
+    img{
+        width: em(12px);
+        height: em(12px);
+    }
 }
 
 // @mixin btn($type: regular, $bg: $clr1, $clr: $clr3, $padding: em(24px) em(44px), $hover: darken($bg, 8%)) {
