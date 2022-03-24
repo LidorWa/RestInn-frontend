@@ -12,7 +12,7 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(170px + 35vw);
+  height: calc(180px + 35vw);
   padding: 1px;
   margin: 10px;
   font-size: em(15px);
@@ -95,7 +95,7 @@ li {
 
 @media (min-width: 551px) {
   .card {
-    height: calc(170px + 19vw);
+    height: calc(180px + 19vw);
     font-size: em(16px);
     margin: 0;
   }
@@ -116,7 +116,7 @@ li {
 
 @media (min-width: 950px) {
   .card {
-    height: calc(200px + 10vw);
+    height: calc(210px + 10vw);
   }
 
   .el-carousel__container {
@@ -135,7 +135,7 @@ li {
 
 @media (min-width: 1230px) {
   .card {
-    height: calc(170px + 10vw);
+    height: calc(180px + 10vw);
   }
 
   .el-carousel__container {
@@ -154,7 +154,7 @@ li {
 
 @media (min-width: 1500px) {
   .card {
-    height: calc(140px + 10vw);
+    height: calc(150px + 10vw);
   }
 
   .el-carousel__container {
