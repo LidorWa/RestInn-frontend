@@ -1,7 +1,7 @@
 <template>
   <section :class="'main-header-container flex flex-columns ' + headerStatus">
-    <div class="logo-nav-container flex space-between" @click="goHome">
-      <div class="logo flex align-center">
+    <div class="logo-nav-container flex space-between">
+      <div class="logo flex align-center" @click="goHome">
         <i class="fa-brands fa-airbnb"></i>
         <h1 class="logo-txt">RestInn</h1>
       </div>
