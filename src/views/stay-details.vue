@@ -6,6 +6,7 @@
       <section class="hero-modal-and-general-info">
         <section class="general-info">
           <section class="type-host-and-stay-properties">
+            <section class="type-host-and-stay-properties-text">
             <h2
               class="stay-type-host-name"
             >{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
@@ -15,6 +16,7 @@
               <li>{{ stay.beds }} bed</li>
               <li>{{ stay.bathrooms }} baths</li>
             </ul>
+            </section>
             <img :src="stay.host.thumbnailUrl" />
           </section>
           <selected-popular-amenities :stay="stay" />
@@ -74,13 +76,6 @@ import SecondaryHeader from '../components/stay-details-cmps/secondary-header.vu
 import SelectedPopularAmenities from "../components/stay-details-cmps/selected-popular-amenities.vue";
 import AmenitiesList from "../components/stay-details-cmps/amenities-list.vue";
 import reviewsSection from '../components/stay-details-cmps/reviews-section.vue'
-
-// _id: 307,
-// name: "velit in",
-// price: 98,
-// type: "Funny",
-// createdAt: "1984-12-18T07:34:17.814Z",
-// inStock: true,
 
 export default {
   name: "stay-details",
