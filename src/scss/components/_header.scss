@@ -1,8 +1,9 @@
 .main-header-container {
   position: fixed;
   width: 100vw;
-  font-size: rem(40px);
-  height: rem(158px);
+  // height: rem(158px);
+  height: rem(80px);
+  box-shadow: rgb(0, 0, 0, 0.08) 0px 1px 12px;
 
   &.top {
     color: $clr3;
@@ -23,26 +24,12 @@
 }
 
 .logo {
+  font-size: rem(16px);
   cursor: pointer;
 }
 
-//mini-search
-
-.mini-search {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  line-height: 20px;
-  box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 40px;
-  height: 48px;
-  padding: 0 7px 0 16px;
-  width: 300px;
-  font-size: 14px;
-  text-indent: 5px;
+.main-header-nav{
+  font-size: rem(14px);
 }
 
 //Hamburger menu
@@ -66,20 +53,29 @@
   transform: translateX(-1%) !important;
 }
 
-.mini-search {
-@include search-btn;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%,-50%);
-line-height: 20px;
-box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
-background-color: #fff;
-border: 1px solid #ddd;
-border-radius: 40px;
-height: 48px;
-padding: 0 7px 0 16px;
-width: 300px;
-font-size: 14px;
-text-indent: 5px;
+.search{
+
+}
+
+.mini-search-btn{
+width: fit-content;
+background-color: lightgreen;
+}
+
+.search-icon {
+@include search-icon;
+// position: absolute;
+// top: 50%;
+// left: 50%;
+// transform: translate(-50%,-50%);
+// line-height: 20px;
+// box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
+// background-color: #fff;
+// border: 1px solid #ddd;
+// border-radius: 40px;
+// height: 48px;
+// padding: 0 7px 0 16px;
+// width: 300px;
+// font-size: 14px;
+// text-indent: 5px;
   }

@@ -9,6 +9,7 @@
 <script>
 import appHeader from './components/app-header.vue'
 import appFooter from './components/app-footer.vue'
+import { propsToAttrMap } from '@vue/shared'
 export default {
   name: 'app',
   components: {
@@ -32,6 +33,7 @@ export default {
       if (window.scrollY > 0 && window.scrollY <= 20) {
         this.headerStatus = 'firstScroll'
       } else if (window.scrollY > 20) {
+        //TODO: add 'or' params in details.
         this.headerStatus = 'shrinkSearchBar'
       } else {
         this.headerStatus = 'top'

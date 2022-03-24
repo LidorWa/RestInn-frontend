@@ -1,14 +1,15 @@
 .header-user-menu {
-  background-color: white;
+  background-color: $clr1;
+  // TODO: find color
   border: 1px solid rgb(204, 204, 204);
   transition: 0.3s;
-  padding-top: 7px;
-  padding-bottom: 7px;
-  border-radius: 13px;
-  right: 20px;
-  top: 120px;
+  padding-top: em(7px);
+  padding-bottom: em(7px);
+  border-radius: em(13px);
+  right: em(20px);
+  top: em(120px);
   position: fixed;
-  width: rem(200px);
+  width: em(200px);
   transform: translateX(150%);
 
   p {
@@ -16,12 +17,13 @@
     margin: 0;
     transition: 0.1s;
     font-size: em(6.5px);
-    padding: 2px;
-    padding-left: 13px;
+    padding: em(2px);
+    padding-left: em(13px);
     color: $clr2;
   }
 
   p:hover {
+    // TODO: find color
     background-color: rgb(238, 238, 238);
   }
 
