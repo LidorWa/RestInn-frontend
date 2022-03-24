@@ -28,6 +28,8 @@ export default {
   created() {
     const stays = this.$store.getters.getStays;
     this.stays = stays;
+    const params = this.$route.params;
+    console.log(params);
   },
   computed: {
     staysForDisplay() {
