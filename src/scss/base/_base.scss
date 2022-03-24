@@ -9,7 +9,7 @@
 }
 
 html { 
-   font-family: circular-book, sans-serif;
+   font-family: cereal-book ,circular-book, sans-serif;
 //    font-weight: 600; 
 //    color: $clr3;
    font-size: 14px;
@@ -26,7 +26,6 @@ html {
 body {
     margin: 0;
     background-color: $clr3;
-
     // @include for-normal-layout {
     //     &.sidebar-open {
     //         overflow: hidden;
