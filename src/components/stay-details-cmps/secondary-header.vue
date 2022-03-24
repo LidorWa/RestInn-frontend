@@ -31,6 +31,7 @@
 
 <script>
 export default {
+  name: 'secondary-header',
     props: {
         stay: {
             type: Object,
