@@ -1,5 +1,5 @@
 <template>
-  <section class="app-page">
+  <section v-if="stays" class="app-page">
     <stay-filter />
     <explore-filter :stays="stays" @setFilter="setFilter" />
     <stay-list :stays="staysForDisplay" />
@@ -17,7 +17,7 @@ export default {
   name: "stay-app",
   data() {
     return {
-      stays: stayService.query(),
+      stays: null,
       filterBy: {
         price: [10, 700],
         type: "",
@@ -25,10 +25,11 @@ export default {
       },
     };
   },
+  created() {
+    const stays = this.$store.getters.getStays;
+    this.stays = stays;
+  },
   computed: {
-    // getStays() {
-    //   return this.$store.getters.getStays;
-    // },
     staysForDisplay() {
       let stays = JSON.parse(JSON.stringify(this.stays));
       if (this.filterBy.type) {
@@ -52,9 +53,7 @@ export default {
       return stays;
     },
   },
-  created() {
-    console.log(this.stays);
-  },
+
   methods: {
     setFilter(filterBy) {
       this.filterBy = filterBy;
