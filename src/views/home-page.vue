@@ -4,6 +4,7 @@
     <div class="main-hero-img"></div>
     <!-- <div :style="{ backgroundImage: 'url(' + homePageImg + ')' }" class="home-page-img"></div> -->
     <!-- <div :style="'backgroundImage: ' + getImgUrl()" class="home-page-img"></div> -->
+    <!-- Top destinations -->
     <h1 class="destinations-header">Popular destinations</h1>
     <div class="destinations-containter">
       <a href="#/stay?destination=Barcelona">
@@ -23,6 +24,27 @@
         <h3>Istanbul</h3>
       </a>
     </div>
+    <!-- Select by type -->
+    <h1 class="destinations-header">Select by type</h1>
+    <div class="destinations-containter">
+      <a href="#/stay?type=Cabin">
+        <img src="../assets/images/cabin.jpg" alt="Cabin" />
+        <h3>Cabin</h3>
+      </a>
+      <a href="#/stay?type=Apartment">
+        <img src="../assets/images/Apartment.jpg" alt="Apartment" />
+        <h3>Apartment</h3>
+      </a>
+      <a href="#/stay?type=Loft">
+        <img src="../assets/images/Loft.jpg" alt="Loft" />
+        <h3>Loft</h3>
+      </a>
+      <a href="#/stay?type=Villa">
+        <img src="../assets/images/Villa.jpg" alt="Villa" />
+        <h3>Villa</h3>
+      </a>
+    </div>
+    <!-- Top rated  -->
     <h1 class="destinations-header">Top rated stays</h1>
     <div v-if="topRatedStays" class="destinations-containter">
       <a
