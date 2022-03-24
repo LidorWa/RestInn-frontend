@@ -1,7 +1,7 @@
 <template>
   <li class="card" @click="stayClicked">
     <div>
-      <div class="carusele">
+      <div class="carousele">
         <div class="block">
           <el-carousel :autoplay="false">
             <el-carousel-item v-for="item in stay.imgUrls" :key="item">

@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="app-page">
     <stay-filter />
     <explore-filter :stays="stays" @setFilter="setFilter" />
     <stay-list :stays="staysForDisplay" />
