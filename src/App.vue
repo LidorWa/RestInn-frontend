@@ -10,7 +10,6 @@
 import appHeader from './components/app-header.vue'
 import appFooter from './components/app-footer.vue'
 import { propsToAttrMap } from '@vue/shared'
-
 export default {
   name: 'app',
   components: {
@@ -26,7 +25,9 @@ export default {
   created() {
     // this.$store.dispatch({ type: 'loadStays' })
     window.addEventListener('scroll', this.onScroll)
+    this.$store.dispatch({ type: 'loadStays' })
   },
+
   methods: {
     onScroll() {
       // this.showSearch=false
