@@ -1994,281 +1994,7 @@ const gStays = [
     _id: "622f337b75c7d36e498aab7e",
     imgUrls: ["151.jpeg", "134.jpeg", "128.jpeg", "101.jpeg", "013.jpeg"],
   },
-  {
-    name: "AMAZING VIEWS PENTHOUSE PARK GUELL",
-    summary:
-      "The appartment is really well communicated (beside metro Alfonso X) that goes straigh to the beach and also to Paseo de Gracia or the center of Bcn. Feel in a well equiped Loft with a terrace with amazing views from the city",
-    interaction:
-      "I m allways online, anything you need or request i answer right away!",
-    houseRules:
-      "Feel like at home and enjoy a centric place to move around with amazing views. The appartment itself has everything to make your vacations unique.",
-    propertyType: "Loft",
-    roomType: "Entire home/apt",
-    bedType: "Real Bed",
-    cancellationPolicy: "moderate",
-    capacity: 2,
-    bedrooms: 1,
-    beds: 1,
-    numOfReviews: 188,
-    amenities: [
-      "TV",
-      "Internet",
-      "Wifi",
-      "Kitchen",
-      "Smoking allowed",
-      "Elevator",
-      "Heating",
-      "Essentials",
-      "Iron",
-      "Hot water",
-      "Bed linens",
-      "Other",
-      "Paid parking on premises",
-    ],
-    host: {
-      _id: "622f3404e36c59e6164fb4fb",
-      fullname: "Enrique",
-      location: "Barcelona, Cataluña, Spain",
-      about:
-        "i like to travell, do sports and enjoy life. I hope to meet you as soon as possible!",
-      responseTime: "within an hour",
-      thumbnailUrl:
-        "https://a0.muscache.com/im/users/2537484/profile_pic/1439305361/original.jpg?aki_policy=profile_small",
-      pictureUrl:
-        "https://a0.muscache.com/im/users/2537484/profile_pic/1439305361/original.jpg?aki_policy=profile_x_medium",
-      isSuperhost: false,
-      id: "2537484",
-    },
-    address: {
-      street: "Barcelona, Catalonia, Spain",
-      country: "Spain",
-      location: {
-        lat: 2.16896,
-        lan: 41.417,
-      },
-      countryCode: "ES",
-      city: "Barcelona",
-    },
-    id: "1266425",
-    bathrooms: 1,
-    price: 61,
-    securityDeposit: 100,
-    cleaningFee: 30,
-    extraPeople: 0,
-    reviewScores: {
-      accuracy: 8,
-      cleanliness: 8,
-      checkin: 9,
-      communication: 9,
-      location: 9,
-      value: 8,
-      rating: 84,
-    },
-    reviews: [
-      {
-        at: "2013-06-19T04:00:00.000Z",
-        by: {
-          _id: "622f3403e36c59e6164faf38",
-          fullname: "Rosa Alba",
-          imgUrl: "https://robohash.org/675201?set=set1",
-          id: "675201",
-        },
-        txt: "very very good one room studio flat, well equipped and confortable, clean, with nice kitchen and a great cosy terrase with a view on sagrada familia.\r\nideal for a couple, ideal if you want to have a rest (there's no noise night and day), good rapport quality/price.\r\n5 min walking to the underground that takes you to the city centre in a couple of stops, and a bus stop just on the door step.",
-      },
-      {
-        at: "2013-07-29T04:00:00.000Z",
-        by: {
-          _id: "622f3405e36c59e6164fb824",
-          fullname: "Chloe",
-          imgUrl: "https://robohash.org/7217165?set=set1",
-          id: "7217165",
-        },
-        txt: "We wanted a cheap trip to Barcelona and my sister recommended we use airbnb. As it was our first airbnb experience we were a bit nervous, however it turned out to be a dream holiday. \r\nWe arrived at the flat and were met by Lola (the building guard) who gave us the keys and showed us around the apartment. It was perfect. Clean and tastefully decorated with all the kitchen appliances you could need! \r\nWe chose the apartment for the balcony and views and were blown away. You can see the whole of Barcelona from the balcony, all the way to the sea. Perfect for a sunny evening with a bottle of wine! The best thing about the balcony is that you are not overlooked by anyone. It is completely private and being so high up you are not disturbed by the noise of the road. \r\nThe flat itself is about a 10 minute walk from the metro station Guinardo and it's only a couple of minutes on the metro into town. The metro shuts around midnight so a few late nights we treated ourselves to a taxi back which cost about $11.\r\nLots of little supermarkets nearby to stock up and also several nice bars and cafes if you dont fancy the journey into town. \r\nAll in all was a perfect trip. Fantastic apartment which was great value for money. Would 100% recommend Enriques apartment and will certainly be staying again in the future.  ",
-      },
-      {
-        at: "2013-08-13T04:00:00.000Z",
-        by: {
-          _id: "622f3402e36c59e6164fac06",
-          fullname: "Yarik",
-          imgUrl: "https://robohash.org/7543271?set=set1",
-          id: "7543271",
-        },
-        txt: "Really, amazing views! Everything was ok.",
-      },
-      {
-        at: "2013-08-31T04:00:00.000Z",
-        by: {
-          _id: "622f3407e36c59e6164fbe98",
-          fullname: "Cyrielle",
-          imgUrl: "https://robohash.org/4820731?set=set1",
-          id: "4820731",
-        },
-        txt: "Un joli appartement pour un joli endroit!\r\nLa terrasse est hyper agréable, la vue est superbe ! Enrique est très prévenant, sympathique et discret. L' appartement est très pratique et nous a permis de faire pas mal d'économies ! Quartier très calme avec beaucoup de commerces. Par contre attention, ne pas avoir peur de marcher car l'appartement est sur les hauteurs de Barcelone, ça grimpe! \r\n\r\nA nice appartment on a beautiful place!\r\nThe terrace is very pleasant, the landscape is wonderful! Enrique is very attentive, nice and discret. This penthouse is very practical and permits us to take less expensive holidays. Very quiet district with a lot of supermarkets. But be careful ! Don't be afraid to walk cause this appartment is on the upper Barcelona. It climbs!",
-      },
-      {
-        at: "2013-09-13T04:00:00.000Z",
-        by: {
-          _id: "622f3403e36c59e6164fb27b",
-          fullname: "Maria",
-          imgUrl: "https://robohash.org/5014356?set=set1",
-          id: "5014356",
-        },
-        txt: "We had a magical days in this place. We dreamed and planned these days very carefully. Gaudi's masterpieces were in walking distance, beautiful view from the terraces pleased us and morning and evening! Convenience and hospitality house exceeded all expectations. I wish happy days to all  Enrique's guests)   M&S",
-      },
-      {
-        at: "2013-09-25T04:00:00.000Z",
-        by: {
-          _id: "622f3405e36c59e6164fb83b",
-          fullname: "Anastasia",
-          imgUrl: "https://robohash.org/6362211?set=set1",
-          id: "6362211",
-        },
-        txt: "Everything was great - the flat was in a good condition, cosy and tidy enough and of course a view from the terrace was fantastic. I also would like to notice a great location of the flat, good transport communication and the whole district itself (safe, with many shops and few tourists). Enrique was helpfull and easy to communicate. I would defenetly recommend this place for staying in amazing Barcelona.",
-      },
-      {
-        at: "2013-10-12T04:00:00.000Z",
-        by: {
-          _id: "622f3406e36c59e6164fbb06",
-          fullname: "Marcello",
-          imgUrl: "https://robohash.org/5049595?set=set1",
-          id: "5049595",
-        },
-        txt: 'Great flat! Clean and tidy, with a beautiful terrace with stunning views over Barcelona. We felt at home and really enjoyed our stay in the flat. \r\nThe Guinardó neighbourhood is a great area. It is close to all the main tourist spots without being touristy. It is very well communicated and the people of the "barrio" are very friendly.\r\nCommunication with Enrique was great. He replied to all our queries in a matter of minutes!\r\nWe originally booked the flat for 4 days but we liked it so much that we decided to stay for another week. We would definitely recommend it.',
-      },
-      {
-        at: "2014-03-06T05:00:00.000Z",
-        by: {
-          _id: "622f3405e36c59e6164fb705",
-          fullname: "Tomasz",
-          imgUrl: "https://robohash.org/4977642?set=set1",
-          id: "4977642",
-        },
-        txt: "Enrique was a great host. Communication was swift and all the questions we had before arrival were answered. Apartment was very clean & fresh towels were provided. The best thing about this apartment is that it has absolutely fantastic view from the terrace!!! As for the location it is really convenient as you escape touristy crowds and you are just few Metro stops from Centre of Barcelona. Highly Recommended!!!!",
-      },
-      {
-        at: "2014-03-16T04:00:00.000Z",
-        by: {
-          _id: "622f3405e36c59e6164fb88d",
-          fullname: "Nicole",
-          imgUrl: "https://robohash.org/12033330?set=set1",
-          id: "12033330",
-        },
-        txt: "Enrique is very flexible concerning arriving time etc. The apartment is absolutly OK, but THE VIEW is the point.\r\nMuchisimas gracias ",
-      },
-      {
-        at: "2014-04-02T04:00:00.000Z",
-        by: {
-          _id: "622f3402e36c59e6164fad6a",
-          fullname: "Kate",
-          imgUrl: "https://robohash.org/12943737?set=set1",
-          id: "12943737",
-        },
-        txt: "The apartment is nice and looks exactly as at the picture.\r\nEverything was great - the flat was in a good condition, cosy and tidy enough and of course a view from the terrace .\r\nEnrique was helpfull and easy to communicate. I would defenetly recommend this place for staying in amazing Barcelona.",
-      },
-      {
-        at: "2014-04-15T04:00:00.000Z",
-        by: {
-          _id: "622f3404e36c59e6164fb345",
-          fullname: "Daniel",
-          imgUrl: "https://robohash.org/3723617?set=set1",
-          id: "3723617",
-        },
-        txt: "We had a great time in Barcelona, really a wonderful city. The view from the terrace was fantastic and we enjoyed it every night, after long walkings through the city. It's really close to the tube, which is very well organized.\r\nAlthough we didn't know Enrique personally, we had help from the guard (a very nice old lady).\r\nThanks for this vacation.",
-      },
-      {
-        at: "2014-05-16T04:00:00.000Z",
-        by: {
-          _id: "622f3403e36c59e6164fb04d",
-          fullname: "Ingrid",
-          imgUrl: "https://robohash.org/12598328?set=set1",
-          id: "12598328",
-        },
-        txt: "Wir haben Barcelona vom 6.-15. Mai besucht und es war sehr schön und interessant. Enrique war zum vereinbarten Zeitpunkt im Appartment und hat \r\nuns alles wichtige erklärt. Das Appartment liegt zentral. Bus vor der Haustüre,\r\nMetro 10 Min. entfernt. Sehenswürdigkeiten wie Sakrada Familia und Park Guell\r\nsind gut zu Fuß zu erreichen. App.liegt im 7. Stock und die Aussicht auf Barcelona\r\nist toll. Auch Bäcker, Metzger und Supermarkt sind in unmittelbarer Nähe.Der\r\neinzige Nachteil, neben dem App. liegt der Aufzugschacht und es ist deshalb\r\nmeist recht laut. Aber man gewöhnt sich an das Geräusch. Ansonsten ist das\r\nApp. einfach aber ausreichend für das was man braucht. Wir würden jedenfalls\r\nbei einem nochmaligen Besuch wieder dort wohnen mögen. Bei möglichen Problemen ist Enrique auch telefonisch gut zu erreichen.",
-      },
-      {
-        at: "2014-05-19T04:00:00.000Z",
-        by: {
-          _id: "622f3402e36c59e6164fad35",
-          fullname: "Marjon",
-          imgUrl: "https://robohash.org/15115380?set=set1",
-          id: "15115380",
-        },
-        txt: "We had a great time in the appartment of Enrique. After walking around and visiting many busy places downtown all day, it was so nice to relax on the terrace and enjoy the great view over Barcelona. The quarter is quiet and feels save.",
-      },
-      {
-        at: "2014-05-31T04:00:00.000Z",
-        by: {
-          _id: "622f3403e36c59e6164fb00a",
-          fullname: "Yannick",
-          imgUrl: "https://robohash.org/12426535?set=set1",
-          id: "12426535",
-        },
-        txt: "Nous avons passé un excellent séjour dans l'appartement. Les lieux correspondent à la description donnée. Il y a tout ce qu'il faut pour être comme à la maison. Le bâtiment est calme malgré l'ascenseur un peu bruyant.\r\nEnrique est ponctuel et il a été facile de dialoguer (en Anglais) avec lui.\r\nJe recommande donc.\r\n\r\nWe had a great stay in the apartment. It correspond to the description given. Everything you need to be at home. The building is quiet despite the elevator a bit noisy.\r\nEnrique is timely and it was easy to talk (in English) with him.\r\nI recommend.",
-      },
-      {
-        at: "2014-06-10T04:00:00.000Z",
-        by: {
-          _id: "622f3404e36c59e6164fb5a7",
-          fullname: "Wafae",
-          imgUrl: "https://robohash.org/12495484?set=set1",
-          id: "12495484",
-        },
-        txt: "L'appartement est très bien situé. Il y a 3 bus juste en bas de l'immeuble qui emmènent aux lieux principaux : plage, place Catalunya (de là on peut marcher vers les lieux touristiques importants)...\r\nLe Parc Güell et la Sagrada Familia ne sont pas très loin à pied. \r\nEnrique nous a très bien reçu et nous a laissé des bons de réductions; par conséquent on a pas eu besoin de prendre la Barcelona Card (la T10 est suffisante). \r\nOn est resté 11 jours dans l'appartement et cela nous a permis pas mal d'économie et le petit plus à été la machine à laver ce qui nous a permis de laver les serviettes de plages, maillots, etc et avec le beau temps on peut les réutiliser le lendemain. \r\n\r\nPar contre comme cité dans un autre commentaire il ne faut pas avoir peur des montées. Il y a une grande pente du métro jusqu'à l'appartement mais Barcelone est ainsi faite et il y a le bus si vous ne voulez pas affronter la montée. \r\nDe plus l’inconvénient peut être l'ascenseur que l'on entend et qui peut être désagréable à 5h du matin quand on à un sommeil fragile comme moi mais on s'y habitue à force. \r\n",
-      },
-      {
-        at: "2014-06-18T04:00:00.000Z",
-        by: {
-          _id: "622f3405e36c59e6164fb99a",
-          fullname: "Marco",
-          imgUrl: "https://robohash.org/11819467?set=set1",
-          id: "11819467",
-        },
-        txt: "Fantastico! Appartamento molto bello e pulito! 5 minuti da metro! Vista stupenda! Perfetto per una coppia. Gracias de todo!\n",
-      },
-      {
-        at: "2014-06-22T04:00:00.000Z",
-        by: {
-          _id: "622f3406e36c59e6164fba5b",
-          fullname: "Marjolein",
-          imgUrl: "https://robohash.org/12750165?set=set1",
-          id: "12750165",
-        },
-        txt: "Just spent 4 days in the appartment of Enrique. The one room appartment is simple but fine. But the absolute highlight is the view from the terras! That is priceless. Sitting in the sun with a glass of wine overlooking the whole city. Loved it! The neighbourhood is not special but safe and fine. The metro is about 10 minutes walk (up/downhill) but there are some busses stopping right in front of the appartment door stopping everywhere in the city you want to go. There are supermarkets and bakery's around the corner. Enrique is à great host. We never met him but he answered our questions immediately.",
-      },
-      {
-        at: "2014-06-29T04:00:00.000Z",
-        by: {
-          _id: "622f3403e36c59e6164fb270",
-          fullname: "Anna",
-          imgUrl: "https://robohash.org/12736116?set=set1",
-          id: "12736116",
-        },
-        txt: "We spent an amaizing week in that apartment. The place is great for a couple. The view is fantastic - those breakfasts on the terrace - unforgettable. We had a great time and we were sorry to leave.",
-      },
-      {
-        at: "2014-07-05T04:00:00.000Z",
-        by: {
-          _id: "622f3402e36c59e6164faddf",
-          fullname: "Margherita",
-          imgUrl: "https://robohash.org/15972036?set=set1",
-          id: "15972036",
-        },
-        txt: "This house was just perfect, the view of barcelona that you can see from the terrace is priceless and the area in which it is located is well connected to the city center and very close to Park Guell and the Sagrada Familia. Enrique is been very nice to us and he was always willing to help us,whenever we asked him about restaurants in the city etc. I would definitely reccomend this place!",
-      },
-      {
-        at: "2014-07-07T04:00:00.000Z",
-        by: {
-          _id: "622f3407e36c59e6164fbde8",
-          fullname: "Wojtek",
-          imgUrl: "https://robohash.org/15909870?set=set1",
-          id: "15909870",
-        },
-        txt: "Host was able to accommodate us on very short notice and was very good with his communication. I would deal with Enrique again.",
-      },
-    ],
-    _id: "622f337b75c7d36e498aab7f",
-    imgUrls: ["003.jpeg", "150.jpeg", "049.jpeg", "121.jpeg", "035.jpeg"],
-  },
+
   {
     name: 'Casa "Voltaria", o desejo de voltar',
     summary:
@@ -4055,5 +3781,280 @@ const gStays = [
     ],
     _id: "622f337c75c7d36e498aac00",
     imgUrls: ["097.jpeg", "080.jpeg", "031.jpeg", "148.jpeg", "107.jpeg"],
+  },
+  {
+    name: "AMAZING VIEWS PENTHOUSE PARK GUELL",
+    summary:
+      "The appartment is really well communicated (beside metro Alfonso X) that goes straigh to the beach and also to Paseo de Gracia or the center of Bcn. Feel in a well equiped Loft with a terrace with amazing views from the city",
+    interaction:
+      "I m allways online, anything you need or request i answer right away!",
+    houseRules:
+      "Feel like at home and enjoy a centric place to move around with amazing views. The appartment itself has everything to make your vacations unique.",
+    propertyType: "Loft",
+    roomType: "Entire home/apt",
+    bedType: "Real Bed",
+    cancellationPolicy: "moderate",
+    capacity: 2,
+    bedrooms: 1,
+    beds: 1,
+    numOfReviews: 188,
+    amenities: [
+      "TV",
+      "Internet",
+      "Wifi",
+      "Kitchen",
+      "Smoking allowed",
+      "Elevator",
+      "Heating",
+      "Essentials",
+      "Iron",
+      "Hot water",
+      "Bed linens",
+      "Other",
+      "Paid parking on premises",
+    ],
+    host: {
+      _id: "622f3404e36c59e6164fb4fb",
+      fullname: "Enrique",
+      location: "Barcelona, Cataluña, Spain",
+      about:
+        "i like to travell, do sports and enjoy life. I hope to meet you as soon as possible!",
+      responseTime: "within an hour",
+      thumbnailUrl:
+        "https://a0.muscache.com/im/users/2537484/profile_pic/1439305361/original.jpg?aki_policy=profile_small",
+      pictureUrl:
+        "https://a0.muscache.com/im/users/2537484/profile_pic/1439305361/original.jpg?aki_policy=profile_x_medium",
+      isSuperhost: false,
+      id: "2537484",
+    },
+    address: {
+      street: "Barcelona, Catalonia, Spain",
+      country: "Spain",
+      location: {
+        lat: 2.16896,
+        lan: 41.417,
+      },
+      countryCode: "ES",
+      city: "Barcelona",
+    },
+    id: "1266425",
+    bathrooms: 1,
+    price: 61,
+    securityDeposit: 100,
+    cleaningFee: 30,
+    extraPeople: 0,
+    reviewScores: {
+      accuracy: 8,
+      cleanliness: 8,
+      checkin: 9,
+      communication: 9,
+      location: 9,
+      value: 8,
+      rating: 84,
+    },
+    reviews: [
+      {
+        at: "2013-06-19T04:00:00.000Z",
+        by: {
+          _id: "622f3403e36c59e6164faf38",
+          fullname: "Rosa Alba",
+          imgUrl: "https://robohash.org/675201?set=set1",
+          id: "675201",
+        },
+        txt: "very very good one room studio flat, well equipped and confortable, clean, with nice kitchen and a great cosy terrase with a view on sagrada familia.\r\nideal for a couple, ideal if you want to have a rest (there's no noise night and day), good rapport quality/price.\r\n5 min walking to the underground that takes you to the city centre in a couple of stops, and a bus stop just on the door step.",
+      },
+      {
+        at: "2013-07-29T04:00:00.000Z",
+        by: {
+          _id: "622f3405e36c59e6164fb824",
+          fullname: "Chloe",
+          imgUrl: "https://robohash.org/7217165?set=set1",
+          id: "7217165",
+        },
+        txt: "We wanted a cheap trip to Barcelona and my sister recommended we use airbnb. As it was our first airbnb experience we were a bit nervous, however it turned out to be a dream holiday. \r\nWe arrived at the flat and were met by Lola (the building guard) who gave us the keys and showed us around the apartment. It was perfect. Clean and tastefully decorated with all the kitchen appliances you could need! \r\nWe chose the apartment for the balcony and views and were blown away. You can see the whole of Barcelona from the balcony, all the way to the sea. Perfect for a sunny evening with a bottle of wine! The best thing about the balcony is that you are not overlooked by anyone. It is completely private and being so high up you are not disturbed by the noise of the road. \r\nThe flat itself is about a 10 minute walk from the metro station Guinardo and it's only a couple of minutes on the metro into town. The metro shuts around midnight so a few late nights we treated ourselves to a taxi back which cost about $11.\r\nLots of little supermarkets nearby to stock up and also several nice bars and cafes if you dont fancy the journey into town. \r\nAll in all was a perfect trip. Fantastic apartment which was great value for money. Would 100% recommend Enriques apartment and will certainly be staying again in the future.  ",
+      },
+      {
+        at: "2013-08-13T04:00:00.000Z",
+        by: {
+          _id: "622f3402e36c59e6164fac06",
+          fullname: "Yarik",
+          imgUrl: "https://robohash.org/7543271?set=set1",
+          id: "7543271",
+        },
+        txt: "Really, amazing views! Everything was ok.",
+      },
+      {
+        at: "2013-08-31T04:00:00.000Z",
+        by: {
+          _id: "622f3407e36c59e6164fbe98",
+          fullname: "Cyrielle",
+          imgUrl: "https://robohash.org/4820731?set=set1",
+          id: "4820731",
+        },
+        txt: "Un joli appartement pour un joli endroit!\r\nLa terrasse est hyper agréable, la vue est superbe ! Enrique est très prévenant, sympathique et discret. L' appartement est très pratique et nous a permis de faire pas mal d'économies ! Quartier très calme avec beaucoup de commerces. Par contre attention, ne pas avoir peur de marcher car l'appartement est sur les hauteurs de Barcelone, ça grimpe! \r\n\r\nA nice appartment on a beautiful place!\r\nThe terrace is very pleasant, the landscape is wonderful! Enrique is very attentive, nice and discret. This penthouse is very practical and permits us to take less expensive holidays. Very quiet district with a lot of supermarkets. But be careful ! Don't be afraid to walk cause this appartment is on the upper Barcelona. It climbs!",
+      },
+      {
+        at: "2013-09-13T04:00:00.000Z",
+        by: {
+          _id: "622f3403e36c59e6164fb27b",
+          fullname: "Maria",
+          imgUrl: "https://robohash.org/5014356?set=set1",
+          id: "5014356",
+        },
+        txt: "We had a magical days in this place. We dreamed and planned these days very carefully. Gaudi's masterpieces were in walking distance, beautiful view from the terraces pleased us and morning and evening! Convenience and hospitality house exceeded all expectations. I wish happy days to all  Enrique's guests)   M&S",
+      },
+      {
+        at: "2013-09-25T04:00:00.000Z",
+        by: {
+          _id: "622f3405e36c59e6164fb83b",
+          fullname: "Anastasia",
+          imgUrl: "https://robohash.org/6362211?set=set1",
+          id: "6362211",
+        },
+        txt: "Everything was great - the flat was in a good condition, cosy and tidy enough and of course a view from the terrace was fantastic. I also would like to notice a great location of the flat, good transport communication and the whole district itself (safe, with many shops and few tourists). Enrique was helpfull and easy to communicate. I would defenetly recommend this place for staying in amazing Barcelona.",
+      },
+      {
+        at: "2013-10-12T04:00:00.000Z",
+        by: {
+          _id: "622f3406e36c59e6164fbb06",
+          fullname: "Marcello",
+          imgUrl: "https://robohash.org/5049595?set=set1",
+          id: "5049595",
+        },
+        txt: 'Great flat! Clean and tidy, with a beautiful terrace with stunning views over Barcelona. We felt at home and really enjoyed our stay in the flat. \r\nThe Guinardó neighbourhood is a great area. It is close to all the main tourist spots without being touristy. It is very well communicated and the people of the "barrio" are very friendly.\r\nCommunication with Enrique was great. He replied to all our queries in a matter of minutes!\r\nWe originally booked the flat for 4 days but we liked it so much that we decided to stay for another week. We would definitely recommend it.',
+      },
+      {
+        at: "2014-03-06T05:00:00.000Z",
+        by: {
+          _id: "622f3405e36c59e6164fb705",
+          fullname: "Tomasz",
+          imgUrl: "https://robohash.org/4977642?set=set1",
+          id: "4977642",
+        },
+        txt: "Enrique was a great host. Communication was swift and all the questions we had before arrival were answered. Apartment was very clean & fresh towels were provided. The best thing about this apartment is that it has absolutely fantastic view from the terrace!!! As for the location it is really convenient as you escape touristy crowds and you are just few Metro stops from Centre of Barcelona. Highly Recommended!!!!",
+      },
+      {
+        at: "2014-03-16T04:00:00.000Z",
+        by: {
+          _id: "622f3405e36c59e6164fb88d",
+          fullname: "Nicole",
+          imgUrl: "https://robohash.org/12033330?set=set1",
+          id: "12033330",
+        },
+        txt: "Enrique is very flexible concerning arriving time etc. The apartment is absolutly OK, but THE VIEW is the point.\r\nMuchisimas gracias ",
+      },
+      {
+        at: "2014-04-02T04:00:00.000Z",
+        by: {
+          _id: "622f3402e36c59e6164fad6a",
+          fullname: "Kate",
+          imgUrl: "https://robohash.org/12943737?set=set1",
+          id: "12943737",
+        },
+        txt: "The apartment is nice and looks exactly as at the picture.\r\nEverything was great - the flat was in a good condition, cosy and tidy enough and of course a view from the terrace .\r\nEnrique was helpfull and easy to communicate. I would defenetly recommend this place for staying in amazing Barcelona.",
+      },
+      {
+        at: "2014-04-15T04:00:00.000Z",
+        by: {
+          _id: "622f3404e36c59e6164fb345",
+          fullname: "Daniel",
+          imgUrl: "https://robohash.org/3723617?set=set1",
+          id: "3723617",
+        },
+        txt: "We had a great time in Barcelona, really a wonderful city. The view from the terrace was fantastic and we enjoyed it every night, after long walkings through the city. It's really close to the tube, which is very well organized.\r\nAlthough we didn't know Enrique personally, we had help from the guard (a very nice old lady).\r\nThanks for this vacation.",
+      },
+      {
+        at: "2014-05-16T04:00:00.000Z",
+        by: {
+          _id: "622f3403e36c59e6164fb04d",
+          fullname: "Ingrid",
+          imgUrl: "https://robohash.org/12598328?set=set1",
+          id: "12598328",
+        },
+        txt: "Wir haben Barcelona vom 6.-15. Mai besucht und es war sehr schön und interessant. Enrique war zum vereinbarten Zeitpunkt im Appartment und hat \r\nuns alles wichtige erklärt. Das Appartment liegt zentral. Bus vor der Haustüre,\r\nMetro 10 Min. entfernt. Sehenswürdigkeiten wie Sakrada Familia und Park Guell\r\nsind gut zu Fuß zu erreichen. App.liegt im 7. Stock und die Aussicht auf Barcelona\r\nist toll. Auch Bäcker, Metzger und Supermarkt sind in unmittelbarer Nähe.Der\r\neinzige Nachteil, neben dem App. liegt der Aufzugschacht und es ist deshalb\r\nmeist recht laut. Aber man gewöhnt sich an das Geräusch. Ansonsten ist das\r\nApp. einfach aber ausreichend für das was man braucht. Wir würden jedenfalls\r\nbei einem nochmaligen Besuch wieder dort wohnen mögen. Bei möglichen Problemen ist Enrique auch telefonisch gut zu erreichen.",
+      },
+      {
+        at: "2014-05-19T04:00:00.000Z",
+        by: {
+          _id: "622f3402e36c59e6164fad35",
+          fullname: "Marjon",
+          imgUrl: "https://robohash.org/15115380?set=set1",
+          id: "15115380",
+        },
+        txt: "We had a great time in the appartment of Enrique. After walking around and visiting many busy places downtown all day, it was so nice to relax on the terrace and enjoy the great view over Barcelona. The quarter is quiet and feels save.",
+      },
+      {
+        at: "2014-05-31T04:00:00.000Z",
+        by: {
+          _id: "622f3403e36c59e6164fb00a",
+          fullname: "Yannick",
+          imgUrl: "https://robohash.org/12426535?set=set1",
+          id: "12426535",
+        },
+        txt: "Nous avons passé un excellent séjour dans l'appartement. Les lieux correspondent à la description donnée. Il y a tout ce qu'il faut pour être comme à la maison. Le bâtiment est calme malgré l'ascenseur un peu bruyant.\r\nEnrique est ponctuel et il a été facile de dialoguer (en Anglais) avec lui.\r\nJe recommande donc.\r\n\r\nWe had a great stay in the apartment. It correspond to the description given. Everything you need to be at home. The building is quiet despite the elevator a bit noisy.\r\nEnrique is timely and it was easy to talk (in English) with him.\r\nI recommend.",
+      },
+      {
+        at: "2014-06-10T04:00:00.000Z",
+        by: {
+          _id: "622f3404e36c59e6164fb5a7",
+          fullname: "Wafae",
+          imgUrl: "https://robohash.org/12495484?set=set1",
+          id: "12495484",
+        },
+        txt: "L'appartement est très bien situé. Il y a 3 bus juste en bas de l'immeuble qui emmènent aux lieux principaux : plage, place Catalunya (de là on peut marcher vers les lieux touristiques importants)...\r\nLe Parc Güell et la Sagrada Familia ne sont pas très loin à pied. \r\nEnrique nous a très bien reçu et nous a laissé des bons de réductions; par conséquent on a pas eu besoin de prendre la Barcelona Card (la T10 est suffisante). \r\nOn est resté 11 jours dans l'appartement et cela nous a permis pas mal d'économie et le petit plus à été la machine à laver ce qui nous a permis de laver les serviettes de plages, maillots, etc et avec le beau temps on peut les réutiliser le lendemain. \r\n\r\nPar contre comme cité dans un autre commentaire il ne faut pas avoir peur des montées. Il y a une grande pente du métro jusqu'à l'appartement mais Barcelone est ainsi faite et il y a le bus si vous ne voulez pas affronter la montée. \r\nDe plus l’inconvénient peut être l'ascenseur que l'on entend et qui peut être désagréable à 5h du matin quand on à un sommeil fragile comme moi mais on s'y habitue à force. \r\n",
+      },
+      {
+        at: "2014-06-18T04:00:00.000Z",
+        by: {
+          _id: "622f3405e36c59e6164fb99a",
+          fullname: "Marco",
+          imgUrl: "https://robohash.org/11819467?set=set1",
+          id: "11819467",
+        },
+        txt: "Fantastico! Appartamento molto bello e pulito! 5 minuti da metro! Vista stupenda! Perfetto per una coppia. Gracias de todo!\n",
+      },
+      {
+        at: "2014-06-22T04:00:00.000Z",
+        by: {
+          _id: "622f3406e36c59e6164fba5b",
+          fullname: "Marjolein",
+          imgUrl: "https://robohash.org/12750165?set=set1",
+          id: "12750165",
+        },
+        txt: "Just spent 4 days in the appartment of Enrique. The one room appartment is simple but fine. But the absolute highlight is the view from the terras! That is priceless. Sitting in the sun with a glass of wine overlooking the whole city. Loved it! The neighbourhood is not special but safe and fine. The metro is about 10 minutes walk (up/downhill) but there are some busses stopping right in front of the appartment door stopping everywhere in the city you want to go. There are supermarkets and bakery's around the corner. Enrique is à great host. We never met him but he answered our questions immediately.",
+      },
+      {
+        at: "2014-06-29T04:00:00.000Z",
+        by: {
+          _id: "622f3403e36c59e6164fb270",
+          fullname: "Anna",
+          imgUrl: "https://robohash.org/12736116?set=set1",
+          id: "12736116",
+        },
+        txt: "We spent an amaizing week in that apartment. The place is great for a couple. The view is fantastic - those breakfasts on the terrace - unforgettable. We had a great time and we were sorry to leave.",
+      },
+      {
+        at: "2014-07-05T04:00:00.000Z",
+        by: {
+          _id: "622f3402e36c59e6164faddf",
+          fullname: "Margherita",
+          imgUrl: "https://robohash.org/15972036?set=set1",
+          id: "15972036",
+        },
+        txt: "This house was just perfect, the view of barcelona that you can see from the terrace is priceless and the area in which it is located is well connected to the city center and very close to Park Guell and the Sagrada Familia. Enrique is been very nice to us and he was always willing to help us,whenever we asked him about restaurants in the city etc. I would definitely reccomend this place!",
+      },
+      {
+        at: "2014-07-07T04:00:00.000Z",
+        by: {
+          _id: "622f3407e36c59e6164fbde8",
+          fullname: "Wojtek",
+          imgUrl: "https://robohash.org/15909870?set=set1",
+          id: "15909870",
+        },
+        txt: "Host was able to accommodate us on very short notice and was very good with his communication. I would deal with Enrique again.",
+      },
+    ],
+    _id: "622f337b75c7d36e498aab7f",
+    imgUrls: ["003.jpeg", "150.jpeg", "049.jpeg", "121.jpeg", "035.jpeg"],
   },
 ];

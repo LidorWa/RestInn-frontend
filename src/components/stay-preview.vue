@@ -49,7 +49,7 @@ export default {
       return (stay.reviewScores.rating / 20).toFixed(2);
     },
     getReviewCount(stay) {
-      return stay.reviews.length + " Reviews";
+      return stay.reviews.length + " reviews";
     },
     getImgUrl(file) {
       const imgUrl = new URL(`../assets/images/${file}`, import.meta.url);

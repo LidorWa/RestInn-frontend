@@ -5,14 +5,19 @@
         <i class="fa-brands fa-airbnb"></i>
         <h1 class="logo-txt">RestInn</h1>
       </div>
-      <div v-if="headerStatus === 'shrinkSearchBar' && !showSearch" @click="toggleShowSearch" class="search">
+      <div
+        v-if="headerStatus === 'shrinkSearchBar' && !showSearch"
+        @click="toggleShowSearch"
+        class="search"
+      >
         <button class="btn">
           Start your search
           <div></div>
         </button>
       </div>
       <nav class="main-header-nav">
-        <router-link to="/">Home</router-link> | <router-link to="/stay">Explore</router-link> |
+        <router-link to="/">Home</router-link> |
+        <router-link to="/stay">Explore</router-link> |
         <router-link to="/about">About</router-link>
         <div class="hamburger-user-menu">
           <button class="button flex">
@@ -21,54 +26,63 @@
           </button>
         </div>
       </nav>
+      <header-user-menu />
     </div>
-    <div v-if="(showSearch && headerStatus === 'shrinkSearchBar') || headerStatus !== 'shrinkSearchBar'" class="main-search-bar">
+    <div
+      v-if="
+        (showSearch && headerStatus === 'shrinkSearchBar') ||
+        headerStatus !== 'shrinkSearchBar'
+      "
+      class="main-search-bar"
+    >
       <main-search />
     </div>
   </section>
 </template>
 
 <script>
-import mainSearch from './main-search.vue'
+import mainSearch from "./main-search.vue";
+import headerUserMenu from "./header-user-menu.vue";
 export default {
-  name: 'app-header',
+  name: "app-header",
   props: {
     headerStatus: {
       type: String,
-      default: 'top',
+      default: "top",
     },
   },
   data() {
     return {
       showSearch: false,
-    }
+    };
   },
   components: {
     mainSearch,
+    headerUserMenu,
   },
   methods: {
     toggleShowSearch() {
-      this.showSearch = !this.showSearch
+      this.showSearch = !this.showSearch;
     },
     goHome() {
-      this.$router.push('/')
+      this.$router.push("/");
     },
   },
   watch: {
     headerStatus() {
-      console.log('headerStatus is:', this.headerStatus)
+      console.log("headerStatus is:", this.headerStatus);
       switch (this.headerStatus) {
-        case 'top':
-          this.showSearch = false
-          break
-        case 'firstScroll':
-          break
-        case 'shrinkSearchBar':
-          break
+        case "top":
+          this.showSearch = false;
+          break;
+        case "firstScroll":
+          break;
+        case "shrinkSearchBar":
+          break;
       }
     },
   },
-}
+};
 </script>
 
 <style></style>
