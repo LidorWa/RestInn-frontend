@@ -60,6 +60,24 @@
 //   }
 ////date-picker/>
 
-.guestsInput{
-  
+// .guestsInput{
+//   @include search-icon;
+// }
+
+.search-icon {
+  //TODO remember to put flex on element
+  display: flex;
+  width: em(32px);
+  height: em(32px);
+  border-radius: 50%;
+  border: none;
+  background-color: $clr1;
+  color: $clr3;
+  align-items: center;
+  justify-content: center;
+
+  img{
+      width: em(18px);
+      height: em(18px);
+  }
 }

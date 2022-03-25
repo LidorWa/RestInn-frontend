@@ -8,9 +8,13 @@ import userDetails from '../views/user-details.vue'
 import dashboard from '../views/dashboard.vue'
 import stayApp from '../views/stay-app.vue'
 // import backoffice from '../views/backoffice.vue';
+import selectedPopularAmenities from '../components/stay-details-cmps/selected-popular-amenities.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 }
+  },
   routes: [
     {
       name: 'home-page',

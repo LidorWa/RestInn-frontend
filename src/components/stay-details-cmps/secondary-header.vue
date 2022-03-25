@@ -10,6 +10,8 @@
             <span>{{ stay.reviewScores.rating / 20 }}</span>
             <span>·</span>
             <span>{{ stay.reviews.length }} reviews</span>
+            <!-- <span @click="scrollMeTo('reviews-section')">{{ stay.reviews.length }} reviews</span> -->
+            
             <span class="dot-above-pictures">·</span>
             <span
               class="location-above-pictures"
@@ -37,6 +39,11 @@ export default {
             type: Object,
             required: true,
         }
+    },
+    methods:{
+      // scrollMeTo(refName){
+      //   this.$emit('scrollTo', refName)
+      // }
     }
 
 }
