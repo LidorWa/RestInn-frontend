@@ -6,14 +6,15 @@
         <input type="text" id="location-input" name="location-input" placeholder="Where are you going?" autocomplete="off" spellcheck="false" />
       </div>
 
-      <span></span>
+      <span class="search-space"></span>
+
       <div class="date-picker-container flex">
         <div class="header-input check-in-top flex flex-column">
           <div class="label check-in-top">Check in</div>
           <div class="header-input">Add dates</div>
         </div>
 
-        <span></span>
+        <span class="search-space"></span>
 
         <div class="header-input check-out-top flex flex-column">
           <div class="label check-out-top">Check out</div>
@@ -22,12 +23,12 @@
 
         <div class="block header-input date-picker">
           <el-date-picker v-model="value1" type="datetimerange" start-placeholder="Start Date" end-placeholder="End Date" :default-time="defaultTime1">
-            <!-- <template #default> bulla </template> -->
-            <template #range-separator> <span></span> </template>
+            <!-- <template #default> what? </template> -->
+            <template #range-separator> <span class="search-space"></span> </template>
           </el-date-picker>
         </div>
       </div>
-      <span></span>
+      <span class="search-space"></span>
 
       <div class="header-input guestsInput flex flex-column">
         <label for="guestsInput" class="label">Guests</label>
