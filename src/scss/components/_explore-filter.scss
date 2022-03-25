@@ -17,7 +17,6 @@
 }
 
 .amenity-mini-container {
-  margin-top: 10px;
   height: 35px;
   display: flex;
   align-items: center;
@@ -83,18 +82,16 @@
 }
 
 .amenity {
-  font-size: rem(20px) !important;
+  font-size: rem(14px) !important;
   cursor: pointer;
   color: $clr5;
   border: 1px solid rgb(121, 121, 121);
   transition: 0.2s;
   padding: 5px;
   border-radius: 35px;
-  height: 35px;
+  height: 28px;
   text-align: center;
   margin: 0px 3px;
-  line-height: 27px !important;
-  align-self: center !important;
 }
 
 .amenitySelected {

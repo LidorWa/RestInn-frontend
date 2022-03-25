@@ -138,11 +138,15 @@
       line-height: 24px;
     }
     .summary-show-more {
+      display: flex;
       margin: 16px 0px 0px;
       font-size: 1.2em;
       font-weight: 600;
       text-decoration: underline;
       letter-spacing: 1px;
+      img{
+        width: em(12px);
+      }
     }
     border-bottom: 1px solid $clr6;
   }
@@ -181,8 +185,8 @@
         width: em(16px);
       }
       span:first-of-type {
-        font-size: em(22px);
-        font-weight: 500;
+        font-size: em(20px);
+        font-weight: 600;
         padding-left: 8px;
       }
     }
@@ -200,6 +204,8 @@
         .review-guest-name-date {
           display: flex;
           align-items: center;
+
+
           img {
             width: em(56px);
             border-radius: 50%;
@@ -219,6 +225,18 @@
         .review-text{
           margin: 0px 95px 0px 0px;
         }
+        .review-show-more{
+          display: flex;
+          font-size: em(14px);
+          font-weight: 600;
+          margin: em(8px) 0px 0px;
+          img{
+            width: em(12px);
+          }
+        }
+      }
+      .review-preview{
+        margin: 0px 0px em(40px);
       }
     }
   }

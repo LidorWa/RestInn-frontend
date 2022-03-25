@@ -1,6 +1,7 @@
 <template>
   <section class="stay-details-page" v-if="stay">
     <section class="stay-details" v-if="stay">
+      <!-- <secondary-header  @scrollTo="scrollTo" :stay="stay" /> -->
       <secondary-header :stay="stay" />
       <images-container :stayImgs="stay.imgUrls" />
       <section class="hero-modal-and-general-info">
@@ -23,7 +24,10 @@
 
           <section class="section-stay-summary">
             <p class="stay-summary">{{ stay.summary }}</p>
-            <div class="summary-show-more">Show more...</div>
+            <div class="summary-show-more">
+              <span>Show more</span>
+              <img src="../assets/svgs/show-more.svg" />
+            </div>
           </section>
           <amenities-list />
 
@@ -37,9 +41,10 @@
         WITH THINGS TO KNOW.
           TODO IT? IN KUMBA THEY DIDNT-->
         </section>
-        <section class="hero-modal"></section>
+        <hero-modal :stay="stay" />
       </section>
       <reviews-section :stay="stay" />
+      <!-- <reviews-section ref="section" :stay="stay" /> -->
       <!-- <h1>{{ $filters.currencyUSD(stay.price) }}</h1> -->
       <!-- <div v-if="reviews">
         <h1>Reviews</h1>
@@ -76,6 +81,7 @@ import SecondaryHeader from '../components/stay-details-cmps/secondary-header.vu
 import SelectedPopularAmenities from "../components/stay-details-cmps/selected-popular-amenities.vue";
 import AmenitiesList from "../components/stay-details-cmps/amenities-list.vue";
 import reviewsSection from '../components/stay-details-cmps/reviews-section.vue'
+import heroModal from '../components/stay-details-cmps/hero-modal.vue'
 
 export default {
   name: "stay-details",
@@ -96,12 +102,14 @@ export default {
     SecondaryHeader,
     SelectedPopularAmenities,
     AmenitiesList,
-    reviewsSection
+    reviewsSection,
+    heroModal
   },
   async created() {
     const stayId = this.$route.params.stayId;
     // const stay = this.$store.dispatch({ type: "getStayById", stayId });
     this.stay = await stayService.getById(stayId)
+
 
 
     //   const user = this.$store.getters.user;
@@ -128,6 +136,13 @@ export default {
       const imgUrl = new URL(`../assets/images/${file}`, import.meta.url);
       return imgUrl;
     },
+    // scrollTo(refName) {
+    //   let element = this.$refs[refName];
+    //   console.log(element)
+    //   let top = element.offsetTop;
+    //   console.log(top)
+    //   window.scrollTo(0, top)
+    // },
     // async addReview() {
     //   if (!this.reviewToAdd.content) return;
     //   await this.$store.dispatch({
