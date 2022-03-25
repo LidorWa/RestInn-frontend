@@ -7,16 +7,15 @@
         <section class="general-info">
           <section class="type-host-and-stay-properties">
             <section class="type-host-and-stay-properties-text">
-            <h2
-              class="stay-type-host-name"
-            >{{ stay.propertyType }} hosted by {{ stay.host.fullname }}
-            </h2>
-            <ul class="stay-properties">
-              <li>{{ stay.capacity }} guests</li>
-              <li>{{ stay.bedrooms }} bedroom</li>
-              <li>{{ stay.beds }} bed</li>
-              <li>{{ stay.bathrooms }} baths</li>
-            </ul>
+              <h2
+                class="stay-type-host-name"
+              >{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
+              <ul class="stay-properties">
+                <li>{{ stay.capacity }} guests</li>
+                <li>{{ stay.bedrooms }} bedroom</li>
+                <li>{{ stay.beds }} bed</li>
+                <li>{{ stay.bathrooms }} baths</li>
+              </ul>
             </section>
             <img :src="stay.host.thumbnailUrl" />
           </section>
@@ -25,25 +24,22 @@
           <section class="section-stay-summary">
             <p class="stay-summary">{{ stay.summary }}</p>
             <div class="summary-show-more">Show more...</div>
-              
-            
           </section>
           <amenities-list />
 
           <!-- TODO: HERE SHOULD COME THE CALENDAR -->
 
-        <reviews-section :stay="stay" />
-        <!-- TODO: TO CHECK - HERE BENEATH THE REVIEWS SHOULD BE A MAP WITH THE STAY LOCATION.
-        TODO IT? IN KUMBA THEY DIDNT -->
-        <!-- TODO: TO CHECK - HERE BENEATH THE MAP SHOULD BE SECTION WITH DETAILS ABOUT THE HOST.
-        TODO IT? IN KUMBA THEY DIDNT -->
-        <!-- TODO: TO CHECK - HERE BENEATH THE DETAILS ABOUT THE HOST SHOULD BE SECTION 
+          <!-- TODO: TO CHECK - HERE BENEATH THE REVIEWS SHOULD BE A MAP WITH THE STAY LOCATION.
+          TODO IT? IN KUMBA THEY DIDNT-->
+          <!-- TODO: TO CHECK - HERE BENEATH THE MAP SHOULD BE SECTION WITH DETAILS ABOUT THE HOST.
+          TODO IT? IN KUMBA THEY DIDNT-->
+          <!-- TODO: TO CHECK - HERE BENEATH THE DETAILS ABOUT THE HOST SHOULD BE SECTION 
         WITH THINGS TO KNOW.
-        TODO IT? IN KUMBA THEY DIDNT -->
+          TODO IT? IN KUMBA THEY DIDNT-->
         </section>
         <section class="hero-modal"></section>
       </section>
-
+      <reviews-section :stay="stay" />
       <!-- <h1>{{ $filters.currencyUSD(stay.price) }}</h1> -->
       <!-- <div v-if="reviews">
         <h1>Reviews</h1>
@@ -101,7 +97,7 @@ export default {
     SelectedPopularAmenities,
     AmenitiesList,
     reviewsSection
-},
+  },
   async created() {
     const stayId = this.$route.params.stayId;
     // const stay = this.$store.dispatch({ type: "getStayById", stayId });
