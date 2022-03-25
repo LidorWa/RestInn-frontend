@@ -7,22 +7,26 @@
       </div>
 
       <span></span>
-      .
-      <div class="header-input check-in-top flex flex-column">
-        <span class="label check-in-top">Check in</span>
-        <span>Add dates</span>
-      </div>
-      <div class="header-input check-out-top flex flex-column">
-        <label for="check-out-date" class="label check-out-top">Check out</label>
-        <input type="text" id="check-out-date" name="check-out-date" placeholder="Add dates" disabled />
-      </div>
+      <div class="date-picker-container flex">
+        <div class="header-input check-in-top flex flex-column">
+          <div class="label check-in-top">Check in</div>
+          <div class="header-input">Add dates</div>
+        </div>
 
-      <div class="date-picker">
-        <div class="block header-input">
-          <el-date-picker v-model="value1" type="datetimerange" start-placeholder="Start Date" end-placeholder="End Date" :default-time="defaultTime1" />
+        <span></span>
+
+        <div class="header-input check-out-top flex flex-column">
+          <div class="label check-out-top">Check out</div>
+          <div>Add dates</div>
+        </div>
+
+        <div class="block header-input date-picker">
+          <el-date-picker v-model="value1" type="datetimerange" start-placeholder="Start Date" end-placeholder="End Date" :default-time="defaultTime1">
+            <!-- <template #default> bulla </template> -->
+            <template #range-separator> <span></span> </template>
+          </el-date-picker>
         </div>
       </div>
-
       <span></span>
 
       <div class="header-input guestsInput flex flex-column">

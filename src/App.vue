@@ -32,7 +32,7 @@ export default {
   methods: {
     onScroll() {
       //TODO:
-      // if (this.$router.path === '/') {
+      // if (this.$route.path === '/') {
       if (window.scrollY > 20) {
         // this.showSearch=false
         // console.log(window.scrollY)

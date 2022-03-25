@@ -1,6 +1,8 @@
 <template>
-  <!-- <header class="'main-header-container flex flex-column align-center '" :class="headerStatus"> -->
-  <header :class="'main-header-container flex flex-column align-center ' + headerStatus">
+  <header class="main-header-container flex flex-column align-center" :class="{ bulla: headerStatus === 'top', ido: headerStatus === 'shrinkSearchBar', yulla: this.$route.path === '/', rotem: this.$route.path === '/stay' }">
+    <!-- <header class="main-header-container flex flex-column align-center" :class="headerStatus">
+     -->
+    <!-- <header :class="'main-header-container flex flex-column align-center ' + headerStatus"> -->
     <div class="logo-nav-container flex space-between">
       <div class="logo flex align-center" @click="goHome">
         <i class="fa-brands fa-airbnb"></i>
@@ -67,8 +69,8 @@ export default {
         case 'top':
           this.isMinSearch = false
           break
-        case 'firstScroll':
-          break
+        // case 'firstScroll':
+        //   break
         case 'shrinkSearchBar':
           break
       }
