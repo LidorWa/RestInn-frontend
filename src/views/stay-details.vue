@@ -8,9 +8,9 @@
         <section class="general-info">
           <section class="type-host-and-stay-properties">
             <section class="type-host-and-stay-properties-text">
-              <h2
-                class="stay-type-host-name"
-              >{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
+              <h2 class="stay-type-host-name">
+                {{ stay.propertyType }} hosted by {{ stay.host.fullname }}
+              </h2>
               <ul class="stay-properties">
                 <li>{{ stay.capacity }} guests</li>
                 <li>{{ stay.bedrooms }} bedroom</li>
@@ -62,6 +62,8 @@
           <button @click="removeReview(review._id)">❌</button>
         </h3>
       </div>-->
+
+      <map-section :address="stay.address" />
     </section>
     <!-- <section class="add-review">
       <button v-if="!isAdding" @click="isAdding = true">Add review</button>
@@ -76,12 +78,13 @@
 
 <script>
 import { stayService } from "../services/stay-service";
-import imagesContainer from '../components/stay-details-cmps/images-container.vue'
-import SecondaryHeader from '../components/stay-details-cmps/secondary-header.vue'
+import imagesContainer from "../components/stay-details-cmps/images-container.vue";
+import SecondaryHeader from "../components/stay-details-cmps/secondary-header.vue";
 import SelectedPopularAmenities from "../components/stay-details-cmps/selected-popular-amenities.vue";
 import AmenitiesList from "../components/stay-details-cmps/amenities-list.vue";
-import reviewsSection from '../components/stay-details-cmps/reviews-section.vue'
-import heroModal from '../components/stay-details-cmps/hero-modal.vue'
+import reviewsSection from "../components/stay-details-cmps/reviews-section.vue";
+import heroModal from "../components/stay-details-cmps/hero-modal.vue";
+import mapSection from "../components/stay-details-cmps/map-section.vue";
 
 export default {
   name: "stay-details",
@@ -103,14 +106,13 @@ export default {
     SelectedPopularAmenities,
     AmenitiesList,
     reviewsSection,
-    heroModal
+    mapSection,
+    heroModal,
   },
   async created() {
     const stayId = this.$route.params.stayId;
     // const stay = this.$store.dispatch({ type: "getStayById", stayId });
-    this.stay = await stayService.getById(stayId)
-
-
+    this.stay = await stayService.getById(stayId);
 
     //   const user = this.$store.getters.user;
     //   console.log(user);
@@ -172,9 +174,9 @@ export default {
   },
   computed: {
     hostThumbnail() {
-      console.log(this.stay.host.thumbnailUrl)
+      console.log(this.stay.host.thumbnailUrl);
       return new URL(this.stay.host.thumbnailUrl, import.meta.url);
-    }
+    },
     // user() {
     //   return this.$store.getters.user;
     // },

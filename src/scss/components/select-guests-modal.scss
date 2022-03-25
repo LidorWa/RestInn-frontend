@@ -1,0 +1,28 @@
+.select-guests-modal {
+  background-color: white;
+  width: 200px;
+  position: fixed;
+  top: 130px;
+  border-radius: 15px;
+
+  .guests-type-conteiner {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .guests-counter {
+    display: flex;
+    justify-content: space-between;
+
+    width: 30%;
+  }
+
+  span {
+    background-color: white;
+  }
+
+  .guests-type {
+    text-align: left;
+  }
+}
