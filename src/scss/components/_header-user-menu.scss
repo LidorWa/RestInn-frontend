@@ -1,30 +1,33 @@
 .header-user-menu {
   background-color: $clr3;
-  // TODO: find color
-  border: 1px solid rgb(204, 204, 204);
+
+  border-right: 1px solid rgb(204, 204, 204);
+  border-top: 1px solid rgb(204, 204, 204);
+  box-shadow: -1px 1px 1px 0px #dcdcdc;
   transition: 0.2s;
   padding-top: em(7px);
   padding-bottom: em(7px);
   border-radius: em(13px);
-  right: em(20px);
-  top: em(50px);
+  right: em(5px);
+  top: em(55px);
   position: fixed;
   width: em(200px);
   transform: translateX(150%);
 
   p {
     cursor: pointer;
+    text-align: start;
     margin: 0;
-    transition: 0.02s;
-    font-size: em(6.5px);
+    transition: 0.1s;
+    font-size: em(15px);
     padding: em(2px);
     padding-left: em(13px);
     color: $clr2;
+    line-height: 30px;
   }
 
   p:hover {
-    // TODO: find color
-    background-color: $clr6;
+    background-color: rgba($clr6, 0.4);
   }
 
   hr {
@@ -32,6 +35,6 @@
   }
 }
 
-.login-option {
-  font-weight: 550 !important;
+.sign-up-option {
+  font-weight: 600 !important;
 }
