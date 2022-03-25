@@ -72,5 +72,10 @@
   margin-top: 10px;
   padding: 5px;
   border-radius: 14px;
+  font-weight: 600;
   cursor: pointer;
+}
+
+.guest-modal-btn:hover {
+  border: 1px solid $clr1;
 }
