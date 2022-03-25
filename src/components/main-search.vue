@@ -1,19 +1,32 @@
 <template>
   <section>
-    <form @submit.prevent="" class="main-search-container flex justify-center align-center btn">
+    <form @submit.prevent="" class="main-search-container flex align-center btn">
       <div class="header-input location-input flex flex-column">
-        <label for="location-input" class="location-input">Location</label>
+        <label for="label location-input" class="location-input">Location</label>
         <input type="text" id="location-input" name="location-input" placeholder="Where are you going?" autocomplete="off" spellcheck="false" />
       </div>
+
       <span></span>
+      .
+      <div class="header-input check-in-top flex flex-column">
+        <span class="label check-in-top">Check in</span>
+        <span>Add dates</span>
+      </div>
+      <div class="header-input check-out-top flex flex-column">
+        <label for="check-out-date" class="label check-out-top">Check out</label>
+        <input type="text" id="check-out-date" name="check-out-date" placeholder="Add dates" disabled />
+      </div>
+
       <div class="date-picker">
         <div class="block header-input">
           <el-date-picker v-model="value1" type="datetimerange" start-placeholder="Start Date" end-placeholder="End Date" :default-time="defaultTime1" />
         </div>
       </div>
+
       <span></span>
+
       <div class="header-input guestsInput flex flex-column">
-        <label for="guestsInput" class="">Guests</label>
+        <label for="guestsInput" class="label">Guests</label>
         <div class="flex">
           <input type="number" id="guestsInput" name="guestsInput" placeholder="Add guests" />
           <button class="search-icon">

@@ -1,5 +1,5 @@
 .header-user-menu {
-  background-color: $clr1;
+  background-color: $clr3;
   // TODO: find color
   border: 1px solid rgb(204, 204, 204);
   transition: 0.2s;
@@ -7,7 +7,7 @@
   padding-bottom: em(7px);
   border-radius: em(13px);
   right: em(20px);
-  top: em(120px);
+  top: em(50px);
   position: fixed;
   width: em(200px);
   transform: translateX(150%);
@@ -15,7 +15,7 @@
   p {
     cursor: pointer;
     margin: 0;
-    transition: 0.1s;
+    transition: 0.02s;
     font-size: em(6.5px);
     padding: em(2px);
     padding-left: em(13px);
@@ -24,7 +24,7 @@
 
   p:hover {
     // TODO: find color
-    background-color: rgb(238, 238, 238);
+    background-color: $clr6;
   }
 
   hr {
