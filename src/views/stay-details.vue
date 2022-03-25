@@ -23,7 +23,7 @@
 
           <section class="section-stay-summary">
             <p class="stay-summary">{{ stay.summary }}</p>
-            <div class="summary-show-more">Show more...</div>
+            <div class="summary-show-more"><span>Show more</span><img src="../assets/svgs/show-more.svg"></div>
           </section>
           <amenities-list />
 
