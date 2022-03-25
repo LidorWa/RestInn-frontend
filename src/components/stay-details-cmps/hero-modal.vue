@@ -15,16 +15,25 @@
                 </div>
             </section>
             <section class="hero-modal-selection">
-                <button class="hero-modal-check-btn">
+                <div class="hero-modal-check-container">
                     <div class="hero-modal-check-in">
                         <span>CHECK-IN</span>
                         <span>Add date</span>
                     </div>
-                    <div class="hero-modal-check-in">
+                    <div class="hero-modal-check-out">
                         <span>CHECK-OUT</span>
                         <span>Add date</span>
                     </div>
-                </button>
+                    <div class="hero-modal-guests">
+                        <label for="hero-modal-guest-picker">
+                            GUESTS
+                        </label>
+                        
+                    </div>
+                </div>
+                <div class="check-availability-container">
+                    <span class="check-availability-span">Check availability</span>
+                </div>
             </section>
         </section>
     </section>

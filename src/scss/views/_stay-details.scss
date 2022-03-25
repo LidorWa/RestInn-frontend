@@ -1,8 +1,10 @@
 .stay-details-page {
   padding-top: em(180px);
   color: $clr2;
-  margin-right: 8%;
-  margin-left: 8%;
+  margin-right: em(50px);
+  margin-left: em(50px);
+  padding-left: em(20px);
+  padding-right: em(20px);
 
   .stay-name {
     h1 {
@@ -98,7 +100,6 @@
       width: em(56px);
       border-radius: 50%;
       align-self: center;
-      // TODO: HORIZONTALLY CENTER THE IMG
     }
     border-bottom: 1px solid $clr6;
   }
@@ -144,7 +145,7 @@
       font-weight: 600;
       text-decoration: underline;
       letter-spacing: 1px;
-      img{
+      img {
         width: em(12px);
       }
     }
@@ -205,7 +206,6 @@
           display: flex;
           align-items: center;
 
-
           img {
             width: em(56px);
             border-radius: 50%;
@@ -220,69 +220,101 @@
               color: $clr5;
             }
           }
-          margin: 0px 0px em(16px)
+          margin: 0px 0px em(16px);
         }
-        .review-text{
+        .review-text {
           margin: 0px 95px 0px 0px;
         }
-        .review-show-more{
+        .review-show-more {
           display: flex;
           font-size: em(14px);
           font-weight: 600;
           margin: em(8px) 0px 0px;
-          img{
+          img {
             width: em(12px);
           }
         }
       }
-      .review-preview{
+      .review-preview {
         margin: 0px 0px em(40px);
       }
     }
   }
 
   .hero-modal {
-    width: 372px;
-    
-.hero-modal-header{
-  display: flex;
-  justify-content: space-between;
-  .hero-modal-price{
+    position: relative;
+    width: 100%;
+    height: auto;
     display: flex;
-    :first-child{
-      font-size: em(22px);
-      font-weight: 600;
-    }
-    :last-child{
-      font-size: em(16px);
-    }
-  }
-  .hero-modal-rating-reviews{
-    display: flex;
-    img{
-      width: em(12px);
-    }
-    span:nth-of-type(2){
-      font-weight: 600;
-      padding: 0px 0px 0px em(4px);
-    }
-    span:last-of-type{
-      font-weight: 600;
-      text-decoration: underline;
-      padding: 0px 0px 0px em(4px);
-    }
-  }
-  .hero-modal-selection{
-    display: flex;
-    flex-direction: column;
-    .hero-modal-check-btn{
+    justify-content: flex-end;
+    padding: 48px 0px 0px;
+
+    .hero-modal-container {
+      position: sticky;
+      top: 4rem;
+      box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+      border-radius: 15px;
+      width: em(240px);
+      height: em(230px);
       display: flex;
-      flex-direction: row;
-      
+      flex-direction: column;
+      .hero-modal-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .hero-modal-price {
+          display: flex;
+          :first-child {
+            font-size: em(22px);
+            font-weight: 600;
+          }
+          :last-child {
+            font-size: em(16px);
+          }
+        }
+        .hero-modal-rating-reviews {
+          display: flex;
+          img {
+            width: em(12px);
+          }
+          span:nth-of-type(2) {
+            font-weight: 600;
+            padding: 0px 0px 0px em(4px);
+          }
+          span:last-of-type {
+            font-weight: 600;
+            text-decoration: underline;
+            padding: 0px 0px 0px em(4px);
+          }
+        }
+      }
+      .hero-modal-selection {
+        display: flex;
+        flex-direction: column;
+
+        .hero-modal-check-container {
+          display: flex;
+          flex-direction: row;
+          .hero-modal-check-in {
+            border: 1px solid;
+          }
+          .hero-modal-check-out {
+            border: 1px solid;
+          }
+        }
+        .check-availability-container{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+          border-bottom-left-radius: 8px;
+          border-bottom-right-radius: 8px;
+
+          color: $clr3;
+          background-color: $clr1;
+        }
+      }
     }
-  }
-}
-
-
   }
 }
