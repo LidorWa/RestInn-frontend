@@ -11,6 +11,9 @@ import stayApp from '../views/stay-app.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 }
+  },
   routes: [
     {
       name: 'home-page',
