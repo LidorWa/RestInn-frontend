@@ -26,11 +26,6 @@ export default {
     }
   },
   created() {
-    console.log(this.$route.path)
-    const stays = this.$store.getters.getStays
-    this.stays = stays
-    const city = this.$route.query.destination
-    this.filterBy.city = city ? city : ''
     const stays = this.$store.getters.getStays
     this.stays = stays
     if (this.$route.query.destination) {
