@@ -1,9 +1,22 @@
 <template>
   <section>
-    <form @submit.prevent="" class="main-search-container flex align-center btn">
+    <form
+      @submit.prevent=""
+      class="main-search-container flex align-center btn"
+    >
       <div class="header-input location-input flex flex-column">
-        <label for="label location-input" class="location-input">Location</label>
-        <input type="text" v-model="location" id="location-input" name="location-input" placeholder="Where are you going?" autocomplete="off" spellcheck="false" />
+        <label for=" location-input" class="label location-input"
+          >Location</label
+        >
+        <input
+          type="text"
+          v-model="location"
+          id="location-input"
+          name="location-input"
+          placeholder="Where are you going?"
+          autocomplete="off"
+          spellcheck="false"
+        />
       </div>
 
       <span class="search-space"></span>
@@ -11,21 +24,26 @@
       <div class="date-picker-container flex">
         <div class="header-input check-in-top flex flex-column">
           <div class="label check-in-top">Check in</div>
-          <div class="header-input">Add dates</div>
+          <div class="header-input">{{ formatedDate(0) }}</div>
         </div>
 
         <span class="search-space"></span>
 
         <div class="header-input check-out-top flex flex-column">
           <div class="label check-out-top">Check out</div>
-          <div>Add dates</div>
+          <div>{{ formatedDate(1) }}</div>
         </div>
 
         <div class="block header-input date-picker">
-          <el-date-picker v-model="dates" type="datetimerange" start-placeholder="Start Date" end-placeholder="End Date" :default-time="defaultTime1">
-            <!-- <template #default> bulla </template> -->
-            <template #range-separator> <span class="search-space"></span> </template>
-          </el-date-picker>
+          <!-- returns timestamp (Value format "x") -->
+          <el-date-picker
+            v-model="dates"
+            type="daterange"
+            range-separator="To"
+            start-placeholder="Start date"
+            end-placeholder="End date"
+            value-format="x"
+          />
         </div>
       </div>
       <span class="search-space"></span>
@@ -33,11 +51,22 @@
       <div class="header-input guestsInput flex flex-column">
         <label for="guestsInput" class="label">Guests</label>
         <div class="flex">
-          <input type="number" id="guestsInput" @click="isSelectingGuests = !isSelectingGuests" name="guestsInput" placeholder="Add guests" />
+          <div
+            class="guests-input"
+            @click="isSelectingGuests = !isSelectingGuests"
+            placeholder="Add guests"
+          >
+            {{ getGuestsNumber }}
+          </div>
           <button class="search-icon" @click="onSearch">
             <img src="../assets/svgs/search.svg" alt="search Icon" />
           </button>
-          <select-guests-modal :guests="guests" />
+          <select-guests-modal
+            v-if="isSelectingGuests"
+            :guests="guests"
+            @closeGuestsModal="closeGuestsModal"
+            @onSelectGuests="onSelectGuests"
+          />
         </div>
         <!-- <img src="../assets/svgs/search.svg" alt="search Icon" /> -->
       </div>
@@ -46,23 +75,22 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import selectGuestsModal from '../components/select-guests-modal.vue'
+import { ref } from "vue";
+import selectGuestsModal from "../components/select-guests-modal.vue";
 
 // import { fa } from 'element-plus/lib/locale'
 
 export default {
-  name: 'main-search',
+  name: "main-search",
   data() {
     return {
-      value1: ref(''),
       headerObserver: null,
       stickyNav: false,
-      dates: null,
+      dates: ref(""),
       isSelectingGuests: false,
-      location: '',
-      guests: { adults: 2, children: 0 },
-    }
+      location: "",
+      guests: { adults: 0, children: 0 },
+    };
   },
   components: {
     selectGuestsModal,
@@ -75,14 +103,30 @@ export default {
   },
   created() {},
   methods: {
+    formatedDate(num) {
+      if (!this.dates) return "Add dates";
+      const date = new Date(this.dates[num]);
+      return `${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}/${
+        date.getMonth() < 9 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1
+      }/${date.getFullYear().toString().substring(2)}`;
+    },
+    closeGuestsModal() {
+      this.isSelectingGuests = false;
+    },
     onSelectGuests(guests) {
-      console.log(guests)
-      this.guests = guests
+      this.guests = guests;
     },
     onSearch() {
-      console.log(this.location)
-      console.log(this.dates)
-      console.log(this.guests)
+      // if (!this.location && !this.dates && !this.guests.adults) {
+      //   this.$router.push("/stay");
+      // }
+      let path = "/stay";
+      if (this.location) path += `?destination=${this.location}`;
+      // if (this.dates[0]) {
+      //   path += `?checkIn=${this.dates[0]}?checkOut=${this.dates[1]}`;
+      // }
+
+      this.$router.push(`${path}`);
     },
     // onHeaderObserved(entries) {
     //   entries.forEach((entry) => {
@@ -91,13 +135,19 @@ export default {
     // },
   },
   computed: {
+    getGuestsNumber() {
+      const guests = this.guests.adults + this.guests.children;
+      if (!guests) return "Add guests";
+      if (guests === 1) return "1 guest";
+      return `${guests} guests`;
+    },
     //TODO: check if needed, delete hour
     defaultTime1() {
-      ;[new Date(2000, 1, 1, 12, 0, 0)] // '12:00:00'
+      [new Date(2000, 1, 1, 12, 0, 0)]; // '12:00:00'
     },
   },
   unmounted() {},
-}
+};
 </script>
 
 <style></style>

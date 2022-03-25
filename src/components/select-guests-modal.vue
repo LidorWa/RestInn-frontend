@@ -40,8 +40,8 @@
       </div>
     </div>
     <div class="guests-btns-conteiner">
-      <div class="guest-modal-btn">Cancel</div>
-      <div class="guest-modal-btn">OK</div>
+      <!-- <div class="guest-modal-btn" @click="closeGuestsModal">Cancel</div> -->
+      <div class="guest-modal-btn" @click="onSelectGuests">OK</div>
     </div>
   </section>
 </template>
@@ -62,11 +62,15 @@ export default {
     };
   },
   created() {
-    this.guestSelected = this.guests;
+    this.guestSelected = { ...this.guests };
   },
   methods: {
+    closeGuestsModal() {
+      this.guestSelected = { ...this.guests };
+      this.$emit("closeGuestsModal");
+    },
     changeCount(type, val) {
-      if (type === "adults" && this.guestSelected.adults === 1 && val === -1)
+      if (type === "adults" && this.guestSelected.adults === 0 && val === -1)
         return;
       if (
         type === "children" &&
@@ -75,9 +79,10 @@ export default {
       )
         return;
       this.guestSelected[type] += val;
+      this.$emit("onSelectGuests", { ...this.guestSelected });
     },
     onSelectGuests() {
-      this.$emit("onSelectGuests", this.guestSelected);
+      this.$emit("closeGuestsModal");
     },
   },
 };

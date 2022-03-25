@@ -63,12 +63,13 @@
   margin: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100px;
 }
 
 .guest-modal-btn {
   border: 1px solid $clr2;
+  width: 50px;
   margin-top: 10px;
   padding: 5px;
   border-radius: 14px;
