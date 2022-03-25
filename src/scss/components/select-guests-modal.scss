@@ -3,19 +3,29 @@
   width: 200px;
   position: fixed;
   top: 130px;
+  padding-bottom: 15px;
   border-radius: 15px;
 
   .guests-type-conteiner {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    align-items: center;
+    margin: 0;
+    padding: 15px;
+    padding-top: 1px;
+  }
+
+  .guests-modal-title {
+    font-weight: 600;
+    font-size: em(17px);
   }
 
   .guests-counter {
     display: flex;
     justify-content: space-between;
-
-    width: 30%;
+    align-items: center;
+    width: 55%;
   }
 
   span {
@@ -24,5 +34,43 @@
 
   .guests-type {
     text-align: left;
+    font-size: em(17px);
+    line-height: 30px;
+    width: 45%;
   }
+}
+
+.guest-cout-icon {
+  width: 26px !important;
+  height: 26px !important;
+  border: 1px solid $clr2;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.guest-cout-icon:hover {
+  border: 1px solid $clr1;
+}
+
+.guests-number {
+  font-size: em(20px);
+  line-height: 35px;
+  margin-right: 10px;
+}
+
+.guests-btns-conteiner {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+}
+
+.guest-modal-btn {
+  border: 1px solid $clr2;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 14px;
+  cursor: pointer;
 }
