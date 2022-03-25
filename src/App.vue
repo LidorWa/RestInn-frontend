@@ -7,26 +7,25 @@
 </template>
 
 <script>
-import appHeader from './components/app-header.vue'
-import appFooter from './components/app-footer.vue'
-import { propsToAttrMap } from '@vue/shared'
+import appHeader from "./components/app-header.vue";
+import appFooter from "./components/app-footer.vue";
+import { propsToAttrMap } from "@vue/shared";
 export default {
-  name: 'app',
+  name: "app",
   components: {
     appHeader,
     appFooter,
   },
   data() {
     return {
-      headerStatus: 'top',
-    }
+      headerStatus: "top",
+    };
   },
   computed: {},
   created() {
-    console.log(this.$router.path)
-    // this.$store.dispatch({ type: 'loadStays' })
-    window.addEventListener('scroll', this.onScroll)
-    this.$store.dispatch({ type: 'loadStays' })
+    console.log(this.$router.path);
+    window.addEventListener("scroll", this.onScroll);
+    this.$store.dispatch({ type: "loadStays" });
   },
 
   methods: {
@@ -40,9 +39,9 @@ export default {
         //   this.headerStatus = 'firstScroll'
         // } else
         //TODO: add 'or' params in details.
-        this.headerStatus = 'shrinkSearchBar'
+        this.headerStatus = "shrinkSearchBar";
       } else {
-        this.headerStatus = 'top'
+        this.headerStatus = "top";
         // }
       }
     },
@@ -51,7 +50,7 @@ export default {
     //TODO:
     //   window.removeEventListener(scrollY)
   },
-}
+};
 </script>
 
 <style></style>
