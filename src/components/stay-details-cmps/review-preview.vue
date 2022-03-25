@@ -3,13 +3,11 @@
         <div class="review-guest-name-date">
             <img :src="review.by.imgUrl" />
             <div class="name-and-date">
-                <span>{{review.by.fullname}}</span>
-                <span>{{review.at}}</span>
+                <span>{{ review.by.fullname }}</span>
+                <span>{{ formattedDate }}</span>
             </div>
         </div>
-        <div class="review-text">
-            {{review.txt}}
-        </div>
+        <div class="review-text">{{ review.txt }}</div>
     </section>
 </template>
 
@@ -23,6 +21,15 @@ export default {
         }
     },
     methods: {
+    },
+    computed: {
+        formattedDate() {
+            let monthsName = ['January','February','March','April','May','June','July','August','September','October','November','December']
+            let year = new Date(this.review.at).getFullYear();
+            let month = monthsName[new Date(this.review.at).getMonth()];
+            let dateStr = `${month} ${year}`
+            return dateStr;
+        },
     }
 }
 </script>

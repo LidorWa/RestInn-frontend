@@ -3,16 +3,69 @@ import { stayService } from "../../services/stay-service.js";
 export default {
   state: {
     stays: null,
-    filterBy: null,
+    filterBy: {
+      price: [1, 1751],
+      type: "",
+      city: "",
+      amenities: [],
+    },
   },
   getters: {
     getStays(state) {
       return JSON.parse(JSON.stringify(state.stays));
     },
+    getCityFilter(state) {
+      return state.filterBy.city;
+    },
+    getTypeFilter(state) {
+      return state.filterBy.type;
+    },
     getTopRatedStays(state) {
       const stays = JSON.parse(JSON.stringify(state.stays));
       stays.sort((a, b) => b.reviewScores.rating - a.reviewScores.rating);
       stays.splice(4);
+      return stays;
+    },
+    getStaysForDisplay(state) {
+      let stays = JSON.parse(JSON.stringify(state.stays));
+
+      if (state.filterBy.type) {
+        stays = stays.filter(
+          (stay) => stay.propertyType === state.filterBy.type
+        );
+      }
+
+      stays = stays.filter(
+        (stay) =>
+          stay.price >= state.filterBy.price[0] &&
+          stay.price <= state.filterBy.price[1]
+      );
+
+      if (state.filterBy.amenities.length) {
+        stays = stays.filter((stay) =>
+          state.filterBy.amenities.every((amenity) =>
+            stay.amenities.includes(amenity)
+          )
+        );
+      }
+
+      if (state.filterBy.city) {
+        let city;
+        if (state.filterBy.city.includes("$")) {
+          city = state.filterBy.city
+            .split("$")
+            .map(
+              (word) =>
+                (word = word.charAt(0).toUpperCase() + word.substring(1))
+            )
+            .join(" ");
+        } else {
+          city = state.filterBy.city;
+        }
+
+        stays = stays.filter((stay) => stay.address.city === city);
+      }
+
       return stays;
     },
   },
