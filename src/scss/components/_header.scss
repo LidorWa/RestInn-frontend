@@ -18,6 +18,7 @@
     a {
       color: $clr3;
     }
+  
     // .mini-search{
     //   color: $clr2;
     // }
@@ -31,20 +32,32 @@
     color: $clr1;
 
     a {
-      color: $clr1;
+      color: $clr2;
     }
   }
 }
-  // &.firstScroll {
+  &.explore-page , &.details-page{
+    .logo-nav-container{
+     color: $clr1;
+
+     a {
+       color: $clr2;
+     }
+   }
+  }
+
+
+// &.firstScroll {
   //   color: $clr1;
   //   background-color: $clr3;
-
+  
   //   a {
-  //     color: $clr2;
-  //   }
-  // }
-}
-
+    //     color: $clr2;
+    //   }
+    // }
+  }
+  
+  
 
 .logo {
   font-size: rem(16px);
@@ -147,3 +160,5 @@
   justify-content: space-between;
   padding-bottom: em(10px);
 }
+
+

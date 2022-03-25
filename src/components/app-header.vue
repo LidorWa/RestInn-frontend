@@ -1,5 +1,6 @@
 <template>
-  <header class="main-header-container flex flex-column align-center" :class="{ bulla: headerStatus === 'top', ido: headerStatus === 'shrinkSearchBar', yulla: this.$route.path === '/', rotem: this.$route.path === '/stay' }">
+  <header class="main-header-container flex flex-column align-center" :class="getHeaderClass">
+    <!-- <header class="main-header-container flex flex-column align-center" :class="{ top: headerStatus === 'top', shrinkSearchBar: headerStatus === 'shrinkSearchBar', homepage: this.$route.path === '/', 'explore-page': this.$route.path === '/stay', 'details-page': this.$route.path === '/stay/:stayId' }"> -->
     <!-- <header class="main-header-container flex flex-column align-center" :class="headerStatus">
      -->
     <!-- <header :class="'main-header-container flex flex-column align-center ' + headerStatus"> -->
@@ -9,7 +10,7 @@
         <h1 class="logo-txt">RestInn</h1>
       </div>
       <!--  -->
-      <div v-if="headerStatus === 'shrinkSearchBar' && !isMinSearch" @click="toggleIsMinSearch" class="search mini-search inline-flex justify-center align-center space-between">
+      <div v-if="checkMiniSearch" @click="toggleMiniSearch" class="search mini-search inline-flex justify-center align-center space-between">
         <div>Start your search</div>
         <div class="search-icon">
           <img src="../assets/svgs/search.svg" alt="search Icon" />
@@ -18,7 +19,7 @@
       <!--  -->
       <nav class="main-header-nav flex justify-center align-center">
         <router-link to="/stay">Explore</router-link>
-        <router-link to="/about">About</router-link>
+        <router-link to="/host">Become a host</router-link>
         <div class="hamburger-user-menu btn flex" @click="isShowingHamburger = !isShowingHamburger">
           <img class="hamburger-img" src="../assets/svgs/menu_black_24dp.svg" alt="menu-icon" />
 
@@ -27,7 +28,7 @@
       </nav>
       <header-user-menu :class="{ showHamburger: isShowingHamburger }" />
     </div>
-    <div v-if="headerStatus !== 'shrinkSearchBar' || (isMinSearch && headerStatus === 'shrinkSearchBar')" class="main-search-bar flex justify-center align-center">
+    <div v-if="checkMainSearch" class="main-search-bar flex justify-center align-center">
       <main-search />
     </div>
   </header>
@@ -46,20 +47,33 @@ export default {
   },
   data() {
     return {
-      isMinSearch: false,
+      IsMiniSearchShown: false,
       isShowingHamburger: false,
     }
   },
-  components: {
-    mainSearch,
-    headerUserMenu,
-  },
   methods: {
-    toggleIsMinSearch() {
-      this.isMinSearch = !this.isMinSearch
+    toggleMiniSearch() {
+      this.IsMiniSearchShown = !this.IsMiniSearchShown
     },
     goHome() {
       this.$router.push('/')
+    },
+  },
+  computed: {
+    getHeaderClass() {
+      return {
+        top: this.headerStatus === 'top',
+        shrinkSearchBar: this.headerStatus === 'shrinkSearchBar',
+        homepage: this.$route.path === '/',
+        'explore-page': this.$route.path === '/stay',
+        'details-page': this.$route.path.length > 10,
+      }
+    },
+    checkMiniSearch() {
+      return (this.headerStatus === 'shrinkSearchBar' && !this.IsMiniSearchShown) || (this.$route.path.length > 10 && !this.IsMiniSearchShown)
+    },
+    checkMainSearch() {
+      return (this.headerStatus !== 'shrinkSearchBar' && this.$route.path.length < 10 && (this.$route.path.includes('/') || this.$route.path.includes('/stay'))) || (this.IsMiniSearchShown && this.headerStatus === 'shrinkSearchBar')
     },
   },
   watch: {
@@ -67,7 +81,7 @@ export default {
       console.log('headerStatus is:', this.headerStatus)
       switch (this.headerStatus) {
         case 'top':
-          this.isMinSearch = false
+          this.IsMiniSearchShown = false
           break
         // case 'firstScroll':
         //   break
@@ -75,6 +89,10 @@ export default {
           break
       }
     },
+  },
+  components: {
+    mainSearch,
+    headerUserMenu,
   },
 }
 </script>

@@ -8,9 +8,7 @@
         <section class="general-info">
           <section class="type-host-and-stay-properties">
             <section class="type-host-and-stay-properties-text">
-              <h2 class="stay-type-host-name">
-                {{ stay.propertyType }} hosted by {{ stay.host.fullname }}
-              </h2>
+              <h2 class="stay-type-host-name">{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
               <ul class="stay-properties">
                 <li>{{ stay.capacity }} guests</li>
                 <li>{{ stay.bedrooms }} bedroom</li>
@@ -77,28 +75,28 @@
 </template>
 
 <script>
-import { stayService } from "../services/stay-service";
-import imagesContainer from "../components/stay-details-cmps/images-container.vue";
-import SecondaryHeader from "../components/stay-details-cmps/secondary-header.vue";
-import SelectedPopularAmenities from "../components/stay-details-cmps/selected-popular-amenities.vue";
-import AmenitiesList from "../components/stay-details-cmps/amenities-list.vue";
-import reviewsSection from "../components/stay-details-cmps/reviews-section.vue";
-import heroModal from "../components/stay-details-cmps/hero-modal.vue";
-import mapSection from "../components/stay-details-cmps/map-section.vue";
+import { stayService } from '../services/stay-service'
+import imagesContainer from '../components/stay-details-cmps/images-container.vue'
+import SecondaryHeader from '../components/stay-details-cmps/secondary-header.vue'
+import SelectedPopularAmenities from '../components/stay-details-cmps/selected-popular-amenities.vue'
+import AmenitiesList from '../components/stay-details-cmps/amenities-list.vue'
+import reviewsSection from '../components/stay-details-cmps/reviews-section.vue'
+import heroModal from '../components/stay-details-cmps/hero-modal.vue'
+import mapSection from '../components/stay-details-cmps/map-section.vue'
 
 export default {
-  name: "stay-details",
+  name: 'stay-details',
   data() {
     return {
       isAdding: false,
       //   loggedinUser: userService.getLoggedinUser(),
       reviewToAdd: {
-        content: "",
-        userId: "",
-        stayId: "",
+        content: '',
+        userId: '',
+        stayId: '',
       },
       stay: null,
-    };
+    }
   },
   components: {
     imagesContainer,
@@ -110,9 +108,11 @@ export default {
     heroModal,
   },
   async created() {
-    const stayId = this.$route.params.stayId;
+    console.log(this.$route.path.length)
+
+    const stayId = this.$route.params.stayId
     // const stay = this.$store.dispatch({ type: "getStayById", stayId });
-    this.stay = await stayService.getById(stayId);
+    this.stay = await stayService.getById(stayId)
 
     //   const user = this.$store.getters.user;
     //   console.log(user);
@@ -135,8 +135,8 @@ export default {
   },
   methods: {
     getImgUrl(file) {
-      const imgUrl = new URL(`../assets/images/${file}`, import.meta.url);
-      return imgUrl;
+      const imgUrl = new URL(`../assets/images/${file}`, import.meta.url)
+      return imgUrl
     },
     // scrollTo(refName) {
     //   let element = this.$refs[refName];
@@ -174,8 +174,8 @@ export default {
   },
   computed: {
     hostThumbnail() {
-      console.log(this.stay.host.thumbnailUrl);
-      return new URL(this.stay.host.thumbnailUrl, import.meta.url);
+      console.log(this.stay.host.thumbnailUrl)
+      return new URL(this.stay.host.thumbnailUrl, import.meta.url)
     },
     // user() {
     //   return this.$store.getters.user;
@@ -184,5 +184,5 @@ export default {
     //   return this.$store.getters.reviews;
     // },
   },
-};
+}
 </script>
