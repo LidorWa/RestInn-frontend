@@ -243,5 +243,46 @@
 
   .hero-modal {
     width: 372px;
+    
+.hero-modal-header{
+  display: flex;
+  justify-content: space-between;
+  .hero-modal-price{
+    display: flex;
+    :first-child{
+      font-size: em(22px);
+      font-weight: 600;
+    }
+    :last-child{
+      font-size: em(16px);
+    }
+  }
+  .hero-modal-rating-reviews{
+    display: flex;
+    img{
+      width: em(12px);
+    }
+    span:nth-of-type(2){
+      font-weight: 600;
+      padding: 0px 0px 0px em(4px);
+    }
+    span:last-of-type{
+      font-weight: 600;
+      text-decoration: underline;
+      padding: 0px 0px 0px em(4px);
+    }
+  }
+  .hero-modal-selection{
+    display: flex;
+    flex-direction: column;
+    .hero-modal-check-btn{
+      display: flex;
+      flex-direction: row;
+      
+    }
+  }
+}
+
+
   }
 }
