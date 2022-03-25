@@ -14,7 +14,12 @@
       <span></span>
       <div class="header-input guestsInput flex flex-column">
         <label for="guestsInput" class="">Guests</label>
-        <input type="number" id="guestsInput" name="guestsInput" placeholder="Add guests" />
+        <div class="flex">
+          <input type="number" id="guestsInput" name="guestsInput" placeholder="Add guests" />
+          <button class="search-icon">
+            <img src="../assets/svgs/search.svg" alt="search Icon" />
+          </button>
+        </div>
         <!-- <img src="../assets/svgs/search.svg" alt="search Icon" /> -->
       </div>
     </form>

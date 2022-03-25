@@ -1,12 +1,13 @@
 <template>
-  <header :class="'main-header-container flex flex-column align-center' + headerStatus">
+  <!-- <header class="'main-header-container flex flex-column align-center '" :class="headerStatus"> -->
+  <header :class="'main-header-container flex flex-column align-center ' + headerStatus">
     <div class="logo-nav-container flex space-between">
       <div class="logo flex align-center" @click="goHome">
         <i class="fa-brands fa-airbnb"></i>
         <h1 class="logo-txt">RestInn</h1>
       </div>
       <!--  -->
-      <div v-if="headerStatus === 'shrinkSearchBar' && !showSearch" @click="toggleShowSearch" class="search mini-search inline-flex justify-center align-center space-between">
+      <div v-if="headerStatus === 'shrinkSearchBar' && !isMinSearch" @click="toggleIsMinSearch" class="search mini-search inline-flex justify-center align-center space-between">
         <div>Start your search</div>
         <div class="search-icon">
           <img src="../assets/svgs/search.svg" alt="search Icon" />
@@ -24,7 +25,7 @@
       </nav>
       <header-user-menu :class="{ showHamburger: isShowingHamburger }" />
     </div>
-    <div v-if="(showSearch && headerStatus === 'shrinkSearchBar') || headerStatus !== 'shrinkSearchBar'" class="main-search-bar flex justify-center align-center">
+    <div v-if="headerStatus !== 'shrinkSearchBar' || (isMinSearch && headerStatus === 'shrinkSearchBar')" class="main-search-bar flex justify-center align-center">
       <main-search />
     </div>
   </header>
@@ -43,7 +44,7 @@ export default {
   },
   data() {
     return {
-      showSearch: false,
+      isMinSearch: false,
       isShowingHamburger: false,
     }
   },
@@ -52,8 +53,8 @@ export default {
     headerUserMenu,
   },
   methods: {
-    toggleShowSearch() {
-      this.showSearch = !this.showSearch
+    toggleIsMinSearch() {
+      this.isMinSearch = !this.isMinSearch
     },
     goHome() {
       this.$router.push('/')
@@ -64,7 +65,7 @@ export default {
       console.log('headerStatus is:', this.headerStatus)
       switch (this.headerStatus) {
         case 'top':
-          this.showSearch = false
+          this.isMinSearch = false
           break
         case 'firstScroll':
           break

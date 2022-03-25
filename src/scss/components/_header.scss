@@ -2,11 +2,12 @@
   position: fixed;
   width: 100vw;
   // height: rem(158px);
-  height: em(80px);
+  height: em(150px);
   padding: em(8px) em(24px);
   box-shadow: rgb(0, 0, 0, 0.08) 0px 1px 12px;
   color: $clr3;
- 
+  color: $clr1;
+  
 
   &.top {
     color: $clr3;
@@ -14,31 +15,34 @@
     a {
       color: $clr3;
     }
-  }
+    // .mini-search{
+    //   color: $clr2;
+    // }
 
-  &.firstScroll {
-    color: $clr1;
-    background-color: $clr3;
-
-    a {
-      color: $clr2;
-    }
   }
+&.shrinkSearchBar{
+  background-color: $clr3;
+  height: em(66px);
+}
+  // &.firstScroll {
+  //   color: $clr1;
+  //   background-color: $clr3;
+
+  //   a {
+  //     color: $clr2;
+  //   }
+  // }
 }
 
-// .top {
-//   color: $clr3;
-
-//   a {
-//     // color: $clr3;
-//     // padding: 0 em(15px);
-//   }
-// }
 
 .logo {
   font-size: rem(16px);
+  font-family: cereal-bold;
   cursor: pointer;
-
+  i{
+    font-size: 35px;
+    font-weight: bold;
+  }
  
 }
 
@@ -118,4 +122,17 @@
   font-size: 14px;
   text-indent: 5px;
   justify-content: space-between;
+  color: $clr2;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+
+  &:hover{
+    box-shadow: 0px 2px 3px rgba(0,0,0,0.18);
+  }
+}
+
+.logo-nav-container{
+  width: 100%;
+  justify-content: space-between;
+  padding-bottom: em(10px);
 }
