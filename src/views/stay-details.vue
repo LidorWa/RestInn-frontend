@@ -18,7 +18,7 @@
                 <li>{{ stay.bathrooms }} baths</li>
               </ul>
             </section>
-            <img :src="stay.host.thumbnailUrl" />
+            <img :src="stay.host.thumbnailUrl" alt="Host picture" />
           </section>
           <selected-popular-amenities :stay="stay" />
 
@@ -169,10 +169,6 @@ export default {
     //   // this.$store.dispatch({ type: "saveStay", stay });
     //   this.closeForm();
     // },
-    closeForm() {
-      this.isAdding = false;
-      this.reviewToAdd.content = "";
-    },
   },
   computed: {
     hostThumbnail() {
