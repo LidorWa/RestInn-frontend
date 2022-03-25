@@ -1,14 +1,12 @@
 <template>
   <section class="header-user-menu">
-    <p class="login-option">Login</p>
-    <p>Notifications</p>
-    <p>Host your home</p>
-    <p>My trips</p>
+    <p class="sign-up-option">Sign up</p>
+    <p>Log in</p>
     <hr />
-    <p>Hello</p>
-    <p>Puki</p>
-    <p>Componentaaa</p>
+    <p>Host your home</p>
+
     <p>Help</p>
+    <p @click="goToAboutPage">About</p>
   </section>
 </template>
 
@@ -20,6 +18,10 @@ export default {
     return {};
   },
 
-  methods: {},
+  methods: {
+    goToAboutPage() {
+      this.$router.push("/about");
+    },
+  },
 };
 </script>

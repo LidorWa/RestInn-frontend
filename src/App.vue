@@ -23,7 +23,7 @@ export default {
   },
   computed: {},
   created() {
-    console.log(this.$router)
+    console.log(this.$router.path)
     // this.$store.dispatch({ type: 'loadStays' })
     window.addEventListener('scroll', this.onScroll)
     this.$store.dispatch({ type: 'loadStays' })
@@ -32,18 +32,18 @@ export default {
   methods: {
     onScroll() {
       //TODO:
-      if (this.$router.name === '/') {
-        if (window.scrollY > 20) {
-          // this.showSearch=false
-          // console.log(window.scrollY)
-          // if (window.scrollY > 0 && window.scrollY <= 20) {
-          //   this.headerStatus = 'firstScroll'
-          // } else
-          //TODO: add 'or' params in details.
-          this.headerStatus = 'shrinkSearchBar'
-        } else {
-          this.headerStatus = 'top'
-        }
+      // if (this.$router.path === '/') {
+      if (window.scrollY > 20) {
+        // this.showSearch=false
+        // console.log(window.scrollY)
+        // if (window.scrollY > 0 && window.scrollY <= 20) {
+        //   this.headerStatus = 'firstScroll'
+        // } else
+        //TODO: add 'or' params in details.
+        this.headerStatus = 'shrinkSearchBar'
+      } else {
+        this.headerStatus = 'top'
+        // }
       }
     },
   },

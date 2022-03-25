@@ -5,11 +5,14 @@
   height: em(150px);
   padding: em(8px) em(24px);
   box-shadow: rgb(0, 0, 0, 0.08) 0px 1px 12px;
-  color: $clr3;
-  color: $clr1;
+  // color: $clr1;
   
+  .logo-nav-container{
+    color: $clr3;
+  }
 
   &.top {
+    .logo-nav-container{
     color: $clr3;
 
     a {
@@ -18,11 +21,19 @@
     // .mini-search{
     //   color: $clr2;
     // }
-
+    }
   }
 &.shrinkSearchBar{
   background-color: $clr3;
   height: em(66px);
+
+  .logo-nav-container{
+    color: $clr1;
+
+    a {
+      color: $clr1;
+    }
+  }
 }
   // &.firstScroll {
   //   color: $clr1;
