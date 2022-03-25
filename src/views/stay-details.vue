@@ -174,7 +174,6 @@ export default {
   },
   computed: {
     hostThumbnail() {
-      console.log(this.stay.host.thumbnailUrl)
       return new URL(this.stay.host.thumbnailUrl, import.meta.url)
     },
     // user() {

@@ -50,20 +50,20 @@ export default {
       }
 
       if (state.filterBy.city) {
-        let city;
-        if (state.filterBy.city.includes("$")) {
-          city = state.filterBy.city
-            .split("$")
-            .map(
-              (word) =>
-                (word = word.charAt(0).toUpperCase() + word.substring(1))
-            )
-            .join(" ");
-        } else {
-          city = state.filterBy.city;
-        }
-
-        stays = stays.filter((stay) => stay.address.city === city);
+        let city = state.filterBy.city;
+        // if (state.filterBy.city.includes("$")) {
+        //   city = city
+        //     .split("$")
+        //     .map(
+        //       (word) =>
+        //         (word = word.charAt(0).toUpperCase() + word.substring(1))
+        //     )
+        //     .join(" ");
+        // } else {
+        city = city.charAt(0).toUpperCase() + city.substring(1);
+        // }
+        const regex = new RegExp(city, "i");
+        stays = stays.filter((stay) => regex.test(stay.address.city));
       }
 
       return stays;

@@ -31,6 +31,13 @@ export default {
     this.stays = stays
     const city = this.$route.query.destination
     this.filterBy.city = city ? city : ''
+    const stays = this.$store.getters.getStays
+    this.stays = stays
+    if (this.$route.query.destination) {
+      let city = this.$route.query.destination.split('?')[0]
+      console.log('city', city)
+      this.filterBy.city = city ? city : ''
+    }
 
     const type = this.$route.query.type
 
