@@ -137,11 +137,8 @@ export default {
       // }
       let path = "/stay";
       if (this.location) path += `?destination=${this.location}`;
-
       this.$router.push(`${path}`);
-      setTimeout(() => {
-        location.reload();
-      }, 10);
+      // Reload???
     },
     // onHeaderObserved(entries) {
     //   entries.forEach((entry) => {
