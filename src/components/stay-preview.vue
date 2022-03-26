@@ -5,6 +5,12 @@
         <div class="block">
           <el-carousel :autoplay="false">
             <el-carousel-item v-for="item in stay.imgUrls" :key="item">
+              <img
+                class="like-img"
+                src="../assets/svgs/empty-like.svg"
+                alt="like"
+                @click.stop="likeCliked"
+              />
               <img class="card-img" :src="getImgUrl(item)" />
             </el-carousel-item>
           </el-carousel>
@@ -40,8 +46,15 @@ export default {
       required: true,
     },
   },
-
+  data() {
+    return {
+      isLiked: false,
+    };
+  },
   methods: {
+    likeCliked() {
+      console.log("like!");
+    },
     stayClicked() {
       this.$router.push(`/stay/${this.stay._id}`);
     },
@@ -57,6 +70,5 @@ export default {
     },
   },
   computed: {},
-
 };
 </script>

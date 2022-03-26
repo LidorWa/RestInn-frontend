@@ -1,8 +1,11 @@
 <template>
   <section class="details-select-guests-modal">
     <p class="details-guests-modal-title">Select guests</p>
-    <p v-if="!alert" class="no-alert">hey</p>
-    <p v-if="alert" class="input-alert">Please select up to 4 guests</p>
+    <p v-if="!capacityAlert && !adultAlert" class="no-alert">hey</p>
+    <p v-if="capacityAlert" class="input-alert">
+      Please select up to {{ capacity }} guests
+    </p>
+    <p v-if="adultAlert" class="input-alert">Please select at least 1 adult</p>
     <div class="details-guests-type-container">
       <span class="details-guests-type">Adults</span>
 
@@ -66,16 +69,17 @@ export default {
     return {
       guestSelected: null,
       newModalClass: "guests-modal-in-stay-details",
-      alert: false,
+      capacityAlert: false,
+      adultAlert: false,
     };
   },
   created() {
     if (this.guests.adults + this.guests.children > this.capacity) {
-      this.alert = true;
+      this.capacityAlert = true;
       setTimeout(() => {
-        this.alert = false;
+        this.capacityAlert = false;
       }, 3500);
-      this.guestSelected = { adults: 2, children: 0 };
+      this.guestSelected = { adults: this.capacity, children: 0 };
       this.$emit("onSelectGuests", { ...this.guestSelected });
     } else {
       this.guestSelected = { ...this.guests };
@@ -89,13 +93,20 @@ export default {
     changeCount(type, val) {
       const adults = this.guestSelected.adults;
       const children = this.guestSelected.children;
-      if (type === "adults" && adults === 0 && val === -1) return;
+      if (type === "adults" && adults === 1 && val === -1) {
+        this.adultAlert = true;
+        setTimeout(() => {
+          this.adultAlert = false;
+        }, 2500);
+
+        return;
+      }
       if (type === "children" && children === 0 && val === -1) return;
       if (adults + children === this.capacity && val === 1) {
-        this.alert = true;
+        this.capacityAlert = true;
         setTimeout(() => {
-          this.alert = false;
-        }, 2000);
+          this.capacityAlert = false;
+        }, 2500);
         return;
       }
 
