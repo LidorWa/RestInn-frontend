@@ -12,6 +12,11 @@
     
     img{
         object-fit:cover;
+        filter: brightness(100%);
+    }
+    img:hover{
+        filter: brightness(85%);
+        transition: all 0.5s ease;
     }
 
     :nth-child(2){
