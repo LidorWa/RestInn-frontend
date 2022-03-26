@@ -1,6 +1,6 @@
 <template>
   <section class="app-container">
-    <app-header :headerStatus="headerStatus" />
+    <app-header :headerStatus="headerStatus" :scrollY="scrollY" />
     <!-- add prop showSearch -->
     <router-view />
   </section>
@@ -19,6 +19,7 @@ export default {
   data() {
     return {
       headerStatus: 'top',
+      scrollY: 0,
     }
   },
   computed: {},
@@ -30,15 +31,14 @@ export default {
 
   methods: {
     onScroll() {
-      //TODO:
+      this.scrollY = window.scrollY
+      console.log(window.scrollY)
       // if (this.$route.path === '/') {
       if (window.scrollY > 20) {
         // this.showSearch=false
-        // console.log(window.scrollY)
         // if (window.scrollY > 0 && window.scrollY <= 20) {
         //   this.headerStatus = 'firstScroll'
         // } else
-        //TODO: add 'or' params in details.
         this.headerStatus = 'shrinkSearchBar'
       } else {
         this.headerStatus = 'top'
@@ -47,8 +47,7 @@ export default {
     },
   },
   unmounted() {
-    //TODO:
-    //   window.removeEventListener(scrollY)
+    window.removeEventListener('scroll')
   },
 }
 </script>

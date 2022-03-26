@@ -44,16 +44,19 @@ export default {
       type: String,
       default: 'top',
     },
+    scrollY: {
+      type: Number,
+    },
   },
   data() {
     return {
-      IsMiniSearchShown: false,
+      isMiniSearchShown: false,
       isShowingHamburger: false,
     }
   },
   methods: {
     toggleMiniSearch() {
-      this.IsMiniSearchShown = !this.IsMiniSearchShown
+      this.isMiniSearchShown = !this.isMiniSearchShown
     },
     goHome() {
       this.$router.push('/')
@@ -67,13 +70,14 @@ export default {
         homepage: this.$route.path === '/',
         'explore-page': this.$route.path === '/stay',
         'details-page': this.$route.path.length > 10,
+        'main-search-open': this.isMiniSearchShown && this.scrollY > 20,
       }
     },
     checkMiniSearch() {
-      return (this.headerStatus === 'shrinkSearchBar' && !this.IsMiniSearchShown) || (this.$route.path.length > 10 && !this.IsMiniSearchShown)
+      return (this.headerStatus === 'shrinkSearchBar' && !this.isMiniSearchShown) || (this.$route.path.length > 10 && !this.isMiniSearchShown)
     },
     checkMainSearch() {
-      return (this.headerStatus !== 'shrinkSearchBar' && this.$route.path.length < 10 && (this.$route.path.includes('/') || this.$route.path.includes('/stay'))) || (this.IsMiniSearchShown && this.headerStatus === 'shrinkSearchBar')
+      return (this.headerStatus !== 'shrinkSearchBar' && this.$route.path.length < 10 && (this.$route.path === '/' || this.$route.path.includes('/stay'))) || (this.isMiniSearchShown && this.headerStatus === 'shrinkSearchBar')
     },
   },
   watch: {
@@ -81,13 +85,15 @@ export default {
       console.log('headerStatus is:', this.headerStatus)
       switch (this.headerStatus) {
         case 'top':
-          this.IsMiniSearchShown = false
+          this.isMiniSearchShown = false
           break
-        // case 'firstScroll':
-        //   break
         case 'shrinkSearchBar':
           break
       }
+    },
+    scrollY() {
+      console.log('scrollY', scrollY)
+      if (scrollY > 20) this.isMiniSearchShown = false
     },
   },
   components: {
