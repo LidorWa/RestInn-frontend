@@ -1,19 +1,9 @@
 <template>
   <section class="hero-modal">
     <section class="hero-modal-wrapper">
-      <div
-        v-if="isSelectingGuests"
-        class="outsideDetailsGuests"
-        @click="isSelectingGuests = false"
-      ></div>
+      <div v-if="isSelectingGuests" class="outsideDetailsGuests" @click="isSelectingGuests = false"></div>
       <section class="hero-modal-container">
-        <details-select-guests-modal
-          v-if="isSelectingGuests"
-          :guests="getGuests"
-          :capacity="stay.capacity"
-          @closeGuestsModal="closeGuestsModal"
-          @onSelectGuests="onSelectGuests"
-        />
+        <details-select-guests-modal v-if="isSelectingGuests" :guests="getGuests" :capacity="stay.capacity" @closeGuestsModal="closeGuestsModal" @onSelectGuests="onSelectGuests" />
         <section class="hero-modal-header">
           <div class="hero-modal-price">
             <span>{{ $filters.currencyUSD(stay.price) }}</span>
@@ -37,6 +27,7 @@
               <div>CHECK-OUT</div>
               <div>Add date</div>
             </div>
+            <date-picker />
           </div>
           <div class="hero-modal-guests" @click="isSelectingGuests = true">
             <label for="hero-modal-guest-picker">GUESTS</label>
@@ -54,7 +45,8 @@
 </template>
 
 <script>
-import detailsSelectGuestsModal from "./details-select-guests-modal.vue";
+import detailsSelectGuestsModal from './details-select-guests-modal.vue'
+import datePicker from './date-picker.vue'
 export default {
   props: {
     stay: {
@@ -66,51 +58,52 @@ export default {
     return {
       isSelectingGuests: false,
       // guests: { adults: 0, children: 0 },
-    };
+    }
   },
   components: {
     detailsSelectGuestsModal,
+    datePicker,
   },
 
   methods: {
     onSelectGuests(guests) {
-      this.$store.commit({ type: "setGuests", guests });
+      this.$store.commit({ type: 'setGuests', guests })
     },
     closeGuestsModal() {
-      this.isSelectingGuests = false;
+      this.isSelectingGuests = false
     },
   },
   // {{ getGuests.adults }} adults, {{ getGuests.children }} children
   computed: {
     getGuestsForDisplay() {
-      const adults = this.getGuests.adults;
-      const children = this.getGuests.children;
-      if (!(children + adults)) return "Add guests";
+      const adults = this.getGuests.adults
+      const children = this.getGuests.children
+      if (!(children + adults)) return 'Add guests'
       if (!children) {
-        if (adults === 1) return "1 adult";
-        return `${adults} adults`;
+        if (adults === 1) return '1 adult'
+        return `${adults} adults`
       }
       if (children === 1) {
-        if (adults === 1) return "1 adult, 1 child";
-        return `${adults} adults, 1 child`;
+        if (adults === 1) return '1 adult, 1 child'
+        return `${adults} adults, 1 child`
       }
-      return `${adults} adults, ${children} children`;
+      return `${adults} adults, ${children} children`
     },
     getLocation() {
-      return this.$store.getters.getLocation;
+      return this.$store.getters.getLocation
     },
     getDates() {
-      return this.$store.getters.getDates;
+      return this.$store.getters.getDates
     },
     getGuests() {
-      return this.$store.getters.getGuests;
+      return this.$store.getters.getGuests
     },
     fixedScore() {
-      let currStayScore = this.stay.reviewScores.rating / 20;
-      return currStayScore.toFixed(2);
+      let currStayScore = this.stay.reviewScores.rating / 20
+      return currStayScore.toFixed(2)
     },
   },
-};
+}
 </script>
 
 <style></style>
