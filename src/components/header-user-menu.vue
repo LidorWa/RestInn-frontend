@@ -19,7 +19,7 @@ export default {
 
   methods: {
     signUp() {
-      this.$emit("signUp");
+      this.$emit("openSignUp");
     },
     goToAboutPage() {
       this.$router.push("/about");

@@ -49,7 +49,7 @@
       </nav>
       <header-user-menu
         :class="{ showHamburger: isShowingHamburger }"
-        @signUp="signUp"
+        @openSignUp="openSignUp"
       />
       <div
         v-if="isShowingHamburger"
@@ -68,7 +68,16 @@
         :savedGuests="getGuests"
       />
     </div>
-    <!-- <sign-up :class="{ showSignUp: isSignUp }" /> -->
+    <sign-up
+      :class="{ showSignUp: isSignUp }"
+      @closeSignUp="closeSignUp"
+      @submitSignUp="submitSignUp"
+    />
+    <div
+      v-if="isSignUp"
+      class="outsideUserMenu"
+      @click="isSignUp = false"
+    ></div>
   </header>
 </template>
 
@@ -91,12 +100,23 @@ export default {
     return {
       isMiniSearchShown: false,
       isShowingHamburger: false,
-      isSignUp: true,
+      isSignUp: false,
     };
   },
   methods: {
-    signUp() {
+    submitSignUp(email, password) {
+      //Submit sign up
+      //Submit sign up
+      //Submit log in
+      //Submit log in
+      this.isSignUp = false;
+    },
+    closeSignUp() {
+      this.isSignUp = false;
+    },
+    openSignUp() {
       console.log("Sign up clicked");
+      this.isSignUp = true;
       this.isShowingHamburger = false;
     },
     mainSearchClosed(location, dates, guests) {
