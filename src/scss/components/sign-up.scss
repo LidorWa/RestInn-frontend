@@ -1,14 +1,11 @@
 .sign-up-modal {
   position: fixed;
-  top: 140px;
-  height: 49vh;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
   transform: translateY(250%);
   background-color: $clr3;
-  border-right: 1px solid $clr7;
-  border-top: 1px solid $clr7;
-  box-shadow: -1px 1px 1px 0px #dcdcdc;
-  width: 450px;
-  border-radius: 15px;
+
   text-align: start;
   transition: 0.3s;
   z-index: 888;
@@ -23,7 +20,8 @@
   position: absolute;
   left: 13px;
   top: 10px;
-  font-size: em(22px);
+
+  font-size: em(35px) !important;
   cursor: pointer;
   transition: 0.1s;
   z-index: 500;
@@ -34,16 +32,18 @@
 }
 
 .sign-up-title {
+  margin-top: 50px;
+  margin-bottom: 50px;
   text-align: center;
-  font-size: em(16px);
+  font-size: em(22px);
   padding: 5px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   font-weight: 600;
   border-bottom: 1px solid $clr7;
 }
 
 .sign-up-welcome {
-  font-size: em(20px);
+  font-size: em(26px);
   padding: 20px;
   padding-left: 10px;
   //   padding-bottom: 0px;
@@ -56,7 +56,7 @@
 
   margin: 10px;
   margin-top: 1px;
-  margin-bottom: 19px;
+  margin-bottom: 25px;
 
   .sign-up-input:first-child {
     border: 1px solid $clr7;
@@ -118,4 +118,33 @@
   font-size: em(13px);
   margin-bottom: 2px;
   color: $clr3;
+}
+
+@media (min-width: 551px) {
+  .sign-up-modal {
+    top: 140px;
+    height: 46vh;
+    width: 400px;
+
+    transform: translateY(250%);
+    border-right: 1px solid $clr7;
+    border-top: 1px solid $clr7;
+    box-shadow: -1px 1px 1px 0px #dcdcdc;
+    border-radius: 15px;
+  }
+
+  .sign-up-title {
+    font-size: em(16px);
+    margin-top: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 0px;
+  }
+
+  .sign-up-welcome {
+    font-size: em(20px);
+  }
+
+  .close-sign-up {
+    font-size: em(28px) !important;
+  }
 }
