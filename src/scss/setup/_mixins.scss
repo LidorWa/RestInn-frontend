@@ -69,7 +69,6 @@
 //search btn
 
 @mixin search-icon ($type: small){
-    //TODO remember to put flex on element
     display: flex;
     width: em(32px);
     height: em(32px);
@@ -86,7 +85,11 @@
 
     @if $type == big {
       width: em(48px);
-  height: em(48px);
+      height: em(48px);
+      img{
+        width: em(25px);
+        height: em(25px);
+    }
     }
 }
 
