@@ -68,8 +68,7 @@
 // Buttons
 //search btn
 
-@mixin search-icon {
-    //TODO remember to put flex on element
+@mixin search-icon ($type: small){
     display: flex;
     width: em(32px);
     height: em(32px);
@@ -78,9 +77,19 @@
     color: $clr3;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     img{
         width: em(18px);
         height: em(18px);
+    }
+
+    @if $type == big {
+      width: em(48px);
+      height: em(48px);
+      img{
+        width: em(25px);
+        height: em(25px);
+    }
     }
 }
 

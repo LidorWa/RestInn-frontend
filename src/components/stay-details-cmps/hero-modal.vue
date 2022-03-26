@@ -1,51 +1,66 @@
 <template>
     <section class="hero-modal">
-        <section class="hero-modal-container">
-            <section class="hero-modal-header">
-                <div class="hero-modal-price">
-                    <span>{{ $filters.currencyUSD(stay.price) }}</span>
-                    <span>/ night</span>
-                </div>
-                <div class="hero-modal-rating-reviews">
-                    <span>
-                        <img src="../../assets/svgs/star-rating.svg" />
-                    </span>
-                    <span>{{ fixedScore }} ·</span>
-                    <span>{{ stay.reviews.length }} reviews</span>
-                </div>
-            </section>
-            <section class="hero-modal-selection">
-                <div class="hero-modal-check-container">
-                    <div class="hero-modal-check-in">
-                        <span>CHECK-IN</span>
-                        <span>Add date</span>
+        <section class="hero-modal-wrapper">
+            <section class="hero-modal-container">
+                <section class="hero-modal-header">
+                    <div class="hero-modal-price">
+                        <span>{{ $filters.currencyUSD(stay.price) }}</span>
+                        <span>&nbsp; / night</span>
                     </div>
-                    <div class="hero-modal-check-out">
-                        <span>CHECK-OUT</span>
-                        <span>Add date</span>
+                    <div class="hero-modal-rating-reviews">
+                        <span>
+                            <img src="../../assets/svgs/star-rating.svg" />
+                        </span>
+                        <span>{{ fixedScore }} ·</span>
+                        <span>{{ stay.reviews.length }} reviews</span>
                     </div>
-                    <div class="hero-modal-guests">
-                        <label for="hero-modal-guest-picker">
-                            GUESTS
-                        </label>
-                        
+                </section>
+                <section class="hero-modal-selection">
+                    <div class="hero-modal-check-container">
+                        <div class="hero-modal-check-in">
+                            <div>CHECK-IN</div>
+                            <div>Add date</div>
+                        </div>
+                        <div class="hero-modal-check-out">
+                            <div>CHECK-OUT</div>
+                            <div>Add date</div>
+                        </div>
                     </div>
-                </div>
-                <div class="check-availability-container">
-                    <span class="check-availability-span">Check availability</span>
-                </div>
+                    <div class="hero-modal-guests" @click="isSelectingGuests = !isSelectingGuests">
+                        <label for="hero-modal-guest-picker">GUESTS</label>
+                        <select-guests-modal
+                            v-if="isSelectingGuests"
+                            :guests="guests"
+                            @closeGuestsModal="closeGuestsModal"
+                            @onSelectGuests="onSelectGuests"
+                        />
+                    </div>
+                    <div class="check-availability-container">
+                        <span class="check-availability-span">Check availability</span>
+                    </div>
+                </section>
             </section>
         </section>
     </section>
 </template>
 
 <script>
+import selectGuestsModal from "../select-guests-modal.vue";
 export default {
     props: {
         stay: {
             type: Object,
             required: true,
         }
+    },
+    data() {
+        return {
+            isSelectingGuests: false,
+            guests: { adults: 0, children: 0 },
+        }
+    },
+    components: {
+        selectGuestsModal
     },
     computed: {
         fixedScore() {

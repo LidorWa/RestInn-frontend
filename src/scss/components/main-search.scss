@@ -16,9 +16,9 @@
   min-width: 600px;
 
   //TODO: give it class name
-  span {
+  .search-space {
     width: 1px;
-    height: em(24px);
+    height: em(32px);
     background-color: $clr6;
   }
   transition-property: all;
@@ -128,20 +128,19 @@
 
 
 .search-icon {
-  //TODO remember to put flex on element
   display: flex;
-  width: em(32px);
-  height: em(32px);
+  width: em(48px);
+  height: em(48px);
   border-radius: 50%;
   border: none !important;
   background-color: $clr1;
-  // color: $clr3;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   img {
-    width: em(18px);
-    height: em(18px);
+    width: em(25px);
+    height: em(25px);
   }
 }
 
