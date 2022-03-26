@@ -146,7 +146,9 @@ export default {
       [new Date(2000, 1, 1, 12, 0, 0)]; // '12:00:00'
     },
   },
-  unmounted() {},
+  unmounted() {
+    console.log("bye");
+  },
 };
 </script>
 
