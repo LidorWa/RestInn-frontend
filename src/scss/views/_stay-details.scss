@@ -1,5 +1,5 @@
 .stay-details-page {
-  width: calc(100vw - 180px);
+  width: calc(100vw - 120px);
   padding-top: em(180px);
   color: $clr2;
   margin-right: em(50px);
@@ -69,6 +69,7 @@
   .hero-modal-and-general-info {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 
     .general-info {
       width: 60%;
@@ -196,7 +197,7 @@
       }
     }
     .review-list {
-      width: em(1000px);
+      width: calc(100vw - 120px);
     }
     .reviews-list-ul {
       list-style: none;
@@ -226,9 +227,7 @@
           }
           margin: 0px 0px em(16px);
         }
-        .review-text {
-          margin: 0px 95px 0px 0px;
-        }
+
         .review-show-more {
           display: flex;
           font-size: em(14px);
@@ -260,7 +259,8 @@
       .hero-modal-container {
         box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
         border-radius: 15px;
-        width: em(340px);
+        min-width: 30vw;
+        max-width: 400px;
         height: em(270px);
         display: flex;
         flex-direction: column;
@@ -384,4 +384,9 @@
       }
     }
   }
+}
+
+
+@media screen and (max-width: 1000px){
+
 }
