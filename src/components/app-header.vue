@@ -12,14 +12,17 @@
         <h1 class="logo-txt">RestInn</h1>
       </div>
       <!-- Mini search bar -->
-
-      <!--  -->
+      <!-- Mini search bar -->
+      <!-- Mini search bar -->
+      <!-- Mini search bar -->
+      <!-- Mini search bar -->
+      <!-- Mini search bar -->
       <div
         v-if="checkMiniSearch"
         @click="toggleMiniSearch"
         class="search mini-search inline-flex justify-center align-center space-between"
       >
-        <div>Start your search</div>
+        <div>{{ getSearchText }}</div>
         <div class="search-icon-small">
           <img src="../assets/svgs/search.svg" alt="search Icon" />
         </div>
@@ -134,6 +137,11 @@ export default {
     },
   },
   computed: {
+    getSearchText() {
+      console.log("hey");
+      if (this.$route.query.destination) return this.$route.query.destination;
+      return "Start your search";
+    },
     getLocation() {
       return this.$store.getters.getLocation;
     },

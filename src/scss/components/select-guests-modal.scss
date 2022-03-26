@@ -1,6 +1,6 @@
 .select-guests-modal {
   background-color: white;
-  width: 200px;
+  width: 240px;
   position: fixed;
   top: 130px;
   padding-bottom: 15px;
@@ -25,7 +25,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 55%;
+    width: 45%;
   }
 
   span {
@@ -56,7 +56,6 @@
 .guests-number {
   font-size: em(20px);
   line-height: 35px;
-  margin-right: 10px;
 }
 
 .guests-btns-conteiner {
@@ -68,6 +67,7 @@
 }
 
 .guest-modal-btn {
+  text-align: center;
   border: 1px solid $clr2;
   width: 50px;
   margin-top: 10px;

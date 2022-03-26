@@ -1,6 +1,8 @@
 <template>
   <section class="details-select-guests-modal">
     <p class="details-guests-modal-title">Select guests</p>
+    <p v-if="!alert" class="no-alert">hey</p>
+    <p v-if="alert" class="input-alert">Please select up to 4 guests</p>
     <div class="details-guests-type-container">
       <span class="details-guests-type">Adults</span>
 
@@ -53,18 +55,31 @@ export default {
       type: Object,
       required: true,
     },
+    capacity: {
+      type: Number,
+      required: true,
+    },
   },
   name: "header-user-menu",
 
   data() {
     return {
       guestSelected: null,
-      newModalClass: 'guests-modal-in-stay-details'
+      newModalClass: "guests-modal-in-stay-details",
+      alert: false,
     };
   },
   created() {
-    this.guestSelected = { ...this.guests };
-    console.log(this.$route.params.value)
+    if (this.guests.adults + this.guests.children > this.capacity) {
+      this.alert = true;
+      setTimeout(() => {
+        this.alert = false;
+      }, 3500);
+      this.guestSelected = { adults: 2, children: 0 };
+      this.$emit("onSelectGuests", { ...this.guestSelected });
+    } else {
+      this.guestSelected = { ...this.guests };
+    }
   },
   methods: {
     closeGuestsModal() {
@@ -72,14 +87,18 @@ export default {
       this.$emit("closeGuestsModal");
     },
     changeCount(type, val) {
-      if (type === "adults" && this.guestSelected.adults === 0 && val === -1)
+      const adults = this.guestSelected.adults;
+      const children = this.guestSelected.children;
+      if (type === "adults" && adults === 0 && val === -1) return;
+      if (type === "children" && children === 0 && val === -1) return;
+      if (adults + children === this.capacity && val === 1) {
+        this.alert = true;
+        setTimeout(() => {
+          this.alert = false;
+        }, 2000);
         return;
-      if (
-        type === "children" &&
-        this.guestSelected.children === 0 &&
-        val === -1
-      )
-        return;
+      }
+
       this.guestSelected[type] += val;
       this.$emit("onSelectGuests", { ...this.guestSelected });
     },

@@ -203,17 +203,10 @@
       list-style: none;
       display: flex;
       flex-wrap: wrap;
-
       flex-direction: row;
       padding: unset;
-      li:nth-of-type(odd){
-        padding-right: em(30px);
-      }
-      li:nth-of-type(even){
-        padding-left: em(30px);
-      }
       li {
-        flex: 1 1 calc(50vw - 60px);
+        flex: 1 1 em(400px);
         .review-guest-name-date {
           display: flex;
           align-items: center;
@@ -234,6 +227,7 @@
           }
           margin: 0px 0px em(16px);
         }
+
         .review-show-more {
           display: flex;
           font-size: em(14px);
@@ -375,6 +369,9 @@
             height: em(48px);
             color: $clr3;
             background-color: $clr1;
+          }
+          .check-availability-container:hover {
+            background-color: rgba($clr1, 0.9);
           }
           .hero-modal-check-in,
           .hero-modal-check-out,
