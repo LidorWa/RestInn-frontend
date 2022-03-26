@@ -23,7 +23,7 @@
           <div>{{ formatedDate(1) }}</div>
         </div>
         <!-- element picker -->
-        <div class="block header-input date-picker">
+        <div class="block date-picker">
           <!-- returns timestamp (Value format "x") -->
           <el-date-picker v-model="dates" type="daterange" range-separator="To" start-placeholder="Start date" end-placeholder="End date" value-format="x" />
         </div>
@@ -34,7 +34,7 @@
       <div class="header-input guestsInput flex">
         <label for="guestsInput" class="label">Guests</label>
 
-        <div class="guests-input" @click="isSelectingGuests = !isSelectingGuests" placeholder="Add guests">
+        <div class="label guests-input" @click="isSelectingGuests = !isSelectingGuests" placeholder="Add guests">
           {{ getGuestsNumber }}
         </div>
         <select-guests-modal v-if="isSelectingGuests" :guests="guests" @closeGuestsModal="closeGuestsModal" @onSelectGuests="onSelectGuests" />
