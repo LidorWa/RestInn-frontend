@@ -6,8 +6,16 @@
           <el-carousel :autoplay="false">
             <el-carousel-item v-for="item in stay.imgUrls" :key="item">
               <img
+                v-if="!isLiked"
                 class="like-img"
                 src="../assets/svgs/empty-like.svg"
+                alt="like"
+                @click.stop="likeCliked"
+              />
+              <img
+                v-if="isLiked"
+                class="like-img"
+                src="../assets/svgs/full-like.svg"
                 alt="like"
                 @click.stop="likeCliked"
               />
@@ -53,7 +61,8 @@ export default {
   },
   methods: {
     likeCliked() {
-      console.log("like!");
+      this.isLiked = !this.isLiked;
+      console.log(this.isLiked);
     },
     stayClicked() {
       this.$router.push(`/stay/${this.stay._id}`);
