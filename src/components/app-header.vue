@@ -29,7 +29,7 @@
         <router-link to="/host">Become a host</router-link>
         <div
           class="hamburger-user-menu btn flex"
-          @click="isShowingHamburger = !isShowingHamburger"
+          @click="isShowingHamburger = true"
         >
           <img
             class="hamburger-img"
@@ -44,7 +44,15 @@
           />
         </div>
       </nav>
-      <header-user-menu :class="{ showHamburger: isShowingHamburger }" />
+      <header-user-menu
+        :class="{ showHamburger: isShowingHamburger }"
+        @signUp="signUp"
+      />
+      <div
+        v-if="isShowingHamburger"
+        class="outside"
+        @click="isShowingHamburger = false"
+      ></div>
     </div>
     <div
       v-if="checkMainSearch"
@@ -84,6 +92,10 @@ export default {
     };
   },
   methods: {
+    signUp() {
+      console.log("Sign up clicked");
+      this.isShowingHamburger = false;
+    },
     mainSearchClosed(location, dates, guests) {
       this.location = location;
       this.dates = dates;
@@ -134,7 +146,6 @@ export default {
       }
     },
     scrollY() {
-
       if (scrollY > 20) this.isMiniSearchShown = false;
     },
   },

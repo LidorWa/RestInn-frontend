@@ -1,10 +1,9 @@
 <template>
   <section class="header-user-menu">
-    <p class="sign-up-option">Sign up</p>
+    <p class="sign-up-option" @click="signUp">Sign up</p>
     <p>Log in</p>
     <hr />
     <p>Host your home</p>
-
     <p>Help</p>
     <p @click="goToAboutPage">About</p>
   </section>
@@ -19,6 +18,9 @@ export default {
   },
 
   methods: {
+    signUp() {
+      this.$emit("signUp");
+    },
     goToAboutPage() {
       this.$router.push("/about");
     },
