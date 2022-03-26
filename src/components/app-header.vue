@@ -138,18 +138,19 @@ export default {
   },
   computed: {
     getSearchText() {
-      console.log("hey");
       if (this.$route.query.destination) return this.$route.query.destination;
       return "Start your search";
     },
-    getLocation() {
-      return this.$store.getters.getLocation;
-    },
+
     getDates() {
       return this.$store.getters.getDates;
     },
     getGuests() {
       return this.$store.getters.getGuests;
+    },
+    getLocation() {
+      if (this.$route.query.destination) return this.$route.query.destination;
+      return "";
     },
     getHeaderClass() {
       return {

@@ -40,6 +40,9 @@
           </div>
           <div class="hero-modal-guests" @click="isSelectingGuests = true">
             <label for="hero-modal-guest-picker">GUESTS</label>
+            <div>
+              {{ getGuestsForDisplay }}
+            </div>
           </div>
           <div class="check-availability-container">
             <span class="check-availability-span">Check availability</span>
@@ -68,9 +71,7 @@ export default {
   components: {
     detailsSelectGuestsModal,
   },
-  created() {
-    console.log("Hero creatd!");
-  },
+
   methods: {
     onSelectGuests(guests) {
       this.$store.commit({ type: "setGuests", guests });
@@ -79,7 +80,22 @@ export default {
       this.isSelectingGuests = false;
     },
   },
+  // {{ getGuests.adults }} adults, {{ getGuests.children }} children
   computed: {
+    getGuestsForDisplay() {
+      const adults = this.getGuests.adults;
+      const children = this.getGuests.children;
+      if (!(children + adults)) return "Add guests";
+      if (!children) {
+        if (adults === 1) return "1 adult";
+        return `${adults} adults`;
+      }
+      if (children === 1) {
+        if (adults === 1) return "1 adult, 1 child";
+        return `${adults} adults, 1 child`;
+      }
+      return `${adults} adults, ${children} children`;
+    },
     getLocation() {
       return this.$store.getters.getLocation;
     },

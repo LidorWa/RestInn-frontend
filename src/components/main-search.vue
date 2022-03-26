@@ -151,6 +151,7 @@ export default {
   },
   computed: {
     getMainSearchText() {
+      if (this.$route.query.destination) return this.$route.query.destination;
       return "Where are you going?";
     },
     getGuestsNumber() {
