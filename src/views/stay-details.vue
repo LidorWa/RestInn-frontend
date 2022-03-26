@@ -1,6 +1,5 @@
 <template>
   <section class="stay-details-page" v-if="stay">
-    <title>{{stay.name}}</title>
     <section class="stay-details" v-if="stay">
       <!-- <secondary-header  @scrollTo="scrollTo" :stay="stay" /> -->
       <secondary-header :stay="stay" />
@@ -85,6 +84,8 @@ export default {
   async created() {
     const stayId = this.$route.params.stayId
     this.stay = await this.$store.dispatch({ type: 'getStayById', stayId: stayId })
+
+
   },
   methods: {
   },
