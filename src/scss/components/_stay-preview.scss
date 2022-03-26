@@ -88,16 +88,17 @@
 
 .like-img {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 23px;
+  height: 23px;
   top: 8px;
   right: 8px;
   z-index: 999;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .like-img:hover {
-  color: aqua;
+  opacity: 0.9;
 }
 
 //Break point
