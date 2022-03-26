@@ -162,10 +162,12 @@ export default {
     },
     checkMainSearch() {
       return (
-        (this.headerStatus !== "shrinkSearchBar" &&
+        (this.headerStatus === "top" &&
           this.$route.path.length < 10 &&
           (this.$route.path === "/" || this.$route.path.includes("/stay"))) ||
-        (this.isMiniSearchShown && this.headerStatus === "shrinkSearchBar")
+        (this.isMiniSearchShown &&
+          (this.headerStatus === "shrinkSearchBar" ||
+            this.$route.path.length > 10))
       );
     },
   },

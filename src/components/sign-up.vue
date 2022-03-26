@@ -17,7 +17,7 @@
         class="sign-up-input"
         type="text"
         v-model="email"
-        placeholder="Your email"
+        placeholder="email"
       />
       <input
         class="sign-up-input"
