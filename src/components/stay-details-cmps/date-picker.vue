@@ -1,27 +1,19 @@
 <template>
-      <div class="block">
-      <span class="demonstration">Default</span>
-      <el-date-picker
-        v-model="date"
-        type="daterange"
-        range-separator="To"
-        start-placeholder="CHECK-IN"
-        end-placeholder="CHECKOUT"
-      />
-    </div>
+  <div class="block">
+    <span class="demonstration">Default</span>
+    <el-date-picker v-model="date" type="daterange" start-placeholder="CHECK-IN" end-placeholder="CHECKOUT" class="date-picker" />
+  </div>
 </template>
 
 <script>
 import { ref } from 'vue'
 export default {
-    data(){
-        return {
-            date: ref(''),
-        }
+  data() {
+    return {
+      date: ref(''),
     }
+  },
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -1,7 +1,8 @@
 .stay-details-page {
   width: calc(100vw - 120px);
-  padding-top: em(180px);
+  padding-top: em(90px);
   color: $clr2;
+  margin: auto;
   margin-right: em(50px);
   margin-left: em(50px);
   padding-left: em(10px);
@@ -88,6 +89,13 @@
     }
     .stay-type-host-name {
       font-weight: 600;
+      line-height: 25px;
+      @media(max-width:880px){
+        line-height: 28px;
+      }
+      @media(max-width: 800px){
+        font-size: 18px;
+      }
     }
     .stay-properties {
       display: flex;
@@ -165,7 +173,7 @@
       font-weight: 600;
     }
     .amenities-list {
-      width: em(500px);
+      width: calc(65vw - 100px);
       .amenity-container {
         display: flex;
         flex-wrap: wrap;
@@ -256,6 +264,7 @@
       height: 50vh;
       display: flex;
       justify-content: center;
+
       .hero-modal-container {
         box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
         border-radius: 15px;
@@ -266,12 +275,20 @@
         flex-direction: column;
         align-items: center;
         padding-top: 20px;
+
         .hero-modal-header {
           display: flex;
-          flex-direction: row;
           justify-content: space-between;
           margin: 0px 0px em(24px);
           width: 80%;
+
+          @media(max-width:880px){
+            margin: 0px 0px em(10px);
+            flex-direction: column;
+            line-height: 28px;
+            align-items: center;
+          }
+
           .hero-modal-price {
             display: flex;
             :first-child {
@@ -386,7 +403,19 @@
   }
 }
 
+// @media(max-width: 880px) {
+//   .stay-details-page {
+//     margin-left: 2.5em;
+//     .hero-modal-container {
+//       height: em(300px);
+//       .hero-modal-header {
+//         margin: 0px 0px em(10px);
+//         flex-direction: column;
+//         line-height: 28px;
+        
+//       }
+//     }
+//   }
+// }
 
-@media screen and (max-width: 1000px){
 
-}
