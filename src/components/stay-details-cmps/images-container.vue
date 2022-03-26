@@ -17,8 +17,10 @@ export default {
             required: true,
         }
     },
-    methods:{
+    
         
+    
+    methods:{
     getImgUrl(file) {
       const imgUrl = new URL(`../../assets/images/${file}`, import.meta.url);
       return imgUrl;

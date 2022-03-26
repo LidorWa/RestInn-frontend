@@ -1,15 +1,15 @@
 .stay-details-page {
   padding-top: em(180px);
   color: $clr2;
-  margin-right: em(50px);
-  margin-left: em(50px);
+  margin-right: em(70px);
+  margin-left: em(70px);
   padding-left: em(20px);
   padding-right: em(20px);
 
   .stay-name {
     h1 {
       margin-bottom: em(15px);
-      font-size: em(30px);
+      font-size: em(26px);
       font-weight: 600;
     }
   }
@@ -66,9 +66,6 @@
     }
   }
 
-  .imgs-container-grid {
-    padding: em(24px) 0px 0px;
-  }
 
   .hero-modal-and-general-info {
     display: flex;

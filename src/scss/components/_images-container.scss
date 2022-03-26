@@ -2,8 +2,9 @@
     display: grid;
     // grid-template-columns: 2fr 1fr 1fr;
     // grid-template-rows: 1fr 1fr;
+    padding: em(24px) 0px 0px;
     grid-template-columns: repeat(4,minmax(180px,1fr));
-    grid-template-rows: 180px 180px;
+    grid-template-rows: 150px 150px;
     gap: 8px;
     grid-template-areas: 
     "item2 item2 item1 item3"
