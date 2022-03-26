@@ -1,6 +1,5 @@
 .header-user-menu {
   background-color: $clr3;
-
   border-right: 1px solid rgb(204, 204, 204);
   border-top: 1px solid rgb(204, 204, 204);
   box-shadow: -1px 1px 1px 0px #dcdcdc;
@@ -13,6 +12,7 @@
   position: fixed;
   width: em(200px);
   transform: translateX(150%);
+  z-index: 10;
 
   p {
     cursor: pointer;

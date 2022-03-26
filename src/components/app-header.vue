@@ -18,19 +18,37 @@
             <img src="../assets/svgs/search.svg" alt="search Icon" />
           </div>
         </div>
-        <!--  -->
-        <nav class="main-header-nav flex justify-center align-center">
-          <router-link to="/stay">Explore</router-link>
-          <router-link to="/host">Become a host</router-link>
-          <div class="hamburger-user-menu btn flex" @click="isShowingHamburger = !isShowingHamburger">
-            <img class="hamburger-img" src="../assets/svgs/menu_black_24dp.svg" alt="menu-icon" />
-
-            <img class="hamburger-avatar" src="../assets/svgs/user-avatar.svg" alt="house" />
-          </div>
-        </nav>
-
-        <header-user-menu :class="{ showHamburger: isShowingHamburger }" />
       </div>
+      <!--  -->
+      <nav class="main-header-nav flex justify-center align-center">
+        <router-link to="/stay">Explore</router-link>
+        <router-link to="/host">Become a host</router-link>
+        <div
+          class="hamburger-user-menu btn flex"
+          @click="isShowingHamburger = true"
+        >
+          <img
+            class="hamburger-img"
+            src="../assets/svgs/menu_black_24dp.svg"
+            alt="menu-icon"
+          />
+
+          <img
+            class="hamburger-avatar"
+            src="../assets/svgs/user-avatar.svg"
+            alt="house"
+          />
+        </div>
+      </nav>
+      <header-user-menu
+        :class="{ showHamburger: isShowingHamburger }"
+        @signUp="signUp"
+      />
+      <div
+        v-if="isShowingHamburger"
+        class="outside"
+        @click="isShowingHamburger = false"
+      ></div>
     </div>
 
     <div v-if="checkMainSearch" class="main-search-bar flex justify-center align-center">
@@ -63,6 +81,10 @@ export default {
     }
   },
   methods: {
+    signUp() {
+      console.log("Sign up clicked");
+      this.isShowingHamburger = false;
+    },
     mainSearchClosed(location, dates, guests) {
       this.location = location
       this.dates = dates
@@ -105,7 +127,7 @@ export default {
       }
     },
     scrollY() {
-      if (scrollY > 20) this.isMiniSearchShown = false
+      if (scrollY > 20) this.isMiniSearchShown = false;
     },
   },
   components: {
