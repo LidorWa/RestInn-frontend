@@ -1,13 +1,15 @@
 <template>
   <section>
     <form @submit.prevent="" class="main-search-container flex align-center btn">
+      <!-- location -->
       <div class="header-input location-input flex flex-column">
         <label for=" location-input" class="label location-input">Location</label>
         <input type="text" v-model="location" id="location-input" name="location-input" placeholder="Where are you going?" autocomplete="off" spellcheck="false" />
       </div>
 
       <span class="search-space"></span>
-
+      <!-- date picker -->
+      <!-- check in -->
       <div class="date-picker-container flex">
         <div class="header-input check-in-top flex flex-column">
           <div class="label check-in-top">Check in</div>
@@ -15,12 +17,12 @@
         </div>
 
         <span class="search-space"></span>
-
+        <!-- check out -->
         <div class="header-input check-out-top flex flex-column">
           <div class="label check-out-top">Check out</div>
           <div>{{ formatedDate(1) }}</div>
         </div>
-
+        <!-- element picker -->
         <div class="block header-input date-picker">
           <!-- returns timestamp (Value format "x") -->
           <el-date-picker v-model="dates" type="daterange" range-separator="To" start-placeholder="Start date" end-placeholder="End date" value-format="x" />
@@ -28,6 +30,7 @@
       </div>
       <span class="search-space"></span>
 
+      <!-- geusts -->
       <div class="header-input guestsInput flex">
         <label for="guestsInput" class="label">Guests</label>
 
@@ -106,11 +109,11 @@ export default {
       // }
       let path = '/stay'
       if (this.location) path += `?destination=${this.location}`
-      // if (this.dates[0]) {
-      //   path += `?checkIn=${this.dates[0]}?checkOut=${this.dates[1]}`;
-      // }
 
       this.$router.push(`${path}`)
+      setTimeout(() => {
+        location.reload()
+      }, 10)
     },
     // onHeaderObserved(entries) {
     //   entries.forEach((entry) => {
@@ -131,7 +134,6 @@ export default {
     },
   },
   unmounted() {
-    console.log('bye')
     this.$emit('mainSearchClosed', this.location, this.dates, this.guests)
   },
 }

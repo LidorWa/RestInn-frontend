@@ -66,86 +66,30 @@
 }
 
 // Buttons
-//search btn
 
-@mixin search-icon ($type: small){
-    //TODO remember to put flex on element
-    display: flex;
-    width: em(32px);
-    height: em(32px);
-    border-radius: 50%;
-    background-color: $clr1;
-    color: $clr3;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    img{
-        width: em(18px);
-        height: em(18px);
-    }
-
-    @if $type == big {
-      width: em(48px);
-  height: em(48px);
-    }
-}
-
-// @mixin btn($type: regular, $bg: $clr1, $clr: $clr3, $padding: em(24px) em(44px), $hover: darken($bg, 8%)) {
-//   display: inline-flex;
-//   align-items: center;
-//   text-decoration: none;
-//   text-transform: uppercase;
-//   padding: $padding;
-//   line-height: 1.25;
-//   font-size: em(14px);
-//   font-variation-settings: "wght" 430;
-//   border: none;
-//   cursor: pointer;
-
-//   transition: background-color 0.2s;
-
-//   @if $type == regular {
-//     background-color: $bg;
-//     color: $clr;
-//     &:hover {
-//       background-color: $hover;
-//     }
-//   } @else if $type == dark {
-//     background-color: $clr2;
+//TODO: try implementing
+// @mixin search-icon ($type: small){
+//     display: flex;
+//     width: em(32px);
+//     height: em(32px);
+//     border-radius: 50%;
+//     background-color: $clr1;
 //     color: $clr3;
-//     &:hover {
-//       background-color: $clr1;
-//       color: $clr3;
+//     align-items: center;
+//     justify-content: center;
+//     cursor: pointer;
+//     img{
+//         width: em(18px);
+//         height: em(18px);
 //     }
-//   } @else if $type == light {
-//     background-color: $clr3;
-//     color: $clr2;
-//     &:hover {
-//       background-color: $clr1;
-//       color: $clr3;
+
+//     @if $type == big {
+//       width: em(48px);
+//       height: em(48px);
+//       img{
+//         width: em(25px);
+//         height: em(25px);
 //     }
-//   }
+//     }
 // }
-
-// // Type
-
-// @mixin type($type: bold) {
-//   // type options: 
-//   // 1.bold 
-//   // 2.boldCondensed 
-//   // 3.condensed
-//   @if $type == bold {
-//     font-variation-settings: "wght" 430;
-//   } 
-//   @else if $type == boldCondensed {
-//     font-variation-settings: "wght" 430, "wdth" 80;
-//     letter-spacing: em(6.72px);
-//   } 
-//   @else if $type == condensed {
-//     font-variation-settings: "wdth" 80;
-//     letter-spacing: em(6.72px);
-//   }
-//   @else if $type == light {
-//     font-variation-settings: "wght" 200;
-//   }
-// }
+//   transition: background-color 0.2s;
