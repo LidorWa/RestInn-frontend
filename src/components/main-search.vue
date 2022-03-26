@@ -113,6 +113,8 @@ export default {
     // this.headerObserver.observe(this.$ref.header)
   },
   created() {
+    console.log(this.savedDates);
+    console.log(this.savedGuests);
     this.location = this.savedLocation;
     this.dates = this.savedDates;
     this.guests = this.savedGuests;
@@ -162,7 +164,6 @@ export default {
     },
   },
   unmounted() {
-    console.log("bye");
     this.$emit("mainSearchClosed", this.location, this.dates, this.guests);
   },
 };

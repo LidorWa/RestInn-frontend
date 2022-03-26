@@ -50,7 +50,7 @@
       />
       <div
         v-if="isShowingHamburger"
-        class="outside"
+        class="outsideUserMenu"
         @click="isShowingHamburger = false"
       ></div>
     </div>
@@ -60,17 +60,19 @@
     >
       <main-search
         @mainSearchClosed="mainSearchClosed"
-        :savedLocation="location"
-        :savedDates="dates"
-        :savedGuests="guests"
+        :savedLocation="getLocation"
+        :savedDates="getDates"
+        :savedGuests="getGuests"
       />
     </div>
+    <sign-up :class="{ showSignUp: isSignUp }" />
   </header>
 </template>
 
 <script>
 import mainSearch from "./main-search.vue";
 import headerUserMenu from "./header-user-menu.vue";
+import signUp from "../components/sign-up.vue";
 export default {
   name: "app-header",
   props: {
@@ -86,9 +88,7 @@ export default {
     return {
       isMiniSearchShown: false,
       isShowingHamburger: false,
-      location: "",
-      dates: null,
-      guests: { adults: 0, children: 0 },
+      isSignUp: true,
     };
   },
   methods: {
@@ -97,9 +97,12 @@ export default {
       this.isShowingHamburger = false;
     },
     mainSearchClosed(location, dates, guests) {
-      this.location = location;
-      this.dates = dates;
-      this.guests = guests;
+      this.$store.commit({ type: "setLocation", location });
+      this.$store.commit({ type: "setDates", dates });
+      this.$store.commit({ type: "setGuests", guests });
+      // this.location = location;
+      // this.dates = dates;
+      // this.guests = guests;
     },
     toggleMiniSearch() {
       this.isMiniSearchShown = !this.isMiniSearchShown;
@@ -109,6 +112,15 @@ export default {
     },
   },
   computed: {
+    getLocation() {
+      return this.$store.getters.getLocation;
+    },
+    getDates() {
+      return this.$store.getters.getDates;
+    },
+    getGuests() {
+      return this.$store.getters.getGuests;
+    },
     getHeaderClass() {
       return {
         top: this.headerStatus === "top",
@@ -152,6 +164,7 @@ export default {
   components: {
     mainSearch,
     headerUserMenu,
+    signUp,
   },
 };
 </script>
