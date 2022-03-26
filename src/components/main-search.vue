@@ -82,13 +82,24 @@ import selectGuestsModal from "../components/select-guests-modal.vue";
 
 export default {
   name: "main-search",
+  props: {
+    savedLocation: {
+      type: String,
+    },
+    savedDates: {
+      type: Object,
+    },
+    savedGuests: {
+      type: Object,
+    },
+  },
   data() {
     return {
       headerObserver: null,
       stickyNav: false,
-      dates: ref(""),
       isSelectingGuests: false,
       location: "",
+      dates: null,
       guests: { adults: 0, children: 0 },
     };
   },
@@ -101,7 +112,14 @@ export default {
     // })
     // this.headerObserver.observe(this.$ref.header)
   },
-  created() {},
+  created() {
+    this.location = this.savedLocation;
+    this.dates = this.savedDates;
+    this.guests = this.savedGuests;
+    console.log(this.savedLocation);
+    console.log(this.savedDates);
+    console.log(this.savedGuests);
+  },
   methods: {
     formatedDate(num) {
       if (!this.dates) return "Add dates";
@@ -148,6 +166,7 @@ export default {
   },
   unmounted() {
     console.log("bye");
+    this.$emit("mainSearchClosed", this.location, this.dates, this.guests);
   },
 };
 </script>
