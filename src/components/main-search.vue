@@ -116,9 +116,6 @@ export default {
     this.location = this.savedLocation;
     this.dates = this.savedDates;
     this.guests = this.savedGuests;
-    console.log(this.savedLocation);
-    console.log(this.savedDates);
-    console.log(this.savedGuests);
   },
   methods: {
     formatedDate(num) {
