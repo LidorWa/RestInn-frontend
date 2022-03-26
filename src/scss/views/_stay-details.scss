@@ -1,7 +1,8 @@
 .stay-details-page {
   width: calc(100vw - 120px);
-  padding-top: em(180px);
+  padding-top: em(90px);
   color: $clr2;
+  margin: auto;
   margin-right: em(50px);
   margin-left: em(50px);
   padding-left: em(10px);
@@ -89,6 +90,12 @@
     .stay-type-host-name {
       font-weight: 600;
       line-height: 25px;
+      @media(max-width:880px){
+        line-height: 28px;
+      }
+      @media(max-width: 800px){
+        font-size: 18px;
+      }
     }
     .stay-properties {
       display: flex;
@@ -166,7 +173,7 @@
       font-weight: 600;
     }
     .amenities-list {
-      width: em(500px);
+      width: calc(65vw - 100px);
       .amenity-container {
         display: flex;
         flex-wrap: wrap;
@@ -279,6 +286,7 @@
             margin: 0px 0px em(10px);
             flex-direction: column;
             line-height: 28px;
+            align-items: center;
           }
 
           .hero-modal-price {
@@ -409,3 +417,5 @@
 //     }
 //   }
 // }
+
+
