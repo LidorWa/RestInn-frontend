@@ -2,12 +2,12 @@
     <section class="hero-modal">
         <section class="hero-modal-wrapper">
             <section class="hero-modal-container">
-                <details-select-guests-modal
+                <!-- <details-select-guests-modal
                     v-if="isSelectingGuests"
                     :guests="guests"
                     @closeGuestsModal="closeGuestsModal"
                     @onSelectGuests="onSelectGuests"
-                />
+                /> -->
                 <section class="hero-modal-header">
                     <div class="hero-modal-price">
                         <span>{{ $filters.currencyUSD(stay.price) }}</span>
