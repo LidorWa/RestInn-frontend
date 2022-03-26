@@ -105,7 +105,6 @@ export default {
       }
     },
     scrollY() {
-      console.log('scrollY', scrollY)
       if (scrollY > 20) this.isMiniSearchShown = false
     },
   },
