@@ -4,7 +4,7 @@
       <!-- location -->
       <div class="header-input location-input flex flex-column">
         <label for=" location-input" class="label location-input">Location</label>
-        <input type="text" v-model="location" id="location-input" name="location-input" placeholder="Where are you going?" autocomplete="off" spellcheck="false" />
+        <input type="text" v-model="location" id="location-input" name="location-input" :placeholder="getMainSearchText" autocomplete="off" spellcheck="false" />
       </div>
 
       <span class="search-space"></span>
@@ -109,11 +109,8 @@ export default {
       // }
       let path = '/stay'
       if (this.location) path += `?destination=${this.location}`
-
       this.$router.push(`${path}`)
-      setTimeout(() => {
-        location.reload()
-      }, 10)
+      // Reload???
     },
     // onHeaderObserved(entries) {
     //   entries.forEach((entry) => {
@@ -122,6 +119,9 @@ export default {
     // },
   },
   computed: {
+    getMainSearchText() {
+      return 'Where are you going?'
+    },
     getGuestsNumber() {
       const guests = this.guests.adults + this.guests.children
       if (!guests) return 'Add guests'
