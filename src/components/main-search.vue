@@ -14,7 +14,7 @@
           v-model="location"
           id="location-input"
           name="location-input"
-          placeholder="Where are you going?"
+          :placeholder="getMainSearchText"
           autocomplete="off"
           spellcheck="false"
         />
@@ -150,6 +150,9 @@ export default {
     // },
   },
   computed: {
+    getMainSearchText() {
+      return "Where are you going?";
+    },
     getGuestsNumber() {
       const guests = this.guests.adults + this.guests.children;
       if (!guests) return "Add guests";

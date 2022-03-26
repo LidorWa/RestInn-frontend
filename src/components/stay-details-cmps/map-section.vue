@@ -34,7 +34,6 @@ export default {
   created() {
     this.center.lat = this.address.location.lan;
     this.center.lng = this.address.location.lat;
-    console.log(this.address);
   },
 };
 </script>
