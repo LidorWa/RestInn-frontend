@@ -109,11 +109,11 @@ export default {
       // }
       let path = '/stay'
       if (this.location) path += `?destination=${this.location}`
-      // if (this.dates[0]) {
-      //   path += `?checkIn=${this.dates[0]}?checkOut=${this.dates[1]}`;
-      // }
 
       this.$router.push(`${path}`)
+      setTimeout(() => {
+        location.reload()
+      }, 10)
     },
     // onHeaderObserved(entries) {
     //   entries.forEach((entry) => {

@@ -1,18 +1,36 @@
 .sign-up-modal {
-  display: none;
   position: fixed;
+  top: 140px;
+  height: 49vh;
+  transform: translateY(250%);
   background-color: $clr3;
-  border-right: 1px solid $clr6;
-  border-top: 1px solid $clr6;
+  border-right: 1px solid $clr7;
+  border-top: 1px solid $clr7;
   box-shadow: -1px 1px 1px 0px #dcdcdc;
   width: 450px;
   border-radius: 15px;
   text-align: start;
-  //   padding: 20px;
+  transition: 0.3s;
+  z-index: 888;
+
   p {
     background-color: $clr3;
     padding-left: 20px;
   }
+}
+
+.close-sign-up {
+  position: absolute;
+  left: 13px;
+  top: 10px;
+  font-size: em(22px);
+  cursor: pointer;
+  transition: 0.1s;
+  z-index: 500;
+}
+
+.close-sign-up:hover {
+  font-weight: 600;
 }
 
 .sign-up-title {
@@ -21,12 +39,14 @@
   padding: 5px;
   padding-bottom: 20px;
   font-weight: 600;
-  border-bottom: 1px solid $clr6;
+  border-bottom: 1px solid $clr7;
 }
 
 .sign-up-welcome {
   font-size: em(20px);
   padding: 20px;
+  padding-left: 10px;
+  //   padding-bottom: 0px;
   font-weight: 600;
 }
 
@@ -35,15 +55,17 @@
   flex-direction: column;
 
   margin: 10px;
+  margin-top: 1px;
+  margin-bottom: 19px;
 
   .sign-up-input:first-child {
-    border: 1px solid $clr6;
+    border: 1px solid $clr7;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
   }
 
   .sign-up-input:last-child {
-    border: 1px solid $clr6;
+    border: 1px solid $clr7;
     border-top: unset;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -52,13 +74,48 @@
 
 .inputs-hr {
   width: 100%;
-  color: $clr6;
+  color: $clr7;
 }
 
 .sign-up-input {
   height: 30px;
-  //   margin: 0px 20px;
   padding: 20px 20px;
   border: none;
   font-size: em(16px);
+}
+
+.sign-up-continue {
+  height: 50px;
+  padding: 20px;
+  width: 95%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: $clr3;
+  background-color: $clr1;
+  line-height: 10px;
+  margin: auto;
+  text-align: center;
+  font-size: em(20px);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.sign-up-continue:hover {
+  background-color: rgba($clr1, 0.9);
+}
+
+.input-alert {
+  margin: 0;
+  padding-left: 10px !important;
+  font-size: em(13px);
+  margin-bottom: 2px;
+  color: rgb(160, 0, 0);
+}
+
+.no-alert {
+  margin: 0;
+  font-size: em(13px);
+  margin-bottom: 2px;
+  color: $clr3;
 }
