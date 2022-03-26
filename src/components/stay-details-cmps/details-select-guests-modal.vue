@@ -1,19 +1,19 @@
 <template>
-  <section class="select-guests-modal">
-    <p class="guests-modal-title">Select guests</p>
-    <div class="guests-type-conteiner">
-      <span class="guests-type">Adults</span>
+  <section class="details-select-guests-modal">
+    <p class="details-guests-modal-title">Select guests</p>
+    <div class="details-guests-type-container">
+      <span class="details-guests-type">Adults</span>
 
-      <div class="guests-counter">
+      <div class="details-guests-counter">
         <span
-          class="material-icons guest-cout-icon"
+          class="material-icons details-guest-count-icon"
           @click="changeCount('adults', -1)"
         >
           remove
         </span>
-        <span class="guests-number">{{ guestSelected.adults }}</span>
+        <span class="details-guests-number">{{ guestSelected.adults }}</span>
         <span
-          class="material-icons guest-cout-icon"
+          class="material-icons details-guest-count-icon"
           @click="changeCount('adults', 1)"
         >
           add
@@ -21,25 +21,25 @@
       </div>
     </div>
 
-    <div class="guests-type-conteiner">
-      <span class="guests-type">Children</span>
-      <div class="guests-counter">
+    <div class="details-guests-type-container">
+      <span class="details-guests-type">Children</span>
+      <div class="details-guests-counter">
         <span
-          class="material-icons guest-cout-icon"
+          class="material-icons details-guest-count-icon"
           @click="changeCount('children', -1)"
         >
           remove
         </span>
-        <span class="guests-number">{{ guestSelected.children }}</span>
+        <span class="details-guests-number">{{ guestSelected.children }}</span>
         <span
-          class="material-icons guest-cout-icon"
+          class="material-icons details-guest-count-icon"
           @click="changeCount('children', 1)"
         >
           add
         </span>
       </div>
     </div>
-    <div class="guests-btns-conteiner">
+    <div class="details-guests-btns-container">
       <!-- <div class="guest-modal-btn" @click="closeGuestsModal">Cancel</div> -->
       <div class="guest-modal-btn" @click="onSelectGuests">OK</div>
     </div>
@@ -59,11 +59,12 @@ export default {
   data() {
     return {
       guestSelected: null,
-
+      newModalClass: 'guests-modal-in-stay-details'
     };
   },
   created() {
     this.guestSelected = { ...this.guests };
+    console.log(this.$route.params.value)
   },
   methods: {
     closeGuestsModal() {

@@ -2,6 +2,12 @@
     <section class="hero-modal">
         <section class="hero-modal-wrapper">
             <section class="hero-modal-container">
+                <details-select-guests-modal
+                    v-if="isSelectingGuests"
+                    :guests="guests"
+                    @closeGuestsModal="closeGuestsModal"
+                    @onSelectGuests="onSelectGuests"
+                />
                 <section class="hero-modal-header">
                     <div class="hero-modal-price">
                         <span>{{ $filters.currencyUSD(stay.price) }}</span>
@@ -28,12 +34,6 @@
                     </div>
                     <div class="hero-modal-guests" @click="isSelectingGuests = !isSelectingGuests">
                         <label for="hero-modal-guest-picker">GUESTS</label>
-                        <select-guests-modal
-                            v-if="isSelectingGuests"
-                            :guests="guests"
-                            @closeGuestsModal="closeGuestsModal"
-                            @onSelectGuests="onSelectGuests"
-                        />
                     </div>
                     <div class="check-availability-container">
                         <span class="check-availability-span">Check availability</span>
@@ -45,29 +45,31 @@
 </template>
 
 <script>
-import selectGuestsModal from "../select-guests-modal.vue";
+import detailsSelectGuestsModal from "./details-select-guests-modal.vue";
 export default {
     props: {
         stay: {
             type: Object,
             required: true,
-        }
+        },
+
     },
     data() {
         return {
             isSelectingGuests: false,
-            guests: { adults: 0, children: 0 },
+            // guests: { adults: 0, children: 0 },
         }
     },
     components: {
-        selectGuestsModal
+        detailsSelectGuestsModal
     },
     computed: {
         fixedScore() {
             let currStayScore = this.stay.reviewScores.rating / 20;
             return currStayScore.toFixed(2);
-        }
-    }
+        },
+    },
+
 }
 </script>
 

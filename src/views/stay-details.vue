@@ -1,5 +1,6 @@
 <template>
   <section class="stay-details-page" v-if="stay">
+    <title>{{stay.name}}</title>
     <section class="stay-details" v-if="stay">
       <!-- <secondary-header  @scrollTo="scrollTo" :stay="stay" /> -->
       <secondary-header :stay="stay" />
@@ -58,18 +59,20 @@ import heroModal from '../components/stay-details-cmps/hero-modal.vue'
 import mapSection from '../components/stay-details-cmps/map-section.vue'
 
 export default {
+  
   name: 'stay-details',
   data() {
     return {
-      isAdding: false,
-      reviewToAdd: {
-        content: '',
-        userId: '',
-        stayId: '',
-      },
+      // isAdding: false,
+      // reviewToAdd: {
+      //   content: '',
+      //   userId: '',
+      //   stayId: '',
+      // },
       stay: null,
     }
   },
+  
   components: {
     imagesContainer,
     SecondaryHeader,
@@ -80,20 +83,13 @@ export default {
     heroModal,
   },
   async created() {
-    console.log(this.$route.path.length)
-
     const stayId = this.$route.params.stayId
     this.stay = await this.$store.dispatch({ type: 'getStayById', stayId: stayId })
-
   },
-
   methods: {
-    getImgUrl(file) {
-      const imgUrl = new URL(`../assets/images/${file}`, import.meta.url)
-      return imgUrl
-    },
   },
   computed: {
+    
   },
 }
 </script>

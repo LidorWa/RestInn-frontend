@@ -4,8 +4,7 @@
     :class="getHeaderClass"
   >
     <!-- <header class="main-header-container flex flex-column align-center" :class="{ top: headerStatus === 'top', shrinkSearchBar: headerStatus === 'shrinkSearchBar', homepage: this.$route.path === '/', 'explore-page': this.$route.path === '/stay', 'details-page': this.$route.path === '/stay/:stayId' }"> -->
-    <!-- <header class="main-header-container flex flex-column align-center" :class="headerStatus">
-     -->
+    <!-- <header class="main-header-container flex flex-column align-center" :class="headerStatus">-->
     <!-- <header :class="'main-header-container flex flex-column align-center ' + headerStatus"> -->
     <div class="logo-nav-container flex space-between">
       <div class="logo flex align-center" @click="goHome">
@@ -21,7 +20,7 @@
         class="search mini-search inline-flex justify-center align-center space-between"
       >
         <div>Start your search</div>
-        <div class="search-icon">
+        <div class="search-icon-small">
           <img src="../assets/svgs/search.svg" alt="search Icon" />
         </div>
       </div>
