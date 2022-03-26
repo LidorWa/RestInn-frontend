@@ -69,15 +69,15 @@
     padding: 0 !important;
     margin: 0 !important;
   }
-  .block:last-child {
-    border-right: none;
-  }
-  .block .demonstration {
-    display: block;
-    color: var(--el-text-color-secondary);
-    font-size: em(14px);
-    margin-bottom: em(20px);
-  }
+  // .block:last-child {
+  //   border-right: none;
+  // }
+  // .block .demonstration {
+  //   display: block;
+  //   color: var(--el-text-color-secondary);
+  //   font-size: em(14px);
+  //   margin-bottom: em(20px);
+  // }
   .el-range-separator,
   .el-input__icon {
     display: none !important;
@@ -86,18 +86,18 @@
   //   border: none !important;
   // }
 
-  .el-range-input {
-    border: 0px white solid !important;
-  }
+  // .el-range-input {
+  //   border: 0px white solid !important;
+  // }
 
-  .el-range-editor,
-  .el-input__inner {
-    border: none !important;
-    border: 0px white solid !important;
-  }
-  .el-date-editor {
-    border: none !important;
-  }
+  // .el-range-editor,
+  // .el-input__inner {
+  //   border: none !important;
+  //   border: 0px white solid !important;
+  // }
+  // .el-date-editor {
+  //   border: none !important;
+  // }
   // el-icon el-input__icon {
   //   // display: none !important;
   // }
@@ -125,6 +125,7 @@
     // left: 0;
   }
 }
+
 
 .search-icon {
   //TODO remember to put flex on element
