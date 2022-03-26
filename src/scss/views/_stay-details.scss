@@ -2,10 +2,10 @@
   width: calc(100vw - 180px);
   padding-top: em(180px);
   color: $clr2;
-  margin-right: em(70px);
-  margin-left: em(70px);
-  padding-left: em(20px);
-  padding-right: em(20px);
+  margin-right: em(50px);
+  margin-left: em(50px);
+  padding-left: em(10px);
+  padding-right: em(10px);
 
   .stay-name {
     h1 {
@@ -68,8 +68,10 @@
 
   .hero-modal-and-general-info {
     display: flex;
+    flex-direction: row;
+
     .general-info{
-      width: 50%;
+      width: 60%;
     }
   }
     .general-info{
@@ -244,20 +246,18 @@
     }
 
     .hero-modal {
-      position: relative;
-      width: calc(50vw - 90px);     
+
+      width: calc(40vw - 90px);  
+      position: relative;  
       display: flex;
       justify-content: flex-end;
       padding: 48px 0px 0px;
       .hero-modal-wrapper {
         position: sticky;
-
         top: 5rem;
-        // width: em(370px);
-        height: 30vh;
+        height: 50vh;
         display: flex;
         justify-content: center;
-        // align-items: center;
         .hero-modal-container {
           box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
           border-radius: 15px;
@@ -372,6 +372,9 @@
               color: $clr3;
               background-color: $clr1;
             }
+            .hero-modal-check-in,.hero-modal-check-out,.check-availability-container, .hero-modal-guests:hover{
+              cursor: pointer;
+            } 
           }
         
       }
