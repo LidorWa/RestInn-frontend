@@ -1,7 +1,7 @@
 <template>
   <div class="block">
     <span class="demonstration">Default</span>
-    <el-date-picker v-model="date" type="daterange" start-placeholder="CHECK-IN" end-placeholder="CHECKOUT" />
+    <el-date-picker v-model="date" type="daterange" start-placeholder="CHECK-IN" end-placeholder="CHECKOUT" class="date-picker" />
   </div>
 </template>
 

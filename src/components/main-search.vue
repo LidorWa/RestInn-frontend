@@ -150,8 +150,8 @@ export default {
   },
   computed: {
     getMainSearchText() {
-      if (this.$route.query.destination) return this.$route.query.destination;
-      return "Where are you going?";
+      if (!this.$route.query.destination) return "Where are you going?";
+      else return this.$route.query.destination;
     },
     getGuestsNumber() {
       const guests = this.guests.adults + this.guests.children;

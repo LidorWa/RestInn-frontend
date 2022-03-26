@@ -93,12 +93,16 @@
   }
 
   #location-input {
+    font-family: cereal-book;
     text-align: center;
     cursor: text;
+    font-size: em(14px);
+    color: $clr5;
+    border: none;
   }
 
   .add-dates {
-    cursor: pointer !important;
+    color: $clr5;
   }
 
   .guests-input-container {
@@ -116,8 +120,10 @@
 }
 
 .location-input {
-  height: 66px;
   justify-content: center;
+  line-height: 15px;
+  padding-right: 13px;
+  margin-top: 1.5px;
 }
 
 .date-input {
