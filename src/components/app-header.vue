@@ -10,7 +10,6 @@
         <h1 class="logo-txt">RestInn</h1>
       </div>
       <!-- Mini search bar -->
-      <div v-if="checkMiniSearch" @click="toggleMiniSearch" class="search mini-search inline-flex justify-center align-center space-between">
         <!--  -->
         <div v-if="checkMiniSearch" @click="toggleMiniSearch" class="search mini-search inline-flex justify-center align-center space-between">
           <div>Start your search</div>
