@@ -46,6 +46,9 @@
       }
     }
   }
+  &.details-page {
+    height: em(66px);
+  }
   &.main-search-open {
     height: em(140px);
   }
