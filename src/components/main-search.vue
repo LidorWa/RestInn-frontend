@@ -52,14 +52,31 @@ import selectGuestsModal from '../components/select-guests-modal.vue'
 // import { fa } from 'element-plus/lib/locale'
 
 export default {
-  name: 'main-search',
+  name: "main-search",
+  props: {
+    savedLocation: {
+      type: String,
+    },
+    savedDates: {
+      type: Object,
+    },
+    savedGuests: {
+      type: Object,
+    },
+  },
   data() {
     return {
       headerObserver: null,
       stickyNav: false,
+<<<<<<< HEAD
       dates: ref(''),
       isSelectingGuests: false,
       location: '',
+=======
+      isSelectingGuests: false,
+      location: "",
+      dates: null,
+>>>>>>> 93f7554c9af33b3629861b44a1717c6318fcbd2a
       guests: { adults: 0, children: 0 },
     }
   },
@@ -72,7 +89,14 @@ export default {
     // })
     // this.headerObserver.observe(this.$ref.header)
   },
-  created() {},
+  created() {
+    this.location = this.savedLocation;
+    this.dates = this.savedDates;
+    this.guests = this.savedGuests;
+    console.log(this.savedLocation);
+    console.log(this.savedDates);
+    console.log(this.savedGuests);
+  },
   methods: {
     formatedDate(num) {
       if (!this.dates) return 'Add dates'
@@ -115,8 +139,16 @@ export default {
       ;[new Date(2000, 1, 1, 12, 0, 0)] // '12:00:00'
     },
   },
+<<<<<<< HEAD
   unmounted() {},
 }
+=======
+  unmounted() {
+    console.log("bye");
+    this.$emit("mainSearchClosed", this.location, this.dates, this.guests);
+  },
+};
+>>>>>>> 93f7554c9af33b3629861b44a1717c6318fcbd2a
 </script>
 
 <style></style>
