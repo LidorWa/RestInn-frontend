@@ -131,8 +131,7 @@ export default {
     },
   },
   unmounted() {
-    console.log('bye')
-    this.$emit('mainSearchClosed', this.location, this.dates, this.guests)
+    this.$emit("mainSearchClosed", this.location, this.dates, this.guests);
   },
 }
 </script>

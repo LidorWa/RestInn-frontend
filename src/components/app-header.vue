@@ -10,55 +10,39 @@
         <h1 class="logo-txt">RestInn</h1>
       </div>
       <!-- Mini search bar -->
-        <!--  -->
-        <div v-if="checkMiniSearch" @click="toggleMiniSearch" class="search mini-search inline-flex justify-center align-center space-between">
-          <div>Start your search</div>
-          <div class="search-icon">
-            <img src="../assets/svgs/search.svg" alt="search Icon" />
-          </div>
+
+      <!--  -->
+      <div v-if="checkMiniSearch" @click="toggleMiniSearch" class="search mini-search inline-flex justify-center align-center space-between">
+        <div>Start your search</div>
+        <div class="search-icon">
+          <img src="../assets/svgs/search.svg" alt="search Icon" />
         </div>
       </div>
+
       <!--  -->
       <nav class="main-header-nav flex justify-center align-center">
         <router-link to="/stay">Explore</router-link>
         <router-link to="/host">Become a host</router-link>
-        <div
-          class="hamburger-user-menu btn flex"
-          @click="isShowingHamburger = true"
-        >
-          <img
-            class="hamburger-img"
-            src="../assets/svgs/menu_black_24dp.svg"
-            alt="menu-icon"
-          />
+        <div class="hamburger-user-menu btn flex" @click="isShowingHamburger = true">
+          <img class="hamburger-img" src="../assets/svgs/menu_black_24dp.svg" alt="menu-icon" />
 
-          <img
-            class="hamburger-avatar"
-            src="../assets/svgs/user-avatar.svg"
-            alt="house"
-          />
+          <img class="hamburger-avatar" src="../assets/svgs/user-avatar.svg" alt="house" />
         </div>
       </nav>
-      <header-user-menu
-        :class="{ showHamburger: isShowingHamburger }"
-        @signUp="signUp"
-      />
-      <div
-        v-if="isShowingHamburger"
-        class="outside"
-        @click="isShowingHamburger = false"
-      ></div>
+      <header-user-menu :class="{ showHamburger: isShowingHamburger }" @signUp="signUp" />
+      <div v-if="isShowingHamburger" class="outsideUserMenu" @click="isShowingHamburger = false"></div>
     </div>
-
     <div v-if="checkMainSearch" class="main-search-bar flex justify-center align-center">
-      <main-search @mainSearchClosed="mainSearchClosed" :savedLocation="location" :savedDates="dates" :savedGuests="guests" />
+      <main-search @mainSearchClosed="mainSearchClosed" :savedLocation="getLocation" :savedDates="getDates" :savedGuests="getGuests" />
     </div>
+    <!-- <sign-up :class="{ showSignUp: isSignUp }" /> -->
   </header>
 </template>
 
 <script>
 import mainSearch from './main-search.vue'
 import headerUserMenu from './header-user-menu.vue'
+import signUp from '../components/sign-up.vue'
 export default {
   name: 'app-header',
   props: {
@@ -74,20 +58,21 @@ export default {
     return {
       isMiniSearchShown: false,
       isShowingHamburger: false,
-      location: '',
-      dates: null,
-      guests: { adults: 0, children: 0 },
+      isSignUp: true,
     }
   },
   methods: {
     signUp() {
-      console.log("Sign up clicked");
-      this.isShowingHamburger = false;
+      console.log('Sign up clicked')
+      this.isShowingHamburger = false
     },
     mainSearchClosed(location, dates, guests) {
-      this.location = location
-      this.dates = dates
-      this.guests = guests
+      this.$store.commit({ type: 'setLocation', location })
+      this.$store.commit({ type: 'setDates', dates })
+      this.$store.commit({ type: 'setGuests', guests })
+      // this.location = location;
+      // this.dates = dates;
+      // this.guests = guests;
     },
     toggleMiniSearch() {
       this.isMiniSearchShown = !this.isMiniSearchShown
@@ -97,6 +82,15 @@ export default {
     },
   },
   computed: {
+    getLocation() {
+      return this.$store.getters.getLocation
+    },
+    getDates() {
+      return this.$store.getters.getDates
+    },
+    getGuests() {
+      return this.$store.getters.getGuests
+    },
     getHeaderClass() {
       return {
         top: this.headerStatus === 'top',
@@ -126,12 +120,13 @@ export default {
       }
     },
     scrollY() {
-      if (scrollY > 20) this.isMiniSearchShown = false;
+      if (scrollY > 20) this.isMiniSearchShown = false
     },
   },
   components: {
     mainSearch,
     headerUserMenu,
+    signUp,
   },
 }
 </script>

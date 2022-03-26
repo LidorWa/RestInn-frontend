@@ -1,7 +1,7 @@
 <template>
   <section class="header-user-menu">
     <p class="sign-up-option" @click="signUp">Sign up</p>
-    <p>Log in</p>
+    <p @click="signUp">Log in</p>
     <hr />
     <p>Host your home</p>
     <p>Help</p>
