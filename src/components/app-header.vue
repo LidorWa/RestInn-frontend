@@ -18,7 +18,7 @@
         </div>
 
         <!-- nav -->
-        <nav class="main-header-nav flex justify-center align-center">
+        <nav class="main-header-nav flex align-center">
           <router-link to="/stay">Explore</router-link>
           <router-link to="/host">Become a host</router-link>
           <!-- TODO: try change svg color -->
