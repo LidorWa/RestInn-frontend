@@ -19,11 +19,11 @@
         </section>
         <section class="hero-modal-selection">
           <div class="hero-modal-check-container">
-            <div class="hero-modal-check-in">
+            <div class="hero-modal-check-in" @click="isSelectingDates = !isSelectingDates">
               <div>CHECK-IN</div>
               <div>Add date</div>
             </div>
-            <div class="hero-modal-check-out">
+            <div class="hero-modal-check-out" @click="isSelectingDates = !isSelectingDates">
               <div>CHECK-OUT</div>
               <div>Add date</div>
             </div>
@@ -57,6 +57,7 @@ export default {
   data() {
     return {
       isSelectingGuests: false,
+      isSelectingDates: false,
       // guests: { adults: 0, children: 0 },
     }
   },
