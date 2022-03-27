@@ -1,6 +1,8 @@
 .main-header-container {
   position: fixed;
-  width: 100vw;
+  
+  
+  // width: 100vw;
   // height: rem(158px);
   height: em(150px);
   // padding: em(8px) em(24px);
@@ -48,6 +50,7 @@
   &.details-page {
     height: em(66px);
     max-width: em(1400px);
+    margin: auto;
   }
   &.main-search-open {
     height: em(140px);
