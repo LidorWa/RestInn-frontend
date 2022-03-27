@@ -95,11 +95,11 @@ export default {
   //   }
   // },
   methods: {
-    // goToReviews(){
+    goToReviews(){
 
-    //   let coords = this.$refs['reviews-section'].getBoundingClientRect().x;
-    //   console.log(coords)
-    // }
+      let coords = this.$refs['reviews-section'].getBoundingClientRect().x;
+      // console.log(coords)
+    }
   },
   computed: {
   },
