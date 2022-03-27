@@ -1,46 +1,48 @@
 <template>
-  <header class="main-header-container flex flex-column align-center" :class="getHeaderClass">
-    <!-- <header class="main-header-container flex flex-column align-center" :class="{ top: headerStatus === 'top', shrinkSearchBar: headerStatus === 'shrinkSearchBar', homepage: this.$route.path === '/', 'explore-page': this.$route.path === '/stay', 'details-page': this.$route.path === '/stay/:stayId' }"> -->
-    <!-- <header class="main-header-container flex flex-column align-center" :class="headerStatus">-->
-    <!-- <header :class="'main-header-container flex flex-column align-center ' + headerStatus"> -->
-    <div class="logo-nav-container flex space-between">
-      <div class="logo flex align-center" @click="goHome">
-        <i class="fa-brands fa-airbnb"></i>
-        <h1 class="logo-txt">RestInn</h1>
-      </div>
-      <!-- Mini search bar -->
-      <div v-if="checkMiniSearch" @click="toggleMiniSearch" class="search mini-search inline-flex justify-center align-center space-between">
-        <div>{{ getSearchText }}</div>
-        <div class="search-icon-small">
-          <img src="../assets/svgs/search.svg" alt="search Icon" />
+  <div class="header-container">
+    <header class="main-header-container flex flex-column align-center" :class="getHeaderClass">
+      <!-- <header class="main-header-container flex flex-column align-center" :class="{ top: headerStatus === 'top', shrinkSearchBar: headerStatus === 'shrinkSearchBar', homepage: this.$route.path === '/', 'explore-page': this.$route.path === '/stay', 'details-page': this.$route.path === '/stay/:stayId' }"> -->
+      <!-- <header class="main-header-container flex flex-column align-center" :class="headerStatus">-->
+      <!-- <header :class="'main-header-container flex flex-column align-center ' + headerStatus"> -->
+      <div class="logo-nav-container flex space-between">
+        <div class="logo flex align-center" @click="goHome">
+          <i class="fa-brands fa-airbnb"></i>
+          <h1 class="logo-txt">RestInn</h1>
         </div>
-      </div>
+        <!-- Mini search bar -->
+        <div v-if="checkMiniSearch" @click="toggleMiniSearch" class="search mini-search inline-flex justify-center align-center space-between">
+          <div>{{ getSearchText }}</div>
+          <div class="search-icon-small">
+            <img src="../assets/svgs/search.svg" alt="search Icon" />
+          </div>
+        </div>
 
-      <!-- nav -->
-      <nav class="main-header-nav flex justify-center align-center">
-        <router-link to="/stay">Explore</router-link>
-        <router-link to="/host">Become a host</router-link>
-        <!-- TODO: try change svg color -->
-        <!-- <div class="language flex align-center justify-center">
+        <!-- nav -->
+        <nav class="main-header-nav flex justify-center align-center">
+          <router-link to="/stay">Explore</router-link>
+          <router-link to="/host">Become a host</router-link>
+          <!-- TODO: try change svg color -->
+          <!-- <div class="language flex align-center justify-center">
           <img src="../assets/svgs/en.svg" alt="language change icon" />
         </div> -->
 
-        <!-- hamburger -->
-        <div class="hamburger-user-menu btn flex space-between" @click="isShowingHamburger = true">
-          <img class="hamburger-img" src="../assets/svgs/menu_black_24dp.svg" alt="menu-icon" />
+          <!-- hamburger -->
+          <div class="hamburger-user-menu btn flex space-between" @click="isShowingHamburger = true">
+            <img class="hamburger-img" src="../assets/svgs/menu_black_24dp.svg" alt="menu-icon" />
 
-          <img class="hamburger-avatar" src="../assets/svgs/user-avatar.svg" alt="user avatar" />
-        </div>
-      </nav>
-      <header-user-menu :class="{ showHamburger: isShowingHamburger }" @openSignUp="openSignUp" />
-      <div v-if="isShowingHamburger" class="outsideUserMenu" @click="isShowingHamburger = false"></div>
-    </div>
-    <div v-if="checkMainSearch" class="main-search-bar flex justify-center align-center">
-      <main-search @mainSearchClosed="mainSearchClosed" :savedLocation="getLocation" :savedDates="getDates" :savedGuests="getGuests" />
-    </div>
-    <sign-up :class="{ showSignUp: isSignUp }" @closeSignUp="closeSignUp" @submitSignUp="submitSignUp" ref="signup" />
-    <div v-if="isSignUp" class="outsideUserMenu" @click="isSignUp = false"></div>
-  </header>
+            <img class="hamburger-avatar" src="../assets/svgs/user-avatar.svg" alt="user avatar" />
+          </div>
+        </nav>
+        <header-user-menu :class="{ showHamburger: isShowingHamburger }" @openSignUp="openSignUp" />
+        <div v-if="isShowingHamburger" class="outsideUserMenu" @click="isShowingHamburger = false"></div>
+      </div>
+      <div v-if="checkMainSearch" class="main-search-bar flex justify-center align-center">
+        <main-search @mainSearchClosed="mainSearchClosed" :savedLocation="getLocation" :savedDates="getDates" :savedGuests="getGuests" />
+      </div>
+      <sign-up :class="{ showSignUp: isSignUp }" @closeSignUp="closeSignUp" @submitSignUp="submitSignUp" ref="signup" />
+      <div v-if="isSignUp" class="outsideUserMenu" @click="isSignUp = false"></div>
+    </header>
+  </div>
 </template>
 
 <script>

@@ -1,11 +1,15 @@
+.header-container{
+  width: em(1400px);
+  margin: auto;
+}
+
 .main-header-container {
   position: fixed;
-  
-  
+  width: 100%;
   // width: 100vw;
   // height: rem(158px);
   height: em(150px);
-  // padding: em(8px) em(24px);
+  padding-top: em(8px);
   box-shadow: rgb(0, 0, 0, 0.08) 0px 1px 12px;
   // color: $clr1;
   z-index: 300;
