@@ -11,7 +11,13 @@
     <p class="input-alert" v-if="isEmailAlert">
       Please enter a valid email address
     </p>
-    <p v-if="!isInputAlert && !isEmailAlert" class="no-alert">.</p>
+    <p class="input-alert" v-if="isInvalidAlert">Invalid email or password</p>
+    <p
+      v-if="!isInputAlert && !isEmailAlert && !isInvalidAlert"
+      class="no-alert"
+    >
+      .
+    </p>
     <div class="sign-up-inputs-container">
       <input
         class="sign-up-input"
@@ -40,20 +46,37 @@ export default {
       password: "",
       isEmailAlert: false,
       isInputAlert: false,
+      isInvalidAlert: false,
     };
   },
 
   methods: {
-    submitSignUp() {
+    async submitSignUp() {
       const regex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
       if (!this.password || !this.email) {
         this.isInputAlert = true;
         this.isEmailAlert = false;
+        this.isInvalidAlert = false;
         return;
       }
       if (!regex.test(this.email)) {
         this.isInputAlert = false;
+        this.isInvalidAlert = false;
         this.isEmailAlert = true;
+        return;
+      }
+
+      const user = {
+        username: this.email,
+        password: this.password,
+      };
+
+      await this.$store.dispatch({ type: "login", user });
+      const loggedInUser = this.$store.getters.getLoggedInUser;
+      if (!loggedInUser) {
+        this.isInputAlert = false;
+        this.isEmailAlert = false;
+        this.isInvalidAlert = true;
         return;
       }
 
@@ -67,6 +90,7 @@ export default {
     cleanData() {
       this.isInputAlert = false;
       this.isEmailAlert = false;
+      this.isInvalidAlert = false;
       this.email = "";
       this.password = "";
     },
