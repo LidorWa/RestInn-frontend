@@ -38,7 +38,7 @@
     <div v-if="checkMainSearch" class="main-search-bar flex justify-center align-center">
       <main-search @mainSearchClosed="mainSearchClosed" :savedLocation="getLocation" :savedDates="getDates" :savedGuests="getGuests" />
     </div>
-    <sign-up :class="{ showSignUp: isSignUp }" @closeSignUp="closeSignUp" @submitSignUp="submitSignUp" />
+    <sign-up :class="{ showSignUp: isSignUp }" @closeSignUp="closeSignUp" @submitSignUp="submitSignUp" ref="signup" />
     <div v-if="isSignUp" class="outsideUserMenu" @click="isSignUp = false"></div>
   </header>
 </template>
@@ -66,20 +66,18 @@ export default {
     }
   },
   methods: {
-    submitSignUp(email, password) {
-      //Submit sign up
-      //Submit sign up
-      //Submit log in
-      //Submit log in
+    submitSignUp(user) {
+      console.log('Logged in:', user)
+
       this.isSignUp = false
     },
     closeSignUp() {
       this.isSignUp = false
     },
     openSignUp() {
-      console.log('Sign up clicked')
       this.isSignUp = true
       this.isShowingHamburger = false
+      this.$refs['signup'].$refs['email'].focus()
     },
     mainSearchClosed(location, dates, guests) {
       this.$store.commit({ type: 'setLocation', location })
@@ -157,4 +155,3 @@ export default {
 <!-- 1 2 | 3 true -->
 
 <!-- 3 false  -->
-//

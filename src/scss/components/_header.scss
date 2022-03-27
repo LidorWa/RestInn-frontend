@@ -15,7 +15,8 @@
     .logo-nav-container {
       color: $clr3;
 
-      a, img {
+      a,
+      img {
         color: $clr3;
       }
     }
@@ -27,7 +28,8 @@
     .logo-nav-container {
       color: $clr1;
 
-      a, img {
+      a,
+      img {
         color: $clr2;
       }
     }
@@ -37,7 +39,8 @@
     .logo-nav-container {
       color: $clr1;
 
-      a, img {
+      a,
+      img {
         color: $clr2;
       }
     }
@@ -121,14 +124,15 @@
   }
 }
 
-.hamburger-user-menu:hover {
-}
+// .hamburger-user-menu:hover {
+// }
 
 .showHamburger {
   transform: translateX(-1%) !important;
 }
 
 .showSignUp {
+  // display: unset !important;
   transform: translateX(-1%) !important;
 }
 
@@ -205,8 +209,7 @@
 
 //TODO: doesn't work!
 @media (max-width: 570px) {
-   h1, i{
-  }
+ 
   .fa-brands{
     font-size: em(10px);
   }
