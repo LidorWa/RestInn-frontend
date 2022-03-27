@@ -149,6 +149,7 @@
   // top: 50%;
   // left: 50%;
   // transform: translate(-50%, -50%);
+  min-width: 160px;
   line-height: 20px;
   box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
   background-color: $clr3;
@@ -166,6 +167,21 @@
 
   &:hover {
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.18);
+  }
+
+  @media (max-width: 570px) {
+    .logo {
+      font-size: em(20px);
+    }
+    .logo-nav-container a {
+      display: none;  
+      //TODO: add nav to hamburger
+    }
+    .hamburger-user-menu{
+        margin-inline-start: em(8px);
+        // margin-left: em(8px);
+    }
+    
   }
 }
 

@@ -1,16 +1,32 @@
 .footer{
     background-color: $clr8;
     padding: em(8px) em(24px);
-}
+    
+    li {
+        display: inline;
+        padding: em(5px);
+        cursor: pointer;
+    }
+    
+    .social-media-container{
+        // padding: em(5px);
+        gap: em(10px);
+        cursor: pointer;
+    }
 
-li {
-    display: inline;
-    padding: em(5px);
-    cursor: pointer;
-}
+    @media (max-width: 570px) {
+        .footer{
+        flex-direction: column-reverse;
+        }
+        //TODO: doesn't work!!!
+        .social-media-container{
+          // justify-content: space-around;
+          justify-content: unset;
+          margin-bottom: em(10px);
+        }
+        .rights-nav-container{
+          justify-content: space-between;
+        }
+      }
 
-.social-media-container{
-    // padding: em(5px);
-    gap: em(10px);
-    cursor: pointer;
 }
