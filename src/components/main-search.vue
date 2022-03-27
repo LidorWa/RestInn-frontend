@@ -47,6 +47,11 @@
         <!-- <img src="../assets/svgs/search.svg" alt="search Icon" /> -->
       </div>
     </form>
+    <!-- checking button -->
+    <div @click="openSearch" class="search-btn-container" :style="{ width: isSearchOpen ? '130px' : '50px' }">
+      <img src="../assets/svgs/search.svg" alt="" />
+      <p v-if="isSearchOpen" :style="{ opacity: isSearchOpen ? '100%' : '0%' }">Search</p>
+    </div>
   </section>
 </template>
 
@@ -77,6 +82,7 @@ export default {
       location: '',
       dates: null,
       guests: { adults: 0, children: 0 },
+      isSearchOpen: false,
     }
   },
   components: {
@@ -119,6 +125,10 @@ export default {
     //     this.stickyNav = entry.isIntersecting ? false : true
     //   })
     // },
+    openSearch() {
+      // if (this.isSearchOpen) this.doFilter()
+      this.isSearchOpen = true
+    },
   },
   computed: {
     getMainSearchText() {
