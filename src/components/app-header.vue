@@ -1,8 +1,5 @@
 <template>
-  <header
-    class="main-header-container flex flex-column align-center"
-    :class="getHeaderClass"
-  >
+  <header class="main-header-container flex flex-column align-center" :class="getHeaderClass">
     <!-- <header class="main-header-container flex flex-column align-center" :class="{ top: headerStatus === 'top', shrinkSearchBar: headerStatus === 'shrinkSearchBar', homepage: this.$route.path === '/', 'explore-page': this.$route.path === '/stay', 'details-page': this.$route.path === '/stay/:stayId' }"> -->
     <!-- <header class="main-header-container flex flex-column align-center" :class="headerStatus">-->
     <!-- <header :class="'main-header-container flex flex-column align-center ' + headerStatus"> -->
@@ -12,87 +9,50 @@
         <h1 class="logo-txt">RestInn</h1>
       </div>
       <!-- Mini search bar -->
-      <!-- Mini search bar -->
-      <!-- Mini search bar -->
-      <!-- Mini search bar -->
-      <!-- Mini search bar -->
-      <!-- Mini search bar -->
-      <div
-        v-if="checkMiniSearch"
-        @click="toggleMiniSearch"
-        class="search mini-search inline-flex justify-center align-center space-between"
-      >
+      <div v-if="checkMiniSearch" @click="toggleMiniSearch" class="search mini-search inline-flex justify-center align-center space-between">
         <div>{{ getSearchText }}</div>
         <div class="search-icon-small">
           <img src="../assets/svgs/search.svg" alt="search Icon" />
         </div>
       </div>
 
-      <!--  -->
+      <!-- nav -->
       <nav class="main-header-nav flex justify-center align-center">
         <router-link to="/stay">Explore</router-link>
         <router-link to="/host">Become a host</router-link>
-        <div
-          class="hamburger-user-menu btn flex"
-          @click="isShowingHamburger = true"
-        >
-          <img
-            class="hamburger-img"
-            src="../assets/svgs/menu_black_24dp.svg"
-            alt="menu-icon"
-          />
+        <!-- TODO: try cange svg color -->
+        <!-- <div class="language flex align-center justify-center">
+          <img src="../assets/svgs/en.svg" alt="language change icon" />
+        </div> -->
 
-          <img
-            class="hamburger-avatar"
-            src="../assets/svgs/user-avatar.svg"
-            alt="house"
-          />
+        <!-- hamburger -->
+        <div class="hamburger-user-menu btn flex" @click="isShowingHamburger = true">
+          <img class="hamburger-img" src="../assets/svgs/menu_black_24dp.svg" alt="menu-icon" />
+
+          <img class="hamburger-avatar" src="../assets/svgs/user-avatar.svg" alt="user avatar" />
         </div>
       </nav>
-      <header-user-menu
-        :class="{ showHamburger: isShowingHamburger }"
-        @openSignUp="openSignUp"
-      />
-      <div
-        v-if="isShowingHamburger"
-        class="outsideUserMenu"
-        @click="isShowingHamburger = false"
-      ></div>
+      <header-user-menu :class="{ showHamburger: isShowingHamburger }" @openSignUp="openSignUp" />
+      <div v-if="isShowingHamburger" class="outsideUserMenu" @click="isShowingHamburger = false"></div>
     </div>
-    <div
-      v-if="checkMainSearch"
-      class="main-search-bar flex justify-center align-center"
-    >
-      <main-search
-        @mainSearchClosed="mainSearchClosed"
-        :savedLocation="getLocation"
-        :savedDates="getDates"
-        :savedGuests="getGuests"
-      />
+    <div v-if="checkMainSearch" class="main-search-bar flex justify-center align-center">
+      <main-search @mainSearchClosed="mainSearchClosed" :savedLocation="getLocation" :savedDates="getDates" :savedGuests="getGuests" />
     </div>
-    <sign-up
-      :class="{ showSignUp: isSignUp }"
-      @closeSignUp="closeSignUp"
-      @submitSignUp="submitSignUp"
-    />
-    <div
-      v-if="isSignUp"
-      class="outsideUserMenu"
-      @click="isSignUp = false"
-    ></div>
+    <sign-up :class="{ showSignUp: isSignUp }" @closeSignUp="closeSignUp" @submitSignUp="submitSignUp" />
+    <div v-if="isSignUp" class="outsideUserMenu" @click="isSignUp = false"></div>
   </header>
 </template>
 
 <script>
-import mainSearch from "./main-search.vue";
-import headerUserMenu from "./header-user-menu.vue";
-import signUp from "../components/sign-up.vue";
+import mainSearch from './main-search.vue'
+import headerUserMenu from './header-user-menu.vue'
+import signUp from '../components/sign-up.vue'
 export default {
-  name: "app-header",
+  name: 'app-header',
   props: {
     headerStatus: {
       type: String,
-      default: "top",
+      default: 'top',
     },
     scrollY: {
       type: Number,
@@ -103,7 +63,7 @@ export default {
       isMiniSearchShown: false,
       isShowingHamburger: false,
       isSignUp: false,
-    };
+    }
   },
   methods: {
     submitSignUp(email, password) {
@@ -111,87 +71,77 @@ export default {
       //Submit sign up
       //Submit log in
       //Submit log in
-      this.isSignUp = false;
+      this.isSignUp = false
     },
     closeSignUp() {
-      this.isSignUp = false;
+      this.isSignUp = false
     },
     openSignUp() {
-      console.log("Sign up clicked");
-      this.isSignUp = true;
-      this.isShowingHamburger = false;
+      console.log('Sign up clicked')
+      this.isSignUp = true
+      this.isShowingHamburger = false
     },
     mainSearchClosed(location, dates, guests) {
-      this.$store.commit({ type: "setLocation", location });
-      this.$store.commit({ type: "setDates", dates });
-      this.$store.commit({ type: "setGuests", guests });
+      this.$store.commit({ type: 'setLocation', location })
+      this.$store.commit({ type: 'setDates', dates })
+      this.$store.commit({ type: 'setGuests', guests })
       // this.location = location;
       // this.dates = dates;
       // this.guests = guests;
     },
     toggleMiniSearch() {
-      this.isMiniSearchShown = !this.isMiniSearchShown;
+      this.isMiniSearchShown = !this.isMiniSearchShown
     },
     goHome() {
-      this.$router.push("/");
+      this.$router.push('/')
     },
   },
   computed: {
     getSearchText() {
-      if (this.$route.query.destination) return this.$route.query.destination;
-      return "Start your search";
+      if (this.$route.query.destination) return this.$route.query.destination
+      return 'Start your search'
     },
 
     getDates() {
-      return this.$store.getters.getDates;
+      return this.$store.getters.getDates
     },
     getGuests() {
-      return this.$store.getters.getGuests;
+      return this.$store.getters.getGuests
     },
     getLocation() {
-      if (this.$route.query.destination) return this.$route.query.destination;
-      return "";
+      if (this.$route.query.destination) return this.$route.query.destination
+      return ''
     },
     getHeaderClass() {
       return {
-        top: this.headerStatus === "top",
-        shrinkSearchBar: this.headerStatus === "shrinkSearchBar",
-        homepage: this.$route.path === "/",
-        "explore-page": this.$route.path === "/stay",
-        "details-page": this.$route.path.length > 10,
-        "main-search-open": this.isMiniSearchShown && this.scrollY > 20,
-      };
+        top: this.headerStatus === 'top',
+        shrinkSearchBar: this.headerStatus === 'shrinkSearchBar',
+        homepage: this.$route.path === '/',
+        'explore-page': this.$route.path === '/stay',
+        'details-page': this.$route.path.length > 10,
+        'main-search-open': this.isMiniSearchShown && this.scrollY > 20,
+      }
     },
     checkMiniSearch() {
-      return (
-        (this.headerStatus === "shrinkSearchBar" && !this.isMiniSearchShown) ||
-        (this.$route.path.length > 10 && !this.isMiniSearchShown)
-      );
+      return (this.headerStatus === 'shrinkSearchBar' && !this.isMiniSearchShown) || (this.$route.path.length > 10 && !this.isMiniSearchShown)
     },
     checkMainSearch() {
-      return (
-        (this.headerStatus === "top" &&
-          this.$route.path.length < 10 &&
-          (this.$route.path === "/" || this.$route.path.includes("/stay"))) ||
-        (this.isMiniSearchShown &&
-          (this.headerStatus === "shrinkSearchBar" ||
-            this.$route.path.length > 10))
-      );
+      return (this.headerStatus === 'top' && this.$route.path.length < 10 && (this.$route.path === '/' || this.$route.path.includes('/stay'))) || (this.isMiniSearchShown && (this.headerStatus === 'shrinkSearchBar' || this.$route.path.length > 10))
     },
   },
   watch: {
     headerStatus() {
-      console.log("headerStatus is:", this.headerStatus);
+      console.log('headerStatus is:', this.headerStatus)
       switch (this.headerStatus) {
-        case "top":
-          this.isMiniSearchShown = false;
-          break;
-        case "shrinkSearchBar":
-          break;
+        case 'top':
+          this.isMiniSearchShown = false
+          break
+        case 'shrinkSearchBar':
+          break
       }
     },
     scrollY() {
-      if (scrollY > 20) this.isMiniSearchShown = false;
+      if (scrollY > 20) this.isMiniSearchShown = false
     },
   },
   components: {
@@ -199,7 +149,7 @@ export default {
     headerUserMenu,
     signUp,
   },
-};
+}
 </script>
 
 <style></style>

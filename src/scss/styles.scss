@@ -4,6 +4,7 @@
 @import "setup/mixins";
 @import "setup/functions";
 @import "setup/typography";
+@import "setup/mq";
 
 // BASICS
 @import "base/helpers";
@@ -28,3 +29,4 @@
 @import "./components/details-select-guests-modal";
 @import "./components/sign-up";
 @import "./components/date-picker";
+@import "./components/footer";
