@@ -2,8 +2,7 @@
   <section class="stay-details-page" v-if="stay">
     <footer-hero-modal :stay="stay" v-if="stay" />
     <section class="stay-details" v-if="stay">
-      <!-- <secondary-header  @scrollTo="scrollTo" :stay="stay" /> -->
-      <secondary-header :stay="stay" />
+      <secondary-header @goToReviews="goToReviews" :stay="stay" />
       <images-container :stayImgs="stay.imgUrls" />
       <section class="hero-modal-and-general-info">
         <section class="general-info">
@@ -43,7 +42,7 @@
         </section>
         <hero-modal :stay="stay" />
       </section>
-      <reviews-section :stay="stay" />
+      <reviews-section :stay="stay" ref="reviews-section" />
       <map-section :address="stay.address" />
     </section>
   </section>
@@ -96,6 +95,11 @@ export default {
   //   }
   // },
   methods: {
+    // goToReviews(){
+
+    //   let coords = this.$refs['reviews-section'].getBoundingClientRect().x;
+    //   console.log(coords)
+    // }
   },
   computed: {
   },

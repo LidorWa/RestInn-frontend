@@ -235,12 +235,12 @@
       .amenity-container {
         display: flex;
         flex-wrap: wrap;
-
+        gap: em(10px);
         .amenity-item {
           flex: 1 1 170px;
           display: flex;
           align-items: center;
-          gap: em(20px);
+          gap: em(15px);
           padding: 0 0 16px;
           img {
             width: em(24px);
@@ -319,7 +319,7 @@
 
     .hero-modal-wrapper {
       position: sticky;
-      top: 5rem;
+      top: 6rem;
       height: 50vh;
       display: flex;
       justify-content: center;
@@ -387,8 +387,8 @@
             width: 100%;
             justify-content: center;
             flex-direction: row;
+
             .hero-modal-check-in {
-              // text-align: center;
               border: 0.8px solid rgb(176, 176, 176);
               border-top-left-radius: 8px;
               border-bottom: unset;
@@ -432,6 +432,9 @@
             label {
               font-family: circular-book;
               font-size: em(10px);
+            }
+            div{
+              color: $clr5;
             }
           }
           .check-availability-container {
