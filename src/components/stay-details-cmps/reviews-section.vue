@@ -1,5 +1,5 @@
 <template>
-  <section class="reviews-section" v-if="stay">
+  <section class="reviews-section" ref="reviews-section"  v-if="stay">
     <section class="reviews-and-rating">
       <div>
         <img src="../../assets/svgs/star-rating.svg" />
