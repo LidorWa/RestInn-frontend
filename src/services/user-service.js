@@ -89,8 +89,7 @@ async function _createUsers() {
     {
       _id: "fds45fe3",
       fullname: "Liran Parti",
-      // username: "liran@gmail.com",
-      username: "lir",
+      username: "liran@gmail.com",
       password: "123",
       isHost: true,
       imgUrl: "../assets/user-images/liran.jpg",
@@ -105,7 +104,7 @@ async function _createUsers() {
     },
     {
       _id: "fds45fe1",
-      fullname: "Tal Levi",
+      fullname: "Tal Itay",
       username: "tal@gmail.com",
       password: "123",
       isHost: true,

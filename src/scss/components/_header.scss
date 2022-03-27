@@ -15,7 +15,8 @@
     .logo-nav-container {
       color: $clr3;
 
-      a, img {
+      a,
+      img {
         color: $clr3;
       }
     }
@@ -27,7 +28,8 @@
     .logo-nav-container {
       color: $clr1;
 
-      a, img {
+      a,
+      img {
         color: $clr2;
       }
     }
@@ -37,7 +39,8 @@
     .logo-nav-container {
       color: $clr1;
 
-      a, img {
+      a,
+      img {
         color: $clr2;
       }
     }
@@ -82,22 +85,22 @@
   }
 }
 //TODO: change svg color
-  .language {
-    // margin-inline-start: em(5px);
-    
-    margin-inline-end: em(8px);
-    cursor: pointer;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    &:hover{
-      background-color: $clr8;
-    }
+.language {
+  // margin-inline-start: em(5px);
+
+  margin-inline-end: em(8px);
+  cursor: pointer;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  &:hover {
+    background-color: $clr8;
+  }
   img {
     width: em(15px);
     height: em(15px);
-    }
   }
+}
 //Hamburger menu
 .hamburger-user-menu {
   background-color: white;
@@ -121,6 +124,7 @@
 }
 
 .showSignUp {
+  // display: unset !important;
   transform: translateX(-1%) !important;
 }
 
@@ -170,18 +174,18 @@
   }
 
   @media (max-width: 570px) {
-    .logo h1, i{
+    .logo h1,
+    i {
       font-size: em(4px);
     }
     .logo-nav-container a {
-      display: none;  
+      display: none;
       //TODO: add nav to hamburger
     }
-    .hamburger-user-menu{
-        margin-inline-start: em(8px);
-        // margin-left: em(8px);
+    .hamburger-user-menu {
+      margin-inline-start: em(8px);
+      // margin-left: em(8px);
     }
-    
   }
 }
 
@@ -207,4 +211,3 @@
     height: em(18px);
   }
 }
-

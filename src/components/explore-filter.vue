@@ -2,28 +2,95 @@
   <div class="explore-filter">
     <!-- Price range -->
     <div class="price-and-type-filters-cont">
-      <div class="explore-filter-item">
-        <span>Price range</span>
-        <el-slider
-          class="price-range"
-          v-model="filterBy.price"
-          @input="setFilter"
-          :min="min"
-          :max="max"
-          :show-input="true"
-          range
-        />
+      <div
+        class="explore-filter-item select-type-cont select-price flex align-center"
+      >
+        <span @click="togglePriceModal" class="flex align-center">
+          <span>Price</span>
+          <span class="material-icons-outlined" v-if="!isPriceFiltering">
+            arrow_drop_down
+          </span>
+          <span class="material-icons" v-if="isPriceFiltering">
+            arrow_drop_up
+          </span>
+        </span>
+        <!-- Price modal -->
+        <div class="modal price-modal" v-if="isPriceFiltering">
+          <span>{{ getPriceModalText }}</span>
+          <el-slider
+            class="price-range"
+            v-model="filterBy.price"
+            @input="setFilter"
+            :min="min"
+            :max="max"
+            :show-input="true"
+            range
+          />
+        </div>
       </div>
+
       <!-- Select type -->
       <div
         class="explore-filter-item select-type-cont"
         :class="{ typeSelected: isTypeSelected }"
       >
-        <span class="flex align-center">
+        <span class="flex align-center" @click="toggleTypeModal">
           <span class="type-span">{{ getTypeMenuTitle }}</span
-          ><span class="material-icons-outlined"> arrow_drop_down </span>
+          ><span class="material-icons-outlined" v-if="!isTypeFiltering">
+            arrow_drop_down
+          </span>
+          <span class="material-icons" v-if="isTypeFiltering">
+            arrow_drop_up
+          </span>
         </span>
-        <el-select
+        <!-- Type-modal -->
+        <div v-if="isTypeFiltering" class="modal type-modal">
+          <div class="type-modal-line">
+            <input type="checkbox" />
+            <div class="flex flex-column">
+              <span class="type-modal-type-title">Apartment</span>
+              <span class="type-modal-description"
+                >enjoy living in a shared community without the hassle of
+                maintaining upkeep</span
+              >
+            </div>
+          </div>
+          <div class="type-modal-line">
+            <input type="checkbox" />
+            <div class="flex flex-column">
+              <span class="type-modal-type-title">Loft</span>
+              <span class="type-modal-description"
+                >enjoy living in a shared community without the hassle of
+                maintaining upkeep</span
+              >
+            </div>
+          </div>
+          <div class="type-modal-line">
+            <input type="checkbox" />
+            <div class="flex flex-column">
+              <span class="type-modal-type-title">Villa</span>
+              <span class="type-modal-description"
+                >enjoy living in a shared community without the hassle of
+                maintaining upkeep</span
+              >
+            </div>
+          </div>
+          <div class="type-modal-line">
+            <input type="checkbox" />
+            <div class="flex flex-column">
+              <span class="type-modal-type-title">Condominium</span>
+              <span class="type-modal-description"
+                >enjoy living in a shared community without the hassle of
+                maintaining upkeep</span
+              >
+            </div>
+          </div>
+          <div class="type-modal-btns-container">
+            <div class="type-modal-btn btn-clear">Clear</div>
+            <div class="type-modal-btn btn-save">Save</div>
+          </div>
+        </div>
+        <!-- <el-select
           v-model="filterBy.type"
           @change="setTypeFilter"
           class="m-2 type-select"
@@ -36,7 +103,7 @@
             :label="item.label"
             :value="item.value"
           />
-        </el-select>
+        </el-select> -->
       </div>
     </div>
     <!-- More amenities -->
@@ -106,6 +173,8 @@ export default {
   },
   data() {
     return {
+      isPriceFiltering: false,
+      isTypeFiltering: true,
       min: 1,
       max: 1751,
       isAmenityInFilter: {
@@ -166,6 +235,14 @@ export default {
   },
   components: {},
   methods: {
+    togglePriceModal() {
+      this.isPriceFiltering = !this.isPriceFiltering;
+      if (this.isPriceFiltering) this.isTypeFiltering = false;
+    },
+    toggleTypeModal() {
+      this.isTypeFiltering = !this.isTypeFiltering;
+      if (this.isTypeFiltering) this.isPriceFiltering = false;
+    },
     setTypeFilter() {
       this.min = 10;
       this.max = 1751;
@@ -192,10 +269,13 @@ export default {
     },
   },
   computed: {
+    getPriceModalText() {
+      return `$${this.filterBy.price[0]} - $${this.filterBy.price[1]}`;
+    },
     getTypeMenuTitle() {
       if (!this.filterBy.type) {
         this.isTypeSelected = false;
-        return "Type";
+        return "Type of place";
       }
       this.isTypeSelected = true;
       return `${this.filterBy.type}`;

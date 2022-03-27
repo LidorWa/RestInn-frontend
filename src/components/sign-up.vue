@@ -20,6 +20,7 @@
     </p>
     <div class="sign-up-inputs-container">
       <input
+        ref="email"
         class="sign-up-input"
         type="text"
         v-model="email"
@@ -80,7 +81,7 @@ export default {
         return;
       }
 
-      this.$emit("submitSignUp", this.email, this.password);
+      this.$emit("submitSignUp", user);
       this.cleanData();
     },
     closeSignUp() {
