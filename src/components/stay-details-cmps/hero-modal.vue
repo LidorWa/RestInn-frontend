@@ -1,6 +1,6 @@
 <template>
   <section class="hero-modal">
-    <section class="hero-modal-wrapper">
+    <section class="hero-modal-wrapper" >
       <div v-if="isSelectingGuests" class="outsideDetailsGuests" @click="isSelectingGuests = false"></div>
       <section class="hero-modal-container">
         <details-select-guests-modal v-if="isSelectingGuests" :guests="getGuests" :capacity="stay.capacity" @closeGuestsModal="closeGuestsModal" @onSelectGuests="onSelectGuests" />
@@ -48,6 +48,7 @@
 import detailsSelectGuestsModal from './details-select-guests-modal.vue'
 import datePicker from './date-picker.vue'
 export default {
+  name: 'hero-modal',
   props: {
     stay: {
       type: Object,
