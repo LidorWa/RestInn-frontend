@@ -1,7 +1,7 @@
 .stay-details-main-layout{
   max-width: calc(1400px);
-  background-color: lightblue;
   margin: auto;
+  font-size: 26px;
 }
 
 
@@ -109,11 +109,12 @@
     }
     .share-save {
       display: flex;
-
+      ;
       .share {
         display: flex;
+        align-items: center;
         .share-svg {
-          width: em(14px);
+          width: em(14px); 
         }
         span {
           margin: 0px em(8px);
@@ -125,6 +126,7 @@
     }
     .save-like {
       display: flex;
+      align-items: center;
       span {
         margin: 0px em(8px);
       }
@@ -184,57 +186,57 @@
   }
 
   .selected-popular-amenities {
-    padding: 32px 0px;
+    padding: em(32px) 0px;
     .popular-amenities {
       display: flex;
-      margin: 0px 0px 24px;
+      margin: 0px 0px em(24px);
     }
     img {
       width: em(24px);
     }
 
     .popular-amenities-text {
-      margin: 0px 0px 16px;
-      margin-left: 16px;
+      margin: 0px 0px em(16px);
+      margin-left: em(16px);
       .popular-amenities-title {
         font-size: 1.2em;
         font-weight: 600;
-        line-height: 24px;
-        margin: 0px 0px 4px;
+        line-height: em(24px);
+        margin: 0px 0px em(4px);
       }
       .popular-amenities-description {
         color: $clr5;
       }
     }
-    border-bottom: 1px solid $clr6;
+    border-bottom: em(1px) solid $clr6;
     :last-child {
       margin-bottom: unset;
     }
   }
   .section-stay-summary {
-    padding: 32px 0px 48px;
+    padding: em(32px) 0px em(48px);
     .stay-summary {
-      font-size: 14px;
-      line-height: 24px;
+      font-size: em(14px);
+      line-height: em(24px);
     }
     .summary-show-more {
       display: flex;
-      margin: 16px 0px 0px;
+      margin: em(16px) 0px 0px;
       font-size: 1.2em;
       font-weight: 600;
       text-decoration: underline;
-      letter-spacing: 1px;
+      letter-spacing: em(1px);
       img {
         width: em(12px);
       }
     }
-    border-bottom: 1px solid $clr6;
+    border-bottom: em(1px) solid $clr6;
   }
 
   .main-amenities-section {
-    padding: 48px 0px;
+    padding: em(48px) 0px;
     h1 {
-      padding: 0px 0px 24px;
+      padding: 0px 0px em(24px);
       font-size: em(24px);
       font-weight: 600;
     }
@@ -245,11 +247,11 @@
         flex-wrap: wrap;
         gap: em(10px);
         .amenity-item {
-          flex: 1 1 170px;
+          flex: 1 1 em(170px);
           display: flex;
           align-items: center;
           gap: em(15px);
-          padding: 0 0 16px;
+          padding: 0 0 em(16px);
           img {
             width: em(24px);
           }
@@ -258,7 +260,7 @@
     }
   }
   .reviews-section {
-    border-top: 1px solid $clr6;
+    border-top: em(1px) solid $clr6;
     padding-top: em(48px);
     .reviews-and-rating {
       img {
@@ -267,7 +269,7 @@
       span:first-of-type {
         font-size: em(20px);
         font-weight: 600;
-        padding-left: 8px;
+        padding-left: em(8px);
       }
     }
     .review-list {
@@ -277,13 +279,15 @@
       list-style: none;
       display: flex;
       flex-wrap: wrap;
+      ;
       flex-direction: row;
       padding: unset;
       li {
-        flex: 1 1 em(400px);
+        flex: 1 1 em(360px);
         .review-guest-name-date {
           display: flex;
           align-items: center;
+          line-height: 30px;
 
           img {
             width: em(56px);
@@ -302,6 +306,11 @@
           margin: 0px 0px em(16px);
         }
 
+        .review-text{
+          font-family: cereal-book;
+          line-height: em(26px);
+          margin-inline-end: em(60px);
+        }
         .review-show-more {
           display: flex;
           font-size: em(14px);
@@ -318,59 +327,77 @@
     }
   }
 
+     // // /// ////// //////
+    // HALF THE PAGE
+    // // /// ////// //////
   .hero-modal {
-    width: calc(40vw - 90px);
+    // width: calc(40vw - em(90px));
+    // max-width: ;
     position: relative;
     display: flex;
-    max-width: 500px;
+    width:40%;
+    // background-color: red;
     justify-content: flex-end;
-    padding: 48px 0px 0px;
+    padding: em(48px) 0px 0px;
+
+      // // /// ////// //////
+    // THE MODAL CONTAINER
+  // // /// ////// //////
 
     .hero-modal-wrapper {
       position: sticky;
       top: 6rem;
-      height: 50vh;
       display: flex;
       justify-content: center;
+      width: 90%;
+      height: em(270px);
+      // background-color: green;
+
+      // // /// ////// //////
+      // THE ACTUAL MODAL
+      // // /// ////// //////
 
       .hero-modal-container {
-        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-        border-radius: 15px;
-        min-width: 30vw;
-        max-width: 400px;
+        box-shadow: 0 em(3px) em(10px) rgb(0 0 0 / 0.2);
+        border-radius: em(15px);
+        // min-width: 30vw;
+        width: 100%;
         height: em(270px);
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-top: 20px;
+        padding-top: em(20px);
 
         .hero-modal-header {
           display: flex;
           justify-content: space-between;
           margin: 0px 0px em(24px);
-          width: 80%;
+          width: 90%;
+          // width: 100%;
 
           @media (max-width: 880px) {
             margin: 0px 0px em(10px);
             flex-direction: column;
-            line-height: 28px;
+            line-height: em(28px);
             align-items: center;
           }
 
           .hero-modal-price {
             display: flex;
+            align-items: center;
             :first-child {
-              font-size: em(22px);
+              font-size: em(18px);
               font-weight: 600;
             }
             :last-child {
-              font-size: em(16px);
+              font-size: em(15px);
             }
           }
           .hero-modal-rating-reviews {
             font-family: circular-light;
-            font-size: em(12px);
+            font-size: em(13px);
             display: flex;
+            align-items: center;
             img {
               width: em(12px);
             }
@@ -398,8 +425,8 @@
             flex-direction: row;
 
             .hero-modal-check-in {
-              border: 0.8px solid rgb(176, 176, 176);
-              border-top-left-radius: 8px;
+              border: em(0.8px) solid rgb(176, 176, 176);
+              border-top-left-radius: em(8px);
               border-bottom: unset;
               border-right: unset;
               padding-top: em(6px);
@@ -415,8 +442,8 @@
               }
             }
             .hero-modal-check-out {
-              border: 0.8px solid rgb(176, 176, 176);
-              border-top-right-radius: 8px;
+              border: em(0.8px) solid rgb(176, 176, 176);
+              border-top-right-radius: em(8px);
               border-bottom: unset;
               padding-top: em(6px);
               padding-left: em(8px);
@@ -431,9 +458,9 @@
             }
           }
           .hero-modal-guests {
-            border: 0.8px solid rgb(176, 176, 176);
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
+            border: em(0.8px) solid rgb(176, 176, 176);
+            border-bottom-left-radius: em(8px);
+            border-bottom-right-radius: em(8px);
             width: 90%;
             height: em(56px);
             padding-top: em(6px);
@@ -449,12 +476,12 @@
           .check-availability-container {
             display: flex;
             align-items: center;
-            margin-top: 15px;
+            margin-top: em(18px);
             justify-content: center;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
+            border-top-left-radius: em(8px);
+            border-top-right-radius: em(8px);
+            border-bottom-left-radius: em(8px);
+            border-bottom-right-radius: em(8px);
             width: 90%;
             height: em(48px);
             color: $clr3;
