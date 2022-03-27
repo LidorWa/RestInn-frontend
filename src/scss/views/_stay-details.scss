@@ -173,13 +173,13 @@
       font-weight: 600;
     }
     .amenities-list {
-      width: calc(65vw - 100px);
+      width: calc(60vw - 80px);
       .amenity-container {
         display: flex;
         flex-wrap: wrap;
 
         .amenity-item {
-          flex: 1 1 180px;
+          flex: 1 1 170px;
           display: flex;
           align-items: center;
           gap: em(20px);
@@ -324,6 +324,7 @@
           width: 100%;
           .hero-modal-check-container {
             display: flex;
+            position: relative;
             width: 100%;
             justify-content: center;
             flex-direction: row;
@@ -402,20 +403,5 @@
     }
   }
 }
-
-// @media(max-width: 880px) {
-//   .stay-details-page {
-//     margin-left: 2.5em;
-//     .hero-modal-container {
-//       height: em(300px);
-//       .hero-modal-header {
-//         margin: 0px 0px em(10px);
-//         flex-direction: column;
-//         line-height: 28px;
-        
-//       }
-//     }
-//   }
-// }
 
 

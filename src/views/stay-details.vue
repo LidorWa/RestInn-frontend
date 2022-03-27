@@ -1,5 +1,6 @@
 <template>
   <section class="stay-details-page" v-if="stay">
+    <section class="footer-hero-modal" v-if="isMobileView"></section>
     <section class="stay-details" v-if="stay">
       <!-- <secondary-header  @scrollTo="scrollTo" :stay="stay" /> -->
       <secondary-header :stay="stay" />
@@ -40,7 +41,7 @@
         WITH THINGS TO KNOW.
           TODO IT? IN KUMBA THEY DIDNT-->
         </section>
-        <hero-modal :stay="stay" />
+        <hero-modal :stay="stay" v-if="!isMobileView"/>
       </section>
       <reviews-section :stay="stay" />
       <map-section :address="stay.address" />
@@ -60,6 +61,15 @@ import mapSection from '../components/stay-details-cmps/map-section.vue'
 export default {
   
   name: 'stay-details',
+    components: {
+    imagesContainer,
+    SecondaryHeader,
+    SelectedPopularAmenities,
+    AmenitiesList,
+    reviewsSection,
+    mapSection,
+    heroModal,
+  },
   data() {
     return {
       // isAdding: false,
@@ -69,28 +79,34 @@ export default {
       //   stayId: '',
       // },
       stay: null,
+      isMobileView: false,
+      window:{
+        width: window.innerWidth,
+        height: window.innerHeight,
+      }
     }
-  },
-  
-  components: {
-    imagesContainer,
-    SecondaryHeader,
-    SelectedPopularAmenities,
-    AmenitiesList,
-    reviewsSection,
-    mapSection,
-    heroModal,
   },
   async created() {
     const stayId = this.$route.params.stayId
     this.stay = await this.$store.dispatch({ type: 'getStayById', stayId: stayId })
-
-
+    window.addEventListener('resize', this.checkWindowSize)
   },
+  unmount(){
+    window.removeEventListener('checkWindowSize', this.checkWindowSize)
+  },
+  // beforeUpdate(){
+  //   if (window.innerWidth <= 700){
+  //     this.isMobi
+  //   }
+  // },
   methods: {
+    checkWindowSize(){
+      this.window.width = window.innerWidth;     
+      this.isMobileView = (this.window.width <= 700) ?  true : false;
+    }
   },
   computed: {
-    
+
   },
 }
 </script>
