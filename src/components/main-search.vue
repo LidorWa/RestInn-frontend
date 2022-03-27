@@ -2,26 +2,26 @@
   <section>
     <form @submit.prevent="" class="main-search-container flex align-center btn">
       <!-- location -->
-      <div class="header-input location-input flex flex-column">
-        <label for=" location-input" class="label">Location</label>
-        <input type="text" v-model="location" id="location-input" name="location-input" :placeholder="getMainSearchText" autocomplete="off" spellcheck="false" />
+      <div class="header-input location-input-top flex flex-column">
+        <label for="location-input" class="label location-input">Location</label>
+        <input class="input" type="text" v-model="location" id="location-input" name="location-input" :placeholder="getMainSearchText" autocomplete="off" spellcheck="false" />
       </div>
 
       <span class="search-space"></span>
 
       <!-- date picker -->
-      <div class="header-input date-picker-container flex">
+      <div class="date-picker-container header-input flex">
         <!-- check in -->
         <div class="date-input check-in-top flex flex-column">
           <div class="label check-in-top">Check in</div>
-          <div class="add-dates">{{ formatedDate(0) }}</div>
+          <div class="input add-dates">{{ formatedDate(0) }}</div>
         </div>
 
         <span class="search-space"></span>
         <!-- check out -->
         <div class="header-input date-input check-out-top flex flex-column">
           <div class="label check-out-top">Check out</div>
-          <div class="add-dates">{{ formatedDate(1) }}</div>
+          <div class="input add-dates">{{ formatedDate(1) }}</div>
         </div>
         <!-- element picker -->
         <div class="block date-picker">
@@ -35,7 +35,7 @@
       <div class="header-input guestsInput flex">
         <div class="guests-input-container flex flex-column">
           <label for="guestsInput" class="label">Guests</label>
-          <div class="guests-input" @click="isSelectingGuests = !isSelectingGuests" placeholder="Add guests">
+          <div class="input guests-input" @click="isSelectingGuests = !isSelectingGuests" placeholder="Add guests">
             {{ getGuestsNumber }}
           </div>
         </div>
@@ -130,10 +130,6 @@ export default {
       if (!guests) return 'Add guests'
       if (guests === 1) return '1 guest'
       return `${guests} guests`
-    },
-    //TODO: check if needed, delete hour
-    defaultTime1() {
-      ;[new Date(2000, 1, 1, 12, 0, 0)] // '12:00:00'
     },
   },
   unmounted() {

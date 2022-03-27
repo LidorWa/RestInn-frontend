@@ -26,7 +26,7 @@
         </div> -->
 
         <!-- hamburger -->
-        <div class="hamburger-user-menu btn flex" @click="isShowingHamburger = true">
+        <div class="hamburger-user-menu btn flex space-between" @click="isShowingHamburger = true">
           <img class="hamburger-img" src="../assets/svgs/menu_black_24dp.svg" alt="menu-icon" />
 
           <img class="hamburger-avatar" src="../assets/svgs/user-avatar.svg" alt="user avatar" />
