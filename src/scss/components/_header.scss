@@ -170,8 +170,8 @@
   }
 
   @media (max-width: 570px) {
-    .logo {
-      font-size: em(20px);
+    .logo h1, i{
+      font-size: em(4px);
     }
     .logo-nav-container a {
       display: none;  
