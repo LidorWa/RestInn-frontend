@@ -20,7 +20,7 @@
       <nav class="main-header-nav flex justify-center align-center">
         <router-link to="/stay">Explore</router-link>
         <router-link to="/host">Become a host</router-link>
-        <!-- TODO: try cange svg color -->
+        <!-- TODO: try change svg color -->
         <!-- <div class="language flex align-center justify-center">
           <img src="../assets/svgs/en.svg" alt="language change icon" />
         </div> -->
