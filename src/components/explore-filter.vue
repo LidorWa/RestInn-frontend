@@ -131,9 +131,7 @@ export default {
       type: Array,
       required: true,
     },
-    filerByCity: {
-      type: String,
-    },
+
     filerByType: {
       type: Array,
     },
@@ -165,6 +163,7 @@ export default {
         type: [],
         city: "",
         amenities: [],
+        guests: null,
       },
       options: [
         { title: "Apartment", description: "Have an entire place to yourself" },
@@ -178,7 +177,6 @@ export default {
     };
   },
   created() {
-    if (this.filerByCity) this.filterBy.city = this.filerByCity;
     if (this.filerByType.length) {
       this.filterBy.type = this.filerByType;
 

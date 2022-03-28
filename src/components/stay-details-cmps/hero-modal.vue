@@ -142,6 +142,7 @@ export default {
         if (adults === 1) return "1 adult, 1 child";
         return `${adults} adults, 1 child`;
       }
+      if (adults === 1) return `1 adult, ${children} children`;
       return `${adults} adults, ${children} children`;
     },
     getLocation() {

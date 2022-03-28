@@ -4,12 +4,11 @@
 
     <explore-filter
       :stays="staysForDisplay"
-      :filerByCity="getCityFilter"
       :filerByType="getTypeFilter"
       @setFilter="setFilter"
     />
 
-    <stay-list :stays="staysForDisplay" />
+    <stay-list :stays="staysForDisplay" :city="getCityFilter" />
   </section>
 </template>
 
@@ -37,7 +36,6 @@ export default {
     this.stays = stays;
     if (this.$route.query.destination) {
       let city = this.$route.query.destination.split("?")[0];
-
       this.filterBy.city = city ? city : "";
     }
 

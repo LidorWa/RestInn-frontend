@@ -7,7 +7,7 @@
   background-color: $clr3;
   text-align: start;
   transition: 0.3s;
-  z-index: 888;
+  z-index: 999;
 
   p {
     background-color: $clr3;
@@ -125,9 +125,8 @@
 
 @media (min-width: 551px) {
   .sign-up-modal {
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%, -250%);
+    top: 30%;
+    left: 38%;
 
     height: 350px;
     width: 400px;
@@ -154,6 +153,6 @@
   }
 
   .showSignUp {
-    transform: translatey(-50%) !important;
+    transform: translatey(-40%) !important;
   }
 }

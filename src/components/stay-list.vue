@@ -15,6 +15,10 @@ export default {
       type: Array,
       required: true,
     },
+    city: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
@@ -26,21 +30,32 @@ export default {
         },
         type: [],
       },
-      city: "",
     };
   },
   created() {
-    if (this.$route.query.destination) {
-      let city = this.$route.query.destination.split("?")[0];
-      this.city = city;
-    }
+    // if (this.$route.query.destination) {
+    //   let city = this.$route.query.destination.split("?")[0];
+    //   this.city = city;
+    // }
   },
   components: {
     stayPreview,
   },
   computed: {
     getStaysPreviewTitle() {
-      if (this.city) return `${this.stays.length} stays in ${this.city}`;
+      if (this.city) {
+        let cityFromProps = this.city;
+        let city = cityFromProps
+          .split("")
+          .map((char, idx) => {
+            if (!idx) return char.toUpperCase();
+            return char.toLowerCase();
+          })
+          .join("");
+        // cityFromProps.charAt(0).toUpperCase() + cityFromProps.substring(1);
+        console.log(city);
+        return `${this.stays.length} stays in ${city}`;
+      }
       return `${this.stays.length} stays`;
     },
   },
