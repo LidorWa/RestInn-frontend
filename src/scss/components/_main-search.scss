@@ -78,6 +78,13 @@
   //   display: none !important;
   // }
 }
+.el-date-table-cell__text{
+  color: $clr2;
+  // background-color: $clr2;
+}
+.el-date-table-cell{}
+
+
 
 .header-input{
   height: em(66px);
@@ -134,17 +141,17 @@
   .location-input{
       padding-left: 4px;
     }
+    
+    .check-out-top,
+    .check-in-top {
+      width: em(180px);
+    }
+    .guestsInput{
+      padding: 1em em(8px) 1em 1em;
+    }
 
 .date-picker-container {
   position: relative;
-}
-
-.check-out-top,
-.check-in-top {
-  width: em(180px);
-}
-.guestsInput{
-  padding: 1em em(8px) 1em 1em;
 }
 // .location-input {
 //   justify-content: center;
@@ -200,7 +207,7 @@
 .opened-search-icon{
   justify-content: center;
   padding: 1em 1.5em 0.8em 1em;
-  gap: 7px;
+  gap: em(7px);
   border-radius: 999px;
   width: em(120px);
   h3{
