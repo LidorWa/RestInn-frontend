@@ -35,7 +35,7 @@
         :class="{ typeSelected: isTypeSelected }"
       >
         <span class="flex align-center" @click="toggleTypeModal">
-          <span class="type-span">{{ getTypeMenuTitle }}</span
+          <span class="type-span">Type of place</span
           ><span class="material-icons-outlined" v-if="!isTypeFiltering">
             arrow_drop_down
           </span>
@@ -44,66 +44,33 @@
           </span>
         </span>
         <!-- Type-modal -->
-        <div v-if="isTypeFiltering" class="modal type-modal">
-          <div class="type-modal-line">
-            <input type="checkbox" />
-            <div class="flex flex-column">
-              <span class="type-modal-type-title">Apartment</span>
-              <span class="type-modal-description"
-                >enjoy living in a shared community without the hassle of
-                maintaining upkeep</span
-              >
+        <div
+          :class="{ showTypeFilter: isTypeFiltering }"
+          class="modal type-modal"
+        >
+          <div class="modal-container">
+            <div v-for="type in options" :key="type" class="type-modal-line">
+              <label class="container">
+                <input
+                  v-model="typeFromParams[type.title]"
+                  type="checkbox"
+                  @input="toggleType(type.title)"
+                />
+                <span class="checkmark"></span>
+                <div class="flex flex-column">
+                  <span class="type-modal-type-title">{{ type.title }}</span>
+                  <span class="type-modal-description">{{
+                    type.description
+                  }}</span>
+                </div>
+              </label>
             </div>
           </div>
-          <div class="type-modal-line">
-            <input type="checkbox" />
-            <div class="flex flex-column">
-              <span class="type-modal-type-title">Loft</span>
-              <span class="type-modal-description"
-                >enjoy living in a shared community without the hassle of
-                maintaining upkeep</span
-              >
-            </div>
-          </div>
-          <div class="type-modal-line">
-            <input type="checkbox" />
-            <div class="flex flex-column">
-              <span class="type-modal-type-title">Villa</span>
-              <span class="type-modal-description"
-                >enjoy living in a shared community without the hassle of
-                maintaining upkeep</span
-              >
-            </div>
-          </div>
-          <div class="type-modal-line">
-            <input type="checkbox" />
-            <div class="flex flex-column">
-              <span class="type-modal-type-title">Condominium</span>
-              <span class="type-modal-description"
-                >enjoy living in a shared community without the hassle of
-                maintaining upkeep</span
-              >
-            </div>
-          </div>
-          <div class="type-modal-btns-container">
-            <div class="type-modal-btn btn-clear">Clear</div>
-            <div class="type-modal-btn btn-save">Save</div>
+
+          <div class="type-modal-btn btn-close" @click="toggleTypeModal">
+            Close
           </div>
         </div>
-        <!-- <el-select
-          v-model="filterBy.type"
-          @change="setTypeFilter"
-          class="m-2 type-select"
-          placeholder="Type"
-          size="small"
-        >
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          />
-        </el-select> -->
       </div>
     </div>
     <!-- More amenities -->
@@ -168,13 +135,20 @@ export default {
       type: String,
     },
     filerByType: {
-      type: String,
+      type: Array,
     },
   },
   data() {
     return {
+      typeFromParams: {
+        Apartment: false,
+        Loft: false,
+        Villa: false,
+        Cabin: false,
+      },
       isPriceFiltering: false,
-      isTypeFiltering: true,
+      isTypeFiltering: false,
+      isTypeFromHomepage: false,
       min: 1,
       max: 1751,
       isAmenityInFilter: {
@@ -188,45 +162,29 @@ export default {
 
       filterBy: {
         price: [10, 1751],
-        type: "",
+        type: [],
         city: "",
         amenities: [],
       },
       options: [
+        { title: "Apartment", description: "Have an entire place to yourself" },
+        { title: "Loft", description: "Enjoy a space with elevated area" },
+        { title: "Villa", description: "Have an impressive house to rest in" },
         {
-          value: "",
-          label: "All",
-        },
-        {
-          value: "Apartment",
-          label: "Apartment",
-        },
-        {
-          value: "Serviced apartment",
-          label: "Serviced apartment",
-        },
-        {
-          value: "Loft",
-          label: "Loft",
-        },
-        {
-          value: "Condominium",
-          label: "Condominium",
-        },
-        {
-          value: "Villa",
-          label: "Villa",
-        },
-        {
-          value: "Cabin",
-          label: "Cabin",
+          title: "Cabin",
+          description: "Enjoy an adventure in a remote location",
         },
       ],
     };
   },
   created() {
-    this.filterBy.city = this.filerByCity;
-    this.filterBy.type = this.filerByType;
+    if (this.filerByCity) this.filterBy.city = this.filerByCity;
+    if (this.filerByType.length) {
+      this.filterBy.type = this.filerByType;
+
+      this.typeFromParams[this.filterBy.type[0]] = true;
+      this.setFilter();
+    }
     const stayPrices = this.stays.map((stay) => stay.price);
     if (stayPrices.length === 1) return;
     stayPrices.sort((a, b) => a - b);
@@ -235,6 +193,17 @@ export default {
   },
   components: {},
   methods: {
+    toggleType(type) {
+      if (this.isTypeFromHomepage) return;
+      if (!this.filterBy.type.includes(type)) {
+        this.filterBy.type.push(type);
+      } else {
+        const idx = this.filterBy.type.findIndex((t) => t === type);
+        this.filterBy.type.splice(idx, 1);
+      }
+
+      this.setTypeFilter();
+    },
     togglePriceModal() {
       this.isPriceFiltering = !this.isPriceFiltering;
       if (this.isPriceFiltering) this.isTypeFiltering = false;
@@ -246,7 +215,7 @@ export default {
     setTypeFilter() {
       this.min = 10;
       this.max = 1751;
-      console.log(this.filterBy);
+
       this.setFilter();
     },
     setFilter() {

@@ -35,7 +35,7 @@
   justify-content: center;
   text-align: center;
   padding: 0px 15px;
-  margin: 0px 5px;
+  margin: 0px 3px;
   height: 36px;
 
   border-radius: 50px;
@@ -95,27 +95,125 @@
   z-index: 100;
 }
 
+.modal-container {
+  margin: auto;
+  width: 90%;
+  height: 75%;
+  margin-top: 30px;
+  margin-bottom: 17px;
+}
+
+.showTypeFilter {
+  transform: translateX(1%) !important;
+}
+
 .type-modal {
   width: 400px;
-  height: 500px;
+  height: 420px;
   top: 40px;
   left: 0px;
+  transform: translateX(-170%);
   font-size: em(15px);
 
   .type-modal-btns-container {
     align-self: center;
-    margin-top: 20px;
+    margin-top: 8px;
     display: flex;
     justify-content: space-between;
-    width: 150px;
+    width: 180px;
   }
 
   .type-modal-btn {
     border: 1px solid $clr2;
     padding: 6px 10px;
-    border-radius: 5px;
+    border-radius: 7px;
     font-weight: 600;
+    transition: 0.15s;
     cursor: pointer;
+  }
+
+  .btn-close {
+    width: 70px;
+    margin: auto;
+    color: $clr3;
+    background-color: $clr2;
+  }
+
+  .btn-close:hover {
+    opacity: 0.9;
+  }
+
+  .btn-clear:hover {
+    background-color: $clr6;
+  }
+
+  /* Customize the label (the container) */
+  .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: 23px;
+    width: 23px;
+    border: 1px solid $clr2;
+    border-radius: 4px;
+  }
+
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: $clr6;
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: $clr2;
+  }
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
   }
 }
 
@@ -133,14 +231,16 @@
 
   .type-modal-type-title {
     align-self: flex-start;
-
+    font-size: em(14px);
     font-weight: 600;
   }
 
   .type-modal-description {
     align-self: flex-start;
     text-align: start;
-    font-size: em(12px);
+    justify-self: baseline;
+    font-size: em(14px) !important;
+    line-height: 19px;
     color: $clr4;
   }
 }
@@ -179,6 +279,14 @@
 
 .amenity:hover {
   border: 1px solid $clr2;
+}
+
+.el-slider__bar {
+  background-color: $clr1 !important;
+}
+
+.el-slider__button {
+  border: 2px solid $clr1 !important;
 }
 
 //Break point

@@ -27,7 +27,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 45%;
+    width: 42%;
   }
 
   span {
@@ -43,21 +43,23 @@
 }
 
 .guest-cout-icon {
-  width: 26px !important;
-  height: 26px !important;
-  border: 1px solid $clr2;
+  width: 30px !important;
+  height: 30px !important;
+  border: 1px solid $clr5;
+  line-height: 30px !important;
   border-radius: 50%;
   cursor: pointer;
+  justify-self: center;
   transition: 0.1s;
 }
 
 .guest-cout-icon:hover {
-  border: 1px solid $clr1;
+  border: 1px solid $clr2;
 }
 
 .guests-number {
   font-size: em(20px);
-  line-height: 35px;
+  line-height: 31px;
 }
 
 .guests-btns-conteiner {
@@ -70,7 +72,7 @@
 
 .guest-modal-btn {
   text-align: center;
-  border: 1px solid $clr2;
+  border: 1px solid $clr5;
   width: 50px;
   margin-top: 10px;
   padding: 5px;
@@ -80,5 +82,5 @@
 }
 
 .guest-modal-btn:hover {
-  border: 1px solid $clr1;
+  border: 1px solid $clr2 !important;
 }

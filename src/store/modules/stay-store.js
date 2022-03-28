@@ -5,7 +5,7 @@ export default {
     stays: null,
     filterBy: {
       price: [1, 1751],
-      type: "",
+      type: [],
       city: "",
       amenities: [],
     },
@@ -29,9 +29,9 @@ export default {
     getStaysForDisplay(state) {
       let stays = JSON.parse(JSON.stringify(state.stays));
 
-      if (state.filterBy.type) {
-        stays = stays.filter(
-          (stay) => stay.propertyType === state.filterBy.type
+      if (state.filterBy.type.length) {
+        stays = stays.filter((stay) =>
+          state.filterBy.type.includes(stay.propertyType)
         );
       }
 

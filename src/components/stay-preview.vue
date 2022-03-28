@@ -62,7 +62,6 @@ export default {
   methods: {
     likeCliked() {
       this.isLiked = !this.isLiked;
-      console.log(this.isLiked);
     },
     stayClicked() {
       this.$router.push(`/stay/${this.stay._id}`);

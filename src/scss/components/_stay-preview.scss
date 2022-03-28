@@ -9,9 +9,10 @@
   flex-direction: column;
   justify-content: space-between;
   list-style: none;
-  height: calc(180px + 35vw);
+  height: calc(175px + 35vw);
   padding: 1px;
   margin: 10px;
+  margin-bottom: 25px;
   font-size: em(15px);
   cursor: pointer;
 
@@ -49,11 +50,11 @@
 }
 
 .el-carousel__arrow {
-  background-color: rgba(255, 255, 255, 0.5) !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
   color: rgb(58, 58, 58, 0.95) !important;
 }
 .el-carousel__arrow:hover {
-  background-color: rgba(255, 255, 255, 0.9) !important;
+  background-color: rgba(255, 255, 255, 0.75) !important;
 }
 
 .card-preview-line {
@@ -109,6 +110,7 @@
   .card {
     height: calc(180px + 19vw);
     font-size: em(16px);
+    margin-bottom: 20px !important;
     margin: 0;
   }
 
@@ -129,6 +131,7 @@
 @media (min-width: 950px) {
   .card {
     height: calc(210px + 10vw);
+    margin-bottom: 10px !important;
   }
 
   .el-carousel__container {
@@ -147,7 +150,7 @@
 
 @media (min-width: 1230px) {
   .card {
-    height: calc(180px + 10vw);
+    height: calc(170px + 10vw);
   }
 
   .el-carousel__container {
@@ -164,9 +167,9 @@
 //Break point
 //Break point
 
-@media (min-width: 1500px) {
+@media (min-width: 1700px) {
   .card {
-    height: calc(150px + 10vw);
+    height: calc(140px + 10vw);
   }
 
   .el-carousel__container {

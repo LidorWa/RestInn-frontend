@@ -1,0 +1,108 @@
+.order-alert-modal {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  //   transform: translateY(250%);
+  background-color: $clr3;
+  text-align: start;
+  transition: 0.3s;
+  z-index: 888;
+
+  .sign-up-title {
+    margin-top: 80px;
+    // margin-bottom: 50px;
+    text-align: center;
+    font-size: em(14px);
+    padding: 3px;
+    padding-bottom: 20px;
+    font-weight: 600;
+    border-bottom: 1px solid $clr7;
+  }
+
+  .sign-up-welcome {
+    font-size: em(18px);
+    text-align: center;
+    margin-bottom: 70px;
+  }
+
+  .sign-up-continue {
+    height: 50px;
+    padding: 20px;
+    width: 160px;
+
+    color: $clr3;
+    background-color: $clr1;
+    line-height: 10px;
+    margin: auto;
+    text-align: center;
+    font-size: em(20px);
+    cursor: pointer;
+    transition: 0.1s;
+  }
+
+  .sign-up-continue:hover {
+    background-color: rgba($clr1, 0.9);
+  }
+}
+
+.order-alert-overlay {
+  background-color: $clr3;
+
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 5;
+}
+
+@media (min-width: 551px) {
+  .order-alert-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    top: 40%;
+    left: 50%;
+    height: 225px;
+    width: 300px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+    border-radius: 15px;
+    transform: translate(-50%, -50%);
+
+    .sign-up-title {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: em(12px);
+      padding: 3px;
+      padding-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .sign-up-welcome {
+      font-size: em(13px);
+      margin-bottom: 10px;
+      padding-top: 10px;
+      line-height: 25px;
+    }
+
+    .sign-up-continue {
+      height: 40px;
+      width: 65%;
+      margin-bottom: 20px;
+      color: $clr3;
+      background-color: $clr1;
+      line-height: 0px;
+
+      font-size: em(15px);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.1s;
+    }
+  }
+
+  .order-alert-overlay {
+    background-color: rgba(129, 129, 129, 0.6);
+  }
+}

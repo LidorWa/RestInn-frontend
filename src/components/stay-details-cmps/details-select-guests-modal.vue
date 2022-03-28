@@ -94,6 +94,7 @@ export default {
       const adults = this.guestSelected.adults;
       const children = this.guestSelected.children;
       if (type === "adults" && adults === 1 && val === -1) {
+        this.capacityAlert = false;
         this.adultAlert = true;
         setTimeout(() => {
           this.adultAlert = false;
@@ -103,6 +104,7 @@ export default {
       }
       if (type === "children" && children === 0 && val === -1) return;
       if (adults + children === this.capacity && val === 1) {
+        this.adultAlert = false;
         this.capacityAlert = true;
         setTimeout(() => {
           this.capacityAlert = false;

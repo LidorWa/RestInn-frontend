@@ -54,12 +54,10 @@ export default {
       required: true,
     },
   },
-  name: "header-user-menu",
 
   data() {
     return {
       guestSelected: null,
-
     };
   },
   created() {
@@ -79,6 +77,18 @@ export default {
         val === -1
       )
         return;
+
+      if (type === "children" && val === 1 && this.guestSelected.adults === 0)
+        this.guestSelected.adults = 1;
+
+      if (
+        type === "adults" &&
+        this.guestSelected.adults === 1 &&
+        val === -1 &&
+        this.guestSelected.children > 0
+      )
+        return;
+
       this.guestSelected[type] += val;
       this.$emit("onSelectGuests", { ...this.guestSelected });
     },

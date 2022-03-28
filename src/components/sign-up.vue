@@ -33,7 +33,7 @@
         placeholder="Password"
       />
     </div>
-    <div class="sign-up-continue" @click="submitSignUp">continue</div>
+    <div class="sign-up-continue" @click="submitSignUp">Continue</div>
   </section>
 </template>
 
@@ -80,9 +80,8 @@ export default {
         this.isInvalidAlert = true;
         return;
       }
-
-      this.$emit("submitSignUp", user);
       this.cleanData();
+      this.$emit("closeSignUp");
     },
     closeSignUp() {
       this.cleanData();

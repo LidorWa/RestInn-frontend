@@ -5,7 +5,7 @@
 
 // }
 
-.header-container{
+.header-container {
   // width: em(1400px);
   width: 100vw;
   margin: auto;
@@ -20,7 +20,7 @@
   width: 100vw;
   // height: rem(158px);
   height: em(150px);
-  padding:em(8px) em(40px) 0 em(40px);
+  padding: em(8px) em(40px) 0 em(40px);
   padding-top: em(8px);
   // color: $clr1;
   z-index: 300;
@@ -29,7 +29,7 @@
   }
 
   &.top {
-     .logo-nav-container {
+    .logo-nav-container {
       color: $clr3;
 
       a,
@@ -103,45 +103,46 @@
   @media (max-width: 570px) {
     h1 {
       display: none;
-   }
+    }
   }
 }
 
 .main-header-nav {
   font-size: rem(14px);
   font-weight: 600;
+  margin-right: 22px;
   a {
     // padding: 0 em(10px);
     text-align: start;
     padding-left: 25px;
   }
-  .hamburger-user-menu{
+  .hamburger-user-menu {
     margin-inline-start: em(25px);
   }
 }
 //TODO: change svg color
-  // .language {
-    // margin-inline-start: em(5px);
-    
-  //   margin-inline-end: em(8px);
-  //   cursor: pointer;
-  //   border-radius: 50%;
-  //   width: 35px;
-  //   height: 35px;
-  //   &:hover{
-  //     background-color: $clr8;
-  //   }
-  // img {
-  //   width: em(15px);
-  //   height: em(15px);
-  //   }
-  // }
+// .language {
+// margin-inline-start: em(5px);
+
+//   margin-inline-end: em(8px);
+//   cursor: pointer;
+//   border-radius: 50%;
+//   width: 35px;
+//   height: 35px;
+//   &:hover{
+//     background-color: $clr8;
+//   }
+// img {
+//   width: em(15px);
+//   height: em(15px);
+//   }
+// }
 //Hamburger menu
 .hamburger-user-menu {
   background-color: $clr3;
   width: em(78px);
   height: em(42px);
-  border: 1px solid $clr6;;
+  border: 1px solid $clr6;
   padding: 5px 5px 5px 12px;
   border-radius: 30px;
   // justify-content: space-around;
@@ -149,7 +150,7 @@
   cursor: pointer;
   transition: 0.2s;
 
-  &:hover{
+  &:hover {
     background-color: rgb(228, 228, 228);
   }
 }
@@ -158,11 +159,6 @@
 // }
 
 .showHamburger {
-  transform: translateX(-1%) !important;
-}
-
-.showSignUp {
-  // display: unset !important;
   transform: translateX(-1%) !important;
 }
 
@@ -239,19 +235,16 @@
 
 //TODO: doesn't work!
 @media (max-width: 570px) {
- 
-  .fa-brands{
+  .fa-brands {
     font-size: em(10px);
     margin-inline-end: em(3px);
   }
   .logo-nav-container a {
-    display: none;  
+    display: none;
     //TODO: add nav to hamburger
   }
-  .hamburger-user-menu{
-      margin-inline-start: em(8px);
-      // margin-left: em(8px);
+  .hamburger-user-menu {
+    margin-inline-start: em(8px);
+    // margin-left: em(8px);
   }
-  
 }
-

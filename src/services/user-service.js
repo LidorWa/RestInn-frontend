@@ -47,7 +47,7 @@ async function login(userCred) {
   return _saveLocalUser(user);
   // const user = await httpService.post("auth/login", userCred);
   // socketService.emit('set-user-socket', user._id);
-  if (user) return _saveLocalUser(user);
+  // if (user) return _saveLocalUser(user);
 }
 async function signup(userCred) {
   // userCred.score = 10000;
@@ -60,7 +60,7 @@ async function signup(userCred) {
 async function logout() {
   sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER);
   // socketService.emit('unset-user-socket');
-  return await httpService.post("auth/logout");
+  // return await httpService.post("auth/logout");
 }
 
 function _saveLocalUser(user) {
@@ -80,7 +80,6 @@ async function getUsers() {
   if (!users || !users.length) {
     users = await _createUsers();
   }
-  console.log(users[0]);
   return users;
 }
 
@@ -107,6 +106,14 @@ async function _createUsers() {
       fullname: "Tal Itay",
       username: "tal@gmail.com",
       password: "123",
+      isHost: true,
+      imgUrl: "../assets/user-images/tal.jpg",
+    },
+    {
+      _id: "fds99fe1",
+      fullname: "Demo User",
+      username: "demo",
+      password: "demo",
       isHost: true,
       imgUrl: "../assets/user-images/tal.jpg",
     },
