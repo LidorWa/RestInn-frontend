@@ -186,8 +186,14 @@ export default {
   },
   watch: {
     dates() {
+      this.$emit("mainSearchClosed", this.location, this.dates);
+    },
+    guests() {
       this.$emit("mainSearchClosed", this.location, this.dates, this.guests);
     },
+  },
+  unmounted() {
+    this.$emit("mainSearchClosed", this.location, this.dates, this.guests);
   },
 };
 </script>

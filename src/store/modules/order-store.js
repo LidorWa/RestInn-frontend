@@ -5,6 +5,8 @@ export default {
     location: "",
     dates: null,
     guests: { adults: 0, children: 0 },
+    isOrdering: false,
+    order: null,
   },
   getters: {
     getLocation(state) {
@@ -14,6 +16,8 @@ export default {
       return state.dates;
     },
     getGuests(state) {
+      console.log("getting guests from store");
+      console.log(state.guests);
       return { ...state.guests };
     },
   },
@@ -26,6 +30,7 @@ export default {
       state.dates = dates;
     },
     setGuests(state, { guests }) {
+      console.log(guests);
       state.guests = guests;
     },
   },

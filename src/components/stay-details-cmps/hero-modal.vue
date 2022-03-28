@@ -9,7 +9,7 @@
       <section class="hero-modal-container">
         <details-select-guests-modal
           v-if="isSelectingGuests"
-          :guests="getGuests"
+          :guests="guestsFromStore"
           :capacity="stay.capacity"
           @closeGuestsModal="closeGuestsModal"
           @onSelectGuests="onSelectGuests"
@@ -61,7 +61,10 @@
               {{ getGuestsForDisplay }}
             </div>
           </div>
-          <div class="check-availability-container">
+          <div
+            class="check-availability-container"
+            @click="onCheckAvailability"
+          >
             <span class="check-availability-span">Check availability</span>
           </div>
         </section>
@@ -80,26 +83,37 @@ export default {
       type: Object,
       required: true,
     },
+    guestsFromStore: {
+      type: Object,
+      required: true,
+    },
   },
   data() {
     return {
       dates: null,
       isSelectingGuests: false,
       isSelectingDates: false,
-      // guests: { adults: 0, children: 0 },
     };
   },
   components: {
     detailsSelectGuestsModal,
     datePicker,
   },
+
   created() {
     this.dates = this.getDates;
+
+    const guests = this.guestsFromStore;
+
+    if (!(guests.adults + guests.children)) {
+      this.onSelectGuests({ adults: 1, children: 0 });
+    }
   },
   methods: {
-    updateDated() {
-      console.log("hey");
+    onCheckAvailability() {
+      this.$emit("onCheckAvailability");
     },
+
     formatedDate(num) {
       if (!this.dates) return "Add dates";
       const date = new Date(this.dates[num]);
@@ -117,8 +131,8 @@ export default {
   // {{ getGuests.adults }} adults, {{ getGuests.children }} children
   computed: {
     getGuestsForDisplay() {
-      const adults = this.getGuests.adults;
-      const children = this.getGuests.children;
+      const { adults } = this.guestsFromStore;
+      const { children } = this.guestsFromStore;
       if (!(children + adults)) return "Add guests";
       if (!children) {
         if (adults === 1) return "1 adult";
@@ -136,9 +150,7 @@ export default {
     getDates() {
       return this.$store.getters.getDates;
     },
-    getGuests() {
-      return this.$store.getters.getGuests;
-    },
+
     fixedScore() {
       let currStayScore = this.stay.reviewScores.rating / 20;
       return currStayScore.toFixed(2);
