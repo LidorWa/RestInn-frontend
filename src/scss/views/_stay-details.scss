@@ -1,7 +1,11 @@
 .stay-details-main-layout{
-  max-width: calc(1400px);
+  max-width: 1400px;
   margin: auto;
-  font-size: 26px;
+  font-size: 20px;
+  @media(max-width: 1600px){
+    max-width: 1120px;
+    font-size: 14px;
+  }
 }
 
 
@@ -11,8 +15,6 @@
   padding-top: em(90px);
   color: $clr2;
   margin: auto;
-  padding-left: em(10px);
-  padding-right: em(10px);
   @media(max-width:700px){
     width: 100vw;
   }
@@ -149,7 +151,7 @@
   }
   .type-host-and-stay-properties {
     display: flex;
-    padding: em(48px) 0 em(24px);
+    padding: em(34px) 0 em(24px);
     justify-content: space-between;
     .type-host-and-stay-property-text {
       display: flex;
@@ -157,7 +159,7 @@
     }
     .stay-type-host-name {
       font-weight: 600;
-      line-height: em(25px);
+      line-height: em(20px);
       @media (max-width: 880px) {
         line-height: em(28px);
       }
@@ -247,7 +249,7 @@
         flex-wrap: wrap;
         gap: em(10px);
         .amenity-item {
-          flex: 1 1 em(170px);
+          flex: 1 1 em(190px);
           display: flex;
           align-items: center;
           gap: em(15px);
@@ -505,3 +507,6 @@
     }
   }
 }
+
+// STAY DETAILS PAGE BREAKING POINTS:
+// wide-screen: 1300px

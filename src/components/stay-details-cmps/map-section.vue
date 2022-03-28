@@ -2,9 +2,8 @@
   <GMapMap
     v-if="center"
     :center="center"
-    :zoom="15"
+    :zoom="20"
     map-type-id="terrain"
-    style="width: 500px; height: 400px"
   >
     <GMapMarker :position="center" />
   </GMapMap>
@@ -40,6 +39,7 @@ export default {
 
 <style>
 .vue-map-container {
-  height: 400px;
+  height: 800px;
+  width: 100%;
 }
 </style>

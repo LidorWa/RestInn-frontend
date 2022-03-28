@@ -44,6 +44,11 @@
   .grid-item5 {
     grid-area: item5;
   }
+
+  @media(max-width:1600px){
+    grid-template-columns: repeat(4, minmax(180px, 1fr));
+  }
+
   @media (max-width: 700px) {
     display: block;
   }
