@@ -8,7 +8,7 @@ export default {
       type: [],
       city: "",
       amenities: [],
-      guests: null,
+      guests: 0,
     },
   },
   getters: {
@@ -29,6 +29,8 @@ export default {
     },
     getStaysForDisplay(state) {
       let stays = JSON.parse(JSON.stringify(state.stays));
+
+      stays = stays.filter((stay) => stay.capacity >= state.filterBy.guests);
 
       if (state.filterBy.type.length) {
         stays = stays.filter((stay) =>
