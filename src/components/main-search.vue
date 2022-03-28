@@ -13,20 +13,20 @@
       <div class="date-picker-container header-input flex">
         <!-- check in -->
         <div class="date-input check-in-top flex flex-column">
-          <div class="label check-in-top">Check in</div>
+          <div class="label check-in-label">Check in</div>
           <div class="input add-dates">{{ formatedDate(0) }}</div>
         </div>
 
         <span class="search-space"></span>
         <!-- check out -->
         <div class="header-input date-input check-out-top flex flex-column">
-          <div class="label check-out-top">Check out</div>
+          <div class="label check-out-label">Check out</div>
           <div class="input add-dates">{{ formatedDate(1) }}</div>
         </div>
         <!-- element picker -->
         <div class="block date-picker">
           <!-- returns timestamp (Value format "x") -->
-          <el-date-picker v-model="dates" type="daterange" range-separator="To" start-placeholder="Start date" end-placeholder="End date" value-format="x" />
+          <el-date-picker v-model="dates" type="daterange" range-separator="|" start-placeholder="Add dates" end-placeholder="Add dates" :clearable="true" value-format="x" />
         </div>
       </div>
       <span class="search-space"></span>
@@ -40,22 +40,25 @@
           </div>
         </div>
         <select-guests-modal v-if="isSelectingGuests" :guests="guests" @closeGuestsModal="closeGuestsModal" @onSelectGuests="onSelectGuests" />
-        <button class="search-icon" @click="onSearch">
+        <!-- <button class="search-icon" @click="onSearch">
           <img src="../assets/svgs/search.svg" alt="search Icon" />
+        </button> -->
+        <!-- checking button -->
+        <!-- <button @click.prevent="onSearch" class="search-icon" :style="{ width: isSearchOpen ? '130px' : '50px' }"> -->
+        <button @click.prevent="onSearch" class="search-icon" :class="toggleSearchBtnClass">
+          <img src="../assets/svgs/search.svg" class="search-btn" alt="search icon" />
+          <h3>Search</h3>
+          <!-- <h6 v-if="isSearchOpen" :style="{ opacity: isSearchOpen ? '100%' : '0%' }">Search</h6> -->
         </button>
-
-        <!-- <img src="../assets/svgs/search.svg" alt="search Icon" /> -->
+        <!-- click-check for closing search btn -->
+        <!-- <div v-if="isSearchOpen" class="outsideDetailsGuests" @click="clickCheck"></div> -->
       </div>
     </form>
-    <!-- checking button -->
-    <div @click="openSearch" class="search-btn-container" :style="{ width: isSearchOpen ? '130px' : '50px' }">
-      <img src="../assets/svgs/search.svg" alt="" />
-      <p v-if="isSearchOpen" :style="{ opacity: isSearchOpen ? '100%' : '0%' }">Search</p>
-    </div>
   </section>
 </template>
 
 <script>
+// import { tr } from 'element-plus/lib/locale'
 import { ref } from 'vue'
 import selectGuestsModal from '../components/select-guests-modal.vue'
 
@@ -89,6 +92,7 @@ export default {
     selectGuestsModal,
   },
   mounted() {
+    window.addEventListener('click', this.clickCheck)
     // this.headerObserver = new IntersectionObserver(this.onHeaderObserved, {
     //   rootMargin: '-100px 0px 0px',
     // })
@@ -112,23 +116,36 @@ export default {
       this.guests = guests
     },
     onSearch() {
-      // if (!this.location && !this.dates && !this.guests.adults) {
-      //   this.$router.push("/stay");
-      // }
-      let path = '/stay'
-      if (this.location) path += `?destination=${this.location}`
-      this.$router.push(`${path}`)
-      // Reload???
+      console.log('onSearch clicked before', this.isSearchOpen)
+      if (!this.location && !this.dates && this.guests.adults === 0) {
+        this.isSearchOpen = true
+        console.log('onSearch clicked after', this.isSearchOpen)
+        //TODO: add focus
+      } else {
+        let path = '/stay'
+        if (this.location) path += `?destination=${this.location}`
+        this.$router.push(`${path}`)
+        this.isSearchOpen = false
+        // Reload???
+      }
+    },
+    clickCheck(ev) {
+      console.log(ev)
+      console.log(this.isSearchOpen)
+      const evClass = ev.target.className
+      const evLocal = ev.target.localName
+      console.log('ev - class name:', ev.target.className)
+      console.log('ev - localname:', ev.target.localName)
+      if (evClass === 'search-btn' || evClass === 'input' || evClass === 'label' || evClass === 'date-picker-container' || evClass === '' || evLocal === 'input') return
+      else {
+        this.isSearchOpen = false
+      }
     },
     // onHeaderObserved(entries) {
     //   entries.forEach((entry) => {
     //     this.stickyNav = entry.isIntersecting ? false : true
     //   })
     // },
-    openSearch() {
-      // if (this.isSearchOpen) this.doFilter()
-      this.isSearchOpen = true
-    },
   },
   computed: {
     getMainSearchText() {
@@ -141,9 +158,16 @@ export default {
       if (guests === 1) return '1 guest'
       return `${guests} guests`
     },
+    toggleSearchBtnClass() {
+      return {
+        'opened-search-icon': this.isSearchOpen,
+        'search-icon': !this.isSearchOpen,
+      }
+    },
   },
   unmounted() {
     this.$emit('mainSearchClosed', this.location, this.dates, this.guests)
+    window.removeEventListener('click', this.clickCheck)
   },
 }
 </script>

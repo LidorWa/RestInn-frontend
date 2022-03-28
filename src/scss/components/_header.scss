@@ -1,23 +1,27 @@
 // .header-wide{
-// width: 100vw;
-// height: em(66px);
-// background-color: $clr3;
+//   width: 100vw;
+//   height: em(66px);
+//   background-color: $clr3;
 
 // }
 
 .header-container{
-  width: em(1400px);
+  // width: em(1400px);
+  width: 100vw;
   margin: auto;
+  position: fixed;
+  height: 66px;
+  box-shadow: rgb(0, 0, 0, 0.08) 0px 1px 12px;
+  color: $clr3;
 }
 
 .main-header-container {
-  position: fixed;
+  // position: fixed;
   width: 100vw;
   // height: rem(158px);
   height: em(150px);
   padding:em(8px) em(40px) 0 em(40px);
   padding-top: em(8px);
-  box-shadow: rgb(0, 0, 0, 0.08) 0px 1px 12px;
   // color: $clr1;
   z-index: 300;
   .logo-nav-container {
@@ -31,6 +35,8 @@
       a,
       img {
         color: $clr3;
+        font-family: cereal-book;
+        font-weight: 600;
       }
     }
   }
@@ -104,7 +110,12 @@
   font-size: rem(14px);
   font-weight: 600;
   a {
-    padding: 0 em(10px);
+    // padding: 0 em(10px);
+    text-align: start;
+    padding-left: 25px;
+  }
+  .hamburger-user-menu{
+    margin-inline-start: em(25px);
   }
 }
 //TODO: change svg color
