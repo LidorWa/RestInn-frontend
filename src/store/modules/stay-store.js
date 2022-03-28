@@ -8,6 +8,7 @@ export default {
       type: [],
       city: "",
       amenities: [],
+      guests: null,
     },
   },
   getters: {
@@ -51,17 +52,7 @@ export default {
 
       if (state.filterBy.city) {
         let city = state.filterBy.city;
-        // if (state.filterBy.city.includes("$")) {
-        //   city = city
-        //     .split("$")
-        //     .map(
-        //       (word) =>
-        //         (word = word.charAt(0).toUpperCase() + word.substring(1))
-        //     )
-        //     .join(" ");
-        // } else {
-        city = city.charAt(0).toUpperCase() + city.substring(1);
-        // }
+
         const regex = new RegExp(city, "i");
         stays = stays.filter((stay) => regex.test(stay.address.city));
       }
@@ -70,12 +61,20 @@ export default {
     },
   },
   mutations: {
-    setStays(state, { stays }) {
-      state.stays = stays;
+    setGuestsFilter(state, { guests }) {
+      state.filterBy.guests = guests;
+    },
+
+    setCityFilter(state, { city }) {
+      state.filterBy.city = city;
     },
 
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy;
+    },
+
+    setStays(state, { stays }) {
+      state.stays = stays;
     },
   },
   actions: {

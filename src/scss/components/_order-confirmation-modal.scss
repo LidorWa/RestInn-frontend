@@ -9,27 +9,45 @@
   transition: 0.3s;
   z-index: 888;
 
+  .trip-details {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .confirm-title {
-    margin-top: 80px;
-    // margin-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 20px;
     text-align: center;
-    font-size: em(15px);
+    font-size: em(27px);
     padding: 3px;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
     font-weight: 600;
+  }
+
+  .confirm-secondary-title {
     border-bottom: 1px solid $clr7;
   }
 
   .confirm-text {
-    font-size: em(13px);
-    text-align: center;
-    margin-bottom: 70px;
+    font-size: em(17px);
+    text-align: start;
+    padding-left: 25px;
+    margin-bottom: 8px;
+  }
+
+  .trip-details {
+    margin-top: 20px;
+  }
+
+  .confirm-text:last-child {
+    margin-bottom: 20px;
   }
 
   .modal-btns-container {
     display: flex;
     flex-direction: column;
     height: 130px;
+    margin-top: 100px;
   }
 
   .sign-up-continue {
@@ -63,6 +81,22 @@
   .close-sign-up:hover {
     font-weight: 600;
   }
+
+  .host-details {
+    padding: 35px;
+    padding-top: 0px;
+  }
+
+  .host-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+  }
+
+  .host-name {
+    font-size: em(15px);
+    text-align: center;
+  }
 }
 
 .showConfirm {
@@ -78,7 +112,7 @@
     left: 50%;
     transform: translate(-50%, -200%) !important;
     height: 600px;
-    width: 580px;
+    width: 750px;
     box-shadow: 0 5px 10px rgb(0 0 0 / 40%);
     border-top: 1px solid $clr6;
     border-radius: 15px;
@@ -87,22 +121,32 @@
       margin-top: 20px;
       margin-bottom: 10px;
       text-align: center;
-      font-size: em(12px);
+      font-size: em(20px);
       padding: 3px;
       padding-bottom: 20px;
       font-weight: 600;
     }
 
     .confirm-text {
-      font-size: em(13px);
+      font-size: em(16px);
       margin-bottom: 10px;
       padding-top: 10px;
       line-height: 25px;
     }
 
+    .modal-btns-container {
+      display: flex;
+      flex-direction: row-reverse;
+
+      height: 130px;
+      margin: auto;
+      margin-top: 20px;
+      width: 380px;
+    }
+
     .sign-up-continue {
       height: 40px;
-      width: 65%;
+      width: 160px;
       margin-bottom: 20px;
       color: $clr3;
       background-color: $clr1;
@@ -120,6 +164,6 @@
   }
 
   .showConfirm {
-    transform: translateY(-50%) !important;
+    transform: translate(-50%, -50%) !important;
   }
 }

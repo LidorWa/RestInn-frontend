@@ -133,7 +133,16 @@ export default {
         //TODO: add focus
       } else {
         let path = '/stay'
-        if (this.location) path += `?destination=${this.location}`
+        const city = this.location
+        const guests = this.guests.adults + this.guests.children
+        if (city) {
+          path += `?destination=${city}`
+          this.$store.commit({ type: 'setCityFilter', city })
+        }
+        if (guests) {
+          this.$store.commit({ type: 'setGuestsFilter', guests })
+        }
+
         this.$router.push(`${path}`)
         this.isSearchOpen = false
         // Reload???

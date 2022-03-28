@@ -44,7 +44,7 @@
         <map-section :address="stay.address" />
         <order-alert-modal v-if="isOrderAlert" @closeModal="closeAlertModal" :alertModalMessage="alertModalMessage" />
         <login-alert-modal v-if="isLoginAlert" @closeModal="closeLoginModal" @login="loginToProceed" @demo="demoToProceed" />
-        <order-confirmation-modal :class="{ showConfirm: isOrdering && isLoggedIn }" @closeModal="closeConfirmationModal" />
+        <order-confirmation-modal :class="{ showConfirm: isOrdering && isLoggedIn }" :stay="stay" :dates="getDates" :guests="getGuests" :user="getLoggedInUser" @closeModal="closeConfirmationModal" />
         <div v-if="isOrderAlert || isLoginAlert || (isOrdering && isLoggedIn)" class="order-alert-overlay"></div>
       </section>
     </section>
@@ -138,7 +138,7 @@ export default {
     },
     onCheckAvailability() {
       this.isOrdering = true
-      const dates = this.$store.getters.getDates
+      const dates = this.getDates
       const guests = this.getGuests
       console.log(guests)
       if (!dates) {
@@ -172,12 +172,18 @@ export default {
     },
   },
   computed: {
+    getDates() {
+      return this.$store.getters.getDates
+    },
     getGuests() {
       return this.$store.getters.getGuests
     },
     isLoggedIn() {
       const user = this.$store.getters.getLoggedInUser
       return user ? true : false
+    },
+    getLoggedInUser() {
+      return this.$store.getters.getLoggedInUser
     },
   },
   unmounted() {
