@@ -1,9 +1,22 @@
+// .header-wide{
+// width: 100vw;
+// height: em(66px);
+// background-color: $clr3;
+
+// }
+
+.header-container {
+  width: em(1400px);
+  margin: auto;
+}
+
 .main-header-container {
   position: fixed;
   width: 100vw;
   // height: rem(158px);
   height: em(150px);
-  padding: em(8px) em(24px);
+  padding: em(8px) em(40px) 0 em(40px);
+  padding-top: em(8px);
   box-shadow: rgb(0, 0, 0, 0.08) 0px 1px 12px;
   // color: $clr1;
   z-index: 300;
@@ -47,6 +60,11 @@
   }
   &.details-page {
     height: em(66px);
+    // max-width: em(1400px);
+    margin: auto;
+    width: em(1400px);
+    padding: em(8px) 0 0 0;
+    // box-shadow: -1px 10px 6px -1px #000000;
   }
   &.main-search-open {
     height: em(140px);
@@ -72,8 +90,13 @@
   padding-inline-end: em(5px);
   cursor: pointer;
   i {
-    font-size: 35px;
+    font-size: em(33px);
     font-weight: bold;
+  }
+  @media (max-width: 570px) {
+    h1 {
+      display: none;
+    }
   }
 }
 
@@ -86,39 +109,42 @@
   }
 }
 //TODO: change svg color
-.language {
-  // margin-inline-start: em(5px);
+// .language {
+// margin-inline-start: em(5px);
 
-  margin-inline-end: em(8px);
-  cursor: pointer;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  &:hover {
-    background-color: $clr8;
-  }
-  img {
-    width: em(15px);
-    height: em(15px);
-  }
-}
+//   margin-inline-end: em(8px);
+//   cursor: pointer;
+//   border-radius: 50%;
+//   width: 35px;
+//   height: 35px;
+//   &:hover{
+//     background-color: $clr8;
+//   }
+// img {
+//   width: em(15px);
+//   height: em(15px);
+//   }
+// }
 //Hamburger menu
 .hamburger-user-menu {
-  background-color: white;
-  width: 80px;
-  height: 40px;
-  border: 1px solid rgb(201, 201, 201);
-  padding: 7px;
+  background-color: $clr3;
+  width: em(78px);
+  height: em(42px);
+  border: 1px solid $clr6;
+  padding: 5px 5px 5px 12px;
   border-radius: 30px;
-  justify-content: space-around;
+  // justify-content: space-around;
   align-items: center;
   cursor: pointer;
   transition: 0.2s;
+
+  &:hover {
+    background-color: rgb(228, 228, 228);
+  }
 }
 
-.hamburger-user-menu:hover {
-  background-color: rgb(228, 228, 228);
-}
+// .hamburger-user-menu:hover {
+// }
 
 .showHamburger {
   transform: translateX(-1%) !important;
@@ -130,12 +156,14 @@
 }
 
 .hamburger-avatar {
-  width: 28px;
-  height: 28px;
+  width: em(32px);
+  height: em(32px);
+  justify-content: flex-end;
+  margin-left: em(5px);
 }
 
 .hamburger-img {
-  width: 22px;
+  width: em(22px);
 }
 
 .outsideUserMenu {
@@ -149,14 +177,13 @@
 }
 
 .mini-search {
-  // @include search-btn;
+  // @include search-btn('small');
   // position: absolute;
   // top: 50%;
   // left: 50%;
   // transform: translate(-50%, -50%);
-  margin-left: 140px;
-  min-width: 160px;
-  line-height: 20px;
+  min-width: em(160px);
+  line-height: em(20px);
   box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
   background-color: $clr3;
   border: 1px solid $clr6;
@@ -173,21 +200,6 @@
 
   &:hover {
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.18);
-  }
-
-  @media (max-width: 570px) {
-    .logo h1,
-    i {
-      font-size: em(4px);
-    }
-    .logo-nav-container a {
-      display: none;
-      //TODO: add nav to hamburger
-    }
-    .hamburger-user-menu {
-      margin-inline-start: em(8px);
-      // margin-left: em(8px);
-    }
   }
 }
 
@@ -211,5 +223,21 @@
   img {
     width: em(18px);
     height: em(18px);
+  }
+}
+
+//TODO: doesn't work!
+@media (max-width: 570px) {
+  .fa-brands {
+    font-size: em(10px);
+    margin-inline-end: em(3px);
+  }
+  .logo-nav-container a {
+    display: none;
+    //TODO: add nav to hamburger
+  }
+  .hamburger-user-menu {
+    margin-inline-start: em(8px);
+    // margin-left: em(8px);
   }
 }

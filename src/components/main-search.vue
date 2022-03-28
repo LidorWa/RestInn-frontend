@@ -5,9 +5,12 @@
       class="main-search-container flex align-center btn"
     >
       <!-- location -->
-      <div class="header-input location-input flex flex-column">
-        <label for=" location-input" class="label">Location</label>
+      <div class="header-input location-input-top flex flex-column">
+        <label for="location-input" class="label location-input"
+          >Location</label
+        >
         <input
+          class="input"
           type="text"
           v-model="location"
           id="location-input"
@@ -21,18 +24,18 @@
       <span class="search-space"></span>
 
       <!-- date picker -->
-      <div class="header-input date-picker-container flex">
+      <div class="date-picker-container header-input flex">
         <!-- check in -->
         <div class="date-input check-in-top flex flex-column">
           <div class="label check-in-top">Check in</div>
-          <div class="add-dates">{{ formatedDate(0) }}</div>
+          <div class="input add-dates">{{ formatedDate(0) }}</div>
         </div>
 
         <span class="search-space"></span>
         <!-- check out -->
         <div class="header-input date-input check-out-top flex flex-column">
           <div class="label check-out-top">Check out</div>
-          <div class="add-dates">{{ formatedDate(1) }}</div>
+          <div class="input add-dates">{{ formatedDate(1) }}</div>
         </div>
         <!-- element picker -->
         <div class="block date-picker">
@@ -54,7 +57,7 @@
         <div class="guests-input-container flex flex-column">
           <label for="guestsInput" class="label">Guests</label>
           <div
-            class="guests-input"
+            class="input guests-input"
             @click="isSelectingGuests = !isSelectingGuests"
             placeholder="Add guests"
           >
@@ -74,6 +77,17 @@
         <!-- <img src="../assets/svgs/search.svg" alt="search Icon" /> -->
       </div>
     </form>
+    <!-- checking button -->
+    <div
+      @click="openSearch"
+      class="search-btn-container"
+      :style="{ width: isSearchOpen ? '130px' : '50px' }"
+    >
+      <img src="../assets/svgs/search.svg" alt="" />
+      <p v-if="isSearchOpen" :style="{ opacity: isSearchOpen ? '100%' : '0%' }">
+        Search
+      </p>
+    </div>
   </section>
 </template>
 
@@ -104,6 +118,7 @@ export default {
       location: "",
       dates: null,
       guests: { adults: 0, children: 0 },
+      isSearchOpen: false,
     };
   },
   components: {
@@ -148,6 +163,10 @@ export default {
     //     this.stickyNav = entry.isIntersecting ? false : true
     //   })
     // },
+    openSearch() {
+      // if (this.isSearchOpen) this.doFilter()
+      this.isSearchOpen = true;
+    },
   },
   computed: {
     getMainSearchText() {
@@ -169,9 +188,6 @@ export default {
     dates() {
       this.$emit("mainSearchClosed", this.location, this.dates, this.guests);
     },
-  },
-  unmounted() {
-    this.$emit("mainSearchClosed", this.location, this.dates, this.guests);
   },
 };
 </script>
