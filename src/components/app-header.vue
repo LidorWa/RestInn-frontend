@@ -1,6 +1,5 @@
 <template>
-  <!-- <div v-if="" class="header-wide"> -->
-  <div class="header-container flex justify-center">
+  <div class="header-container flex">
     <header
       class="main-header-container flex flex-column align-center"
       :class="getHeaderClass"
@@ -86,7 +85,6 @@
       ></div> -->
     </header>
   </div>
-  <!-- </div> -->
 </template>
 
 <script>
