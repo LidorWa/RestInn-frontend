@@ -1,5 +1,5 @@
 <template>
-  <p class="stays-count">{{ stays.length }} stays</p>
+  <p class="stays-count">{{ getStaysPreviewTitle }}</p>
   <ul v-if="stays.length" class="card-cont">
     <stay-preview v-for="stay in stays" :key="stay._id" :stay="stay" />
   </ul>
@@ -24,30 +24,25 @@ export default {
           min: 0,
           max: 700,
         },
-        type: "",
+        type: [],
       },
-      options: [
-        {
-          value: "",
-          label: "All",
-        },
-        {
-          value: "Apartment",
-          label: "Apartment",
-        },
-        {
-          value: "Serviced apartment",
-          label: "Serviced apartment",
-        },
-        {
-          value: "Option1",
-          label: "Option1",
-        },
-      ],
+      city: "",
     };
+  },
+  created() {
+    if (this.$route.query.destination) {
+      let city = this.$route.query.destination.split("?")[0];
+      this.city = city;
+    }
   },
   components: {
     stayPreview,
+  },
+  computed: {
+    getStaysPreviewTitle() {
+      if (this.city) return `${this.stays.length} stays in ${this.city}`;
+      return `${this.stays.length} stays`;
+    },
   },
   methods: {},
 };

@@ -5,7 +5,7 @@
 
 .stays-count {
   font-weight: bold;
-  padding-left: 14px;
+  padding-left: 24px;
   margin: 0;
   font-size: rem(20px);
 }
@@ -25,6 +25,11 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(200px, 1fr));
     gap: 10px;
+    padding: 10px 24px;
+  }
+
+  .stays-count {
+    padding-left: 28px;
   }
 }
 
@@ -52,8 +57,9 @@
 //Break point
 //Break point
 
-@media (min-width: 1500px) {
+@media (min-width: 1700px) {
   .card-cont {
     grid-template-columns: repeat(5, minmax(200px, 1fr));
+    padding: 10px 24px;
   }
 }

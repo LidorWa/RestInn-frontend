@@ -1,9 +1,19 @@
 <template>
   <section class="hero-modal">
-    <section class="hero-modal-wrapper" >
-      <div v-if="isSelectingGuests" class="outsideDetailsGuests" @click="isSelectingGuests = false"></div>
+    <section class="hero-modal-wrapper">
+      <div
+        v-if="isSelectingGuests"
+        class="outsideDetailsGuests"
+        @click="isSelectingGuests = false"
+      ></div>
       <section class="hero-modal-container">
-        <details-select-guests-modal v-if="isSelectingGuests" :guests="getGuests" :capacity="stay.capacity" @closeGuestsModal="closeGuestsModal" @onSelectGuests="onSelectGuests" />
+        <details-select-guests-modal
+          v-if="isSelectingGuests"
+          :guests="getGuests"
+          :capacity="stay.capacity"
+          @closeGuestsModal="closeGuestsModal"
+          @onSelectGuests="onSelectGuests"
+        />
         <section class="hero-modal-header">
           <div class="hero-modal-price">
             <span>{{ $filters.currencyUSD(stay.price) }}</span>
@@ -19,15 +29,31 @@
         </section>
         <section class="hero-modal-selection">
           <div class="hero-modal-check-container">
-            <div class="hero-modal-check-in" @click="isSelectingDates = !isSelectingDates">
+            <div
+              class="hero-modal-check-in"
+              @click="isSelectingDates = !isSelectingDates"
+            >
               <div>CHECK-IN</div>
-              <div>Add date</div>
+              <div>{{ formatedDate(0) }}</div>
             </div>
-            <div class="hero-modal-check-out" @click="isSelectingDates = !isSelectingDates">
+            <div
+              class="hero-modal-check-out"
+              @click="isSelectingDates = !isSelectingDates"
+            >
               <div>CHECK-OUT</div>
-              <div>Add date</div>
+              <div>{{ formatedDate(1) }}</div>
             </div>
-            <date-picker />
+            <div class="block">
+              <span class="demonstration">Default</span>
+              <el-date-picker
+                v-model="dates"
+                type="daterange"
+                start-placeholder="CHECK-IN"
+                end-placeholder="CHECKOUT"
+                class="date-picker"
+                value-format="x"
+              />
+            </div>
           </div>
           <div class="hero-modal-guests" @click="isSelectingGuests = true">
             <label for="hero-modal-guest-picker">GUESTS</label>
@@ -45,10 +71,10 @@
 </template>
 
 <script>
-import detailsSelectGuestsModal from './details-select-guests-modal.vue'
-import datePicker from './date-picker.vue'
+import detailsSelectGuestsModal from "./details-select-guests-modal.vue";
+import datePicker from "./date-picker.vue";
 export default {
-  name: 'hero-modal',
+  name: "hero-modal",
   props: {
     stay: {
       type: Object,
@@ -57,55 +83,73 @@ export default {
   },
   data() {
     return {
+      dates: null,
       isSelectingGuests: false,
       isSelectingDates: false,
       // guests: { adults: 0, children: 0 },
-    }
+    };
   },
   components: {
     detailsSelectGuestsModal,
     datePicker,
   },
-
+  created() {
+    this.dates = this.getDates;
+  },
   methods: {
+    updateDated() {
+      console.log("hey");
+    },
+    formatedDate(num) {
+      if (!this.dates) return "Add dates";
+      const date = new Date(this.dates[num]);
+      return `${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}/${
+        date.getMonth() < 9 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1
+      }/${date.getFullYear().toString().substring(2)}`;
+    },
     onSelectGuests(guests) {
-      this.$store.commit({ type: 'setGuests', guests })
+      this.$store.commit({ type: "setGuests", guests });
     },
     closeGuestsModal() {
-      this.isSelectingGuests = false
+      this.isSelectingGuests = false;
     },
   },
   // {{ getGuests.adults }} adults, {{ getGuests.children }} children
   computed: {
     getGuestsForDisplay() {
-      const adults = this.getGuests.adults
-      const children = this.getGuests.children
-      if (!(children + adults)) return 'Add guests'
+      const adults = this.getGuests.adults;
+      const children = this.getGuests.children;
+      if (!(children + adults)) return "Add guests";
       if (!children) {
-        if (adults === 1) return '1 adult'
-        return `${adults} adults`
+        if (adults === 1) return "1 adult";
+        return `${adults} adults`;
       }
       if (children === 1) {
-        if (adults === 1) return '1 adult, 1 child'
-        return `${adults} adults, 1 child`
+        if (adults === 1) return "1 adult, 1 child";
+        return `${adults} adults, 1 child`;
       }
-      return `${adults} adults, ${children} children`
+      return `${adults} adults, ${children} children`;
     },
     getLocation() {
-      return this.$store.getters.getLocation
+      return this.$store.getters.getLocation;
     },
     getDates() {
-      return this.$store.getters.getDates
+      return this.$store.getters.getDates;
     },
     getGuests() {
-      return this.$store.getters.getGuests
+      return this.$store.getters.getGuests;
     },
     fixedScore() {
-      let currStayScore = this.stay.reviewScores.rating / 20
-      return currStayScore.toFixed(2)
+      let currStayScore = this.stay.reviewScores.rating / 20;
+      return currStayScore.toFixed(2);
     },
   },
-}
+  watch: {
+    dates() {
+      this.$store.commit({ type: "setDates", dates: this.dates });
+    },
+  },
+};
 </script>
 
 <style></style>

@@ -14,6 +14,21 @@
     background-color: $clr3;
     padding-left: 20px;
   }
+
+  .input-alert {
+    margin: 0;
+    padding-left: 10px !important;
+    font-size: em(13px);
+    margin-bottom: 2px;
+    color: rgb(160, 0, 0);
+  }
+}
+
+.no-alert {
+  margin: 0;
+  font-size: em(13px);
+  margin-bottom: 2px;
+  color: $clr3;
 }
 
 .close-sign-up {
@@ -103,21 +118,6 @@
 
 .sign-up-continue:hover {
   background-color: rgba($clr1, 0.9);
-}
-
-.input-alert {
-  margin: 0;
-  padding-left: 10px !important;
-  font-size: em(13px);
-  margin-bottom: 2px;
-  color: rgb(160, 0, 0);
-}
-
-.no-alert {
-  margin: 0;
-  font-size: em(13px);
-  margin-bottom: 2px;
-  color: $clr3;
 }
 
 @media (min-width: 551px) {
