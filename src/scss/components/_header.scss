@@ -1,3 +1,10 @@
+// .header-wide{
+// width: 100vw;
+// height: em(66px);
+// background-color: $clr3;
+
+// }
+
 .header-container{
   width: em(1400px);
   margin: auto;
@@ -5,10 +12,10 @@
 
 .main-header-container {
   position: fixed;
-  width: 100%;
-  // width: 100vw;
+  width: 100vw;
   // height: rem(158px);
   height: em(150px);
+  padding:em(8px) em(40px) 0 em(40px);
   padding-top: em(8px);
   box-shadow: rgb(0, 0, 0, 0.08) 0px 1px 12px;
   // color: $clr1;
@@ -53,8 +60,11 @@
   }
   &.details-page {
     height: em(66px);
-    max-width: em(1400px);
+    // max-width: em(1400px);
     margin: auto;
+    width: em(1400px);
+    padding: em(8px) 0 0 0;
+    // box-shadow: -1px 10px 6px -1px #000000;
   }
   &.main-search-open {
     height: em(140px);

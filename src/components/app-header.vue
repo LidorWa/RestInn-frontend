@@ -1,5 +1,6 @@
 <template>
-  <div class="header-container">
+  <!-- <div v-if="" class="header-wide"> -->
+  <div class="header-container flex justify-center">
     <header class="main-header-container flex flex-column align-center" :class="getHeaderClass">
       <!-- <header class="main-header-container flex flex-column align-center" :class="{ top: headerStatus === 'top', shrinkSearchBar: headerStatus === 'shrinkSearchBar', homepage: this.$route.path === '/', 'explore-page': this.$route.path === '/stay', 'details-page': this.$route.path === '/stay/:stayId' }"> -->
       <!-- <header class="main-header-container flex flex-column align-center" :class="headerStatus">-->
@@ -43,6 +44,7 @@
       <div v-if="isSignUp" class="outsideUserMenu" @click="isSignUp = false"></div>
     </header>
   </div>
+  <!-- </div> -->
 </template>
 
 <script>
