@@ -1,6 +1,13 @@
-.map-adress {
+.map-address {
   color: $clr2;
   font-weight: 600;
   font-size: em(16px);
   margin: 20px 0px 20px;
+}
+
+.vue-map-container {
+  height: minmax(em(72px), 1fr);
+  // height: 800px;
+  // width: 100%;
+  aspect-ratio: 2 / 1;
 }

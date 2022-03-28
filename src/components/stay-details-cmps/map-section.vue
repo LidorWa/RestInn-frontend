@@ -1,13 +1,8 @@
 <template>
-  <GMapMap
-    v-if="center"
-    :center="center"
-    :zoom="20"
-    map-type-id="terrain"
-  >
+  <GMapMap v-if="center" :center="center" :zoom="20" map-type-id="terrain">
     <GMapMarker :position="center" />
   </GMapMap>
-  <h1 class="map-adress">{{ address.street }}</h1>
+  <h1 class="map-address">{{ address.street }}</h1>
 </template>
 <script>
 export default {
@@ -17,10 +12,11 @@ export default {
       required: true,
     },
   },
-  name: "App",
+  name: 'App',
   data() {
     return {
       center: { lat: 32.091996, lng: 34.959813 },
+      //TODO: try to change map pin to airbnb style
       // marker: {
       //   id: "dfsldjl3r",
       //   position: {
@@ -28,18 +24,13 @@ export default {
       //     lng: 34.959813,
       //   },
       // },
-    };
+    }
   },
   created() {
-    this.center.lat = this.address.location.lan;
-    this.center.lng = this.address.location.lat;
+    this.center.lat = this.address.location.lan
+    this.center.lng = this.address.location.lat
   },
-};
+}
 </script>
 
-<style>
-.vue-map-container {
-  height: 800px;
-  width: 100%;
-}
-</style>
+<style></style>
