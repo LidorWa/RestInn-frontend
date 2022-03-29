@@ -10,14 +10,9 @@
 
 
 .stay-details-page {
-  // width: calc(100vw - 120px);
-  // max-width: em(1120px);
   padding-top: em(90px);
   color: $clr2;
   margin: auto;
-  // @media(max-width:700px){
-  //   width: 100vw;
-  // }
   .footer-hero-modal {
     display: none;
     @media (max-width: 760px) {
@@ -73,7 +68,15 @@
       background-color: rgba($clr1, 0.9);
     }
   }
+  .secondary-header-and-images-container{
+    display: flex;
+    flex-direction: column;
+    @media(max-width: 760px){
+      flex-direction: column-reverse;
+    }
 
+  }
+.secondary-header{
   .stay-name {
     h1 {
       margin-bottom: em(15px);
@@ -135,6 +138,7 @@
     }
   }
 
+}
   .hero-modal-and-general-info {
     display: flex;
     flex-direction: row;
@@ -511,6 +515,3 @@
     }
   }
 }
-
-// STAY DETAILS PAGE BREAKING POINTS:
-// wide-screen: 1300px

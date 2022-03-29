@@ -3,13 +3,17 @@
     <section class="stay-details-page">
       <footer-hero-modal :stay="stay" v-if="stay" />
       <section class="stay-details" v-if="stay">
-        <secondary-header @goToReviews="goToReviews" :stay="stay" />
-        <images-container :stayImgs="stay.imgUrls" />
+        <section class="secondary-header-and-images-container">
+          <secondary-header @goToReviews="goToReviews" :stay="stay" />
+          <images-container :stayImgs="stay.imgUrls" />
+        </section>
         <section class="hero-modal-and-general-info">
           <section class="general-info">
             <section class="type-host-and-stay-properties">
               <section class="type-host-and-stay-properties-text">
-                <h2 class="stay-type-host-name">{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
+                <h2
+                  class="stay-type-host-name"
+                >{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
                 <ul class="stay-properties">
                   <li>{{ stay.capacity }} guests</li>
                   <li>{{ stay.bedrooms }} bedroom</li>
@@ -17,7 +21,11 @@
                   <li>{{ stay.bathrooms }} baths</li>
                 </ul>
               </section>
-              <img :src="stay.host.thumbnailUrl" alt="Host picture" onerror="this.onerror=null; this.src='https://robohash.org/bla'" />
+              <img
+                :src="stay.host.thumbnailUrl"
+                alt="Host picture"
+                onerror="this.onerror=null; this.src='https://robohash.org/bla'"
+              />
             </section>
             <selected-popular-amenities :stay="stay" />
 
@@ -38,14 +46,37 @@
         WITH THINGS TO KNOW.
             TODO IT? IN KUMBA THEY DIDNT-->
           </section>
-          <hero-modal :stay="stay" :guestsFromStore="getGuests" @onCheckAvailability="onCheckAvailability" />
+          <hero-modal
+            :stay="stay"
+            :guestsFromStore="getGuests"
+            @onCheckAvailability="onCheckAvailability"
+          />
         </section>
         <reviews-section :stay="stay" ref="reviews-section" />
         <map-section :address="stay.address" />
-        <order-alert-modal v-if="isOrderAlert" @closeModal="closeAlertModal" :alertModalMessage="alertModalMessage" />
-        <login-alert-modal v-if="isLoginAlert" @closeModal="closeLoginModal" @login="loginToProceed" @demo="demoToProceed" />
-        <order-confirmation-modal :class="{ showConfirm: isOrdering && isLoggedIn }" :stay="stay" :dates="getDates" :guests="getGuests" :user="getLoggedInUser" @closeModal="closeConfirmationModal" />
-        <div v-if="isOrderAlert || isLoginAlert || (isOrdering && isLoggedIn)" class="order-alert-overlay"></div>
+        <order-alert-modal
+          v-if="isOrderAlert"
+          @closeModal="closeAlertModal"
+          :alertModalMessage="alertModalMessage"
+        />
+        <login-alert-modal
+          v-if="isLoginAlert"
+          @closeModal="closeLoginModal"
+          @login="loginToProceed"
+          @demo="demoToProceed"
+        />
+        <order-confirmation-modal
+          :class="{ showConfirm: isOrdering && isLoggedIn }"
+          :stay="stay"
+          :dates="getDates"
+          :guests="getGuests"
+          :user="getLoggedInUser"
+          @closeModal="closeConfirmationModal"
+        />
+        <div
+          v-if="isOrderAlert || isLoginAlert || (isOrdering && isLoggedIn)"
+          class="order-alert-overlay"
+        ></div>
       </section>
     </section>
   </section>
@@ -55,6 +86,7 @@
 import footerHeroModal from '../components/stay-details-cmps/footer-hero-modal.vue'
 import imagesContainer from '../components/stay-details-cmps/images-container.vue'
 import SecondaryHeader from '../components/stay-details-cmps/secondary-header.vue'
+import mobileSecondaryHeader from '../components/stay-details-cmps/mobile-secondary-header.vue'
 import SelectedPopularAmenities from '../components/stay-details-cmps/selected-popular-amenities.vue'
 import AmenitiesList from '../components/stay-details-cmps/amenities-list.vue'
 import reviewsSection from '../components/stay-details-cmps/reviews-section.vue'
@@ -69,6 +101,7 @@ export default {
   components: {
     imagesContainer,
     SecondaryHeader,
+    mobileSecondaryHeader,
     SelectedPopularAmenities,
     AmenitiesList,
     reviewsSection,
@@ -87,6 +120,7 @@ export default {
       //   userId: '',
       //   stayId: '',
       // },
+      isMobile: false,
       stay: null,
       isOrderAlert: false,
       isLoginAlert: false,
