@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="main-search-section">
     <form @submit.prevent="" class="main-search-container flex align-center btn">
       <!-- location -->
       <div class="header-input location-input-top flex flex-column">
@@ -26,7 +26,7 @@
         <!-- element picker -->
         <div class="block date-picker">
           <!-- returns timestamp (Value format "x") -->
-          <el-date-picker v-model="dates" type="daterange" range-separator="|" start-placeholder="Add dates" end-placeholder="Add dates" :clearable="true" value-format="x" />
+          <el-date-picker v-model="dates" type="daterange" range-separator="|" start-placeholder="Add dates" end-placeholder="Add dates" :clearable="true" value-format="x" ref="input" />
         </div>
       </div>
       <span class="search-space"></span>
@@ -53,7 +53,6 @@
         <!-- <div v-if="isSearchOpen" class="outsideDetailsGuests" @click="clickCheck"></div> -->
       </div>
     </form>
-
     <!-- checking button -->
     <!-- <div
       @click="openSearch"
@@ -149,12 +148,12 @@ export default {
       }
     },
     clickCheck(ev) {
-      console.log(ev)
-      console.log(this.isSearchOpen)
+      // console.log(ev)
+      console.log('search btn open?', this.isSearchOpen)
       const evClass = ev.target.className
       const evLocal = ev.target.localName
-      console.log('ev - class name:', ev.target.className)
-      console.log('ev - localname:', ev.target.localName)
+      // console.log('ev - class name:', ev.target.className)
+      // console.log('ev - localname:', ev.target.localName)
       if (evClass === 'search-btn' || evClass === 'input' || evClass === 'label' || evClass === 'date-picker-container' || evClass === 'guests-input' || evClass === '' || evLocal === 'input') return
       else {
         this.isSearchOpen = false
