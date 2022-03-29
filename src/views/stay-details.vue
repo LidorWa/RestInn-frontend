@@ -3,6 +3,12 @@
     <section class="stay-details-page">
       <footer-hero-modal :stay="stay" v-if="stay" />
       <section class="stay-details" v-if="stay">
+        <section class="mobile-secondary-header">
+          <div class="back-home">
+            <img src="../assets/svgs/back-home.svg">
+            <router-link to="/stay">Back</router-link>
+          </div>
+        </section>
         <section class="secondary-header-and-images-container">
           <secondary-header @goToReviews="goToReviews" :stay="stay" />
           <images-container :stayImgs="stay.imgUrls" />
@@ -24,7 +30,7 @@
               <img
                 :src="stay.host.thumbnailUrl"
                 alt="Host picture"
-                onerror="this.onerror=null; this.src='https://robohash.org/bla'"
+                onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/'"
               />
             </section>
             <selected-popular-amenities :stay="stay" />
@@ -86,7 +92,6 @@
 import footerHeroModal from '../components/stay-details-cmps/footer-hero-modal.vue'
 import imagesContainer from '../components/stay-details-cmps/images-container.vue'
 import SecondaryHeader from '../components/stay-details-cmps/secondary-header.vue'
-import mobileSecondaryHeader from '../components/stay-details-cmps/mobile-secondary-header.vue'
 import SelectedPopularAmenities from '../components/stay-details-cmps/selected-popular-amenities.vue'
 import AmenitiesList from '../components/stay-details-cmps/amenities-list.vue'
 import reviewsSection from '../components/stay-details-cmps/reviews-section.vue'
@@ -96,12 +101,12 @@ import orderAlertModal from '../components/stay-details-cmps/order-alert-modal.v
 import loginAlertModal from '../components/stay-details-cmps/login-alert-modal.vue'
 import orderConfirmationModal from '../components/stay-details-cmps/order-confirmation-modal.vue'
 
+
 export default {
   name: 'stay-details',
   components: {
     imagesContainer,
     SecondaryHeader,
-    mobileSecondaryHeader,
     SelectedPopularAmenities,
     AmenitiesList,
     reviewsSection,
@@ -111,7 +116,7 @@ export default {
     orderAlertModal,
     loginAlertModal,
     orderConfirmationModal,
-  },
+},
   data() {
     return {
       // isAdding: false,
@@ -138,23 +143,17 @@ export default {
     })
   },
 
-  // beforeUpdate(){
-  //   if (window.innerWidth <= 700){
-  //     this.isMobi
-  //   }
-  // },
-  // Please select dates to proceed
 
   methods: {
     loginToProceed() {
       this.isLoginAlert = false
       this.$store.commit({ type: 'openSignUpModal' })
-      console.log('loginToProceed')
+ 
     },
     demoToProceed() {
       this.isLoginAlert = false
       this.isOrdering = true
-      console.log('demo to proceed')
+ 
     },
     closeLoginModal() {
       this.isLoginAlert = false
@@ -174,7 +173,7 @@ export default {
       this.isOrdering = true
       const dates = this.getDates
       const guests = this.getGuests
-      console.log(guests)
+
       if (!dates) {
         this.alertModalMessage = 'Select dates to proceed'
         this.isOrdering = false
@@ -194,11 +193,6 @@ export default {
         return
       }
 
-      console.log('order!!!')
-      // console.log("dates: ", dates);
-      // console.log("guests: ", guests);
-      // console.log("user: ", user);
-      // console.log("stay: ", this.stay);
     },
     goToReviews() {
       let coords = this.$refs['reviews-section'].getBoundingClientRect().x

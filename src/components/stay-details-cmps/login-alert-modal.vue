@@ -8,7 +8,7 @@
     <h1 class="sign-up-welcome">Log in to proceed</h1>
     <div class="modal-btns-container">
       <div class="sign-up-continue" @click="login">Log in</div>
-      <div class="sign-up-continue" @click="demo">Demo user</div>
+      <div class="sign-up-continue" @click="demo">Guest user</div>
     </div>
   </section>
 </template>
@@ -32,7 +32,7 @@ export default {
     },
     async demo() {
       const user = {
-        username: "demo",
+        username: "demo@gmail.com",
         password: "demo",
       };
       await this.$store.dispatch({ type: "login", user });

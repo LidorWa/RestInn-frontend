@@ -5,9 +5,9 @@
         <img src="../../assets/svgs/star-rating.svg" />
         <span>{{ stay.reviewScores.rating / 20 }} · {{ stay.reviews.length }} reviews</span>
       </div>
-      <section class="score-scales"></section>
-
-      <!-- TODO: HERE SHOULD COME THE DIV SCALES -->
+      <score-scales :reviewScores="stay.reviewScores" />
+        
+      
     </section>
     
       <review-list :reviews="stay.reviews"></review-list>
@@ -17,6 +17,7 @@
 
 <script>
 import reviewList from './review-list.vue'
+import scoreScales from './score-scales.vue'
 export default {
   name: 'reviews-section',
   props: {
@@ -26,7 +27,8 @@ export default {
     },
   },
   components:{
-    reviewList
+    reviewList,
+    scoreScales,
   },
     data(){
       return {

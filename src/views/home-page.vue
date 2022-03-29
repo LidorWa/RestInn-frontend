@@ -6,7 +6,7 @@
     <!-- Top destinations -->
     <div class="main-layout-homepage">
       <h1 class="destinations-header">Popular destinations</h1>
-      <div class="destinations-containter">
+      <div class="destinations-container">
         <a href="#/stay?destination=Barcelona">
           <img src="../assets/images/Barcelona.jpg" alt="Barcelona" />
           <h3>Barcelona</h3>
@@ -26,7 +26,7 @@
       </div>
       <!-- Select by type -->
       <h1 class="destinations-header">Select by type</h1>
-      <div class="destinations-containter">
+      <div class="destinations-container">
         <a href="#/stay?type=Cabin">
           <img src="../assets/images/cabin.jpg" alt="Cabin" />
           <h3>Cabin</h3>
@@ -46,8 +46,12 @@
       </div>
       <!-- Top rated  -->
       <h1 class="destinations-header">Top rated stays</h1>
-      <div v-if="topRatedStays" class="destinations-containter">
-        <a :href="'/#/stay/' + stay._id" v-for="stay in topRatedStays" :key="stay._id">
+      <div v-if="topRatedStays" class="destinations-container">
+        <a
+          :href="'/#/stay/' + stay._id"
+          v-for="stay in topRatedStays"
+          :key="stay._id"
+        >
           <img :src="getImgUrl(stay.imgUrls[0])" alt="StayImage" />
           <h4>{{ stay.name }}</h4>
         </a>
@@ -58,35 +62,35 @@
 
 <script>
 // import homePageImg from '@/assets/homepage.png'
-import { stayService } from '../services/stay-service'
+import { stayService } from "../services/stay-service";
 export default {
-  name: 'home-page',
+  name: "home-page",
   data() {
-    return {}
+    return {};
   },
   components: {
     // homePageImg,
   },
   created() {
-    console.log(this.$route.path)
+    console.log(this.$route.path);
   },
   methods: {
     getImgUrl(file) {
-      const imgUrl = new URL(`../assets/images/${file}`, import.meta.url)
-      return imgUrl
+      const imgUrl = new URL(`../assets/images/${file}`, import.meta.url);
+      return imgUrl;
     },
     onCloseModal() {
-      let modal = document.getElementById('id01')
+      let modal = document.getElementById("id01");
       window.onclick = function (event) {
         if (event.target == modal) {
-          modal.style.display = 'none'
+          modal.style.display = "none";
         }
-      }
+      };
     },
   },
   computed: {
     topRatedStays() {
-      return this.$store.getters.getTopRatedStays
+      return this.$store.getters.getTopRatedStays;
     },
     // getImgUrl() {
     //   const imgUrl = new URL(`../assets/home-page.png`, import.meta.url)
@@ -94,7 +98,7 @@ export default {
     // },
   },
   unmounted() {},
-}
+};
 </script>
 
 <style></style>

@@ -1,12 +1,15 @@
 <template>
-  <section class="hero-modal">
+  <section class="hero-modal" :class="{ heroWithDates: !isDatesSet }">
     <section class="hero-modal-wrapper">
       <div
         v-if="isSelectingGuests"
         class="outsideDetailsGuests"
         @click="isSelectingGuests = false"
       ></div>
-      <section class="hero-modal-container">
+      <section
+        class="hero-modal-container"
+        :class="{ showSummary: !isDatesSet }"
+      >
         <details-select-guests-modal
           v-if="isSelectingGuests"
           :guests="guestsFromStore"
@@ -67,6 +70,21 @@
           >
             <span class="check-availability-span">Check availability</span>
           </div>
+          <div class="summary-details-container" v-if="isDatesSet">
+            <p class="no-charge">You won't be charged yet</p>
+            <div class="total-price-details">
+              <span class="total-price-item">{{ getCheckDetails }}</span>
+              <span>{{ total }}</span>
+            </div>
+            <div class="total-price-details">
+              <span class="total-price-item">Service fee</span>
+              <span>$0</span>
+            </div>
+            <div class="total-price-details total">
+              <span class="total-price-item">Total</span>
+              <span>{{ total }}</span>
+            </div>
+          </div>
         </section>
       </section>
     </section>
@@ -93,6 +111,7 @@ export default {
       dates: null,
       isSelectingGuests: false,
       isSelectingDates: false,
+      total: "",
     };
   },
   components: {
@@ -130,6 +149,22 @@ export default {
   },
   // {{ getGuests.adults }} adults, {{ getGuests.children }} children
   computed: {
+    getCheckDetails() {
+      const dates = this.dates;
+      let price = this.stay.price;
+      const nights = Math.round((dates[1] - dates[0]) / (24 * 60 * 60 * 1000));
+      const extraGuests =
+        this.guestsFromStore.adults + this.guestsFromStore.children - 2;
+      if (extraGuests > 0) price = price + 20 * extraGuests;
+      const totalPrice = price * nights;
+      this.total = `$${totalPrice}`;
+      this.$store.commit({ type: "setTotalPrice", totalPrice });
+      return `$${price} x ${nights} nights`;
+    },
+    isDatesSet() {
+      return this.dates ? true : false;
+    },
+
     getGuestsForDisplay() {
       const { adults } = this.guestsFromStore;
       const { children } = this.guestsFromStore;

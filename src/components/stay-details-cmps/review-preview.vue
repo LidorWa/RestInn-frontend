@@ -1,14 +1,21 @@
 <template>
     <section class="review-preview" id="review-section">
         <div class="review-guest-name-date">
-            <img :src="review.by.imgUrl" />
+            <img
+                :src="'https://thispersondoesnotexist.com/'"
+                alt="Host picture"
+                onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/'"
+            />
             <div class="name-and-date">
                 <span>{{ review.by.fullname }}</span>
                 <span>{{ formattedDate }}</span>
             </div>
         </div>
         <div class="review-text">{{ formattedText }}</div>
-        <div class="review-show-more" v-if="isLongTxt"><span>Show more </span><img src="../../assets/svgs/show-more.svg"></div>
+        <div class="review-show-more" v-if="isLongTxt">
+            <span>Show more</span>
+            <img src="../../assets/svgs/show-more.svg" />
+        </div>
     </section>
 </template>
 
@@ -21,8 +28,8 @@ export default {
             required: true,
         },
     },
-    data(){
-        return{
+    data() {
+        return {
             isLongTxt: false,
         }
     },
@@ -38,10 +45,10 @@ export default {
             return dateStr;
         },
         formattedText() {
-            if (this.review.txt.length > 200){
+            if (this.review.txt.length > 200) {
                 this.isLongTxt = true;
-                return this.review.txt.slice(0, 200)+'...';
-            } 
+                return this.review.txt.slice(0, 200) + '...';
+            }
             return this.review.txt;
         }
 

@@ -41,7 +41,7 @@ export default {
   methods: {
     goToReviews(){
       this.$emit('goToReviews');
-      console.log('bbbb')
+
     }
   }
 

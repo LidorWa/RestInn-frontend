@@ -77,7 +77,7 @@
     <div class="amenities-container">
       <div class="amenity-mini-container">
         <span
-          class="amenity"
+          class="amenity wifi"
           title="free WiFi connection"
           @click="toggleAmenity(`Wifi`)"
           :class="{ amenitySelected: isAmenityInFilter[`Wifi`] }"
@@ -103,7 +103,7 @@
       </div>
       <div class="amenity-mini-container">
         <span
-          class="amenity"
+          class="amenity smoking"
           title="Smoking allowed"
           @click="toggleAmenity(`Smoking allowed`)"
           :class="{ amenitySelected: isAmenityInFilter[`Smoking allowed`] }"
