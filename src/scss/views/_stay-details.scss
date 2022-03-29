@@ -12,6 +12,9 @@
   padding-top: em(90px);
   color: $clr2;
   margin: auto;
+  @media(max-width:760){
+    // padding-top: unset;
+  }
   .footer-hero-modal {
     display: none;
     @media (max-width: 760px) {
@@ -22,6 +25,7 @@
       width: 100%;
       left: 0;
       display: flex;
+      
       padding: 0px em(10px);
       justify-content: space-between;
       align-items: center;
@@ -75,12 +79,29 @@
     }
 
   }
+  .mobile-secondary-header{
+    display: none;
+    @media(max-width:760px){
+      display: flex;
+      padding-bottom: 30px;
+
+    }
+    .back-home{
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      img{
+        width: 16px;
+      }
+    }
+  }
 .secondary-header{
   .stay-name {
     h1 {
       margin-bottom: em(15px);
       font-size: em(26px);
       font-weight: 600;
+      line-height: 30px;
     }
   }
 

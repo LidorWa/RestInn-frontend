@@ -51,7 +51,7 @@
 //TODO: check why affect on all layout
   @media (max-width: 760px) {
     display: block;
-    // width: 100vw;
+    padding-top: unset;
   }
   img {
     width: 100%;
