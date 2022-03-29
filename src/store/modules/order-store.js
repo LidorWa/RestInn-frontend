@@ -16,8 +16,6 @@ export default {
       return state.dates;
     },
     getGuests(state) {
-      console.log("getting guests from store");
-      console.log(state.guests);
       return { ...state.guests };
     },
   },

@@ -126,8 +126,8 @@
 @media (min-width: 551px) {
   .sign-up-modal {
     top: 30%;
-    left: 38%;
-
+    left: 50%;
+    transform: translate(-50%, 400%);
     height: 350px;
     width: 400px;
 
@@ -153,6 +153,6 @@
   }
 
   .showSignUp {
-    transform: translatey(-40%) !important;
+    transform: translate(-50%, -30%) !important;
   }
 }

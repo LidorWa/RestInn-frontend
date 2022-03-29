@@ -5,6 +5,7 @@
     <explore-filter
       :stays="staysForDisplay"
       :filerByType="getTypeFilter"
+      :filterByCity="getCityFilter"
       @setFilter="setFilter"
     />
 

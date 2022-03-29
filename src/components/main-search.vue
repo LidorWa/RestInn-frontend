@@ -164,6 +164,7 @@ export default {
       this.isSelectingGuests = false;
     },
     onSelectGuests(guests) {
+      console.log(guests);
       this.guests = guests;
     },
     onSearch() {
@@ -180,8 +181,8 @@ export default {
         this.$store.commit({ type: "setGuestsFilter", guests });
         if (city) {
           path += `?destination=${city}`;
-          this.$store.commit({ type: "setCityFilter", city });
         }
+        this.$store.commit({ type: "setCityFilter", city });
 
         this.$router.push(`${path}`);
         this.isSearchOpen = false;
