@@ -40,7 +40,7 @@ a {
 
     //TODO: remember to change:
     &:visited {
-        color: inherit;
+        color: reset;
       }
 
 //     &.active {
@@ -48,3 +48,14 @@ a {
 //     }
 }
 
+li {
+    list-style-type: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+i {
+    cursor: pointer;
+}

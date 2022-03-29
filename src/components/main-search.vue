@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="main-search-section">
     <form
       @submit.prevent=""
       class="main-search-container flex align-center btn"
@@ -53,7 +53,7 @@
       </div>
       <span class="search-space"></span>
 
-      <!-- geusts -->
+      <!-- gests -->
       <div class="header-input guestsInput flex">
         <div class="guests-input-container flex flex-column">
           <label for="guestsInput" class="label">Guests</label>
@@ -92,7 +92,6 @@
         <!-- <div v-if="isSearchOpen" class="outsideDetailsGuests" @click="clickCheck"></div> -->
       </div>
     </form>
-
     <!-- checking button -->
     <!-- <div
       @click="openSearch"
@@ -164,7 +163,6 @@ export default {
       this.isSelectingGuests = false;
     },
     onSelectGuests(guests) {
-      console.log(guests);
       this.guests = guests;
     },
     onSearch() {
@@ -190,12 +188,12 @@ export default {
       }
     },
     clickCheck(ev) {
-      console.log(ev);
-      console.log(this.isSearchOpen);
+      // console.log(ev)
+      console.log("search btn open?", this.isSearchOpen);
       const evClass = ev.target.className;
       const evLocal = ev.target.localName;
-      console.log("ev - class name:", ev.target.className);
-      console.log("ev - localname:", ev.target.localName);
+      // console.log('ev - class name:', ev.target.className)
+      // console.log('ev - localname:', ev.target.localName)
       if (
         evClass === "search-btn" ||
         evClass === "input" ||

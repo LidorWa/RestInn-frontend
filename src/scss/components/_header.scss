@@ -1,29 +1,27 @@
-// .header-wide{
-//   width: 100vw;
-//   height: em(66px);
-//   background-color: $clr3;
-
-// }
-
 .header-container {
   // width: em(1400px);
   width: 100vw;
   margin: auto;
   position: fixed;
-  height: 66px;
-  box-shadow: rgb(0, 0, 0, 0.08) 0px 1px 12px;
-  color: $clr3;
+  // height: 66px;
+  height: 7.5vh;
+  // box-shadow: rgb(0, 0, 0, 0.08) 0px 1px 12px;
+  //paints modal - don't bring back:
+  // color: $clr3;
+  z-index: 880;
+
+  &.main-search-open {
+    // height: em(140px);
+    height: 15.8vh;
+  }
 }
 
 .main-header-container {
-  // position: fixed;
   width: 100vw;
-  // height: rem(158px);
-  height: em(150px);
+  // height: em(150px);
   padding: em(8px) em(40px) 0 em(40px);
-  padding-top: em(8px);
   // color: $clr1;
-  z-index: 880;
+  box-shadow: rgb(0, 0, 0, 0.08) 0px 1px 12px;
   .logo-nav-container {
     color: $clr3;
   }
@@ -65,7 +63,7 @@
     }
   }
   &.details-page {
-    height: em(66px);
+    // height: em(66px);
     // max-width: em(1400px);
     margin: auto;
     width: em(1400px);
@@ -73,9 +71,9 @@
     background-color: $clr3;
     // box-shadow: -1px 10px 6px -1px #000000;
   }
-  &.main-search-open {
-    height: em(140px);
-  }
+  // &.main-search-open {
+  //   height: em(140px);
+  // }
 
   input:focus-visible {
     outline: none;
@@ -110,7 +108,7 @@
 .main-header-nav {
   font-size: rem(14px);
   font-weight: 600;
-  margin-right: 22px;
+  // margin-right: 22px;
   a {
     // padding: 0 em(10px);
     text-align: start;

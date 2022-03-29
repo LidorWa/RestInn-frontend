@@ -1,24 +1,31 @@
 
+.main-layout-height{
+    min-height: 75vh;
+    // 15.8+10 max    7+10 max
+    height: 1fr;
+    }
+
 .main-layout{
 
     max-width :1400px;
     margin:auto;
 
-@media (max-width: 1600px){
-    max-width :1120px;
-    width: calc(100vw - 160px);
-    font-size: 14px;
-}                               
-@media (max-width: 1200px){
-    width: calc(100vw - 160px)
+    @media (max-width: 1600px){
+        max-width :1120px;
+        width: calc(100vw - 160px);
+        font-size: 14px;
+    }                               
+    @media (max-width: 1200px){
+        width: calc(100vw - 160px)
+    }
+    @media (max-width: 1000px){
+        width: calc(100vw - 130px)
+    }
+    @media (max-width: 800px){
+    }
+    @media (max-width: 760px){
+        width: calc(100vw - 40px)
+        // width: 100vw
+    }
 }
-@media (max-width: 1000px){
-    width: calc(100vw - 130px)
-}
-@media (max-width: 800px){
-}
-@media (max-width: 760px){
-    // width: 100vw
-    width: calc(100vw - 40px)
-}
-}
+
