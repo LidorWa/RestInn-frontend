@@ -8,12 +8,15 @@ export default {
       type: [],
       city: "",
       amenities: [],
-      guests: null,
+      guests: 0,
     },
   },
   getters: {
     getStays(state) {
       return JSON.parse(JSON.stringify(state.stays));
+    },
+    getGuestsNumber(state) {
+      return state.filterBy.guests;
     },
     getCityFilter(state) {
       return state.filterBy.city;
@@ -29,6 +32,8 @@ export default {
     },
     getStaysForDisplay(state) {
       let stays = JSON.parse(JSON.stringify(state.stays));
+
+      stays = stays.filter((stay) => stay.capacity >= state.filterBy.guests);
 
       if (state.filterBy.type.length) {
         stays = stays.filter((stay) =>
@@ -62,6 +67,7 @@ export default {
   },
   mutations: {
     setGuestsFilter(state, { guests }) {
+      console.log("guests: ", guests);
       state.filterBy.guests = guests;
     },
 

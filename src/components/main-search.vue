@@ -26,12 +26,12 @@
         <!-- element picker -->
         <div class="block date-picker">
           <!-- returns timestamp (Value format "x") -->
-          <el-date-picker v-model="dates" type="daterange" range-separator="|" start-placeholder="Add dates" end-placeholder="Add dates" :clearable="true" value-format="x" ref="input" />
+          <el-date-picker v-model="dates" type="daterange" range-separator="|" start-placeholder="Add dates" end-placeholder="Add dates" :clearable="true" value-format="x" />
         </div>
       </div>
       <span class="search-space"></span>
 
-      <!-- geusts -->
+      <!-- gests -->
       <div class="header-input guestsInput flex">
         <div class="guests-input-container flex flex-column">
           <label for="guestsInput" class="label">Guests</label>
@@ -134,12 +134,11 @@ export default {
         let path = '/stay'
         const city = this.location
         const guests = this.guests.adults + this.guests.children
+
+        this.$store.commit({ type: 'setGuestsFilter', guests })
         if (city) {
           path += `?destination=${city}`
           this.$store.commit({ type: 'setCityFilter', city })
-        }
-        if (guests) {
-          this.$store.commit({ type: 'setGuestsFilter', guests })
         }
 
         this.$router.push(`${path}`)

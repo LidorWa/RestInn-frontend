@@ -28,10 +28,15 @@ export default {
         type: [],
         city: "",
         amenities: [],
+        guests: 0,
       },
     };
   },
   created() {
+    // getGuests
+
+    const guests = this.$store.getters.getGuestsNumber;
+    this.filterBy.guests = guests;
     const stays = this.$store.getters.getStays;
     this.stays = stays;
     if (this.$route.query.destination) {
