@@ -9,6 +9,12 @@ export default {
     order: null,
   },
   getters: {
+    getTotalPrice(state) {
+      const dates = state.dates;
+      if (!dates) return "";
+      const extraGuests = this.guests.adults + this.guests.children - 3;
+    },
+
     getLocation(state) {
       return state.location;
     },

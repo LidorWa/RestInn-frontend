@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 8px;
-  margin: 9px;
+  padding: 8px 0px;
+  margin: 9px 0px;
   border-radius: 20px;
   justify-content: center;
 }
@@ -19,6 +19,7 @@
   height: 35px;
   display: flex;
   align-items: center;
+  align-self: baseline;
   justify-content: center;
   margin-top: 7px;
 }
@@ -82,6 +83,12 @@
   position: relative !important;
   width: 90;
   cursor: pointer;
+  margin-left: 0px !important;
+}
+
+.wifi,
+.smoking {
+  margin-left: 0px !important;
 }
 
 .modal {
@@ -125,7 +132,7 @@
 
   .type-modal-btn {
     border: 1px solid $clr2;
-    padding: 6px 10px;
+    padding: 6px 0px;
     border-radius: 7px;
     font-weight: 600;
     transition: 0.15s;
@@ -151,7 +158,7 @@
   .container {
     display: block;
     position: relative;
-    padding-left: 35px;
+
     margin-bottom: 12px;
     cursor: pointer;
 
@@ -304,6 +311,10 @@
   .price-range {
     width: 190px !important;
   }
+
+  .smoking {
+    margin-left: 3px !important;
+  }
 }
 
 //Break point
@@ -318,5 +329,9 @@
 
   .amenity-mini-container {
     margin-top: 0px;
+  }
+
+  .wifi {
+    margin-left: 3px !important;
   }
 }

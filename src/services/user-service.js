@@ -90,7 +90,7 @@ async function _createUsers() {
       fullname: "Liran Parti",
       username: "liran@gmail.com",
       password: "123",
-      isHost: true,
+
       imgUrl: "../assets/user-images/liran.jpg",
     },
     {
@@ -98,7 +98,7 @@ async function _createUsers() {
       fullname: "Lidor Waldman",
       username: "lidor@gmail.com",
       password: "123",
-      isHost: true,
+
       imgUrl: "../assets/user-images/lidor.jpg",
     },
     {
@@ -106,15 +106,15 @@ async function _createUsers() {
       fullname: "Tal Itay",
       username: "tal@gmail.com",
       password: "123",
-      isHost: true,
+
       imgUrl: "../assets/user-images/tal.jpg",
     },
     {
       _id: "fds99fe1",
       fullname: "Demo User",
-      username: "demo",
+      username: "demo@gmail.com",
       password: "demo",
-      isHost: true,
+
       imgUrl: "../assets/user-images/tal.jpg",
     },
   ];

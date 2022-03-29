@@ -1,5 +1,5 @@
 <template>
-  <section v-if="stays" class="app-page">
+  <section v-if="stays" class="app-page main-layout-homepage">
     <stay-filter />
 
     <explore-filter

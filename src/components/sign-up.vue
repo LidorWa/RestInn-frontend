@@ -6,25 +6,25 @@
     <p class="sign-up-title">Log in or sign up</p>
     <h1 class="sign-up-welcome">Welcome to RestInn</h1>
     <p class="input-alert" v-if="isInputAlert">
-      Please enter email and password
+      Please enter username and password
     </p>
-    <p class="input-alert" v-if="isEmailAlert">
-      Please enter a valid email address
+    <p class="input-alert" v-if="isUsernameAlert">
+      Please enter a valid username address
     </p>
-    <p class="input-alert" v-if="isInvalidAlert">Invalid email or password</p>
+    <p class="input-alert" v-if="isInvalidAlert">Invalid username or password</p>
     <p
-      v-if="!isInputAlert && !isEmailAlert && !isInvalidAlert"
+      v-if="!isInputAlert && !isUsernameAlert && !isInvalidAlert"
       class="no-alert"
     >
       .
     </p>
     <div class="sign-up-inputs-container">
       <input
-        ref="email"
+        ref="username"
         class="sign-up-input"
         type="text"
-        v-model="email"
-        placeholder="email"
+        v-model="username"
+        placeholder="username"
       />
       <input
         class="sign-up-input"
@@ -43,9 +43,9 @@ export default {
 
   data() {
     return {
-      email: "",
+      username: "",
       password: "",
-      isEmailAlert: false,
+      isUsernameAlert: false,
       isInputAlert: false,
       isInvalidAlert: false,
     };
@@ -53,21 +53,21 @@ export default {
   methods: {
     async submitSignUp() {
       const regex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
-      if (!this.password || !this.email) {
+      if (!this.password || !this.username) {
         this.isInputAlert = true;
-        this.isEmailAlert = false;
+        this.isUsernameAlert = false;
         this.isInvalidAlert = false;
         return;
       }
-      if (!regex.test(this.email)) {
-        this.isInputAlert = false;
-        this.isInvalidAlert = false;
-        this.isEmailAlert = true;
-        return;
-      }
+      // if (!regex.test(this.username)) {
+      //   this.isInputAlert = false;
+      //   this.isInvalidAlert = false;
+      //   this.isUsernameAlert = true;
+      //   return;
+      // }
 
       const user = {
-        username: this.email,
+        username: this.username,
         password: this.password,
       };
 
@@ -75,7 +75,7 @@ export default {
       const loggedInUser = this.$store.getters.getLoggedInUser;
       if (!loggedInUser) {
         this.isInputAlert = false;
-        this.isEmailAlert = false;
+        this.isUsernameAlert = false;
         this.isInvalidAlert = true;
         return;
       }
@@ -88,9 +88,9 @@ export default {
     },
     cleanData() {
       this.isInputAlert = false;
-      this.isEmailAlert = false;
+      this.isUsernameAlert = false;
       this.isInvalidAlert = false;
-      this.email = "";
+      this.username = "";
       this.password = "";
     },
   },
