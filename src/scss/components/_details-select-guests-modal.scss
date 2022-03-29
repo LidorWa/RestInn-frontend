@@ -24,14 +24,21 @@
     align-items: center;
     margin: 0;
     padding: 15px;
-    padding-top: 10px !important;
+    padding-top: 10px;
     padding-top: 1px;
+  }
+
+  .details-guests-type-container:first-of-type {
+    border-bottom: 1px solid $clr11;
+    padding-bottom: 6px;
+    padding-top: 3px;
   }
 
   .details-guests-modal-title {
     font-weight: 600;
     text-align: center;
     font-size: em(17px);
+    margin-bottom: 8px;
   }
 
   .details-guests-counter {
@@ -56,14 +63,16 @@
 .details-guest-count-icon {
   width: 26px !important;
   height: 26px !important;
-  border: 1px solid $clr5;
+  border: 1px solid $clr7;
+  color: $clr7;
   border-radius: 50%;
   cursor: pointer;
-  transition: 0.1s;
+  transition: 0.15s;
 }
 
 .details-guest-count-icon:hover {
   border: 1px solid $clr2;
+  color: $clr2;
 }
 
 .details-guests-number {
@@ -80,7 +89,7 @@
 }
 
 .details-guest-modal-btn {
-  border: 1px solid $clr5;
+  border: 1px solid $clr1;
   width: 50px;
   margin-top: 10px;
   padding: 5px;

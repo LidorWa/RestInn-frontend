@@ -80,6 +80,7 @@ export default {
         startDate,
         endDate,
         guests: this.guests,
+        status: "pending",
         dest: {
           country: this.stay.address.country,
           countryCode: this.stay.address.countryCode,

@@ -50,7 +50,6 @@ export default {
       isInvalidAlert: false,
     };
   },
-
   methods: {
     async submitSignUp() {
       const regex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
