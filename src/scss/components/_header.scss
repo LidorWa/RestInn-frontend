@@ -1,7 +1,6 @@
 .header-container {
   // width: em(1400px);
   width: 100vw;
-  margin: auto;
   position: fixed;
   // height: 66px;
   height: 7.5vh;
@@ -17,11 +16,13 @@
 }
 
 .main-header-container {
-  width: 100vw;
+  // width: 100vw;
+  margin: auto;
   // height: em(150px);
-  padding: em(8px) em(40px) 0 em(40px);
+  // padding: em(8px) em(40px) 0 em(40px);
+  padding-top: em(8px);
   // color: $clr1;
-  box-shadow: rgb(0, 0, 0, 0.08) 0px 1px 12px;
+  // box-shadow: rgb(0, 0, 0, 0.08) 0px 1px 12px;
   .logo-nav-container {
     color: $clr3;
   }
@@ -51,6 +52,8 @@
       }
     }
   }
+
+
   &.explore-page,
   &.details-page {
     .logo-nav-container {
@@ -65,11 +68,11 @@
   &.details-page {
     // height: em(66px);
     // max-width: em(1400px);
-    margin: auto;
-    width: em(1400px);
+    // margin: auto;
+    // width: em(1400px);
     padding: em(8px) 0 0 0;
     background-color: $clr3;
-    // box-shadow: -1px 10px 6px -1px #000000;
+    box-shadow: rgb(0, 0, 0, 0.08) 0px 1px 12px;
   }
   // &.main-search-open {
   //   height: em(140px);
@@ -164,11 +167,11 @@
   width: em(32px);
   height: em(32px);
   justify-content: flex-end;
-  margin-left: em(5px);
+  margin-left: em(10px);
 }
 
 .hamburger-img {
-  width: em(22px);
+  width: em(18px);
 }
 
 .outsideUserMenu {
@@ -232,7 +235,7 @@
 }
 
 //TODO: doesn't work!
-@media (max-width: 570px) {
+@media (max-width: 700px) {
   .fa-brands {
     font-size: em(10px);
     margin-inline-end: em(3px);

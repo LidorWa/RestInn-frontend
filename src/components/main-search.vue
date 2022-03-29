@@ -21,7 +21,7 @@
         <!-- check out -->
         <div class="header-input date-input check-out-top flex flex-column">
           <div class="label check-out-label">Check out</div>
-          <div class="input add-dates">{{ formatedDate(1) }}</div>
+          <div class="input add-dates" contenteditable="true" ref="div">{{ formatedDate(1) }}</div>
         </div>
         <!-- element picker -->
         <div class="block date-picker">
