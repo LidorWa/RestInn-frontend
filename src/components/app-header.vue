@@ -1,6 +1,6 @@
 <template>
   <section class="main-header-section">
-    <div class="header-container flex">
+    <div class="header-container">
       <header class="main-header-container flex flex-column align-center" :class="getHeaderClass">
         <!-- <header class="main-header-container flex flex-column align-center" :class="{ top: headerStatus === 'top', shrinkSearchBar: headerStatus === 'shrinkSearchBar', homepage: this.$route.path === '/', 'explore-page': this.$route.path === '/stay', 'details-page': this.$route.path === '/stay/:stayId' }"> -->
         <!-- <header class="main-header-container flex flex-column align-center" :class="headerStatus">-->
@@ -11,7 +11,11 @@
             <h1 class="logo-txt">RestInn</h1>
           </div>
           <!-- Mini search bar -->
-          <div v-if="checkMiniSearch" @click="toggleMiniSearch" class="search mini-search inline-flex justify-center align-center space-between">
+          <div
+            v-if="checkMiniSearch"
+            @click="toggleMiniSearch"
+            class="search mini-search inline-flex justify-center align-center space-between"
+          >
             <div>{{ getSearchText }}</div>
             <div class="search-icon-small">
               <img src="../assets/svgs/search.svg" alt="search Icon" />
@@ -25,20 +29,36 @@
             <!-- TODO: try change svg color -->
             <!-- <div class="language flex align-center justify-center">
           <img src="../assets/svgs/en.svg" alt="language change icon" />
-        </div> -->
+            </div>-->
 
             <!-- hamburger -->
-            <div class="hamburger-user-menu btn flex space-between" @click="isShowingHamburger = true">
+            <div
+              class="hamburger-user-menu btn flex space-between"
+              @click="isShowingHamburger = true"
+            >
               <img class="hamburger-img" src="../assets/svgs/menu_black_24dp.svg" alt="menu-icon" />
 
               <img class="hamburger-avatar" src="../assets/svgs/user-avatar.svg" alt="user avatar" />
             </div>
           </nav>
-          <header-user-menu :class="{ showHamburger: isShowingHamburger }" @openSignUp="openSignUp" @logout="logout" />
-          <div v-if="isShowingHamburger" class="outsideUserMenu" @click="isShowingHamburger = false"></div>
+          <header-user-menu
+            :class="{ showHamburger: isShowingHamburger }"
+            @openSignUp="openSignUp"
+            @logout="logout"
+          />
+          <div
+            v-if="isShowingHamburger"
+            class="outsideUserMenu"
+            @click="isShowingHamburger = false"
+          ></div>
         </div>
         <div v-if="checkMainSearch" class="main-search-bar flex justify-center align-center">
-          <main-search @mainSearchClosed="mainSearchClosed" :savedLocation="getLocation" :savedDates="getDates" :savedGuests="getGuests" />
+          <main-search
+            @mainSearchClosed="mainSearchClosed"
+            :savedLocation="getLocation"
+            :savedDates="getDates"
+            :savedGuests="getGuests"
+          />
         </div>
         <!-- <sign-up
         :class="{ showSignUp: isSignUp }"
@@ -49,7 +69,7 @@
         v-if="isSignUp"
         class="outsideUserMenu"
         @click="isSignUp = false"
-      ></div> -->
+        ></div>-->
       </header>
     </div>
   </section>

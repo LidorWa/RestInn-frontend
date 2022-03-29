@@ -3,13 +3,23 @@
     <section class="stay-details-page">
       <footer-hero-modal :stay="stay" v-if="stay" />
       <section class="stay-details" v-if="stay">
-        <secondary-header @goToReviews="goToReviews" :stay="stay" />
-        <images-container :stayImgs="stay.imgUrls" />
+        <section class="mobile-secondary-header">
+          <div class="back-home">
+            <img src="../assets/svgs/back-home.svg">
+            <router-link to="/stay">Back</router-link>
+          </div>
+        </section>
+        <section class="secondary-header-and-images-container">
+          <secondary-header @goToReviews="goToReviews" :stay="stay" />
+          <images-container :stayImgs="stay.imgUrls" />
+        </section>
         <section class="hero-modal-and-general-info">
           <section class="general-info">
             <section class="type-host-and-stay-properties">
               <section class="type-host-and-stay-properties-text">
-                <h2 class="stay-type-host-name">{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
+                <h2
+                  class="stay-type-host-name"
+                >{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
                 <ul class="stay-properties">
                   <li>{{ stay.capacity }} guests</li>
                   <li>{{ stay.bedrooms }} bedroom</li>
@@ -17,7 +27,11 @@
                   <li>{{ stay.bathrooms }} baths</li>
                 </ul>
               </section>
-              <img :src="stay.host.thumbnailUrl" alt="Host picture" onerror="this.onerror=null; this.src='https://robohash.org/bla'" />
+              <img
+                :src="stay.host.thumbnailUrl"
+                alt="Host picture"
+                onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/'"
+              />
             </section>
             <selected-popular-amenities :stay="stay" />
 
@@ -38,14 +52,37 @@
         WITH THINGS TO KNOW.
             TODO IT? IN KUMBA THEY DIDNT-->
           </section>
-          <hero-modal :stay="stay" :guestsFromStore="getGuests" @onCheckAvailability="onCheckAvailability" />
+          <hero-modal
+            :stay="stay"
+            :guestsFromStore="getGuests"
+            @onCheckAvailability="onCheckAvailability"
+          />
         </section>
         <reviews-section :stay="stay" ref="reviews-section" />
         <map-section :address="stay.address" />
-        <order-alert-modal v-if="isOrderAlert" @closeModal="closeAlertModal" :alertModalMessage="alertModalMessage" />
-        <login-alert-modal v-if="isLoginAlert" @closeModal="closeLoginModal" @login="loginToProceed" @demo="demoToProceed" />
-        <order-confirmation-modal :class="{ showConfirm: isOrdering && isLoggedIn }" :stay="stay" :dates="getDates" :guests="getGuests" :user="getLoggedInUser" @closeModal="closeConfirmationModal" />
-        <div v-if="isOrderAlert || isLoginAlert || (isOrdering && isLoggedIn)" class="order-alert-overlay"></div>
+        <order-alert-modal
+          v-if="isOrderAlert"
+          @closeModal="closeAlertModal"
+          :alertModalMessage="alertModalMessage"
+        />
+        <login-alert-modal
+          v-if="isLoginAlert"
+          @closeModal="closeLoginModal"
+          @login="loginToProceed"
+          @demo="demoToProceed"
+        />
+        <order-confirmation-modal
+          :class="{ showConfirm: isOrdering && isLoggedIn }"
+          :stay="stay"
+          :dates="getDates"
+          :guests="getGuests"
+          :user="getLoggedInUser"
+          @closeModal="closeConfirmationModal"
+        />
+        <div
+          v-if="isOrderAlert || isLoginAlert || (isOrdering && isLoggedIn)"
+          class="order-alert-overlay"
+        ></div>
       </section>
     </section>
   </section>
@@ -64,6 +101,7 @@ import orderAlertModal from '../components/stay-details-cmps/order-alert-modal.v
 import loginAlertModal from '../components/stay-details-cmps/login-alert-modal.vue'
 import orderConfirmationModal from '../components/stay-details-cmps/order-confirmation-modal.vue'
 
+
 export default {
   name: 'stay-details',
   components: {
@@ -78,7 +116,7 @@ export default {
     orderAlertModal,
     loginAlertModal,
     orderConfirmationModal,
-  },
+},
   data() {
     return {
       // isAdding: false,
@@ -87,6 +125,7 @@ export default {
       //   userId: '',
       //   stayId: '',
       // },
+      isMobile: false,
       stay: null,
       isOrderAlert: false,
       isLoginAlert: false,
@@ -104,12 +143,6 @@ export default {
     })
   },
 
-  // beforeUpdate(){
-  //   if (window.innerWidth <= 700){
-  //     this.isMobi
-  //   }
-  // },
-  // Please select dates to proceed
 
   methods: {
     loginToProceed() {

@@ -6,8 +6,8 @@
         <span>{{ stay.reviewScores.rating / 20 }} · {{ stay.reviews.length }} reviews</span>
       </div>
       <section class="score-scales"></section>
-
-      <!-- TODO: HERE SHOULD COME THE DIV SCALES -->
+        
+      
     </section>
     
       <review-list :reviews="stay.reviews"></review-list>
