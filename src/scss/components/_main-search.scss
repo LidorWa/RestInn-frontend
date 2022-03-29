@@ -73,34 +73,33 @@
 
   // .el-range-separator,
   // .el-range__icon
-  //   // .el-input__icon 
+  //   // .el-input__icon
   // {
   //   display: none !important;
   // }
 }
-.el-date-table-cell__text{
+.el-date-table-cell__text {
   color: $clr2;
   // background-color: $clr2;
 }
-.el-date-table-cell{}
-
-.el-date-table-cell{
-  
+.el-date-table-cell {
 }
 
+.el-date-table-cell {
+}
 
-.header-input{
+.header-input {
   height: em(66px);
   align-items: center;
   // padding: 1em 0 1em 3em;
-  // padding: 14px 32px; 
+  // padding: 14px 32px;
 
-  &:hover{
+  &:hover {
     //TODO: finish hover
     background-color: #ebebeb;
     border-radius: em(32px);
     // border-radius: 3em;
-    input{
+    input {
       background-color: inherit;
     }
   }
@@ -116,7 +115,7 @@
   // left: 0;
 }
 
-.input{
+.input {
   width: em(150px);
   align-items: center;
   font-family: cereal-book;
@@ -128,30 +127,30 @@
   cursor: pointer;
 }
 
-.location-input-top{
+.location-input-top {
   padding: 1em 1em 1em 2em;
   line-height: 17px;
-  }
-  .check-in-top{
-    padding: 1em 1em 1em 1em;
-    align-items: center;
-    
-  }
-  .check-out-top{
-    padding: 1em 1em 1em 1em;
-    // line-height: 18px;
-  }
-  .location-input{
-      padding-left: 4px;
-    }
-    
-    .check-out-top,
-    .check-in-top {
-      width: em(180px);
-    }
-    .guestsInput{
-      padding: 1em em(8px) 1em 1em;
-    }
+}
+.check-in-top {
+  padding: 1em 1em 1em 1em;
+  align-items: center;
+}
+.check-out-top {
+  padding: 1em 1em 1em 1em;
+  // line-height: 18px;
+}
+.location-input {
+  padding-left: 4px;
+}
+
+.check-out-top,
+.check-in-top {
+  width: em(180px);
+}
+.guestsInput {
+  position: relative;
+  padding: 1em em(8px) 1em 1em;
+}
 
 .date-picker-container {
   position: relative;
@@ -167,14 +166,14 @@
 //   justify-content: center;
 // }
 //??
-  // #location-input {
-  //   font-family: cereal-book;
-  //   text-align: center;
-  //   cursor: text;
-  //   font-size: em(14px);
-  //   color: $clr5;
-  //   border: none;
-  // }
+// #location-input {
+//   font-family: cereal-book;
+//   text-align: center;
+//   cursor: text;
+//   font-size: em(14px);
+//   color: $clr5;
+//   border: none;
+// }
 
 // .date-input {
 //   align-items: center;
@@ -183,8 +182,6 @@
 // .add-dates {
 //   color: $clr5;
 // }
-
-
 
 .search-icon {
   display: flex;
@@ -203,17 +200,18 @@
     width: em(24px);
     height: em(24px);
   }
-  h3{
-    display: none;  }
+  h3 {
+    display: none;
+  }
 }
 
-.opened-search-icon{
+.opened-search-icon {
   justify-content: center;
   padding: 1em 1.5em 0.8em 1em;
   gap: em(7px);
   border-radius: 999px;
   width: em(120px);
-  h3{
+  h3 {
     display: unset;
     color: $clr3;
   }

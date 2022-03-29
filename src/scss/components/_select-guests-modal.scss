@@ -1,12 +1,11 @@
-
 .select-guests-modal {
   background-color: white;
   color: $clr2;
   box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
   width: 240px;
-  position: fixed;
-  top: 130px;
-  right: 215px;
+  position: absolute;
+  transform: translate(-13%, 70%);
+
   padding-bottom: 15px;
   border-radius: 15px;
 
@@ -17,16 +16,19 @@
     align-items: center;
     margin: 0;
     padding: 15px;
-    padding-top: 1px;
+    padding-top: 7px;
   }
-  .select-guests-modal{
+
+  .guests-type-container:first-of-type {
     border-bottom: 1px solid $clr11;
+    padding-bottom: 6px;
   }
 
   .guests-modal-title {
     font-weight: 600;
     font-size: em(17px);
     text-align: center;
+    margin-bottom: 12px;
   }
 
   .guests-counter {
@@ -46,10 +48,15 @@
     line-height: 30px;
     width: 45%;
   }
-  .material-icons{
+
+  .material-icons {
     display: flex;
-    color: $clr10;
+    color: $clr7;
     width: 10px;
+  }
+
+  .material-icons:hover {
+    color: $clr2;
   }
 }
 
@@ -59,7 +66,7 @@
   align-items: center;
   width: 25px !important;
   height: 25px !important;
-  border: 1px solid $clr10;
+  border: 1px solid $clr7;
   line-height: 30px !important;
   border-radius: 50%;
   cursor: pointer;
@@ -88,7 +95,7 @@
   text-align: center;
   border: 1px solid $clr5;
   width: 50px;
-  margin-top: 10px;
+  margin-top: 1px;
   padding: 5px;
   border-radius: 14px;
   font-weight: 600;

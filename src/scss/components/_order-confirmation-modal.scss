@@ -26,6 +26,7 @@
 
   .confirm-secondary-title {
     border-bottom: 1px solid $clr7;
+    padding-right: 35px;
   }
 
   .confirm-text {
@@ -33,6 +34,7 @@
     text-align: start;
     padding-left: 25px;
     margin-bottom: 8px;
+    line-height: 25px;
   }
 
   .trip-details {
@@ -130,7 +132,7 @@
     .confirm-text {
       font-size: em(16px);
       margin-bottom: 10px;
-      padding-top: 10px;
+      // padding-top: 10px;
       line-height: 25px;
     }
 

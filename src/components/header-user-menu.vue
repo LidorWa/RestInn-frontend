@@ -1,8 +1,8 @@
 <template>
   <section class="header-user-menu">
-    <p class="sign-up-option" @click="signUp">Sign up</p>
-    <p @click="signUp">Log in</p>
-    <p @click="logout">Log out</p>
+    <p v-if="!isLoggerIn" class="sign-up-option" @click="signUp">Sign up</p>
+    <p v-if="!isLoggerIn" @click="signUp">Log in</p>
+    <p v-if="isLoggerIn" @click="logout">Log out</p>
     <hr />
     <p>Host your home</p>
     <p>Help</p>
@@ -15,7 +15,9 @@ export default {
   name: "header-user-menu",
 
   data() {
-    return {};
+    return {
+      user: null,
+    };
   },
 
   methods: {
@@ -27,6 +29,12 @@ export default {
     },
     goToAboutPage() {
       this.$router.push("/about");
+    },
+  },
+  computed: {
+    isLoggerIn() {
+      const user = this.$store.getters.getLoggedInUser;
+      return user ? true : false;
     },
   },
 };
