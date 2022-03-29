@@ -171,7 +171,7 @@ export default {
   //TODO: watch stopped working?
   watch: {
     headerStatus() {
-      console.log('Watch ****************** headerStatus is:', this.headerStatus)
+      console.log('Watch ******** headerStatus is:', this.headerStatus)
       switch (this.headerStatus) {
         case 'top':
           this.isMiniSearchShown = false

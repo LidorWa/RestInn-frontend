@@ -24,6 +24,7 @@
             <h1 class="confirm-text">
               {{ getGuestsForDisplay }}
             </h1>
+            <h1 class="confirm-text">Total: ${{ getTotalPrice }}</h1>
           </div>
           <div class="host-details">
             <img
@@ -76,29 +77,27 @@ export default {
     confirm() {
       const startDate = this.getFormatedDate(0);
       const endDate = this.getFormatedDate(1);
+      const totalPrice = this.getTotalPrice;
       const order = {
         startDate,
         endDate,
         guests: this.guests,
         status: "pending",
-        dest: {
-          country: this.stay.address.country,
-          countryCode: this.stay.address.countryCode,
-          address: this.stay.address.street,
-          lat: this.stay.address.location.lat,
-          lng: this.stay.address.location.lan,
-        },
-        host: {
-          _id: this.stay.host._id,
-          fullname: this.stay.host.fullname,
+        totalPrice,
+        hostId: this.stay.host._id,
+        stay: {
+          name: this.stay.name,
+          price: this.stay.price,
+          _id: this.stay._id,
         },
         buyer: {
           _id: this.user._id,
           fullname: this.user.fullname,
-          imgUrl: this.user.imgUrl,
         },
       };
-      console.log(order);
+
+      this.$store.commit({ type: "setOrder", order });
+      this.$emit("closeModal");
     },
     getFormatedDate(num) {
       const arrayDates = JSON.parse(JSON.stringify(this.dates));
@@ -118,6 +117,10 @@ export default {
     },
   },
   computed: {
+    getTotalPrice() {
+      const total = this.$store.getters.getTotalPrice;
+      return total;
+    },
     getUserFirstName() {
       return this.user.fullname.split(" ")[0];
     },

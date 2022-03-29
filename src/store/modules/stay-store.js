@@ -13,7 +13,7 @@ export default {
   },
   getters: {
     getFilterFromStore(state) {
-      console.log("filter from store: ", state.filterBy);
+
       return JSON.parse(JSON.stringify(state.filterBy));
     },
     getStays(state) {
@@ -71,7 +71,7 @@ export default {
   },
   mutations: {
     setGuestsFilter(state, { guests }) {
-      console.log("guests: ", guests);
+
       state.filterBy.guests = guests;
     },
 

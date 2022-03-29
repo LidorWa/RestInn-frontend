@@ -12,7 +12,7 @@
   padding-top: em(90px);
   color: $clr2;
   margin: auto;
-  @media(max-width:760){
+  @media (max-width: 760) {
     // padding-top: unset;
   }
   .footer-hero-modal {
@@ -25,7 +25,7 @@
       width: 100%;
       left: 0;
       display: flex;
-      
+
       padding: 0px em(10px);
       justify-content: space-between;
       align-items: center;
@@ -71,93 +71,90 @@
       background-color: rgba($clr1, 0.9);
     }
   }
-  .secondary-header-and-images-container{
+  .secondary-header-and-images-container {
     display: flex;
     flex-direction: column;
-    @media(max-width: 760px){
+    @media (max-width: 760px) {
       flex-direction: column-reverse;
     }
-
   }
-  .mobile-secondary-header{
+  .mobile-secondary-header {
     display: none;
-    @media(max-width:760px){
+    @media (max-width: 760px) {
       display: flex;
       padding-bottom: 30px;
-
     }
-    .back-home{
+    .back-home {
       display: flex;
       align-items: center;
       font-weight: 600;
-      img{
+      img {
         width: 16px;
       }
     }
   }
-.secondary-header{
-  .stay-name {
-    h1 {
-      margin-bottom: em(15px);
-      font-size: em(26px);
-      font-weight: 600;
-      line-height: 30px;
-    }
-  }
-
-  .below-stay-name {
-    display: flex;
-    justify-content: space-between;
-
-    .star-rating-svg {
-      width: em(14px);
-    }
-
-    .rating-reviews-location {
-      span:first-of-type {
-        padding-left: em(4px);
-      }
-      span:nth-of-type(3) {
-        padding: 0px 0px 0px em(4px);
-        text-decoration: underline;
+  .secondary-header {
+    .stay-name {
+      h1 {
+        margin-bottom: em(15px);
+        font-size: em(26px);
         font-weight: 600;
-      }
-      .dot-above-pictures {
-        margin: em(8px) em(8px) 0px;
-        color: $clr5;
-        font-weight: bold;
-      }
-      .location-above-pictures {
-        color: $clr5;
-        text-decoration: underline;
+        line-height: 30px;
       }
     }
-    .share-save {
+
+    .below-stay-name {
       display: flex;
-      .share {
+      justify-content: space-between;
+
+      .star-rating-svg {
+        width: em(14px);
+      }
+
+      .rating-reviews-location {
+        span:first-of-type {
+          padding-left: em(4px);
+        }
+        span:nth-of-type(3) {
+          padding: 0px 0px 0px em(4px);
+          text-decoration: underline;
+          font-weight: 600;
+        }
+        .dot-above-pictures {
+          margin: em(8px) em(8px) 0px;
+          color: $clr5;
+          font-weight: bold;
+        }
+        .location-above-pictures {
+          color: $clr5;
+          text-decoration: underline;
+        }
+      }
+      .share-save {
         display: flex;
-        align-items: center;
-        .share-svg {
+        .share {
+          display: flex;
+          align-items: center;
+          .share-svg {
+            width: em(14px);
+          }
+          span {
+            margin: 0px em(8px);
+          }
+        }
+        .like-svg {
           width: em(14px);
         }
+      }
+      .save-like {
+        display: flex;
+        align-items: center;
         span {
           margin: 0px em(8px);
         }
       }
-      .like-svg {
-        width: em(14px);
-      }
-    }
-    .save-like {
-      display: flex;
-      align-items: center;
-      span {
-        margin: 0px em(8px);
-      }
     }
   }
-
-}
   .hero-modal-and-general-info {
     display: flex;
     flex-direction: row;
@@ -360,6 +357,19 @@
   // // /// ////// //////
   // HALF THE PAGE
   // // /// ////// //////
+
+  .heroWithDates {
+    padding-bottom: em(49px) !important;
+
+    @media (max-width: 1600px) {
+      padding-bottom: em(53px) !important;
+    }
+
+    @media (max-width: 880px) {
+      padding-bottom: em(75px) !important;
+    }
+  }
+
   .hero-modal {
     position: relative;
     display: flex;
@@ -368,7 +378,7 @@
     padding: em(48px) 0px em(183px) 0px;
 
     @media (max-width: 880px) {
-      padding-bottom: em(204px) !important;
+      padding-bottom: em(204px);
     }
 
     @media (max-width: 760px) {
@@ -391,6 +401,17 @@
       // // /// ////// //////
       // THE ACTUAL MODAL
       // // /// ////// //////
+
+      .showSummary {
+        height: em(255px) !important;
+
+        @media (max-width: 1600px) {
+          height: em(260px) !important;
+        }
+        @media (max-width: 880px) {
+          height: em(282px) !important;
+        }
+      }
 
       .hero-modal-container {
         box-shadow: 0 em(3px) em(10px) rgb(0 0 0 / 0.2);

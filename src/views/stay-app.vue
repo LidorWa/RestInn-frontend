@@ -1,7 +1,5 @@
 <template>
   <section v-if="stays" class="app-page main-layout-homepage">
-    <stay-filter />
-
     <explore-filter
       :stays="staysForDisplay"
       :filerByType="getTypeFilter"
@@ -15,7 +13,6 @@
 
 <script>
 import stayList from "../components/stay-list.vue";
-import stayFilter from "../components/stay-filter.vue";
 import exploreFilter from "../components/explore-filter.vue";
 import { compileStyle } from "vue/compiler-sfc";
 
@@ -47,7 +44,6 @@ export default {
 
     const type = this.$route.query.type;
     if (type) {
-      console.log("got type from route!");
       this.filterBy.type.push(type);
     }
 
@@ -74,7 +70,7 @@ export default {
   components: {
     stayList,
     exploreFilter,
-    stayFilter,
+
     // stayFilter,
     // addStay,
   },

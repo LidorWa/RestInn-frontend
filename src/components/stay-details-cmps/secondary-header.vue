@@ -13,7 +13,9 @@
         <!-- <span @click="scrollMeTo('reviews-section')">{{ stay.reviews.length }} reviews</span> -->
 
         <span class="dot-above-pictures">·</span>
-        <span class="location-above-pictures">{{ stay.address.city }}, {{ stay.address.country }}</span>
+        <span class="location-above-pictures"
+          >{{ stay.address.city }}, {{ stay.address.country }}</span
+        >
       </div>
       <div class="share-save">
         <div class="share">
@@ -31,22 +33,19 @@
 
 <script>
 export default {
-  name: 'secondary-header',
+  name: "secondary-header",
   props: {
     stay: {
       type: Object,
       required: true,
-    }
+    },
   },
   methods: {
-    goToReviews(){
-      this.$emit('goToReviews');
-      console.log('bbbb')
-    }
-  }
-
-}
+    goToReviews() {
+      this.$emit("goToReviews");
+    },
+  },
+};
 </script>
 
-<style>
-</style>
+<style></style>

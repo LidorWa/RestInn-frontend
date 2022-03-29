@@ -148,12 +148,12 @@ export default {
     loginToProceed() {
       this.isLoginAlert = false
       this.$store.commit({ type: 'openSignUpModal' })
-      console.log('loginToProceed')
+ 
     },
     demoToProceed() {
       this.isLoginAlert = false
       this.isOrdering = true
-      console.log('demo to proceed')
+ 
     },
     closeLoginModal() {
       this.isLoginAlert = false
@@ -173,7 +173,7 @@ export default {
       this.isOrdering = true
       const dates = this.getDates
       const guests = this.getGuests
-      console.log(guests)
+
       if (!dates) {
         this.alertModalMessage = 'Select dates to proceed'
         this.isOrdering = false
@@ -193,11 +193,6 @@ export default {
         return
       }
 
-      console.log('order!!!')
-      // console.log("dates: ", dates);
-      // console.log("guests: ", guests);
-      // console.log("user: ", user);
-      // console.log("stay: ", this.stay);
     },
     goToReviews() {
       let coords = this.$refs['reviews-section'].getBoundingClientRect().x

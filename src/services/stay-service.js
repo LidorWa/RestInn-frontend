@@ -4503,6 +4503,5 @@ function _createStays() {
   ];
 
   storageService.postMany(KEY, stays);
-  console.log(stays[0]);
   return stays;
 }

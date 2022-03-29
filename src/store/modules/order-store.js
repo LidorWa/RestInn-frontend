@@ -7,14 +7,15 @@ export default {
     guests: { adults: 0, children: 0 },
     isOrdering: false,
     order: null,
+    total: 0,
   },
   getters: {
-    getTotalPrice(state) {
-      const dates = state.dates;
-      if (!dates) return "";
-      const extraGuests = this.guests.adults + this.guests.children - 3;
+    getOrder(state) {
+      return state.order;
     },
-
+    getTotalPrice(state) {
+      return state.total;
+    },
     getLocation(state) {
       return state.location;
     },
@@ -26,15 +27,20 @@ export default {
     },
   },
   mutations: {
+    setOrder(state, { order }) {
+      console.log(order);
+      state.order = order;
+    },
+    setTotalPrice(state, { totalPrice }) {
+      state.total = totalPrice;
+    },
     setLocation(state, { location }) {
       state.location = location;
     },
     setDates(state, { dates }) {
-      console.log("set new date:", dates);
       state.dates = dates;
     },
     setGuests(state, { guests }) {
-      console.log(guests);
       state.guests = guests;
     },
   },
