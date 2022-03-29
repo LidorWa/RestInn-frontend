@@ -1,11 +1,10 @@
 <template>
   <section class="home-page-container">
-    <div class="hide-modal">
-      <!-- <img src="" alt="" /> -->
-      <div class="main-hero-img"></div>
-      <!-- <div :style="{ backgroundImage: 'url(' + homePageImg + ')' }" class="home-page-img"></div> -->
-      <!-- <div :style="'backgroundImage: ' + getImgUrl()" class="home-page-img"></div> -->
-      <!-- Top destinations -->
+    <div class="main-hero-img"></div>
+    <!-- <div :style="{ backgroundImage: 'url(' + homePageImg + ')' }" class="home-page-img"></div> -->
+    <!-- <div :style="'backgroundImage: ' + getImgUrl()" class="home-page-img"></div> -->
+    <!-- Top destinations -->
+    <div class="main-layout-homepage">
       <h1 class="destinations-header">Popular destinations</h1>
       <div class="destinations-containter">
         <a href="#/stay?destination=Barcelona">

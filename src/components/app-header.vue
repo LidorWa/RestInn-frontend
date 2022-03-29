@@ -1,7 +1,7 @@
 <template>
   <section class="main-header-section">
-    <div class="header-container flex">
-      <header class="main-header-container flex flex-column align-center">
+    <div class="header-container">
+      <header class="main-header-container flex flex-column align-center" :class="getHeaderClass">
         <!-- <header class="main-header-container flex flex-column align-center" :class="{ top: headerStatus === 'top', shrinkSearchBar: headerStatus === 'shrinkSearchBar', homepage: this.$route.path === '/', 'explore-page': this.$route.path === '/stay', 'details-page': this.$route.path === '/stay/:stayId' }"> -->
         <!-- <header class="main-header-container flex flex-column align-center" :class="headerStatus">-->
         <!-- <header :class="'main-header-container flex flex-column align-center ' + headerStatus"> -->
@@ -106,14 +106,6 @@ export default {
       this.$store.dispatch({ type: 'logout' })
       this.isShowingHamburger = false
     },
-    // closeSignUp() {
-    //   this.isSignUp = false;
-    // },
-    // openSignUp() {
-    //   this.isSignUp = true;
-    //   this.isShowingHamburger = false;
-    //   this.$refs["signup"].$refs["email"].focus();
-    // },
     openSignUp() {
       this.$store.commit({ type: 'openSignUpModal' })
       this.isShowingHamburger = false
