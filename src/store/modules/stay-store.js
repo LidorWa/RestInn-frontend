@@ -15,6 +15,9 @@ export default {
     getStays(state) {
       return JSON.parse(JSON.stringify(state.stays));
     },
+    getGuestsNumber(state) {
+      return state.filterBy.guests;
+    },
     getCityFilter(state) {
       return state.filterBy.city;
     },
@@ -64,6 +67,7 @@ export default {
   },
   mutations: {
     setGuestsFilter(state, { guests }) {
+      console.log("guests: ", guests);
       state.filterBy.guests = guests;
     },
 
