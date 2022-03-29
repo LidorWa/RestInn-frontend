@@ -88,7 +88,11 @@ export default {
           lat: this.stay.address.location.lat,
           lng: this.stay.address.location.lan,
         },
-        miniUser: {
+        host: {
+          _id: this.stay.host._id,
+          fullname: this.stay.host.fullname,
+        },
+        buyer: {
           _id: this.user._id,
           fullname: this.user.fullname,
           imgUrl: this.user.imgUrl,

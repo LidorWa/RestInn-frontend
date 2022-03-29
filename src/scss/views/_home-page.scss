@@ -6,7 +6,7 @@
   // background-position: center;
   height: 70vh;
   width: 100vw;
-  
+  // aspect-ratio: ;
   // height: 1200px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -14,18 +14,22 @@
 
 //Popular destinations
 
+.main-layout-homepage {
+  width: calc(90vw);
+  margin: auto;
+}
+
 .destinations-header {
-  margin: 20px;
   margin-bottom: 20px;
   margin-top: 30px;
   font-size: 5vw;
   color: $clr2;
 }
 
-.destinations-containter {
+.destinations-container {
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin-bottom: 20px;
   margin-top: 5px;
 
   img {
@@ -63,17 +67,16 @@
 
 @media (min-width: 555px) {
   .destinations-header {
-    margin: 25px;
+    margin-top: 25px;
     margin-bottom: 0px;
-    margin-left: 24px;
     font-size: calc(em(7px) + 2vw);
   }
 
-  .destinations-containter {
+  .destinations-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
-    margin: 24px;
+    margin-bottom: 24px;
     margin-top: 20px;
 
     h3 {
@@ -92,13 +95,17 @@
 //Break point
 //Break point
 
-@media (min-width: 1150px) {
+@media (min-width: 1000px) {
+  .main-layout-homepage {
+    width: calc(92vw);
+  }
+
   .destinations-header {
     margin-top: 40px;
     font-size: calc(em(4px) + 1.8vw);
   }
 
-  .destinations-containter {
+  .destinations-container {
     grid-template-columns: repeat(4, 1fr);
     margin-top: 40px;
 
@@ -134,9 +141,4 @@
   color: var(--el-text-color-secondary);
   font-size: 14px;
   margin-bottom: 20px;
-}
-
-.main-layout-homepage{
-  width: calc(100vw - 70px);
-  margin: auto;
 }

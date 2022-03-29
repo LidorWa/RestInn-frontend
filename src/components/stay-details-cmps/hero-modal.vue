@@ -67,6 +67,21 @@
           >
             <span class="check-availability-span">Check availability</span>
           </div>
+          <div class="summary-details-container">
+            <p class="no-charge">You won't be charged yet</p>
+            <div class="total-price-details">
+              <span class="total-price-item">$745 x 3 nights</span>
+              <span>$2235</span>
+            </div>
+            <div class="total-price-details">
+              <span class="total-price-item">Service fee</span>
+              <span>$0</span>
+            </div>
+            <div class="total-price-details total">
+              <span class="total-price-item">Total</span>
+              <span>$2235</span>
+            </div>
+          </div>
         </section>
       </section>
     </section>
@@ -130,6 +145,9 @@ export default {
   },
   // {{ getGuests.adults }} adults, {{ getGuests.children }} children
   computed: {
+    getCheckDetails() {
+      const dates = this.dates;
+    },
     getGuestsForDisplay() {
       const { adults } = this.guestsFromStore;
       const { children } = this.guestsFromStore;

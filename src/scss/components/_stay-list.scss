@@ -1,11 +1,10 @@
 .card-cont {
   margin: auto;
-  padding: 10px;
+  padding: 10px 0px;
 }
 
 .stays-count {
   font-weight: bold;
-  padding-left: 24px;
   margin: 0;
   font-size: rem(20px);
 }
@@ -13,7 +12,7 @@
 .no-results {
   width: 100%;
   font-size: em(45px);
-  padding: 28px;
+  padding: 28px 0px;
 }
 
 //Break point
@@ -25,11 +24,7 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(200px, 1fr));
     gap: 10px;
-    padding: 10px 24px;
-  }
-
-  .stays-count {
-    padding-left: 28px;
+    padding: 10px 0px;
   }
 }
 
@@ -60,6 +55,5 @@
 @media (min-width: 1700px) {
   .card-cont {
     grid-template-columns: repeat(5, minmax(200px, 1fr));
-    padding: 10px 24px;
   }
 }

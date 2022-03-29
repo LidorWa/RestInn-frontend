@@ -43,7 +43,7 @@ export default {
     isSignUp() {
       const isSignUpModalOpen = this.$store.getters.isSignUpModal
       if (isSignUpModalOpen) {
-        this.$refs['signup'].$refs['email'].focus()
+        this.$refs['signup'].$refs['username'].focus()
       }
       return isSignUpModalOpen
     },
