@@ -1,5 +1,7 @@
+
 .select-guests-modal {
   background-color: white;
+  color: $clr2;
   box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
   width: 240px;
   position: fixed;
@@ -8,7 +10,7 @@
   padding-bottom: 15px;
   border-radius: 15px;
 
-  .guests-type-conteiner {
+  .guests-type-container {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -17,10 +19,14 @@
     padding: 15px;
     padding-top: 1px;
   }
+  .select-guests-modal{
+    border-bottom: 1px solid $clr11;
+  }
 
   .guests-modal-title {
     font-weight: 600;
     font-size: em(17px);
+    text-align: center;
   }
 
   .guests-counter {
@@ -40,29 +46,37 @@
     line-height: 30px;
     width: 45%;
   }
+  .material-icons{
+    display: flex;
+    color: $clr10;
+    width: 10px;
+  }
 }
 
-.guest-cout-icon {
-  width: 30px !important;
-  height: 30px !important;
-  border: 1px solid $clr5;
+.guest-count-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px !important;
+  height: 25px !important;
+  border: 1px solid $clr10;
   line-height: 30px !important;
   border-radius: 50%;
   cursor: pointer;
-  justify-self: center;
+  // justify-self: center;
   transition: 0.1s;
 }
 
-.guest-cout-icon:hover {
+.guest-count-icon:hover {
   border: 1px solid $clr2;
 }
 
 .guests-number {
-  font-size: em(20px);
+  font-size: em(18px);
   line-height: 31px;
 }
 
-.guests-btns-conteiner {
+.guests-btns-container {
   margin: auto;
   display: flex;
   align-items: center;
