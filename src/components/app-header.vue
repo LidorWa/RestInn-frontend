@@ -86,14 +86,6 @@ export default {
       this.$store.dispatch({ type: 'logout' })
       this.isShowingHamburger = false
     },
-    // closeSignUp() {
-    //   this.isSignUp = false;
-    // },
-    // openSignUp() {
-    //   this.isSignUp = true;
-    //   this.isShowingHamburger = false;
-    //   this.$refs["signup"].$refs["email"].focus();
-    // },
     openSignUp() {
       this.$store.commit({ type: 'openSignUpModal' })
       this.isShowingHamburger = false
