@@ -305,7 +305,34 @@
         padding-left: em(8px);
       }
     }
+    .score-scales{
+      display: flex;
+      flex-wrap: wrap;
+      flex: 1 1 px;
+      
+      span{
+        font-size: 16px !important;
+        font-family: circular-light;
 
+    }
+    .reviews-scores{
+      display: flex;
+      height: 36px;
+
+    }
+      .scale-threshold{
+        width: 120px;
+        height: 4px;
+        background-color: rgba(113, 113, 113, 1);
+        border-radius: 15px;
+        div:last-of-type{
+          height: 4px;
+          background-color: black;
+          background-color: rgba(34,34,34,1);
+          border-radius: 15px;
+        }
+      }
+    }
     .reviews-list-ul {
       list-style: none;
       display: flex;
