@@ -12,7 +12,7 @@
             <h1 class="logo-txt">RestInn</h1>
           </div>
           <!-- Mini search bar -->
-          <div v-if="!isFullSearch" @click="toggleMiniSearch" class="search mini-search inline-flex justify-center align-center space-between">
+          <div v-show="!isFullSearch" @click="toggleMiniSearch" class="search mini-search inline-flex justify-center align-center space-between">
             <div>{{ getSearchText }}</div>
             <div class="search-icon-small">
               <img src="../assets/svgs/search.svg" alt="search Icon" />
@@ -38,7 +38,7 @@
           <header-user-menu :class="{ showHamburger: isShowingHamburger }" @openSignUp="openSignUp" @logout="logout" />
           <div v-if="isShowingHamburger" class="outsideUserMenu" @click="isShowingHamburger = false"></div>
         </div>
-        <div v-if="isFullSearch" class="main-search-bar flex justify-center align-center">
+        <div v-show="isFullSearch" class="main-search-bar flex justify-center align-center">
           <main-search @mainSearchClosed="mainSearchClosed" :savedLocation="getLocation" :savedDates="getDates" :savedGuests="getGuests" />
         </div>
         <!-- <sign-up
@@ -168,10 +168,10 @@ export default {
     headerClasses() {
       var classObj = {}
       if (this.$route.params.stayId) {
-        classObj.layout = 'main-layout'
+        classObj.layout = 'main-layout' //details page
         classObj.headerStyle = 'small-search'
       } else {
-        classObj.layout = 'home-layout'
+        classObj.layout = 'home-layout' //fits explore page regarding open/close main/mini search
         if (this.scrollLoc > 20) {
           classObj.headerStyle = 'small-search'
         } else {
@@ -196,7 +196,7 @@ export default {
   //TODO: watch stopped working?
   watch: {
     // headerStatus() {
-    //   console.log('Watch ****************** headerStatus is:', this.headerStatus)
+    //   console.log('Watch ******* headerStatus is:', this.headerStatus)
     //   switch (this.headerStatus) {
     //     case 'top':
     //       this.isMiniSearchShown = false

@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+// import { ref } from 'vue'
 import selectGuestsModal from '../components/select-guests-modal.vue'
 
 // import { fa } from 'element-plus/lib/locale'

@@ -2,7 +2,7 @@
   // align-items: center;
   transform-origin: top;
   // position: relative;
-  transition: all 0.2s;
+  // transition: all 0.2s;
   top: em(75px);
   // line-height: em(20px);
   // padding: em(10px);
@@ -22,10 +22,10 @@
     height: em(32px);
     background-color: $clr6;
   }
-  transition-property: all;
-  transition-duration: 0.2s;
-  transition-timing-function: ease;
-  transition-delay: 0s;
+  // transition-property: all;
+  // transition-duration: 0.2s;
+  // transition-timing-function: ease;
+  // transition-delay: 0s;
 
   // date-picker//
 
@@ -98,6 +98,9 @@
     //TODO: finish hover
     background-color: #ebebeb;
     border-radius: em(32px);
+    .block{
+      pointer-events: true;
+    }
     // border-radius: 3em;
     input {
       background-color: inherit;
@@ -131,22 +134,20 @@
   padding: 1em 1em 1em 2em;
   line-height: 17px;
 }
-.check-in-top {
-  padding: 1em 1em 1em 1em;
-  align-items: center;
-}
-.check-out-top {
-  padding: 1em 1em 1em 1em;
-  // line-height: 18px;
-}
 .location-input {
   padding-left: 4px;
 }
-
-.check-out-top,
 .check-in-top {
+  padding: 1em 1em 1em 1em;
+  align-items: center;
   width: em(180px);
 }
+.check-out-top {
+  padding: 1em 1em 1em 1em;
+  width: em(180px);
+  // line-height: 18px;
+}
+
 .guestsInput {
   position: relative;
   padding: 1em em(8px) 1em 1em;
