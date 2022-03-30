@@ -22,7 +22,7 @@ export default {
     return {
       // stays: null,
       filterBy: {
-        price: [10, 1751],
+        price: [1, 4000],
         type: [],
         city: "",
         amenities: [],
@@ -57,13 +57,14 @@ export default {
       return this.$store.getters.getTypeFilter;
     },
     staysForDisplay() {
-      return this.$store.getters.getStaysForDisplay;
+      return this.$store.getters.getStays;
     },
   },
 
   methods: {
     setFilter(filterBy) {
       this.$store.commit({ type: "setFilter", filterBy });
+      this.$store.dispatch({ type: "loadStays", filterBy });
     },
   },
 

@@ -1,8 +1,10 @@
 <template>
-  <GMapMap v-if="center" :center="center" :zoom="20" map-type-id="terrain">
-    <GMapMarker :position="center" />
-  </GMapMap>
-  <h1 class="map-address">{{ address.street }}</h1>
+  <section>
+    <GMapMap v-if="center" :center="center" :zoom="15" map-type-id="terrain">
+      <GMapMarker :position="center" />
+    </GMapMap>
+    <h1 class="map-address">{{ address.street }}</h1>
+  </section>
 </template>
 <script>
 export default {
@@ -12,7 +14,7 @@ export default {
       required: true,
     },
   },
-  name: 'App',
+  name: "App",
   data() {
     return {
       center: { lat: 32.091996, lng: 34.959813 },
@@ -24,13 +26,13 @@ export default {
       //     lng: 34.959813,
       //   },
       // },
-    }
+    };
   },
   created() {
-    this.center.lat = this.address.location.lan
-    this.center.lng = this.address.location.lat
+    this.center.lat = this.address.location.lan;
+    this.center.lng = this.address.location.lat;
   },
-}
+};
 </script>
 
 <style></style>

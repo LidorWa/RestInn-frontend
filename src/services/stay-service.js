@@ -10,8 +10,8 @@ export const stayService = {
   remove,
 };
 
-async function query(filterBy = {}) {
-  return await httpService.get(`stay`, filterBy)
+async function query(filterBy = null) {
+  return await httpService.get(`stay`, filterBy);
   // return httpService.get(`query`)
   // let stays = await storageService.query(KEY);
 
@@ -23,25 +23,22 @@ async function query(filterBy = {}) {
 }
 
 async function getById(stayId) {
-
-  return await httpService.get(`stay/${stayId}`)
+  return await httpService.get(`stay/${stayId}`);
   // return await httpService.get(`stay/getById/${stayId}`)
 
-
-  
   // let stay = await storageService.get(KEY, stayId);
   // return stay;
 }
 
 async function remove(stayId) {
-  return await httpService.delete(`stay/${stayId}`)
+  return await httpService.delete(`stay/${stayId}`);
 }
 
 async function save(stay) {
   if (toy._id) {
-    return await httpService.put(`stay/${stay._id}`, stay)
+    return await httpService.put(`stay/${stay._id}`, stay);
   } else {
-    return await httpService.post('stay', stay)
+    return await httpService.post("stay", stay);
   }
 }
 
@@ -50,4 +47,3 @@ async function save(stay) {
 
 //   }
 // }
-

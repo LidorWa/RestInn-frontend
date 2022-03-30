@@ -88,11 +88,12 @@ export default {
   },
   computed: {
     topRatedStays() {
+      console.log(this.$store.getters.getTopRatedStays);
       return this.$store.getters.getTopRatedStays;
     },
-    stays(){
-      return this.$store.getters.getStays
-    }
+    stays() {
+      return this.$store.getters.getStays;
+    },
     // getImgUrl() {
     //   const imgUrl = new URL(`../assets/home-page.png`, import.meta.url)
     //   return imgUrl
