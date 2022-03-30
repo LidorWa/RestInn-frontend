@@ -1,6 +1,6 @@
 <template>
   <section class="dashboard">
-    <order-list :orders="orders" />
+    <order-list :orders="getOrders" />
   </section>
 </template>
 
@@ -9,12 +9,14 @@ import orderList from '../components/order-list.vue'
 
 export default {
   name: 'dashboard',
-  created() {
-    this.$store.dispatch({ type: 'loadOrders' })
-  },
+
+  //   created() {},
+  //   mounted() {},
   computed: {
-    orders() {
-      return this.$store.getters.ordersToShow
+    getOrders() {
+      return this.$store.getters.getOrders
+      //   console.log('order', order)
+      //   return []
     },
   },
   methods: {

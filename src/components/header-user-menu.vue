@@ -7,35 +7,39 @@
     <p>Host your home</p>
     <p>Help</p>
     <p @click="goToAboutPage">About</p>
+    <p @click="goToDashBoardPage">Host Dashboard</p>
   </section>
 </template>
 
 <script>
 export default {
-  name: "header-user-menu",
+  name: 'header-user-menu',
 
   data() {
     return {
       user: null,
-    };
+    }
   },
 
   methods: {
     logout() {
-      this.$emit("logout");
+      this.$emit('logout')
     },
     signUp() {
-      this.$emit("openSignUp");
+      this.$emit('openSignUp')
     },
     goToAboutPage() {
-      this.$router.push("/about");
+      this.$router.push('/about')
+    },
+    goToDashBoardPage() {
+      this.$router.push('/dashboard')
     },
   },
   computed: {
     isLoggerIn() {
-      const user = this.$store.getters.getLoggedInUser;
-      return user ? true : false;
+      const user = this.$store.getters.getLoggedInUser
+      return user ? true : false
     },
   },
-};
+}
 </script>

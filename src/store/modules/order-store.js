@@ -1,48 +1,48 @@
-import { stayService } from "../../services/stay-service.js";
+import { stayService } from '../../services/stay-service.js'
 
 export default {
   state: {
-    location: "",
+    location: '',
     dates: null,
     guests: { adults: 0, children: 0 },
     isOrdering: false,
-    order: null,
+    order: [],
     total: 0,
   },
   getters: {
-    getOrder(state) {
-      return state.order;
+    getOrders(state) {
+      return state.order
     },
     getTotalPrice(state) {
-      return state.total;
+      return state.total
     },
     getLocation(state) {
-      return state.location;
+      return state.location
     },
     getDates(state) {
-      return state.dates;
+      return state.dates
     },
     getGuests(state) {
-      return { ...state.guests };
+      return { ...state.guests }
     },
   },
   mutations: {
     setOrder(state, { order }) {
-      console.log(order);
-      state.order = order;
+      console.log(order)
+      state.order.push(order)
     },
     setTotalPrice(state, { totalPrice }) {
-      state.total = totalPrice;
+      state.total = totalPrice
     },
     setLocation(state, { location }) {
-      state.location = location;
+      state.location = location
     },
     setDates(state, { dates }) {
-      state.dates = dates;
+      state.dates = dates
     },
     setGuests(state, { guests }) {
-      state.guests = guests;
+      state.guests = guests
     },
   },
   actions: {},
-};
+}
