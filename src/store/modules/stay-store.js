@@ -13,7 +13,6 @@ export default {
   },
   getters: {
     getFilterFromStore(state) {
-
       return JSON.parse(JSON.stringify(state.filterBy));
     },
     getStays(state) {
@@ -36,7 +35,7 @@ export default {
     },
     getStaysForDisplay(state) {
       let stays = JSON.parse(JSON.stringify(state.stays));
-
+      return stays
       stays = stays.filter((stay) => stay.capacity >= state.filterBy.guests);
 
       if (state.filterBy.type.length) {
@@ -71,7 +70,6 @@ export default {
   },
   mutations: {
     setGuestsFilter(state, { guests }) {
-
       state.filterBy.guests = guests;
     },
 
@@ -85,6 +83,7 @@ export default {
 
     setStays(state, { stays }) {
       state.stays = stays;
+      console.log(stays[0])
     },
   },
   actions: {
@@ -93,11 +92,10 @@ export default {
         const stay = await stayService.getById(stayId);
         return stay;
       } catch (err) {
-        console.log("Error while getting stay:", err);
       }
     },
     async loadStays({ commit, state }) {
-      const stays = await stayService.query(state.filterBy);
+      const stays = await stayService.query();
       commit({ type: "setStays", stays });
     },
     filter({ commit, dispatch }, { filterBy }) {

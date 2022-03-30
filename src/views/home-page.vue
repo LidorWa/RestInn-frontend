@@ -72,7 +72,6 @@ export default {
     // homePageImg,
   },
   created() {
-    console.log(this.$route.path);
   },
   methods: {
     getImgUrl(file) {

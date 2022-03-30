@@ -173,7 +173,6 @@ export default {
       this.isOrdering = true
       const dates = this.getDates
       const guests = this.getGuests
-
       if (!dates) {
         this.alertModalMessage = 'Select dates to proceed'
         this.isOrdering = false
@@ -196,7 +195,7 @@ export default {
     },
     goToReviews() {
       let coords = this.$refs['reviews-section'].getBoundingClientRect().x
-      // console.log(coords)
+
     },
   },
   computed: {

@@ -38,10 +38,9 @@ export default {
   },
 
   created() {
-    // console.log(this.$router.path);
-    window.addEventListener("scroll", this.onScroll);
-    this.$store.dispatch({ type: "loadStays" });
-    this.$store.dispatch({ type: "loadUsers" });
+    window.addEventListener('scroll', this.onScroll)
+    this.$store.dispatch({ type: 'loadStays' })
+    this.$store.dispatch({ type: 'loadUsers' })
   },
   computed: {
     isSignUp() {
