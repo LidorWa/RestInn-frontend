@@ -6,10 +6,11 @@
                     <span>{{ $filters.currencyUSD(stay.price) }}</span>
                     <span>&nbsp; / night</span>
                 </div>
-            </div>
-            <div class="footer-hero-modal-rating">
-                <img src="../../assets/svgs/star-rating.svg" />
-                <span>{{ fixedScore }}</span>
+
+                <div class="footer-hero-modal-rating">
+                    <img src="../../assets/svgs/star-rating.svg" />
+                    <span>{{ fixedScore }}</span>
+                </div>
             </div>
         </div>
         <div class="footer-check-availability-container">
