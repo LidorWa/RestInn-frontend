@@ -16,7 +16,6 @@ export const userService = {
   getLoggedinUser,
   getUsers,
   getById,
-
   update,
 };
 
@@ -38,6 +37,15 @@ async function update(user) {
   return user;
 }
 
+async function getUsers() {
+  // return httpService.get(`user`);
+  let users = await storageService.query(USER_KEY);
+  if (!users || !users.length) {
+    users = await _createUsers();
+  }
+  return users;
+}
+
 async function login(userCred) {
   const users = await storageService.query(USER_KEY);
   const user = users.find(
@@ -49,6 +57,7 @@ async function login(userCred) {
   // socketService.emit('set-user-socket', user._id);
   // if (user) return _saveLocalUser(user);
 }
+
 async function signup(userCred) {
   // userCred.score = 10000;
   // const user = await storageService.post('user', userCred)
@@ -72,15 +81,6 @@ function getLoggedinUser() {
   return JSON.parse(
     sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER) || "null"
   );
-}
-
-async function getUsers() {
-  // return httpService.get(`user`);
-  let users = await storageService.query(USER_KEY);
-  if (!users || !users.length) {
-    users = await _createUsers();
-  }
-  return users;
 }
 
 async function _createUsers() {
