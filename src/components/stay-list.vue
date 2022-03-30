@@ -1,9 +1,11 @@
 <template>
-  <p class="stays-count">{{ getStaysPreviewTitle }}</p>
-  <ul v-if="stays.length" class="card-cont">
-    <stay-preview v-for="stay in stays" :key="stay._id" :stay="stay" />
-  </ul>
-  <h1 v-else class="no-results">No results</h1>
+  <section>
+    <p class="stays-count">{{ getStaysPreviewTitle }}</p>
+    <ul v-if="stays.length" class="card-cont">
+      <stay-preview v-for="stay in stays" :key="stay._id" :stay="stay" />
+    </ul>
+    <h1 v-else class="no-results">No results</h1>
+  </section>
 </template>
 
 <script>

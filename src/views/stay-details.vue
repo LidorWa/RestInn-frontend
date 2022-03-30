@@ -148,12 +148,12 @@ export default {
     loginToProceed() {
       this.isLoginAlert = false
       this.$store.commit({ type: 'openSignUpModal' })
-      console.log('loginToProceed')
+ 
     },
     demoToProceed() {
       this.isLoginAlert = false
       this.isOrdering = true
-      console.log('demo to proceed')
+ 
     },
     closeLoginModal() {
       this.isLoginAlert = false

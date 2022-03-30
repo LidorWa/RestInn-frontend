@@ -111,7 +111,7 @@ async function _createUsers() {
     },
     {
       _id: "fds99fe1",
-      fullname: "Demo User",
+      fullname: "Guest user",
       username: "demo@gmail.com",
       password: "demo",
 
