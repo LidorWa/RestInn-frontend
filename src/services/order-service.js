@@ -1,12 +1,31 @@
-import { storageService } from './async-storage-service'
+import { httpService } from './http-service.js'
 
-const KEY = 'order_db'
+const ENDPOINT = 'order'
 
-export const storageService = {
+export const orderService = {
   query,
-  get,
-  post,
-  put,
-  remove,
-  postMany,
+  addOrder,
+  removeOrder,
+  updateOrder,
+  getById,
+}
+
+async function query(filterBy = {}) {
+  return await httpService.get(ENDPOINT, filterBy)
+}
+
+async function getById(orderId) {
+  return await httpService.get(`order/${orderId}`)
+}
+
+async function addOrder(order) {
+  return await httpService.post(ENDPOINT, order)
+}
+
+async function updateOrder(order) {
+  return await httpService.put(ENDPOINT, order)
+}
+
+async function removeOrder(orderId) {
+  return await httpService.delete(`${ENDPOINT}/${orderId}`, orderId)
 }

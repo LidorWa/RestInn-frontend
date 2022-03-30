@@ -2,7 +2,7 @@ import { stayService } from "../../services/stay-service.js";
 
 export default {
   state: {
-    stays: null,
+    stays: [],
     filterBy: {
       price: [1, 1751],
       type: [],
@@ -13,7 +13,6 @@ export default {
   },
   getters: {
     getFilterFromStore(state) {
-
       return JSON.parse(JSON.stringify(state.filterBy));
     },
     getStays(state) {
@@ -29,14 +28,19 @@ export default {
       return state.filterBy.type;
     },
     getTopRatedStays(state) {
+      if (!state.stays) return;
       const stays = JSON.parse(JSON.stringify(state.stays));
+      stays.splice(4);
+      return stays;
+
       stays.sort((a, b) => b.reviewScores.rating - a.reviewScores.rating);
       stays.splice(4);
       return stays;
     },
     getStaysForDisplay(state) {
       let stays = JSON.parse(JSON.stringify(state.stays));
-
+      if (!stays) return;
+      return stays;
       stays = stays.filter((stay) => stay.capacity >= state.filterBy.guests);
 
       if (state.filterBy.type.length) {
@@ -71,7 +75,6 @@ export default {
   },
   mutations: {
     setGuestsFilter(state, { guests }) {
-
       state.filterBy.guests = guests;
     },
 
@@ -84,6 +87,7 @@ export default {
     },
 
     setStays(state, { stays }) {
+      console.log("Loading... in mutations");
       state.stays = stays;
     },
   },
@@ -92,14 +96,21 @@ export default {
       try {
         const stay = await stayService.getById(stayId);
         return stay;
-      } catch (err) {
-        console.log("Error while getting stay:", err);
-      }
+      } catch (err) {}
     },
     async loadStays({ commit, state }) {
-      const stays = await stayService.query(state.filterBy);
-      commit({ type: "setStays", stays });
+      try {
+        console.log("Loading... in acions");
+        let stays = await stayService.query();
+        stays = stays.splice(30);
+        commit({ type: "setStays", stays });
+      } catch (err) {
+        console.log("Error while loading stays: ", err);
+      }
     },
+
+
+
     filter({ commit, dispatch }, { filterBy }) {
       commit({ type: "setFilter", filterBy });
       dispatch({ type: "loadStays" });

@@ -74,7 +74,7 @@ export default {
   },
 
   methods: {
-    confirm() {
+    async confirm() {
       const startDate = this.getFormatedDate(0);
       const endDate = this.getFormatedDate(1);
       const totalPrice = this.getTotalPrice;
@@ -95,8 +95,13 @@ export default {
           fullname: this.user.fullname,
         },
       };
+      //Place the order in store, for fronend needs only
+      // this.$store.commit({ type: "setOrder", order });
+      this.$emit('addOrder', order)
 
-      this.$store.commit({ type: "setOrder", order });
+      // *** Uncomment when order backend service implemented ***
+      // await this.$store.commit({ type: "addOrder", order });
+
       this.$emit("closeModal");
     },
     getFormatedDate(num) {

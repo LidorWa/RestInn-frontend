@@ -126,10 +126,10 @@ export default {
       this.guests = guests
     },
     onSearch() {
-      console.log('onSearch clicked before', this.isSearchOpen) //false
+      // console.log('onSearch clicked before', this.isSearchOpen) //false
       if (!this.location && !this.dates && this.guests.adults === 0) {
         this.isSearchOpen = true
-        console.log('onSearch clicked after', this.isSearchOpen) //true
+        // console.log('onSearch clicked after', this.isSearchOpen) //true
         //TODO: add focus
       } else {
         let path = '/stay'
@@ -149,7 +149,7 @@ export default {
     },
     clickCheck(ev) {
       // console.log(ev)
-      console.log('search btn open?', this.isSearchOpen)
+      // console.log('search btn open?', this.isSearchOpen)
       const evClass = ev.target.className
       const evLocal = ev.target.localName
       // console.log('ev - class name:', ev.target.className)

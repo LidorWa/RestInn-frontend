@@ -30,7 +30,7 @@
               <img
                 :src="stay.host.thumbnailUrl"
                 alt="Host picture"
-                onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/'"
+                onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/image'"
               />
             </section>
             <selected-popular-amenities :stay="stay" />
@@ -78,6 +78,7 @@
           :guests="getGuests"
           :user="getLoggedInUser"
           @closeModal="closeConfirmationModal"
+          @setOrder="addOrder"
         />
         <div
           v-if="isOrderAlert || isLoginAlert || (isOrdering && isLoggedIn)"
@@ -145,6 +146,9 @@ export default {
 
 
   methods: {
+    addOrder(order){
+      this.$store.dispatch({type: 'addOrder', order})
+    },
     loginToProceed() {
       this.isLoginAlert = false
       this.$store.commit({ type: 'openSignUpModal' })
@@ -173,7 +177,6 @@ export default {
       this.isOrdering = true
       const dates = this.getDates
       const guests = this.getGuests
-
       if (!dates) {
         this.alertModalMessage = 'Select dates to proceed'
         this.isOrdering = false
@@ -196,7 +199,7 @@ export default {
     },
     goToReviews() {
       let coords = this.$refs['reviews-section'].getBoundingClientRect().x
-      // console.log(coords)
+
     },
   },
   computed: {

@@ -25,7 +25,6 @@ export default {
       state.isSignUpModal = false;
     },
     setLoggedinUser(state, { loggedInUser }) {
-      console.log("loggedInUser: ", loggedInUser);
       state.loggedInUser = loggedInUser;
     },
 
@@ -34,7 +33,6 @@ export default {
     },
 
     saveUser(state, { user }) {
-      console.log(user);
       const idx = state.users.findIndex(
         (currUser) => currUser._id === user._id
       );
@@ -57,7 +55,6 @@ export default {
     },
 
     getUserById(context, { userId }) {
-      console.log(userId);
       return userService.getById(userId);
     },
     async loadUsers({ commit, state }) {
@@ -66,7 +63,6 @@ export default {
     },
 
     async saveUser({ commit, dispatch }, { user }) {
-      console.log("user:", user);
       const userToSave = await userService.save(user);
       commit({ type: "saveUser", user });
       dispatch({ type: "loadUsers" });

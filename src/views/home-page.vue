@@ -1,5 +1,5 @@
 <template>
-  <section class="home-page-container">
+  <section class="home-page-container" v-if="stays">
     <div class="main-hero-img"></div>
     <!-- <div :style="{ backgroundImage: 'url(' + homePageImg + ')' }" class="home-page-img"></div> -->
     <!-- <div :style="'backgroundImage: ' + getImgUrl()" class="home-page-img"></div> -->
@@ -71,9 +71,7 @@ export default {
   components: {
     // homePageImg,
   },
-  created() {
-    console.log(this.$route.path);
-  },
+  created() {},
   methods: {
     getImgUrl(file) {
       const imgUrl = new URL(`../assets/images/${file}`, import.meta.url);
@@ -92,6 +90,9 @@ export default {
     topRatedStays() {
       return this.$store.getters.getTopRatedStays;
     },
+    stays(){
+      return this.$store.getters.getStays
+    }
     // getImgUrl() {
     //   const imgUrl = new URL(`../assets/home-page.png`, import.meta.url)
     //   return imgUrl
