@@ -10,7 +10,8 @@
     <div v-if="isSignUp" class="outsideUserMenu" @click="closeSignUp"></div>
     <app-header :headerStatus="headerStatus" :scrollY="scrollY" />
     <!-- add prop showSearch -->
-    <router-view class="main-layout-height" />
+    <router-view />
+    <!-- <router-view class="main-layout-height" /> -->
     <app-footer />
   </section>
 </template>
@@ -37,10 +38,10 @@ export default {
     };
   },
 
-  created() {
-    window.addEventListener('scroll', this.onScroll)
-    this.$store.dispatch({ type: 'loadStays' })
-    this.$store.dispatch({ type: 'loadUsers' })
+  async created() {
+    window.addEventListener("scroll", this.onScroll);
+    await this.$store.dispatch({ type: "loadStays" });
+    this.$store.dispatch({ type: "loadUsers" });
   },
   computed: {
     isSignUp() {

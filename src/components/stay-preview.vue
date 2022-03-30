@@ -1,5 +1,5 @@
 <template>
-  <li class="card" @click="stayClicked">
+  <li v-if="stay" class="card" @click="stayClicked">
     <div>
       <div class="carousele">
         <div class="block">

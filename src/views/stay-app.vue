@@ -1,5 +1,5 @@
 <template>
-  <section v-if="stays" class="app-page main-layout-homepage">
+  <section v-if="staysForDisplay" class="app-page main-layout-homepage">
     <explore-filter
       :stays="staysForDisplay"
       :filerByType="getTypeFilter"
@@ -35,8 +35,8 @@ export default {
 
     const guests = this.$store.getters.getGuestsNumber;
     this.filterBy.guests = guests;
-    const stays = this.$store.getters.getStays;
-    this.stays = stays;
+    // const stays = this.$store.getters.getStays;
+    // this.stays = stays;
     if (this.$route.query.destination) {
       let city = this.$route.query.destination.split("?")[0];
       this.filterBy.city = city ? city : "";

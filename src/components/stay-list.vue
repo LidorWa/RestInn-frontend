@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section v-if="stays">
     <p class="stays-count">{{ getStaysPreviewTitle }}</p>
     <ul v-if="stays.length" class="card-cont">
       <stay-preview v-for="stay in stays" :key="stay._id" :stay="stay" />

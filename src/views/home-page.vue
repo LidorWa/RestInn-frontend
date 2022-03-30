@@ -71,8 +71,7 @@ export default {
   components: {
     // homePageImg,
   },
-  created() {
-  },
+  created() {},
   methods: {
     getImgUrl(file) {
       const imgUrl = new URL(`../assets/images/${file}`, import.meta.url);
