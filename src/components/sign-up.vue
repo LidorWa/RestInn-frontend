@@ -11,7 +11,9 @@
     <p class="input-alert" v-if="isUsernameAlert">
       Please enter a valid username address
     </p>
-    <p class="input-alert" v-if="isInvalidAlert">Invalid username or password</p>
+    <p class="input-alert" v-if="isInvalidAlert">
+      Invalid username or password
+    </p>
     <p
       v-if="!isInputAlert && !isUsernameAlert && !isInvalidAlert"
       class="no-alert"
@@ -71,16 +73,29 @@ export default {
         password: this.password,
       };
 
-      await this.$store.dispatch({ type: "login", user });
-      const loggedInUser = this.$store.getters.getLoggedInUser;
-      if (!loggedInUser) {
+      try {
+        await this.$store.dispatch({ type: "login", user });
+        this.cleanData();
+        this.$emit("closeSignUp");
+      } catch (err) {
+        console.error("Error while trying to log in:", err);
         this.isInputAlert = false;
         this.isUsernameAlert = false;
         this.isInvalidAlert = true;
-        return;
+        this.cleanData();
+        throw err;
+        // return;
       }
-      this.cleanData();
-      this.$emit("closeSignUp");
+
+      // const loggedInUser = this.$store.getters.getLoggedInUser;
+      // if (!loggedInUser) {
+      //   this.isInputAlert = false;
+      //   this.isUsernameAlert = false;
+      //   this.isInvalidAlert = true;
+      //   return;
+      // }
+      // this.cleanData();
+      // this.$emit("closeSignUp");
     },
     closeSignUp() {
       this.cleanData();

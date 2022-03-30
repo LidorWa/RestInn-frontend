@@ -32,8 +32,8 @@ export default {
     },
     async demo() {
       const user = {
-        username: "demo@gmail.com",
-        password: "demo",
+        username: "guest",
+        password: "Leo",
       };
       await this.$store.dispatch({ type: "login", user });
       this.$emit("demo");

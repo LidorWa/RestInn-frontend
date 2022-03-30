@@ -22,6 +22,23 @@ export const userService = {
 // Debug technique
 window.userService = userService;
 
+async function login(userCred) {
+  // const users = await storageService.query(USER_KEY);
+  // const user = users.find(
+  //   (user) =>
+  //     user.username === userCred.username && user.password === userCred.password
+  // );
+  // return _saveLocalUser(user);
+
+  try {
+    const user = await httpService.post("auth/login", userCred);
+    // socketService.emit('set-user-socket', user._id);
+    if (user) return _saveLocalUser(user);
+  } catch (err) {
+    console.log("Error while trying to login");
+  }
+}
+
 async function getById(userId) {
   // const user = await storageService.get('user', userId)
   const user = await httpService.get(`user/${userId}`);
@@ -44,18 +61,6 @@ async function getUsers() {
     users = await _createUsers();
   }
   return users;
-}
-
-async function login(userCred) {
-  const users = await storageService.query(USER_KEY);
-  const user = users.find(
-    (user) =>
-      user.username === userCred.username && user.password === userCred.password
-  );
-  return _saveLocalUser(user);
-  // const user = await httpService.post("auth/login", userCred);
-  // socketService.emit('set-user-socket', user._id);
-  // if (user) return _saveLocalUser(user);
 }
 
 async function signup(userCred) {
