@@ -4,7 +4,7 @@ export default {
   state: {
     stays: [],
     filterBy: {
-      price: [1, 1751],
+      price: [],
       type: [],
       city: "",
       amenities: [],
@@ -28,19 +28,17 @@ export default {
       return state.filterBy.type;
     },
     getTopRatedStays(state) {
-      if (!state.stays) return;
+      console.log(state.stays.length);
+      if (!state.stays.length) return;
       const stays = JSON.parse(JSON.stringify(state.stays));
-      stays.splice(4);
-      return stays;
-
-      stays.sort((a, b) => b.reviewScores.rating - a.reviewScores.rating);
       stays.splice(4);
       return stays;
     },
     getStaysForDisplay(state) {
       let stays = JSON.parse(JSON.stringify(state.stays));
-      if (!stays) return;
+      if (!stays.length) return;
       return stays;
+
       stays = stays.filter((stay) => stay.capacity >= state.filterBy.guests);
 
       if (state.filterBy.type.length) {
@@ -70,6 +68,8 @@ export default {
         stays = stays.filter((stay) => regex.test(stay.address.city));
       }
 
+      if (stays.length > 50) return stays.slice(0, 50);
+
       return stays;
     },
   },
@@ -87,7 +87,6 @@ export default {
     },
 
     setStays(state, { stays }) {
-      console.log("Loading... in mutations");
       state.stays = stays;
     },
   },
@@ -98,18 +97,14 @@ export default {
         return stay;
       } catch (err) {}
     },
-    async loadStays({ commit, state }) {
+    async loadStays({ commit, state }, { filterBy }) {
       try {
-        console.log("Loading... in acions");
-        let stays = await stayService.query();
-        stays = stays.splice(30);
+        const stays = await stayService.query(filterBy);
         commit({ type: "setStays", stays });
       } catch (err) {
         console.log("Error while loading stays: ", err);
       }
     },
-
-
 
     filter({ commit, dispatch }, { filterBy }) {
       commit({ type: "setFilter", filterBy });

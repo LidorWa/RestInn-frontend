@@ -1,0 +1,28 @@
+.main-amenities-section {
+    padding: em(48px) 0px;
+    h1 {
+      padding: 0px 0px em(24px);
+      font-size: em(24px);
+      font-weight: 600;
+    }
+    .amenities-list {
+      .amenity-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: em(10px);
+        .amenity-item {
+          flex: 1 1 em(190px);
+          display: flex;
+          align-items: center;
+          gap: em(15px);
+          padding: 0 0 em(16px);
+          img {
+            width: em(24px);
+          }
+        }
+        @media (max-width: 870px) {
+          font-size: em(14px);
+        }
+      }
+    }
+  }

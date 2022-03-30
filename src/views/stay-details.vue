@@ -164,7 +164,12 @@ export default {
       }
     },
     goToReviews() {
-      let coords = this.$refs['reviews-section'].getBoundingClientRect().x
+      console.log(this.$refs)
+      let el = this.$refs['reviews-section'].$el
+
+      let top = el.offsetTop
+      console.log(top)
+      window.scrollTo(0, top - 10)
     },
   },
   computed: {

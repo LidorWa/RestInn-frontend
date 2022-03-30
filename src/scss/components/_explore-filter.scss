@@ -122,6 +122,19 @@
   transform: translateX(-170%);
   font-size: em(15px);
 
+  @media (max-width: 610px) {
+    left: -80px !important;
+  }
+
+  @media (max-width: 472px) {
+    left: -100px !important;
+    width: 90vw;
+  }
+
+  @media (max-width: 472px) {
+    height: 490px;
+  }
+
   .type-modal-btns-container {
     align-self: center;
     margin-top: 8px;
@@ -155,7 +168,7 @@
   }
 
   /* Customize the label (the container) */
-  .container {
+  .line-container {
     display: block;
     position: relative;
 
@@ -169,7 +182,7 @@
   }
 
   /* Hide the browser's default checkbox */
-  .container input {
+  .line-container input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -189,13 +202,17 @@
   }
 
   /* On mouse-over, add a grey background color */
-  .container:hover input ~ .checkmark {
+  .line-container:hover input ~ .checkmark {
     background-color: $clr6;
   }
 
   /* When the checkbox is checked, add a blue background */
-  .container input:checked ~ .checkmark {
+  .line-container input:checked ~ .checkmark {
     background-color: $clr2;
+  }
+
+  .line-text {
+    margin-left: 40px;
   }
 
   /* Create the checkmark/indicator (hidden when not checked) */
@@ -206,12 +223,12 @@
   }
 
   /* Show the checkmark when checked */
-  .container input:checked ~ .checkmark:after {
+  .line-container input:checked ~ .checkmark:after {
     display: block;
   }
 
   /* Style the checkmark/indicator */
-  .container .checkmark:after {
+  .line-container .checkmark:after {
     left: 7px;
     top: 3px;
     width: 5px;

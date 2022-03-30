@@ -38,9 +38,16 @@ export default {
 
   async created() {
     window.addEventListener('scroll', this.onScroll)
-    await this.$store.dispatch({ type: 'loadStays' })
-    this.$store.dispatch({ type: 'loadUsers' })
-    this.$store.dispatch({ type: 'getOrders' })
+
+    const filterBy = {
+      price: [1, 4000],
+      type: [],
+      city: '',
+      amenities: [],
+      guests: 0,
+    }
+
+    await this.$store.dispatch({ type: 'loadStays', filterBy })
   },
   computed: {
     isSignUp() {
@@ -76,7 +83,7 @@ export default {
     },
   },
   unmounted() {
-    window.removeEventListener('scroll')
+    window.removeEventListener('scroll', this.onScroll)
   },
 }
 </script>

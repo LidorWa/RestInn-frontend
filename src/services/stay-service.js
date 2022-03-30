@@ -10,7 +10,7 @@ export const stayService = {
   remove,
 }
 
-async function query(filterBy = {}) {
+async function query(filterBy = null) {
   return await httpService.get(`stay`, filterBy)
   // return httpService.get(`query`)
   // let stays = await storageService.query(KEY);

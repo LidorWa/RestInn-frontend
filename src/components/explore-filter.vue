@@ -50,14 +50,14 @@
         >
           <div class="modal-container">
             <div v-for="type in options" :key="type" class="type-modal-line">
-              <label class="container">
+              <label class="line-container">
                 <input
                   v-model="typeFromParams[type.title]"
                   type="checkbox"
                   @input="toggleType(type.title)"
                 />
                 <span class="checkmark"></span>
-                <div class="flex flex-column">
+                <div class="line-text flex flex-column">
                   <span class="type-modal-type-title">{{ type.title }}</span>
                   <span class="type-modal-description">{{
                     type.description
@@ -152,7 +152,7 @@ export default {
       isTypeFiltering: false,
       isTypeFromHomepage: false,
       min: 1,
-      max: 1751,
+      max: 1800,
       isAmenityInFilter: {
         "Pets allowed": false,
         Wifi: false,
@@ -163,7 +163,7 @@ export default {
       isTypeSelected: false,
 
       filterBy: {
-        price: [10, 1751],
+        price: [],
         type: [],
         city: "",
         amenities: [],
@@ -181,6 +181,7 @@ export default {
     };
   },
   created() {
+    console.log("Filter created!");
     const filterFromStore = this.$store.getters.getFilterFromStore;
     this.filterBy = filterFromStore;
 
@@ -223,8 +224,8 @@ export default {
       if (this.isTypeFiltering) this.isPriceFiltering = false;
     },
     setTypeFilter() {
-      this.min = 10;
-      this.max = 1751;
+      this.min = 1;
+      this.max = 1800;
 
       this.setFilter();
     },

@@ -1,0 +1,29 @@
+.selected-popular-amenities {
+    padding: em(32px) 0px;
+    .popular-amenities {
+      display: flex;
+      margin: 0px 0px em(24px);
+    }
+    img {
+      width: em(24px);
+    }
+
+    .popular-amenities-text {
+      margin: 0px 0px em(16px);
+      margin-left: em(16px);
+      .popular-amenities-title {
+        font-size: 1.2em;
+        font-weight: 600;
+        line-height: em(24px);
+        margin: 0px 0px em(4px);
+      }
+      .popular-amenities-description {
+        color: $clr5;
+        line-height: em(22px);
+      }
+    }
+    border-bottom: em(1px) solid $clr6;
+    :last-child {
+      margin-bottom: unset;
+    }
+  }
