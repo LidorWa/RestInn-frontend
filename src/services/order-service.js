@@ -7,10 +7,15 @@ export const orderService = {
   addOrder,
   removeOrder,
   updateOrder,
+  getById
 };
 
-async function query(filterBy) {
+async function query(filterBy = {}) {
   return await httpService.get(ENDPOINT, filterBy);
+}
+
+async function getById(orderId) {
+  return await httpService.get(`order/${orderId}`)
 }
 
 async function addOrder(order) {

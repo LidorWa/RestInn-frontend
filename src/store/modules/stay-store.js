@@ -30,13 +30,9 @@ export default {
     getTopRatedStays(state) {
       if (!state.stays) return;
       const stays = JSON.parse(JSON.stringify(state.stays));
-<<<<<<< HEAD
-      // console.log(stays[0]);
-=======
       stays.splice(4);
       return stays;
 
->>>>>>> 47948b0b810e661a3c83141a53eabb4fabac1738
       stays.sort((a, b) => b.reviewScores.rating - a.reviewScores.rating);
       stays.splice(4);
       return stays;
@@ -103,16 +99,6 @@ export default {
       } catch (err) {}
     },
     async loadStays({ commit, state }) {
-<<<<<<< HEAD
-      try{
-        const stays = await stayService.query();
-        // console.log(stays.map(s => s._id));
-        commit({ type: "setStays", stays });
-      } catch (err){
-        console.log('Error in load stays', err)
-      }
-      
-=======
       try {
         console.log("Loading... in acions");
         let stays = await stayService.query();
@@ -121,7 +107,6 @@ export default {
       } catch (err) {
         console.log("Error while loading stays: ", err);
       }
->>>>>>> 47948b0b810e661a3c83141a53eabb4fabac1738
     },
 
 

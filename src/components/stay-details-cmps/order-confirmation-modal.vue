@@ -96,7 +96,8 @@ export default {
         },
       };
       //Place the order in store, for fronend needs only
-      this.$store.commit({ type: "setOrder", order });
+      // this.$store.commit({ type: "setOrder", order });
+      this.$emit('addOrder', order)
 
       // *** Uncomment when order backend service implemented ***
       // await this.$store.commit({ type: "addOrder", order });

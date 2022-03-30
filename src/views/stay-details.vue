@@ -78,6 +78,7 @@
           :guests="getGuests"
           :user="getLoggedInUser"
           @closeModal="closeConfirmationModal"
+          @setOrder="addOrder"
         />
         <div
           v-if="isOrderAlert || isLoginAlert || (isOrdering && isLoggedIn)"
@@ -145,6 +146,9 @@ export default {
 
 
   methods: {
+    addOrder(order){
+      this.$store.dispatch({type: 'addOrder', order})
+    },
     loginToProceed() {
       this.isLoginAlert = false
       this.$store.commit({ type: 'openSignUpModal' })
