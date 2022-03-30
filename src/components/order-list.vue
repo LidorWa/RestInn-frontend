@@ -1,26 +1,25 @@
 <template>
-  <section>
-    <div class="order-table-header">Rendering Months histograms?</div>
-    <div class="order-table-container clean-list">
-      <ul>
-        <li>Booking Reports</li>
-        <li>Date</li>
-        <li>Booker</li>
-        <li>Stay</li>
-        <li>Trip Dates</li>
-        <li></li>
-        <li>Nights</li>
-        <li>Guests</li>
-        <li>Amount</li>
-        <li>Status</li>
-      </ul>
-
-      <ul v-if="orders" class="order-list clean-list">
-        <order-preview v-for="order in orders" :key="order._id" :order="order">
-          <!-- <li @click="$router.push(`/order/${order._id}`)" class="order-preview"></li> -->
-        </order-preview>
-      </ul>
+  <section class="dash-board">
+    <div class="order-table-statistics">Rendering Months histograms?</div>
+    <div class="grid-table">
+      <li class="date">Date</li>
+      <li class="booker">Booker</li>
+      <li class="stay">Stay</li>
+      <li class="check-in">Check in</li>
+      <li class="check-out">Check out</li>
+      <li class="nights">Nights</li>
+      <li class="guests">Guests</li>
+      <li class="amount">Amount</li>
+      <li class="total">Total</li>
+      <li class="status">Status</li>
+      <li class="actions">Actions</li>
+      <order-preview v-for="order in orders" :key="order._id" :order="order" @updateStatus="updateStatus">
+        <!-- <li @click="$router.push(`/order/${order._id}`)" class="order-preview"></li> -->
+      </order-preview>
     </div>
+    <!-- <div class="order-table-container clean-list">
+      <ul v-if="orders" class="order-list clean-list"></ul>
+    </div> -->
   </section>
 </template>
 
@@ -28,17 +27,23 @@
 import orderPreview from './order-preview.vue'
 export default {
   name: 'order-list',
+  emits: ['updateStatus'],
   props: {
     orders: {
       type: Array,
       required: true,
     },
   },
-  //   data() {},
-
   created() {
     // console.log('orderList', this.props.orders)
   },
+  //   data() {},
+  methods: {
+    updateStatus(status) {
+      this.$emit('updateStatus', status)
+    },
+  },
+
   components: {
     orderPreview,
   },

@@ -23,13 +23,6 @@ export const userService = {
 window.userService = userService;
 
 async function login(userCred) {
-  // const users = await storageService.query(USER_KEY);
-  // const user = users.find(
-  //   (user) =>
-  //     user.username === userCred.username && user.password === userCred.password
-  // );
-  // return _saveLocalUser(user);
-
   try {
     const user = await httpService.post("auth/login", userCred);
     // socketService.emit('set-user-socket', user._id);

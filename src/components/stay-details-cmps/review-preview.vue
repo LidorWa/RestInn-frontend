@@ -2,8 +2,8 @@
     <section class="review-preview" id="review-section">
         <div class="review-guest-name-date">
             <img
-                :src="'https://thispersondoesnotexist.com/image'"
-                alt="Host picture"
+                :src="userImg"
+                alt="User picture"
                 onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/image'"
             />
             <div class="name-and-date">
@@ -27,6 +27,10 @@ export default {
             type: Object,
             required: true,
         },
+        userImg:{
+            type: URL,
+            required: true,
+        }
     },
     data() {
         return {

@@ -27,11 +27,7 @@
                   <li>{{ stay.bathrooms }} baths</li>
                 </ul>
               </section>
-              <img
-                :src="stay.host.thumbnailUrl"
-                alt="Host picture"
-                onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/image'"
-              />
+              <img :src="stay.host.thumbnailUrl" alt="Host picture" onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/image'" />
             </section>
             <selected-popular-amenities :stay="stay" />
 
@@ -52,55 +48,31 @@
         WITH THINGS TO KNOW.
             TODO IT? IN KUMBA THEY DIDNT-->
           </section>
-          <hero-modal
-            :stay="stay"
-            :guestsFromStore="getGuests"
-            @onCheckAvailability="onCheckAvailability"
-          />
+          <hero-modal :stay="stay" :guestsFromStore="getGuests" @onCheckAvailability="onCheckAvailability" />
         </section>
         <reviews-section :stay="stay" ref="reviews-section" />
         <map-section :address="stay.address" />
-        <order-alert-modal
-          v-if="isOrderAlert"
-          @closeModal="closeAlertModal"
-          :alertModalMessage="alertModalMessage"
-        />
-        <login-alert-modal
-          v-if="isLoginAlert"
-          @closeModal="closeLoginModal"
-          @login="loginToProceed"
-          @demo="demoToProceed"
-        />
-        <order-confirmation-modal
-          :class="{ showConfirm: isOrdering && isLoggedIn }"
-          :stay="stay"
-          :dates="getDates"
-          :guests="getGuests"
-          :user="getLoggedInUser"
-          @closeModal="closeConfirmationModal"
-          @setOrder="addOrder"
-        />
-        <div
-          v-if="isOrderAlert || isLoginAlert || (isOrdering && isLoggedIn)"
-          class="order-alert-overlay"
-        ></div>
+        <order-alert-modal v-if="isOrderAlert" @closeModal="closeAlertModal" :alertModalMessage="alertModalMessage" />
+        <login-alert-modal v-if="isLoginAlert" @closeModal="closeLoginModal" @login="loginToProceed" @demo="demoToProceed" />
+        <order-confirmation-modal :class="{ showConfirm: isOrdering && isLoggedIn }" :stay="stay" :dates="getDates" :guests="getGuests" :user="getLoggedInUser" @closeModal="closeConfirmationModal" @addOrder="addOrder" />
+        <div v-if="isOrderAlert || isLoginAlert || (isOrdering && isLoggedIn)" class="order-alert-overlay"></div>
       </section>
     </section>
   </section>
 </template>
 
 <script>
-import footerHeroModal from "../components/stay-details-cmps/footer-hero-modal.vue";
-import imagesContainer from "../components/stay-details-cmps/images-container.vue";
-import SecondaryHeader from "../components/stay-details-cmps/secondary-header.vue";
-import SelectedPopularAmenities from "../components/stay-details-cmps/selected-popular-amenities.vue";
-import AmenitiesList from "../components/stay-details-cmps/amenities-list.vue";
-import reviewsSection from "../components/stay-details-cmps/reviews-section.vue";
-import heroModal from "../components/stay-details-cmps/hero-modal.vue";
-import mapSection from "../components/stay-details-cmps/map-section.vue";
-import orderAlertModal from "../components/stay-details-cmps/order-alert-modal.vue";
-import loginAlertModal from "../components/stay-details-cmps/login-alert-modal.vue";
-import orderConfirmationModal from "../components/stay-details-cmps/order-confirmation-modal.vue";
+import footerHeroModal from '../components/stay-details-cmps/footer-hero-modal.vue'
+import imagesContainer from '../components/stay-details-cmps/images-container.vue'
+import SecondaryHeader from '../components/stay-details-cmps/secondary-header.vue'
+import SelectedPopularAmenities from '../components/stay-details-cmps/selected-popular-amenities.vue'
+import AmenitiesList from '../components/stay-details-cmps/amenities-list.vue'
+import reviewsSection from '../components/stay-details-cmps/reviews-section.vue'
+import heroModal from '../components/stay-details-cmps/hero-modal.vue'
+import mapSection from '../components/stay-details-cmps/map-section.vue'
+import orderAlertModal from '../components/stay-details-cmps/order-alert-modal.vue'
+import loginAlertModal from '../components/stay-details-cmps/login-alert-modal.vue'
+import orderConfirmationModal from '../components/stay-details-cmps/order-confirmation-modal.vue'
 
 export default {
   name: "stay-details",
@@ -196,12 +168,12 @@ export default {
       }
     },
     goToReviews() {
-      console.log(this.$refs);
-      let el = this.$refs["reviews-section"].$el;
+      console.log(this.$refs)
+      let el = this.$refs['reviews-section'].$el
 
-      let top = el.offsetTop;
-      console.log(top);
-      window.scrollTo(0, top - 10);
+      let top = el.offsetTop
+      console.log(top)
+      window.scrollTo(0, top - 10)
     },
   },
   computed: {
