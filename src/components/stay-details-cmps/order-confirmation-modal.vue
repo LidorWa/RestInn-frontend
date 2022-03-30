@@ -98,7 +98,6 @@ export default {
           imgUrl: this.user.imgUrl,
         },
       };
-      console.log(order);
     },
     getFormatedDate(num) {
       const arrayDates = JSON.parse(JSON.stringify(this.dates));

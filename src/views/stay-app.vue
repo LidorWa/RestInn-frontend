@@ -47,7 +47,6 @@ export default {
 
     const type = this.$route.query.type;
     if (type) {
-      console.log("got type from route!");
       this.filterBy.type.push(type);
     }
 

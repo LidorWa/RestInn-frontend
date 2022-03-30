@@ -30,11 +30,9 @@ export default {
       state.location = location;
     },
     setDates(state, { dates }) {
-      console.log("set new date:", dates);
       state.dates = dates;
     },
     setGuests(state, { guests }) {
-      console.log(guests);
       state.guests = guests;
     },
   },

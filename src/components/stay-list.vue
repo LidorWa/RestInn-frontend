@@ -53,7 +53,6 @@ export default {
           })
           .join("");
         // cityFromProps.charAt(0).toUpperCase() + cityFromProps.substring(1);
-        console.log(city);
         return `${this.stays.length} stays in ${city}`;
       }
       return `${this.stays.length} stays`;

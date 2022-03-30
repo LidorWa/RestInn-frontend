@@ -98,8 +98,8 @@ export default {
     }
   },
   created() {
-    console.log('created header - headerStatus', this.headerStatus)
-    console.log('$route.query', this.$route)
+    // console.log('created header - headerStatus', this.headerStatus)
+    // console.log('$route.query', this.$route)
   },
   methods: {
     logout() {
@@ -171,7 +171,7 @@ export default {
   //TODO: watch stopped working?
   watch: {
     headerStatus() {
-      console.log('Watch ****************** headerStatus is:', this.headerStatus)
+      // console.log('Watch ****************** headerStatus is:', this.headerStatus)
       switch (this.headerStatus) {
         case 'top':
           this.isMiniSearchShown = false
@@ -184,7 +184,7 @@ export default {
     },
     scrollY() {
       if (scrollY > 20) this.isMiniSearchShown = false
-      console.log('isMiniSearchShown', this.isMiniSearchShown)
+      // console.log('isMiniSearchShown', this.isMiniSearchShown)
     },
   },
   components: {
