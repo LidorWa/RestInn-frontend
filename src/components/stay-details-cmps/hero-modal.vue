@@ -93,7 +93,6 @@
 
 <script>
 import detailsSelectGuestsModal from "./details-select-guests-modal.vue";
-import datePicker from "./date-picker.vue";
 export default {
   name: "hero-modal",
   props: {
@@ -116,7 +115,6 @@ export default {
   },
   components: {
     detailsSelectGuestsModal,
-    datePicker,
   },
 
   created() {

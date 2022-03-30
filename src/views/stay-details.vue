@@ -142,6 +142,9 @@ export default {
       type: 'getStayById',
       stayId: stayId,
     })
+
+
+
   },
 
 

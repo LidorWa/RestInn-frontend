@@ -87,7 +87,6 @@ export default {
     },
 
     setStays(state, { stays }) {
-      console.log("Loading... in mutations");
       state.stays = stays;
     },
   },
