@@ -1,14 +1,14 @@
-import { httpService } from "../../../../misterToy/frontend/src/services/http.service";
-import { storageService } from "./async-storage-service";
+import { storageService } from './async-storage-service'
+import { httpService } from './http-service'
 
-const KEY = "stay_db";
+const KEY = 'stay_db'
 
 export const stayService = {
   query,
   getById,
   save,
   remove,
-};
+}
 
 async function query(filterBy = {}) {
   return await httpService.get(`stay`, filterBy)
@@ -23,12 +23,9 @@ async function query(filterBy = {}) {
 }
 
 async function getById(stayId) {
-
   return await httpService.get(`stay/${stayId}`)
   // return await httpService.get(`stay/getById/${stayId}`)
 
-
-  
   // let stay = await storageService.get(KEY, stayId);
   // return stay;
 }
@@ -50,4 +47,3 @@ async function save(stay) {
 
 //   }
 // }
-

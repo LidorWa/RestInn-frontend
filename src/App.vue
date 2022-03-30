@@ -1,30 +1,28 @@
 <template>
-  <section class="app-container flex flex-column">
+  <section class="app-container">
     <!-- Sign up / Log in compo modal nent -->
-    <sign-up
-      :class="{ showSignUp: isSignUp }"
-      @closeSignUp="closeSignUp"
-      ref="signup"
-    />
+    <sign-up :class="{ showSignUp: isSignUp }" @closeSignUp="closeSignUp" ref="signup" />
     <!-- overlay  -->
     <div v-if="isSignUp" class="outsideUserMenu" @click="closeSignUp"></div>
-    <app-header :headerStatus="headerStatus" :scrollY="scrollY" />
-    <!-- add prop showSearch -->
-    <router-view />
-    <!-- <router-view class="main-layout-height" /> -->
-    <app-footer />
+    <div class="main-app-layout-container flex flex-column app-container">
+      <app-header :headerStatus="headerStatus" :scrollY="scrollY" />
+      <!-- add prop showSearch -->
+      <!-- <router-view /> -->
+      <router-view class="main-layout-height" />
+      <app-footer />
+    </div>
   </section>
 </template>
 
 <script>
-import appHeader from "./components/app-header.vue";
-import appFooter from "./components/app-footer.vue";
-import { propsToAttrMap } from "@vue/shared";
-import AppFooter from "./components/app-footer.vue";
-import signUp from "./components/sign-up.vue";
+import appHeader from './components/app-header.vue'
+import appFooter from './components/app-footer.vue'
+import { propsToAttrMap } from '@vue/shared'
+import AppFooter from './components/app-footer.vue'
+import signUp from './components/sign-up.vue'
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
     appHeader,
     appFooter,
@@ -33,33 +31,34 @@ export default {
   },
   data() {
     return {
-      headerStatus: "top",
+      headerStatus: 'top',
       scrollY: 0,
-    };
+    }
   },
 
   async created() {
-    window.addEventListener("scroll", this.onScroll);
-    await this.$store.dispatch({ type: "loadStays" });
-    this.$store.dispatch({ type: "loadUsers" });
+    window.addEventListener('scroll', this.onScroll)
+    await this.$store.dispatch({ type: 'loadStays' })
+    this.$store.dispatch({ type: 'loadUsers' })
+    this.$store.dispatch({ type: 'getOrders' })
   },
   computed: {
     isSignUp() {
-      const isSignUpModalOpen = this.$store.getters.isSignUpModal;
+      const isSignUpModalOpen = this.$store.getters.isSignUpModal
       if (isSignUpModalOpen) {
-        this.$refs["signup"].$refs["username"].focus();
+        this.$refs['signup'].$refs['username'].focus()
       }
-      return isSignUpModalOpen;
+      return isSignUpModalOpen
     },
   },
 
   methods: {
     closeSignUp() {
-      this.$store.commit({ type: "closeSignUpModal" });
+      this.$store.commit({ type: 'closeSignUpModal' })
     },
 
     onScroll() {
-      this.scrollY = window.scrollY;
+      this.scrollY = window.scrollY
 
       // if (this.$route.path === '/') {
       if (window.scrollY > 20) {
@@ -67,19 +66,19 @@ export default {
         // if (window.scrollY > 0 && window.scrollY <= 20) {
         //   this.headerStatus = 'firstScroll'
         // } else
-        this.headerStatus = "shrinkSearchBar";
+        this.headerStatus = 'shrinkSearchBar'
         // console.log('App headerStatus', this.headerStatus)
       } else {
-        this.headerStatus = "top";
+        this.headerStatus = 'top'
         // console.log('App headerStatus', this.headerStatus)
         // }
       }
     },
   },
   unmounted() {
-    window.removeEventListener("scroll");
+    window.removeEventListener('scroll')
   },
-};
+}
 </script>
 
 <style></style>

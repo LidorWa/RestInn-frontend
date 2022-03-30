@@ -6,12 +6,12 @@ export default {
     dates: null,
     guests: { adults: 0, children: 0 },
     isOrdering: false,
-    order: [],
+    orders: [],
     total: 0,
   },
   getters: {
     getOrders(state) {
-      return state.order
+      return state.orders
     },
     getTotalPrice(state) {
       return state.total
@@ -28,10 +28,10 @@ export default {
   },
   mutations: {
     //Helper mutations for data communication
-    setOrder(state, { order }) {
-      console.log(order)
-      state.order.push(order)
-    },
+    // setOrder(state, { order }) {
+    //   console.log(order)
+    //   state.orders.push(order)
+    // },
     setTotalPrice(state, { totalPrice }) {
       state.total = totalPrice
     },
@@ -52,7 +52,9 @@ export default {
       state.orders.push(order)
     },
     updateOrder(state, { order }) {
+      console.log({ order })
       const idx = state.orders.findIndex((currOrder) => currOrder._id === order._id)
+      console.log({ idx })
       state.orders.splice(idx, 1, order)
     },
     removeOrder(state, { orderId }) {
@@ -72,6 +74,7 @@ export default {
     },
     async addOrder({ commit }, { order }) {
       try {
+        console.log('inside store', order)
         const addedOrder = await orderService.addOrder(order)
         commit({ type: 'addOrder', order: addedOrder })
       } catch (err) {
@@ -81,7 +84,7 @@ export default {
     async updateOrder({ commit }, { order }) {
       try {
         const updatededOrder = await orderService.updateOrder(order)
-        commit({ type: 'addOrder', order: updatededOrder })
+        commit({ type: 'updateOrder', order: updatededOrder })
       } catch (err) {
         console.log('err :>> ', err)
       }
@@ -95,5 +98,4 @@ export default {
       }
     },
   },
-  actions: {},
 }

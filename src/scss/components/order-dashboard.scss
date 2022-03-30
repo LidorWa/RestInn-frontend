@@ -1,0 +1,21 @@
+.order-table-container{
+     display: grid;
+        grid-template-columns: repeat(10, minmax (30px, 1fr));
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 4px 16px;
+        grid-auto-flow: row;
+        grid-template-areas:
+          ". . . . . . . . . . . . . . . . . ."
+          ". . . . . . . . . . . . . . . . . ."
+          ". . . . . . . . . . . . . . . . . ."
+          ". . . . . . . . . . . . . . . . . .";
+      
+      
+}
+
+.grid-table{
+  display: grid;
+  grid-template-columns: repeat(11,1fr);
+
+
+}

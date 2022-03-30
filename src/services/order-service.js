@@ -19,11 +19,12 @@ async function getById(orderId) {
 }
 
 async function addOrder(order) {
+  console.log('front service order', order)
   return await httpService.post(ENDPOINT, order)
 }
 
 async function updateOrder(order) {
-  return await httpService.put(ENDPOINT, order)
+  return await httpService.put(`${ENDPOINT}/${order._id}`, order)
 }
 
 async function removeOrder(orderId) {

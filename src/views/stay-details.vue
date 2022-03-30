@@ -5,7 +5,7 @@
       <section class="stay-details" v-if="stay">
         <section class="mobile-secondary-header">
           <div class="back-home">
-            <img src="../assets/svgs/back-home.svg">
+            <img src="../assets/svgs/back-home.svg" />
             <router-link to="/stay">Back</router-link>
           </div>
         </section>
@@ -17,9 +17,7 @@
           <section class="general-info">
             <section class="type-host-and-stay-properties">
               <section class="type-host-and-stay-properties-text">
-                <h2
-                  class="stay-type-host-name"
-                >{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
+                <h2 class="stay-type-host-name">{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
                 <ul class="stay-properties">
                   <li>{{ stay.capacity }} guests</li>
                   <li>{{ stay.bedrooms }} bedroom</li>
@@ -27,11 +25,7 @@
                   <li>{{ stay.bathrooms }} baths</li>
                 </ul>
               </section>
-              <img
-                :src="stay.host.thumbnailUrl"
-                alt="Host picture"
-                onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/image'"
-              />
+              <img :src="stay.host.thumbnailUrl" alt="Host picture" onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/image'" />
             </section>
             <selected-popular-amenities :stay="stay" />
 
@@ -52,38 +46,14 @@
         WITH THINGS TO KNOW.
             TODO IT? IN KUMBA THEY DIDNT-->
           </section>
-          <hero-modal
-            :stay="stay"
-            :guestsFromStore="getGuests"
-            @onCheckAvailability="onCheckAvailability"
-          />
+          <hero-modal :stay="stay" :guestsFromStore="getGuests" @onCheckAvailability="onCheckAvailability" />
         </section>
         <reviews-section :stay="stay" ref="reviews-section" />
         <map-section :address="stay.address" />
-        <order-alert-modal
-          v-if="isOrderAlert"
-          @closeModal="closeAlertModal"
-          :alertModalMessage="alertModalMessage"
-        />
-        <login-alert-modal
-          v-if="isLoginAlert"
-          @closeModal="closeLoginModal"
-          @login="loginToProceed"
-          @demo="demoToProceed"
-        />
-        <order-confirmation-modal
-          :class="{ showConfirm: isOrdering && isLoggedIn }"
-          :stay="stay"
-          :dates="getDates"
-          :guests="getGuests"
-          :user="getLoggedInUser"
-          @closeModal="closeConfirmationModal"
-          @setOrder="addOrder"
-        />
-        <div
-          v-if="isOrderAlert || isLoginAlert || (isOrdering && isLoggedIn)"
-          class="order-alert-overlay"
-        ></div>
+        <order-alert-modal v-if="isOrderAlert" @closeModal="closeAlertModal" :alertModalMessage="alertModalMessage" />
+        <login-alert-modal v-if="isLoginAlert" @closeModal="closeLoginModal" @login="loginToProceed" @demo="demoToProceed" />
+        <order-confirmation-modal :class="{ showConfirm: isOrdering && isLoggedIn }" :stay="stay" :dates="getDates" :guests="getGuests" :user="getLoggedInUser" @closeModal="closeConfirmationModal" @addOrder="addOrder" />
+        <div v-if="isOrderAlert || isLoginAlert || (isOrdering && isLoggedIn)" class="order-alert-overlay"></div>
       </section>
     </section>
   </section>
@@ -102,7 +72,6 @@ import orderAlertModal from '../components/stay-details-cmps/order-alert-modal.v
 import loginAlertModal from '../components/stay-details-cmps/login-alert-modal.vue'
 import orderConfirmationModal from '../components/stay-details-cmps/order-confirmation-modal.vue'
 
-
 export default {
   name: 'stay-details',
   components: {
@@ -117,7 +86,7 @@ export default {
     orderAlertModal,
     loginAlertModal,
     orderConfirmationModal,
-},
+  },
   data() {
     return {
       // isAdding: false,
@@ -144,20 +113,18 @@ export default {
     })
   },
 
-
   methods: {
-    addOrder(order){
-      this.$store.dispatch({type: 'addOrder', order})
+    addOrder(order) {
+      console.log('stay front', order)
+      this.$store.dispatch({ type: 'addOrder', order })
     },
     loginToProceed() {
       this.isLoginAlert = false
       this.$store.commit({ type: 'openSignUpModal' })
- 
     },
     demoToProceed() {
       this.isLoginAlert = false
       this.isOrdering = true
- 
     },
     closeLoginModal() {
       this.isLoginAlert = false
@@ -195,11 +162,9 @@ export default {
         this.isLoginAlert = true
         return
       }
-
     },
     goToReviews() {
       let coords = this.$refs['reviews-section'].getBoundingClientRect().x
-
     },
   },
   computed: {
