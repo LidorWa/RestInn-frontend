@@ -2,7 +2,7 @@ import { stayService } from "../../services/stay-service.js";
 
 export default {
   state: {
-    stays: null,
+    stays: [],
     filterBy: {
       price: [1, 1751],
       type: [],
@@ -29,6 +29,7 @@ export default {
     },
     getTopRatedStays(state) {
       const stays = JSON.parse(JSON.stringify(state.stays));
+      // console.log(stays[0]);
       stays.sort((a, b) => b.reviewScores.rating - a.reviewScores.rating);
       stays.splice(4);
       return stays;
@@ -95,9 +96,18 @@ export default {
       }
     },
     async loadStays({ commit, state }) {
-      const stays = await stayService.query();
-      commit({ type: "setStays", stays });
+      try{
+        const stays = await stayService.query();
+        // console.log(stays.map(s => s._id));
+        commit({ type: "setStays", stays });
+      } catch (err){
+        console.log('Error in load stays', err)
+      }
+      
     },
+
+
+
     filter({ commit, dispatch }, { filterBy }) {
       commit({ type: "setFilter", filterBy });
       dispatch({ type: "loadStays" });

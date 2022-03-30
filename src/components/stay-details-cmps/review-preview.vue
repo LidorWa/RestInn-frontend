@@ -2,9 +2,9 @@
     <section class="review-preview" id="review-section">
         <div class="review-guest-name-date">
             <img
-                :src="'https://thispersondoesnotexist.com/'"
+                :src="'https://thispersondoesnotexist.com/image'"
                 alt="Host picture"
-                onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/'"
+                onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/image'"
             />
             <div class="name-and-date">
                 <span>{{ review.by.fullname }}</span>

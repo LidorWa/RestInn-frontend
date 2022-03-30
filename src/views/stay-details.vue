@@ -30,7 +30,7 @@
               <img
                 :src="stay.host.thumbnailUrl"
                 alt="Host picture"
-                onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/'"
+                onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/image'"
               />
             </section>
             <selected-popular-amenities :stay="stay" />
