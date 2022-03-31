@@ -3,10 +3,10 @@
   top: 0;
   height: 100vh;
   width: 100%;
-  transform: translateY(400%);
+  transform: translateY(800%);
   background-color: $clr3;
   text-align: start;
-  transition: 0.3s;
+  transition: 0.35s;
   z-index: 999;
 
   p {
@@ -127,7 +127,7 @@
   .sign-up-modal {
     top: 30%;
     left: 50%;
-    transform: translate(-50%, 400%);
+    transform: translate(-50%, 800%);
     height: 350px;
     width: 400px;
 
