@@ -15,7 +15,8 @@
 //Popular destinations
 
 .main-layout-homepage {
-  width: calc(90%);
+  // width: calc(90%);
+  padding-inline: 5%;
   margin: auto;
 }
 
@@ -97,7 +98,8 @@
 
 @media (min-width: 1000px) {
   .main-layout-homepage {
-    width: calc(92vw);
+    // width: calc(92vw);
+    padding-inline: 4%;
   }
 
   .destinations-header {

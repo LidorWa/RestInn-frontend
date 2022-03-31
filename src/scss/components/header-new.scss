@@ -1,13 +1,17 @@
 .main-header-section{
-  height: em(140px);
-  // box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.18);
+  // height: em(140px);
+  position: fixed;
+  width: 100%;
+  background-color: $clr3;
+  z-index: 880;
+  &.homepage{
+    background-color: transparent;
+  }
 }
 
 .header-container {
-  width: 100%;
-  position: fixed;
-  height: 66px;
-  z-index: 880;
+  // height: 66px;
+  // z-index: 880;
 
   &.main-search-open {
     height: em(140px);
@@ -31,7 +35,6 @@
     }
   }
   &.full-search.homepage {
-    // height: em(140px);
     .logo-nav-container {
       a,
       img {
@@ -217,3 +220,7 @@
     // margin-left: em(8px);
   }
 }
+
+// .noHeight{
+//   height: unset;
+// }

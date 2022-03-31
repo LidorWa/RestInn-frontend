@@ -1,5 +1,5 @@
 <template>
-  <section class="about-page">
+  <section class="about-page main-layout-height">
     <h1>This is an about page</h1>
   </section>
 </template>
