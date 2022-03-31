@@ -1,10 +1,19 @@
 <template>
   <section v-if="stays">
-    <p class="stays-count">{{ getStaysPreviewTitle }}</p>
-    <ul v-if="stays.length" class="card-cont">
+    <img
+      class="loading-img"
+      v-if="isLoading"
+      src="../assets/system-imgs/loading.gif"
+      alt="Loading.."
+    />
+
+    <p v-if="stays.length && !isLoading" class="stays-count">
+      {{ getStaysPreviewTitle }}
+    </p>
+    <ul v-if="stays.length && !isLoading" class="card-cont">
       <stay-preview v-for="stay in stays" :key="stay._id" :stay="stay" />
     </ul>
-    <h1 v-else class="no-results">No results</h1>
+    <h1 v-if="!stays.length && !isLoading" class="no-results">No results</h1>
   </section>
 </template>
 
@@ -44,6 +53,9 @@ export default {
     stayPreview,
   },
   computed: {
+    isLoading() {
+      return this.$store.getters.isLoading;
+    },
     getStaysPreviewTitle() {
       if (this.city) {
         let cityFromProps = this.city;

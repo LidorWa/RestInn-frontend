@@ -149,11 +149,8 @@ export default {
   computed: {
     getCheckDetails() {
       const dates = this.dates;
-      let price = this.stay.price;
+      const price = this.stay.price;
       const nights = Math.round((dates[1] - dates[0]) / (24 * 60 * 60 * 1000));
-      const extraGuests =
-        this.guestsFromStore.adults + this.guestsFromStore.children - 2;
-      if (extraGuests > 0) price = price + 20 * extraGuests;
       const totalPrice = price * nights;
       this.total = `$${totalPrice}`;
       this.$store.commit({ type: "setTotalPrice", totalPrice });
