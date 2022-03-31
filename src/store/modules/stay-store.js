@@ -98,11 +98,14 @@ export default {
       } catch (err) {}
     },
     async loadStays({ commit, state }, { filterBy }) {
+      commit({ type: "setIsLoading", isLoading: true });
       try {
         const stays = await stayService.query(filterBy);
         commit({ type: "setStays", stays });
       } catch (err) {
         console.log("Error while loading stays: ", err);
+      } finally {
+        commit({ type: "setIsLoading", isLoading: false });
       }
     },
 
