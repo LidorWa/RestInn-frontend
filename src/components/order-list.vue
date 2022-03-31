@@ -9,7 +9,7 @@
       <li class="check-out">Check out</li>
       <li class="nights">Nights</li>
       <li class="guests">Guests</li>
-      <li class="amount">Amount</li>
+      <li class="amount">Price</li>
       <li class="total">Total</li>
       <li class="status">Status</li>
       <li class="actions">Actions</li>
