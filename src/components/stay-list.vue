@@ -32,16 +32,7 @@ export default {
     },
   },
   data() {
-    return {
-      value: "",
-      filterBy: {
-        price: {
-          min: 0,
-          max: 700,
-        },
-        type: [],
-      },
-    };
+    return {};
   },
   created() {
     // if (this.$route.query.destination) {

@@ -1,27 +1,28 @@
 <template>
   <section class="order-preview-section">
-    <!-- <li>{{ timeConversion }}</li> -->
-    <div>{{ order.createdAt }}</div>
+    <li>{{ timeConversion }}</li>
+    <!-- <div>{{ order.createdAt }}</div> -->
     <div>{{ order.buyer.fullname }}</div>
     <div>{{ formattedText }}</div>
     <div>{{ order.startDate }}</div>
     <div>{{ order.endDate }}</div>
-    <div>{{ order.totalPrice / order.stay.price }}</div>
+    <div>{{ Math.round(order.totalPrice / order.stay.price) }}</div>
     <div>{{ order.guests.adults + order.guests.children }}</div>
     <div>{{ order.stay.price }}</div>
     <div>{{ order.totalPrice }}</div>
     <div>{{ order.status }}</div>
     <div>
-      <button @click="updateStatus('rejected')">Reject</button>
-      <button @click="updateStatus('approved')">Accept</button>
+      <button v-if="isCancable" @click="updateStatus('rejected')">
+        Reject
+      </button>
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'order-preview',
-  emits: ['updateStatus'],
+  name: "order-preview",
+  emits: ["updateStatus"],
   props: {
     order: {
       type: Object,
@@ -31,22 +32,29 @@ export default {
 
   methods: {
     updateStatus(status) {
-      this.$emit('updateStatus', { status, orderId: this.order._id })
+      this.$emit("updateStatus", { status, orderId: this.order._id });
     },
   },
   computed: {
+    isCancable() {
+      const startDate = trip.startDate;
+    },
     timeConversion() {
-      //TODO: check if works!
-      const convertedTime = this.order.createdAt.d.toDateString()
-      console.log()
-      return convertedTime
+      let date = new Date(this.order.createdAt).getDate();
+      date = date < 10 ? "0" + date : date;
+      let month = new Date(this.order.createdAt).getMonth() + 1;
+      month = month < 10 ? "0" + month : month;
+      const year = new Date(this.order.createdAt).getFullYear();
+      const convertedTime = `${date}/${month}/${year}`;
+
+      return convertedTime;
     },
     formattedText() {
       if (this.order.stay.name.length > 15) {
-        return this.order.stay.name.slice(0, 15) + '...';
+        return this.order.stay.name.slice(0, 15) + "...";
       }
       return this.order.stay.name;
-    }
+    },
   },
-}
+};
 </script>

@@ -52,7 +52,7 @@
         <map-section :address="stay.address" ref="map-section" />
         <order-alert-modal v-if="isOrderAlert" @closeModal="closeAlertModal" :alertModalMessage="alertModalMessage" />
         <login-alert-modal v-if="isLoginAlert" @closeModal="closeLoginModal" @login="loginToProceed" @demo="demoToProceed" />
-        <order-confirmation-modal :class="{ showConfirm: isOrdering && isLoggedIn }" :stay="stay" :dates="getDates" :guests="getGuests" :user="getLoggedInUser" @closeModal="closeConfirmationModal" @addOrder="addOrder" />
+        <order-confirmation-modal :class="{ showConfirm: isOrdering && isLoggedIn }" :stay="stay" :dates="getDates" :guests="getGuests" :user="getLoggedInUser" @closeModal="closeConfirmationModal" @goToMyTrips="goToMyTrips" @addOrder="addOrder" />
         <div v-if="isOrderAlert || isLoginAlert || (isOrdering && isLoggedIn)" class="order-alert-overlay"></div>
       </section>
     </section>
@@ -133,7 +133,8 @@ export default {
       this.isOrderAlert = false
     },
     goToMyTrips() {
-      console.log('TODO: router push to my trips page')
+      this.isOrdering = false
+      this.$router.push('/mytrips')
     },
     closeConfirmationModal() {
       this.isOrdering = false
