@@ -2,7 +2,7 @@
   <section class="main-header-section">
     <div class="header-container">
       <!-- <header class="main-header-container flex flex-column align-center" :class="getHeaderClass"> -->
-      <header class="main-header-container flex flex-column align-center is-justify-space-between" :class="headerClasses">
+      <header class="main-header-container flex flex-column align-center" :class="headerClasses">
         <!-- <header class="main-header-container flex flex-column align-center" :class="{ top: headerStatus === 'top', shrinkSearchBar: headerStatus === 'shrinkSearchBar', homepage: this.$route.path === '/', 'explore-page': this.$route.path === '/stay', 'details-page': this.$route.path === '/stay/:stayId' }"> -->
         <!-- <header class="main-header-container flex flex-column align-center" :class="headerStatus">-->
         <!-- <header :class="'main-header-container flex flex-column align-center ' + headerStatus"> -->
@@ -20,7 +20,7 @@
           </div>
 
           <!-- nav -->
-          <nav class="main-header-nav flex align-center" :style="logoStyle">
+          <nav class="main-header-nav flex align-center">
             <router-link to="/stay">Explore</router-link>
             <router-link to="/host">Become a host</router-link>
             <!-- TODO: try change svg color -->
@@ -170,48 +170,56 @@ export default {
     //   }
     //   return { color: color }
     // },
-    headerClasses() {
-      var classObj = {}
-      if (this.$route.path === '/') {
-        classObj.layout = 'home-layout' //fits explore page regarding open/close main/mini search
-        if (this.scrollLoc > 20) {
-          classObj.headerStyle = 'small-search'
-        } else classObj.headerStyle = 'full-search'
-      } else if (this.$route.path === '/stay') {
-        classObj.layout = 'explore-layout'
-        if (this.scrollLoc > 20) {
-          classObj.headerStyle = 'small-search'
-        } else {
-          classObj.headerStyle = 'full-search'
-        }
-      } else if (this.$route.params.stayId) {
-        classObj.layout = 'main-layout' //details page
-        classObj.headerStyle = 'small-search'
-      }
-      if (this.isFullSearch) classObj.headerStyle = 'full-search'
-      // console.log('obj', this.isFullSearch)
-      return Object.values(classObj)
-    },
     // headerClasses() {
     //   var classObj = {}
-    //   if (this.$route.params.stayId) {
-    //     classObj.layout = 'main-layout' //details page
-    //     classObj.headerStyle = 'small-search'
-    //   } else {
+    //   if (this.$route.path === '/') {
     //     classObj.layout = 'home-layout' //fits explore page regarding open/close main/mini search
+    //     if (this.scrollLoc > 20) {
+    //       classObj.headerStyle = 'small-search'
+    //     } else classObj.headerStyle = 'full-search'
+    //   } else if (this.$route.path === '/stay') {
+    //     classObj.layout = 'explore-layout'
     //     if (this.scrollLoc > 20) {
     //       classObj.headerStyle = 'small-search'
     //     } else {
     //       classObj.headerStyle = 'full-search'
     //     }
+    //   } else if (this.$route.params.stayId) {
+    //     classObj.layout = 'main-layout' //details page
+    //     classObj.headerStyle = 'small-search'
     //   }
+    //   if (this.$route.path === '/') classObj.page = 'homepage'
     //   if (this.isFullSearch) classObj.headerStyle = 'full-search'
     //   // console.log('obj', this.isFullSearch)
     //   return Object.values(classObj)
     // },
 
+    headerClasses() {
+      var classObj = {}
+      if (this.$route.params.stayId) {
+        classObj.layout = 'main-layout' //details page
+        classObj.headerStyle = 'small-search'
+      } else {
+        classObj.layout = 'home-layout' //fits explore page regarding open/close main/mini search
+        if (this.scrollLoc > 20) {
+          classObj.headerStyle = 'small-search'
+        } else {
+          classObj.headerStyle = 'full-search'
+        }
+      }
+      if (this.$route.path === '/') {
+        classObj.layout = 'main-layout-homepage' //explore/home page
+        classObj.page = 'homepage'
+      }
+      if (this.isFullSearch) classObj.headerStyle = 'full-search'
+      // console.log('obj', this.isFullSearch)
+      return Object.values(classObj)
+    },
+
     //TODO: watch stopped working?
-    watch: {
+  },
+  watch: {
+    /*
       // headerStatus() {
       //   console.log('Watch ******* headerStatus is:', this.headerStatus)
       //   switch (this.headerStatus) {
@@ -224,23 +232,23 @@ export default {
       //       break
       //   }
       // },
-      '$route.params.stayId': {
-        handler(newVal) {
-          this.isFullSearch = newVal ? false : true
-        },
-        immediate: true,
+      */
+    '$route.params.stayId': {
+      handler(newVal) {
+        this.isFullSearch = newVal ? false : true
       },
-      $route: {
-        handler(newVal) {
-          console.log(newVal)
-        },
+      immediate: true,
+    },
+    $route: {
+      handler(newVal) {
+        console.log(newVal)
       },
     },
-    components: {
-      mainSearch,
-      headerUserMenu,
-      signUp,
-    },
+  },
+  components: {
+    mainSearch,
+    headerUserMenu,
+    signUp,
   },
 }
 </script>
