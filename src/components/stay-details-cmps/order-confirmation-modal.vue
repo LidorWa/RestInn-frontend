@@ -1,7 +1,21 @@
 <template>
   <section class="order-confirmation-modal">
-    <div v-if="stay && dates && user" class="order-confirmation-container">
-      <div>
+    <div class="order-confirmation-container">
+      <div v-if="isConfirmed" class="confirmed-container">
+        <div class="confirm-secondary-title">
+          <h1 class="confirm-text congrats">Congratulations!</h1>
+        </div>
+
+        <h1 class="confirm-text">Your order has been received</h1>
+        <h1 class="confirm-text">
+          We will let you know when the host responds
+        </h1>
+        <h1 class="confirm-text">
+          You can follow the order status in
+          <span @click="goToMyTrips"> My trips </span> page
+        </h1>
+      </div>
+      <div v-if="displayConfirmation" class="confirmation-details">
         <p class="confirm-title">One last step</p>
         <div class="confirm-secondary-title">
           <h1 class="confirm-text">Dear {{ getUserFirstName }},</h1>
@@ -28,8 +42,15 @@
         </div>
       </div>
       <div class="modal-btns-container">
-        <div class="sign-up-continue" @click="confirm">Confirm</div>
-        <div class="sign-up-continue" @click="closeModal">Go back</div>
+        <div v-if="!isConfirmed" class="sign-up-continue" @click="confirm">
+          Confirm
+        </div>
+        <div v-if="!isConfirmed" class="sign-up-continue" @click="closeModal">
+          Go back
+        </div>
+        <div v-if="isConfirmed" class="sign-up-continue" @click="closeModal">
+          Close
+        </div>
       </div>
     </div>
   </section>
@@ -60,14 +81,17 @@ export default {
     },
   },
   data() {
-    return {}
+    return {
+      isConfirmed: false,
+    };
   },
 
   methods: {
     async confirm() {
-      const startDate = this.getFormatedDate(0)
-      const endDate = this.getFormatedDate(1)
-      const totalPrice = this.getTotalPrice
+      this.isConfirmed = true;
+      const startDate = this.getFormatedDate(0);
+      const endDate = this.getFormatedDate(1);
+      const totalPrice = this.getTotalPrice;
       const order = {
         startDate,
         endDate,
@@ -87,13 +111,10 @@ export default {
       }
       //Place the order in store, for fronend needs only
       // this.$store.commit({ type: "setOrder", order });
-      console.log('confirm front', order)
-      this.$emit('addOrder', order)
+      this.$emit("addOrder", order);
 
       // *** Uncomment when order backend service implemented ***
       // await this.$store.commit({ type: "addOrder", order });
-
-      this.$emit('closeModal')
     },
     getFormatedDate(num) {
       const arrayDates = JSON.parse(JSON.stringify(this.dates))
@@ -101,12 +122,23 @@ export default {
 
       return `${dates.getDate() < 10 ? '0' + dates.getDate() : dates.getDate()}/${dates.getMonth() < 9 ? '0' + (dates.getMonth() + 1) : dates.getMonth() + 1}/${dates.getFullYear().toString().substring(2)}`
     },
+    goToMyTrips() {
+      this.isConfirmed = false;
+      this.$emit("closeModal");
+      this.$emit("goToMyTrips");
+    },
 
     closeModal() {
-      this.$emit('closeModal')
+      this.isConfirmed = false;
+      this.$emit("closeModal");
     },
   },
   computed: {
+    displayConfirmation() {
+      return this.stay && this.dates && this.user && !this.isConfirmed
+        ? true
+        : false;
+    },
     getTotalPrice() {
       const total = this.$store.getters.getTotalPrice
       return total

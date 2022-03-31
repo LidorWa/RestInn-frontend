@@ -42,8 +42,13 @@ export default {
   },
   actions: {
     async login({ commit }, { user }) {
-      const loggedInUser = await userService.login(user);
-      commit({ type: "setLoggedinUser", loggedInUser });
+      try {
+        const loggedInUser = await userService.login(user);
+        commit({ type: "setLoggedinUser", loggedInUser });
+      } catch (err) {
+        console.log("Error while trying to log in", err);
+        throw new Error("Somethig went wrong. Try again");
+      }
 
       //   if (idx === -1) return;
       //   if (state.users[idx].password !== user.password) return;

@@ -35,7 +35,7 @@
               <img class="hamburger-avatar" src="../assets/svgs/user-avatar.svg" alt="user avatar" />
             </div>
           </nav>
-          <header-user-menu :class="{ showHamburger: isShowingHamburger }" @openSignUp="openSignUp" @logout="logout" />
+          <header-user-menu :class="{ showHamburger: isShowingHamburger }" @goToDashboard="goToDashboard" @openSignUp="openSignUp" @logout="logout" />
           <div v-if="isShowingHamburger" class="outsideUserMenu" @click="isShowingHamburger = false"></div>
         </div>
         <div v-show="isFullSearch" class="main-search-bar flex justify-center align-center">
@@ -85,6 +85,11 @@ export default {
     document.addEventListener('scroll', this.updateScroll)
   },
   methods: {
+    goToDashboard() {
+      console.log('Dashboardddd')
+      this.isShowingHamburger = false
+      this.$router.push('/dashboard')
+    },
     updateScroll() {
       if (this.$route.params.stayId) {
         this.isFullSearch = false
@@ -171,6 +176,12 @@ export default {
         classObj.layout = 'main-layout' //details page
         classObj.headerStyle = 'small-search'
       } else {
+        classObj.layout = 'home-layout' //fits explore page regarding open/close main/mini search
+        if (this.scrollLoc > 20) {
+          classObj.headerStyle = 'small-search'
+        } else {
+          classObj.headerStyle = 'full-search'
+        }
       }
       if (this.isFullSearch) classObj.headerStyle = 'full-search'
       // console.log('obj', this.isFullSearch)

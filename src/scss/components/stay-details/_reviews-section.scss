@@ -1,66 +1,70 @@
 .reviews-section {
-    border-top: em(1px) solid $clr6;
-    padding-top: em(48px);
-    .reviews-and-rating {
-      margin-bottom: 35px;
+  border-top: em(1px) solid $clr6;
+  padding-top: em(48px);
+  .reviews-and-rating {
+    margin-bottom: 35px;
 
-      img {
-        width: em(16px);
-      }
-      span:first-of-type {
-        font-size: em(20px);
-        font-weight: 600;
-        padding-left: em(8px);
-      }
+    img {
+      width: em(16px);
     }
-
-    .reviews-list-ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      padding: unset;
-      li {
-        flex: 1 1 em(360px);
-        .review-guest-name-date {
-          display: flex;
-          align-items: center;
-          line-height: 30px;
-
-          img {
-            width: em(56px);
-            border-radius: 50%;
-          }
-          .name-and-date {
-            display: flex;
-            flex-direction: column;
-            :first-child {
-              font-weight: bold;
-            }
-            :last-child {
-              color: $clr5;
-            }
-          }
-          margin: 0px 0px em(16px);
-        }
-
-        .review-text {
-          font-family: cereal-book;
-          line-height: em(26px);
-          margin-inline-end: em(60px);
-        }
-        .review-show-more {
-          display: flex;
-          font-size: em(14px);
-          font-weight: 600;
-          margin: em(8px) 0px 0px;
-          img {
-            width: em(12px);
-          }
-        }
-      }
-      .review-preview {
-        margin: 0px 0px em(40px);
-      }
+    span:first-of-type {
+      font-size: em(20px);
+      font-weight: 600;
+      padding-left: em(8px);
     }
   }
+
+  .reviews-list-ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: unset;
+    li {
+      flex: 1 1 em(360px);
+      .review-guest-name-date {
+        display: flex;
+        align-items: center;
+        line-height: 30px;
+
+        img {
+          width: em(56px);
+          border-radius: 50%;
+        }
+        .name-and-date {
+          display: flex;
+          flex-direction: column;
+          padding-left: 11px;
+
+          :first-child {
+            font-weight: bold;
+            line-height: 13px;
+          }
+          :last-child {
+            font-size: em(12px);
+            color: $clr5;
+          }
+        }
+        margin: 0px 0px em(16px);
+      }
+
+      .review-text {
+        font-family: cereal-book;
+        line-height: em(26px);
+        margin-inline-end: em(60px);
+      }
+      .review-show-more {
+        display: flex;
+        font-size: em(14px);
+        font-weight: 600;
+        margin: em(8px) 0px 0px;
+        img {
+          width: em(12px);
+        }
+      }
+    }
+    .review-preview {
+      margin: 0px 0px em(40px);
+    }
+  }
+}
