@@ -48,7 +48,6 @@ export default {
     }
 
     await this.$store.dispatch({ type: 'loadStays', filterBy })
-    await this.$store.dispatch({ type: 'getOrders', filterBy: {} })
   },
   computed: {
     isSignUp() {

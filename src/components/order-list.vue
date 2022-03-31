@@ -2,24 +2,28 @@
   <section class="dash-board main-layout">
     <!-- <div class="order-table-statistics">Rendering Months histograms?</div> -->
     <div class="grid-table">
-      <li class="date">Date</li>
-      <li class="booker">Booker</li>
-      <li class="stay">Stay</li>
-      <li class="check-in">Check in</li>
-      <li class="check-out">Check out</li>
-      <li class="nights">Nights</li>
-      <li class="guests">Guests</li>
-      <li class="amount">Price</li>
-      <li class="total">Total</li>
-      <li class="status">Status</li>
-      <li class="actions">Actions</li>
-      <order-preview v-for="order in orders" :key="order._id" :order="order" @updateStatus="updateStatus">
+      <div class="date">Date</div>
+      <div class="booker">Booker</div>
+      <div class="stay">Stay</div>
+      <div class="check-in">Check in</div>
+      <div class="check-out">Check out</div>
+      <div class="nights">Nights</div>
+      <div class="guests">Guests</div>
+      <div class="amount">Price</div>
+      <div class="total">Total</div>
+      <div class="status">Status</div>
+      <div class="actions">Actions</div>
+      <order-preview
+        v-for="order in orders"
+        :key="order._id"
+        :order="order"
+        @updateStatus="updateStatus"
+      />
         <!-- <li @click="$router.push(`/order/${order._id}`)" class="order-preview"></li> -->
-      </order-preview>
     </div>
     <!-- <div class="order-table-container clean-list">
       <ul v-if="orders" class="order-list clean-list"></ul>
-    </div> -->
+    </div>-->
   </section>
 </template>
 

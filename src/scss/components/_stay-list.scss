@@ -12,7 +12,11 @@
 .no-results {
   width: 100%;
   font-size: em(45px);
-  padding: 28px 0px;
+  padding: 28px 15px;
+}
+
+.loading-img {
+  width: 200px;
 }
 
 //Break point
@@ -25,6 +29,13 @@
     grid-template-columns: repeat(2, minmax(200px, 1fr));
     gap: 10px;
     padding: 10px 0px;
+  }
+  .loading-img {
+    width: 300px !important;
+  }
+
+  .no-results {
+    padding: 28px 0px;
   }
 }
 

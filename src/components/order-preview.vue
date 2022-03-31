@@ -1,19 +1,21 @@
 <template>
-  <!-- <li>{{ timeConversion }}</li> -->
-  <li>{{ order.createdAt }}</li>
-  <li>{{ order.buyer.fullname }}</li>
-  <li>{{ order.stay.name }}</li>
-  <li>{{ order.startDate }}</li>
-  <li>{{ order.endDate }}</li>
-  <li>{{ order.totalPrice / order.stay.price }}</li>
-  <li>{{ order.guests.adults + order.guests.children }}</li>
-  <li>{{ order.stay.price }}</li>
-  <li>{{ order.totalPrice }}</li>
-  <li>{{ order.status }}</li>
-  <li>
-    <button @click="updateStatus('rejected')">Reject</button>
-    <button @click="updateStatus('approved')">Accept</button>
-  </li>
+  <section class="order-preview-section">
+    <!-- <li>{{ timeConversion }}</li> -->
+    <div>{{ order.createdAt }}</div>
+    <div>{{ order.buyer.fullname }}</div>
+    <div>{{ formattedText }}</div>
+    <div>{{ order.startDate }}</div>
+    <div>{{ order.endDate }}</div>
+    <div>{{ order.totalPrice / order.stay.price }}</div>
+    <div>{{ order.guests.adults + order.guests.children }}</div>
+    <div>{{ order.stay.price }}</div>
+    <div>{{ order.totalPrice }}</div>
+    <div>{{ order.status }}</div>
+    <div>
+      <button @click="updateStatus('rejected')">Reject</button>
+      <button @click="updateStatus('approved')">Accept</button>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -39,6 +41,12 @@ export default {
       console.log()
       return convertedTime
     },
+    formattedText() {
+      if (this.order.stay.name.length > 15) {
+        return this.order.stay.name.slice(0, 15) + '...';
+      }
+      return this.order.stay.name;
+    }
   },
 }
 </script>

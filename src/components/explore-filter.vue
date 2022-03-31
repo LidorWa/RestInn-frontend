@@ -196,11 +196,11 @@ export default {
       // this.setFilter();
     }
     this.setFilter();
-    const stayPrices = this.stays.map((stay) => stay.price);
-    if (stayPrices.length === 1) return;
-    stayPrices.sort((a, b) => a - b);
-    this.min = stayPrices[0];
-    this.max = stayPrices[stayPrices.length - 1];
+    // const stayPrices = this.stays.map((stay) => stay.price);
+    // if (stayPrices.length === 1) return;
+    // stayPrices.sort((a, b) => a - b);
+    // this.min = stayPrices[0];
+    // this.max = stayPrices[stayPrices.length - 1];
   },
   components: {},
   methods: {
