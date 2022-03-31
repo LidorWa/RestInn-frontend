@@ -23,9 +23,13 @@ export default {
   async created() {
     const loggedInUser = this.$store.getters.getLoggedInUser;
     const filterBy = {
-      id: loggedInUser._id,
+      hostId: loggedInUser._id,
     };
-    await this.$store.dispatch({ type: "loadOrders", filterBy });
+    try {
+      await this.$store.dispatch({ type: "loadOrders", filterBy });
+    } catch (err) {
+      console.log("Error while loading orders: ", err);
+    }
   },
   computed: {
     isLoading() {

@@ -4,10 +4,11 @@
     <p v-if="!isLoggerIn" @click="signUp">Log in</p>
     <p v-if="isLoggerIn" @click="logout">Log out</p>
     <hr />
+    <p v-if="isLoggerIn" @click="goToMyTrips">My trips</p>
+    <p v-if="isLoggerIn" @click="goToDashBoardPage">Host Dashboard</p>
     <p>Host your home</p>
     <p>Help</p>
     <p @click="goToAboutPage">About</p>
-    <p @click="goToDashBoardPage">Host Dashboard</p>
   </section>
 </template>
 
@@ -30,6 +31,9 @@ export default {
     },
     goToAboutPage() {
       this.$router.push("/about");
+    },
+    goToMyTrips() {
+      this.$emit("goToMyTrips");
     },
     goToDashBoardPage() {
       this.$emit("goToDashboard");

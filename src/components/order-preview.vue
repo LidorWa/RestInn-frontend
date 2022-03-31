@@ -12,16 +12,17 @@
     <div>{{ order.totalPrice }}</div>
     <div>{{ order.status }}</div>
     <div>
-      <button @click="updateStatus('rejected')">Reject</button>
-      <button @click="updateStatus('approved')">Accept</button>
+      <button v-if="isCancable" @click="updateStatus('rejected')">
+        Reject
+      </button>
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'order-preview',
-  emits: ['updateStatus'],
+  name: "order-preview",
+  emits: ["updateStatus"],
   props: {
     order: {
       type: Object,
@@ -31,22 +32,25 @@ export default {
 
   methods: {
     updateStatus(status) {
-      this.$emit('updateStatus', { status, orderId: this.order._id })
+      this.$emit("updateStatus", { status, orderId: this.order._id });
     },
   },
   computed: {
+    isCancable() {
+      const startDate = trip.startDate;
+    },
     timeConversion() {
       //TODO: check if works!
-      const convertedTime = this.order.createdAt.d.toDateString()
-      console.log()
-      return convertedTime
+      const convertedTime = this.order.createdAt.d.toDateString();
+      console.log();
+      return convertedTime;
     },
     formattedText() {
       if (this.order.stay.name.length > 15) {
-        return this.order.stay.name.slice(0, 15) + '...';
+        return this.order.stay.name.slice(0, 15) + "...";
       }
       return this.order.stay.name;
-    }
+    },
   },
-}
+};
 </script>

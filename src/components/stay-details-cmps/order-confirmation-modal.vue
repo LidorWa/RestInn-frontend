@@ -19,12 +19,17 @@
         <p class="confirm-title">One last step</p>
         <div class="confirm-secondary-title">
           <h1 class="confirm-text">Dear {{ getUserFirstName }},</h1>
-          <h1 class="confirm-text">In orer to complete your reservation, please confirm your trip details</h1>
+          <h1 class="confirm-text">
+            In orer to complete your reservation, please confirm your trip
+            details
+          </h1>
         </div>
         <div class="trip-details">
           <div class="stay-user-details">
             <h1 class="confirm-text">Stay name: {{ stay.name }}</h1>
-            <h1 class="confirm-text">{{ stay.address.city }}, {{ stay.address.country }}</h1>
+            <h1 class="confirm-text">
+              {{ stay.address.city }}, {{ stay.address.country }}
+            </h1>
             <h1 class="confirm-text">Check in: {{ getFormatedDate(0) }}</h1>
             <h1 class="confirm-text">
               Check out:
@@ -36,7 +41,12 @@
             <h1 class="confirm-text">Total: ${{ getTotalPrice }}</h1>
           </div>
           <div class="host-details">
-            <img class="host-image" :src="stay.host.thumbnailUrl" alt="host" onerror="this.onerror=null; this.src='https://blog.cpanel.com/wp-content/uploads/2019/08/user-01.png'" />
+            <img
+              class="host-image"
+              :src="stay.host.thumbnailUrl"
+              alt="host"
+              onerror="this.onerror=null; this.src='https://blog.cpanel.com/wp-content/uploads/2019/08/user-01.png'"
+            />
             <h1 class="host-name">{{ stay.host.fullname }}</h1>
           </div>
         </div>
@@ -89,14 +99,14 @@ export default {
   methods: {
     async confirm() {
       this.isConfirmed = true;
-      const startDate = this.getFormatedDate(0);
-      const endDate = this.getFormatedDate(1);
+      const startDate = this.getTimeStampDate(0);
+      const endDate = this.getTimeStampDate(1);
       const totalPrice = this.getTotalPrice;
       const order = {
         startDate,
         endDate,
         guests: this.guests,
-        status: 'pending',
+        status: "pending",
         totalPrice,
         hostId: this.stay.host._id,
         stay: {
@@ -108,19 +118,32 @@ export default {
           _id: this.user._id,
           fullname: this.user.fullname,
         },
-      }
+      };
       //Place the order in store, for fronend needs only
       // this.$store.commit({ type: "setOrder", order });
+      console.log(order);
       this.$emit("addOrder", order);
 
       // *** Uncomment when order backend service implemented ***
       // await this.$store.commit({ type: "addOrder", order });
     },
+    getTimeStampDate(num) {
+      const arrayDates = JSON.parse(JSON.stringify(this.dates));
+      console.log(arrayDates[num]);
+      return arrayDates[num];
+    },
     getFormatedDate(num) {
-      const arrayDates = JSON.parse(JSON.stringify(this.dates))
-      const dates = new Date(arrayDates[num])
+      const arrayDates = JSON.parse(JSON.stringify(this.dates));
 
-      return `${dates.getDate() < 10 ? '0' + dates.getDate() : dates.getDate()}/${dates.getMonth() < 9 ? '0' + (dates.getMonth() + 1) : dates.getMonth() + 1}/${dates.getFullYear().toString().substring(2)}`
+      const dates = new Date(arrayDates[num]);
+
+      return `${
+        dates.getDate() < 10 ? "0" + dates.getDate() : dates.getDate()
+      }/${
+        dates.getMonth() < 9
+          ? "0" + (dates.getMonth() + 1)
+          : dates.getMonth() + 1
+      }/${dates.getFullYear().toString().substring(2)}`;
     },
     goToMyTrips() {
       this.isConfirmed = false;
@@ -140,33 +163,33 @@ export default {
         : false;
     },
     getTotalPrice() {
-      const total = this.$store.getters.getTotalPrice
-      return total
+      const total = this.$store.getters.getTotalPrice;
+      return total;
     },
     getUserFirstName() {
-      return this.user.fullname.split(' ')[0]
+      return this.user.fullname.split(" ")[0];
     },
     getGuestsForDisplay() {
-      const { adults } = this.guests
-      const { children } = this.guests
-      if (!(children + adults)) return 'Add guests'
+      const { adults } = this.guests;
+      const { children } = this.guests;
+      if (!(children + adults)) return "Add guests";
       if (!children) {
-        if (adults === 1) return '1 adult'
-        return `${adults} adults`
+        if (adults === 1) return "1 adult";
+        return `${adults} adults`;
       }
       if (children === 1) {
-        if (adults === 1) return '1 adult, 1 child'
-        return `${adults} adults, 1 child`
+        if (adults === 1) return "1 adult, 1 child";
+        return `${adults} adults, 1 child`;
       }
-      if (adults === 1) return `1 adult, ${children} children`
-      return `${adults} adults, ${children} children`
+      if (adults === 1) return `1 adult, ${children} children`;
+      return `${adults} adults, ${children} children`;
     },
     getLocation() {
-      return this.$store.getters.getLocation
+      return this.$store.getters.getLocation;
     },
     getDates() {
-      return this.$store.getters.getDates
+      return this.$store.getters.getDates;
     },
   },
-}
+};
 </script>
