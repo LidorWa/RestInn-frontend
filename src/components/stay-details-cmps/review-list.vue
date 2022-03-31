@@ -2,7 +2,7 @@
     <section class="review-list" v-if="reviews">
         <ul class="reviews-list-ul">
             <li v-for="review in reviews" :key="review._id">
-                <review-preview :review="review" :userImg="getRandomImg" />
+                <review-preview :review="review" />
             </li>
         </ul>
     </section>
@@ -27,13 +27,14 @@ export default {
         reviewPreview
     },
     computed: {
-        getRandomImg() {
-            const guestsImages = ['image1.jpeg', 'image2.jpeg', 'image3.jpeg', 'image4.jpeg', 'image5.jpeg', 'image6.jpeg', 'image7.jpeg'
-                , 'image8.jpeg', 'image9.jpeg', 'image10.jpeg', 'image11.jpeg', 'image12.jpeg', 'image13.jpeg', 'image14.jpeg', 'image15.jpeg']
-            const idx = Math.floor(Math.random() * (15));
-            const imgUrl = new URL(`../../assets/user-images/${guestsImages[idx]}`, import.meta.url);
-            return imgUrl;
-        }
+        // getRandomImg() {
+        //     const guestsImages = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg', 'image6.jpg', 'image7.jpg'
+        //         , 'image8.jpg', 'image9.jpg', 'image10.jpg', 'image11.jpg', 'image12.jpg', 'image13.jpg', 'image14.jpg', 'image15.jpg']
+
+        //     const idx = Math.floor(Math.random() * (15));
+        //     const imgUrl = new URL(`../../assets/user-images/${guestsImages[idx]}`, import.meta.url);
+        //     return imgUrl;
+        // }
     }
 }
 </script>
