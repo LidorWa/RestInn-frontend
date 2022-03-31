@@ -36,9 +36,6 @@ export default {
     },
   },
   computed: {
-    isCancable() {
-      const startDate = trip.startDate;
-    },
     timeConversion() {
       let date = new Date(this.order.createdAt).getDate();
       date = date < 10 ? "0" + date : date;

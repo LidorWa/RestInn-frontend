@@ -129,7 +129,7 @@ export default {
     },
     getTimeStampDate(num) {
       const arrayDates = JSON.parse(JSON.stringify(this.dates));
-      console.log(arrayDates[num]);
+
       return arrayDates[num];
     },
     getFormatedDate(num) {

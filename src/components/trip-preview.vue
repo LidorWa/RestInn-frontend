@@ -12,41 +12,50 @@
     <div>{{ trip.totalPrice }}</div>
     <div>{{ trip.status }}</div>
     <div>
-      <button @click="updateStatus('rejected')">Reject</button>
-      <button @click="updateStatus('approved')">Accept</button>
+      <button v-if="isCancelable" @click="updateStatus('rejected')">
+        Cancel
+      </button>
     </div>
   </section>
 </template>
 
 <script>
-  export default {
-    name: "trip-preview",
-    emits: ["updateStatus"],
-    props: {
-      trip: {
-        type: Object,
-        required: true,
-      },
+export default {
+  name: "trip-preview",
+  emits: ["updateStatus"],
+  props: {
+    trip: {
+      type: Object,
+      required: true,
     },
+  },
 
-    methods: {
-      updateStatus(status) {
-        this.$emit("updateStatus", { status, tripId: this.trip._id });
-      },
+  methods: {
+    updateStatus(status) {
+      this.$emit("updateStatus", { status, tripId: this.trip._id });
     },
-    computed: {
-      timeConversion() {
-        //TODO: check if works!
-        const convertedTime = this.trip.createdAt.d.toDateString();
-        console.log();
-        return convertedTime;
-      },
-      formattedText() {
-        if (this.trip.stay.name.length > 15) {
-          return this.trip.stay.name.slice(0, 15) + "...";
-        }
-        return this.trip.stay.name;
-      },
+    getFormatedTime(time) {
+      const now = new Date();
+      const date = new Date(time);
+      // const timePassed = now - date
+
+      return `${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}/${
+        date.getMonth() < 9 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1
+      }`;
     },
-  };
+  },
+  computed: {
+    isCancelable() {
+      const startDate = this.trip.startDate;
+      const now = new Date();
+      return true;
+    },
+    formattedText() {
+      if (this.trip.stay.name.length > 15) {
+        return this.trip.stay.name.slice(0, 15) + "...";
+      }
+      return this.trip.stay.name;
+    },
+  },
+};
 </script>
