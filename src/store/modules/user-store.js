@@ -39,6 +39,10 @@ export default {
       if (idx !== -1) state.users.splice(idx, 1, user);
       else state.users.unshift(user);
     },
+    getUserFromSession(state, { user }) {
+      state.loggedInUser = user;
+      console.log(state.loggedInUser);
+    }
   },
   actions: {
     async login({ commit }, { user }) {
@@ -59,8 +63,8 @@ export default {
       commit({ type: "setLoggedinUser", loggedInUser: null });
     },
 
-    getUserById(context, { userId }) {
-      return userService.getById(userId);
+    async getUserById(context, { userId }) {
+      return await userService.getById(userId);
     },
     async loadUsers({ commit, state }) {
       const users = await userService.getUsers();
@@ -72,5 +76,10 @@ export default {
       commit({ type: "saveUser", user });
       dispatch({ type: "loadUsers" });
     },
+    getUserFromSession({ commit }) {
+      const user = userService.getLoggedinUser();
+      commit({ type: 'getUserFromSession', user })
+    }
+
   },
 };
