@@ -2,7 +2,7 @@
   <section class="main-header-section">
     <div class="header-container">
       <!-- <header class="main-header-container flex flex-column align-center" :class="getHeaderClass"> -->
-      <header class="main-header-container flex flex-column align-center" :class="headerClasses">
+      <header class="main-header-container flex flex-column align-center is-justify-space-between" :class="headerClasses">
         <!-- <header class="main-header-container flex flex-column align-center" :class="{ top: headerStatus === 'top', shrinkSearchBar: headerStatus === 'shrinkSearchBar', homepage: this.$route.path === '/', 'explore-page': this.$route.path === '/stay', 'details-page': this.$route.path === '/stay/:stayId' }"> -->
         <!-- <header class="main-header-container flex flex-column align-center" :class="headerStatus">-->
         <!-- <header :class="'main-header-container flex flex-column align-center ' + headerStatus"> -->
@@ -159,75 +159,88 @@ export default {
     // checkMainSearch() {
     //   return (this.headerStatus === 'top' && this.$route.path.length < 10 && (this.$route.path === '/' || this.$route.path.includes('/stay'))) || (this.isMiniSearchShown && (this.headerStatus === 'shrinkSearchBar' || this.$route.path.length > 10))
     // },
-    logoStyle() {
-      var color
-      if (this.$route.path === '/stay') {
-        color = '#222222'
-        console.log('#222222')
-      } else {
-        console.log('#FFFFFF')
-        color = '#FFFFFF'
-      }
-      return { color: color }
-    },
+    // logoStyle() {
+    //   var color
+    //   if (this.$route.path === '/stay') {
+    //     color = '#222222'
+    //     console.log('#222222')
+    //   } else {
+    //     console.log('#FFFFFF')
+    //     color = '#FFFFFF'
+    //   }
+    //   return { color: color }
+    // },
     headerClasses() {
       var classObj = {}
-      if (this.$route.params.stayId) {
-        classObj.layout = 'main-layout' //details page
-        classObj.headerStyle = 'small-search'
-      } else {
+      if (this.$route.path === '/') {
         classObj.layout = 'home-layout' //fits explore page regarding open/close main/mini search
+        if (this.scrollLoc > 20) {
+          classObj.headerStyle = 'small-search'
+        } else classObj.headerStyle = 'full-search'
+      } else if (this.$route.path === '/stay') {
+        classObj.layout = 'explore-layout'
         if (this.scrollLoc > 20) {
           classObj.headerStyle = 'small-search'
         } else {
           classObj.headerStyle = 'full-search'
         }
+      } else if (this.$route.params.stayId) {
+        classObj.layout = 'main-layout' //details page
+        classObj.headerStyle = 'small-search'
       }
       if (this.isFullSearch) classObj.headerStyle = 'full-search'
       // console.log('obj', this.isFullSearch)
       return Object.values(classObj)
     },
-    //TODO: maybe something like this?
-    setCurrPage() {
-      let { destination } = this.$route.query
-      let { stayId } = this.$route.params
-      if (destination) {
-        this.currPage = 'explore'
-      } else if (stayId) {
-        this.currPage = 'details'
-      } else this.currPage = 'home'
-    },
-  },
-  //TODO: watch stopped working?
-  watch: {
-    // headerStatus() {
-    //   console.log('Watch ******* headerStatus is:', this.headerStatus)
-    //   switch (this.headerStatus) {
-    //     case 'top':
-    //       this.isMiniSearchShown = false
-    //       break
-    //     case 'shrinkSearchBar':
-    //       //??????
-    //       this.isMiniSearchShown = true
-    //       break
+    // headerClasses() {
+    //   var classObj = {}
+    //   if (this.$route.params.stayId) {
+    //     classObj.layout = 'main-layout' //details page
+    //     classObj.headerStyle = 'small-search'
+    //   } else {
+    //     classObj.layout = 'home-layout' //fits explore page regarding open/close main/mini search
+    //     if (this.scrollLoc > 20) {
+    //       classObj.headerStyle = 'small-search'
+    //     } else {
+    //       classObj.headerStyle = 'full-search'
+    //     }
     //   }
+    //   if (this.isFullSearch) classObj.headerStyle = 'full-search'
+    //   // console.log('obj', this.isFullSearch)
+    //   return Object.values(classObj)
     // },
-    '$route.params.stayId': {
-      handler(newVal) {
-        this.isFullSearch = newVal ? false : true
+
+    //TODO: watch stopped working?
+    watch: {
+      // headerStatus() {
+      //   console.log('Watch ******* headerStatus is:', this.headerStatus)
+      //   switch (this.headerStatus) {
+      //     case 'top':
+      //       this.isMiniSearchShown = false
+      //       break
+      //     case 'shrinkSearchBar':
+      //       //??????
+      //       this.isMiniSearchShown = true
+      //       break
+      //   }
+      // },
+      '$route.params.stayId': {
+        handler(newVal) {
+          this.isFullSearch = newVal ? false : true
+        },
+        immediate: true,
       },
-      immediate: true,
-    },
-    $route: {
-      handler(newVal) {
-        console.log(newVal)
+      $route: {
+        handler(newVal) {
+          console.log(newVal)
+        },
       },
     },
-  },
-  components: {
-    mainSearch,
-    headerUserMenu,
-    signUp,
+    components: {
+      mainSearch,
+      headerUserMenu,
+      signUp,
+    },
   },
 }
 </script>
@@ -236,20 +249,30 @@ export default {
 <!--  1  2 3  ,    true  false  -->
 
 <!-- 1 2 | 3 true -->
-
 <!-- 3 false  -->
 <!-- function computed() {
-            var classObj = {}
-            if (this.$route.params.stayId) {
-                obj.layout = 'main-layout'
-                obj.headerStyle = 'small-search'
-            }
-            else {
-                obj.layout = 'home-layout'
-                if (window.scrollY > 20) {
-                    obj.headerStyle = 'small-search'
-                }
-            }
-            if (isOpen) obj.headerStyle = 'full-search'
-            return Object.values(obj)
-        } -->
+   //             var classObj = {}
+//             if (this.$route.params.stayId) {
+//                 obj.layout = 'main-layout'
+//                 obj.headerStyle = 'small-search'
+//             }
+//             else {
+//                 obj.layout = 'home-layout'
+//                 if (window.scrollY > 20) {
+//                     obj.headerStyle = 'small-search'
+//                 }
+//             }
+//             if (isOpen) obj.headerStyle = 'full-search'
+//             return Object.values(obj)
+//         }
+//TODO: maybe something like this?
+  //   setCurrPage() {
+  //     let { destination } = this.$route.query
+  //     let { stayId } = this.$route.params
+  //     if (destination) {
+  //       this.currPage = 'explore'
+  //     } else if (stayId) {
+  //       this.currPage = 'details'
+  //     } else this.currPage = 'home'
+  //   },
+  // }, -->

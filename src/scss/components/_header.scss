@@ -3,14 +3,14 @@
 }
 
 .header-container {
-  // width: em(1400px);
   width: 100%;
   position: fixed;
   height: 66px;
+  z-index: 880;
+  // width: em(1400px);
   // box-shadow: rgb(0, 0, 0, 0.08) 0px 1px 12px;
   //paints modal - don't bring back:
   // color: $clr3;
-  z-index: 880;
 
   &.main-search-open {
     height: em(140px);
@@ -18,16 +18,16 @@
 }
 
 .main-header-container {
-  // width: 100%;
   margin: auto;
+  padding-top: em(8px);
+  // width: 100%;
   // height: em(150px);
   // padding: em(8px) em(40px) 0 em(40px);
-  padding-top: em(8px);
   // color: $clr1;
   // box-shadow: rgb(0, 0, 0, 0.08) 0px 1px 12px;
-  .logo{
-    color: $clr3;
-  }
+  // .logo{
+  //   color: $clr3;
+  // }
 
   &.full-search {
     .logo-nav-container {
@@ -42,17 +42,17 @@
     }
   }
   &.small-search{
-    background-color: $clr3;
+    // background-color: $clr3;
     height: em(66px);
 
-    .logo-nav-container {
-      color: $clr1;
+    // .logo-nav-container {
+    //   color: $clr1;
 
-      a,
-      img {
-        color: $clr2;
-      }
-    }
+    //   a,
+    //   img {
+    //     color: $clr2;
+    //   }
+    // }
   }
 
 
@@ -250,5 +250,25 @@
   .hamburger-user-menu {
     margin-inline-start: em(8px);
     // margin-left: em(8px);
+  }
+}
+
+.home-layout{
+  .small-search{
+    .logo {
+      color: $clr1;
+    }
+    a {
+      color: $clr2;
+    }
+  }
+  .full-search{
+
+    .logo {
+      color: $clr3;
+    }
+    a {
+      color: $clr3;
+    }
   }
 }
