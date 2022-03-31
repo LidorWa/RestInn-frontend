@@ -1,12 +1,12 @@
 <template>
   <section class="order-preview-section">
-    <!-- <li>{{ timeConversion }}</li> -->
-    <div>{{ order.createdAt }}</div>
+    <li>{{ timeConversion }}</li>
+    <!-- <div>{{ order.createdAt }}</div> -->
     <div>{{ order.buyer.fullname }}</div>
     <div>{{ formattedText }}</div>
     <div>{{ order.startDate }}</div>
     <div>{{ order.endDate }}</div>
-    <div>{{ order.totalPrice / order.stay.price }}</div>
+    <div>{{ Math.round(order.totalPrice / order.stay.price) }}</div>
     <div>{{ order.guests.adults + order.guests.children }}</div>
     <div>{{ order.stay.price }}</div>
     <div>{{ order.totalPrice }}</div>
@@ -36,10 +36,14 @@ export default {
   },
   computed: {
     timeConversion() {
-      //TODO: check if works!
-      const convertedTime = this.order.createdAt.d.toDateString()
-      console.log()
-      return convertedTime
+      let date = new Date(this.order.createdAt).getDate();
+      date = (date < 10) ? '0' + date : date;
+      let month = new Date(this.order.createdAt).getMonth()+1;
+      month = (month <10) ? '0' + month : month;
+      const year = new Date(this.order.createdAt).getFullYear();
+      const convertedTime = `${date}/${month}/${year}`;
+
+      return convertedTime;
     },
     formattedText() {
       if (this.order.stay.name.length > 15) {
