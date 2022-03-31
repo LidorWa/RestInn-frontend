@@ -32,8 +32,10 @@ export default {
     updateStatus(status) {
       this.$emit("updateStatus", { status, orderId: this.order._id });
     },
-    timeConversion(time) {
-      let date = new Date(time).getDate();
+  },
+  computed: {
+    timeConversion() {
+      let date = new Date(this.order.createdAt).getDate();
       date = date < 10 ? "0" + date : date;
       let month = new Date(time).getMonth() + 1;
       month = month < 10 ? "0" + month : month;
