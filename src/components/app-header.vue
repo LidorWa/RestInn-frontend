@@ -171,12 +171,6 @@ export default {
         classObj.layout = 'main-layout' //details page
         classObj.headerStyle = 'small-search'
       } else {
-        classObj.layout = 'home-layout' //fits explore page regarding open/close main/mini search
-        if (this.scrollLoc > 20) {
-          classObj.headerStyle = 'small-search'
-        } else {
-          classObj.headerStyle = 'full-search'
-        }
       }
       if (this.isFullSearch) classObj.headerStyle = 'full-search'
       // console.log('obj', this.isFullSearch)
