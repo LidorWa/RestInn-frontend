@@ -10,7 +10,7 @@
           </div>
         </section>
         <section class="secondary-header-and-images-container">
-          <secondary-header @goToReviews="goToReviews" :stay="stay" />
+          <secondary-header @goToReviews="goToReviews" @goToMap="goToMap" :stay="stay" />
           <images-container :stayImgs="stay.imgUrls" />
         </section>
         <section class="hero-modal-and-general-info">
@@ -51,7 +51,7 @@
           <hero-modal :stay="stay" :guestsFromStore="getGuests" @onCheckAvailability="onCheckAvailability" />
         </section>
         <reviews-section :stay="stay" ref="reviews-section" />
-        <map-section :address="stay.address" />
+        <map-section :address="stay.address" ref="map-section" />
         <order-alert-modal v-if="isOrderAlert" @closeModal="closeAlertModal" :alertModalMessage="alertModalMessage" />
         <login-alert-modal v-if="isLoginAlert" @closeModal="closeLoginModal" @login="loginToProceed" @demo="demoToProceed" />
         <order-confirmation-modal :class="{ showConfirm: isOrdering && isLoggedIn }" :stay="stay" :dates="getDates" :guests="getGuests" :user="getLoggedInUser" @closeModal="closeConfirmationModal" @addOrder="addOrder" />
@@ -168,13 +168,17 @@ export default {
       }
     },
     goToReviews() {
-      console.log(this.$refs)
       let el = this.$refs['reviews-section'].$el
 
       let top = el.offsetTop
-      console.log(top)
-      window.scrollTo(0, top - 10)
+      window.scrollTo({top:top-10, left:0, behavior: 'smooth'})
     },
+    goToMap(){
+      let el = this.$refs['map-section'].$el
+
+      let top = el.offsetTop
+      window.scrollTo({top:top-10, left:0, behavior: 'smooth'})
+    }
   },
   computed: {
     getDates() {
