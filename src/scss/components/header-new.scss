@@ -3,6 +3,8 @@
   position: fixed;
   width: 100%;
   background-color: $clr3;
+  padding-bottom: em(10px);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 11px rgb(0 0 0 / 5%);
   z-index: 880;
   &.homepage{
     background-color: transparent;
