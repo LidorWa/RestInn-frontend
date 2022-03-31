@@ -1,5 +1,6 @@
 .main-header-section{
   height: em(140px);
+  
 }
 
 .header-container {
@@ -253,22 +254,23 @@
   }
 }
 
-.home-layout{
-  .small-search{
-    .logo {
-      color: $clr1;
-    }
-    a {
-      color: $clr2;
-    }
-  }
-  .full-search{
+// .home-layout{
+//   .small-search{
+//     .logo {
+//       color: $clr1;
+//     }
+//     a {
+//       color: $clr2;
+//     }
+//   }
+//   .full-search{
 
-    .logo {
-      color: $clr3;
-    }
-    a {
-      color: $clr3;
-    }
-  }
-}
+//     .logo {
+//       color: $clr3;
+//     }
+//     a {
+//       color: $clr3;
+//     }
+//   }
+// }
+

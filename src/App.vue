@@ -4,11 +4,11 @@
     <sign-up :class="{ showSignUp: isSignUp }" @closeSignUp="closeSignUp" ref="signup" />
     <!-- overlay  -->
     <div v-if="isSignUp" class="outsideUserMenu" @click="closeSignUp"></div>
-    <div class="main-app-layout-container flex flex-column app-container">
+    <div class="main-app-container flex flex-column app-container">
       <app-header />
       <!-- add prop showSearch -->
       <!-- <router-view /> -->
-      <router-view class="main-layout-height" />
+      <router-view class="" />
       <app-footer />
     </div>
   </section>

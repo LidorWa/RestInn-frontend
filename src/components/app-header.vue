@@ -1,5 +1,6 @@
 <template>
-  <section class="main-header-section">
+  <section class="main-header-section" :class="homepageClass">
+    <!-- <div class="header-container"> -->
     <div class="header-container">
       <!-- <header class="main-header-container flex flex-column align-center" :class="getHeaderClass"> -->
       <header class="main-header-container flex flex-column align-center" :class="headerClasses">
@@ -123,6 +124,12 @@ export default {
     },
   },
   computed: {
+    homepageClass() {
+      let classesStr = ''
+      if (this.scrollLoc > 20) classesStr += 'scrolled '
+      if (this.$route.path === '/') classesStr += 'homepage'
+      return classesStr
+    },
     getSearchText() {
       if (this.$route.query.destination) return this.$route.query.destination
       return 'Start your search'
@@ -200,7 +207,7 @@ export default {
         classObj.layout = 'main-layout' //details page
         classObj.headerStyle = 'small-search'
       } else {
-        classObj.layout = 'home-layout' //fits explore page regarding open/close main/mini search
+        classObj.layout = 'main-layout-homepage' //fits explore page regarding open/close main/mini search
         if (this.scrollLoc > 20) {
           classObj.headerStyle = 'small-search'
         } else {
@@ -208,11 +215,18 @@ export default {
         }
       }
       if (this.$route.path === '/') {
-        classObj.layout = 'main-layout-homepage' //explore/home page
         classObj.page = 'homepage'
       }
+      if (this.$route.path === '/') classObj.page = 'homepage'
       if (this.isFullSearch) classObj.headerStyle = 'full-search'
       // console.log('obj', this.isFullSearch)
+      return Object.values(classObj)
+    },
+    headerContainerHeight() {
+      const classObj = {}
+      if (this.$route.path === '/') {
+        classObj.headerStyle = 'noHeight'
+      }
       return Object.values(classObj)
     },
 
