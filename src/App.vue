@@ -50,6 +50,7 @@ export default {
       amenities: [],
       guests: 0,
     };
+    await this.$store.dispatch({ type: "loadOrders", filterBy: {} });
 
     await this.$store.dispatch({ type: "loadStays", filterBy });
   },
