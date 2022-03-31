@@ -137,16 +137,12 @@
 .location-input {
   padding-left: 4px;
 }
-.check-in-top {
+.check-in-top, .check-out-top {
   padding: 1em 1em 1em 1em;
-  align-items: center;
-  width: em(180px);
+  // align-items: center;
+  // width: em(180px);
 }
-.check-out-top {
-  padding: 1em 1em 1em 1em;
-  width: em(180px);
-  // line-height: 18px;
-}
+
 
 .guestsInput {
   position: relative;
