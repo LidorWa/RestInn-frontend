@@ -55,7 +55,11 @@
         <div v-if="!isConfirmed" class="sign-up-continue" @click="confirm">
           Confirm
         </div>
-        <div v-if="!isConfirmed" class="sign-up-continue" @click="closeModal">
+        <div
+          v-if="!isConfirmed"
+          class="sign-up-continue go-back"
+          @click="closeModal"
+        >
           Go back
         </div>
         <div v-if="isConfirmed" class="sign-up-continue" @click="closeModal">

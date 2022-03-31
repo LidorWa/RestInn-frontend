@@ -1,5 +1,5 @@
 <template>
-  <section class="trip-preview-container">
+  <section class="order-preview-container">
     <!-- <li>{{ timeConversion }}</li> -->
     <div>{{ trip.createdAt }}</div>
     <div>{{ trip.buyer.fullname }}</div>
@@ -12,7 +12,7 @@
     <div>{{ trip.totalPrice }}</div>
     <div>{{ trip.status }}</div>
     <div>
-      <button v-if="isCancelable" @click="updateStatus('rejected')">
+      <button :disabled="isUnancelable" @click="updateStatus('cancled')">
         Cancel
       </button>
     </div>
@@ -45,10 +45,13 @@ export default {
     },
   },
   computed: {
-    isCancelable() {
+    isUnancelable() {
       const startDate = this.trip.startDate;
-      const now = new Date();
-      return true;
+      const now = Date.now();
+      const threeDays = 1000 * 60 * 60 * 72;
+      console.log(startDate);
+      console.log(now);
+      return now - startDate < threeDays || this.trip.status !== "approved";
     },
     formattedText() {
       if (this.trip.stay.name.length > 15) {

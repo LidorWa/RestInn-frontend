@@ -17,6 +17,13 @@
 .main-layout-homepage {
   // width: calc(90%);
   padding-inline: 5%;
+  // width: 95%;
+  margin: auto;
+}
+
+//for stay app page (explore)
+.stay-app-layout {
+  width: 90% !important;
   margin: auto;
 }
 
@@ -60,6 +67,10 @@
     color: $clr2;
     margin-bottom: 30px;
   }
+
+  .card-preview-line {
+    margin: 3px 0px;
+  }
 }
 
 //Break point
@@ -100,6 +111,12 @@
   .main-layout-homepage {
     // width: calc(92vw);
     padding-inline: 4%;
+    // width: 96%;
+  }
+
+  //for stay app page (explore)
+  .stay-app-layout {
+    width: 92% !important;
   }
 
   .destinations-header {

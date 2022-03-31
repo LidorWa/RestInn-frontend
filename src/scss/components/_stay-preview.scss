@@ -9,8 +9,9 @@
   flex-direction: column;
   justify-content: space-between;
   list-style: none;
-  height: calc(175px + 35vw);
+  height: calc(188px + 35vw);
   // padding: 1px;
+
   margin-top: 10px;
   margin-bottom: 25px;
   font-size: em(15px);
@@ -18,7 +19,7 @@
 
   p {
     margin: 0;
-    margin-top: 1px;
+    // margin-top: 1px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -60,6 +61,10 @@
 .card-preview-line {
   display: flex;
   align-items: center;
+}
+
+.card-preview-line:first-of-type {
+  padding-top: 4px;
 }
 
 .preview-dot {
@@ -108,8 +113,8 @@
 
 @media (min-width: 551px) {
   .card {
-    height: calc(180px + 19vw);
-    font-size: em(16px);
+    height: calc(184px + 19vw);
+    font-size: em(15px);
     margin-bottom: 20px !important;
     margin: 0;
   }
@@ -130,7 +135,7 @@
 
 @media (min-width: 950px) {
   .card {
-    height: calc(210px + 10vw);
+    height: calc(215px + 10vw);
     margin-bottom: 10px !important;
   }
 
@@ -150,7 +155,7 @@
 
 @media (min-width: 1230px) {
   .card {
-    height: calc(170px + 10vw);
+    height: calc(180px + 10vw);
   }
 
   .el-carousel__container {
@@ -167,9 +172,9 @@
 //Break point
 //Break point
 
-@media (min-width: 1700px) {
+@media (min-width: 1910px) {
   .card {
-    height: calc(140px + 10vw);
+    height: calc(150px + 10vw);
   }
 
   .el-carousel__container {

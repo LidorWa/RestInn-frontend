@@ -1,9 +1,9 @@
 <template>
   <section>
+    <h1 class="map-address">{{ address.street }}</h1>
     <GMapMap v-if="center" :center="center" :zoom="15" map-type-id="terrain">
       <GMapMarker :position="center" />
     </GMapMap>
-    <h1 class="map-address">{{ address.street }}</h1>
   </section>
 </template>
 <script>
