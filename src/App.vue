@@ -8,7 +8,7 @@
       <app-header />
       <!-- add prop showSearch -->
       <!-- <router-view /> -->
-      <router-view class="" />
+      <router-view class="main-layout-height" />
       <app-footer />
     </div>
   </section>
@@ -45,8 +45,8 @@ export default {
       city: '',
       amenities: [],
       guests: 0,
-    };
-    await this.$store.dispatch({ type: "loadOrders", filterBy: {} });
+    }
+    await this.$store.dispatch({ type: 'loadOrders', filterBy: {} })
 
     await this.$store.dispatch({ type: 'loadStays', filterBy })
   },
