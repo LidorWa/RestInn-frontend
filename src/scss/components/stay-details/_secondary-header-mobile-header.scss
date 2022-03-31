@@ -36,6 +36,9 @@
         .location-above-pictures {
           color: $clr5;
           text-decoration: underline;
+          &:hover{
+            cursor: pointer;
+          }
         }
       }
       .share-save {

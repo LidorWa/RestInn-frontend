@@ -1,21 +1,35 @@
-.order-table-container{
-     display: grid;
-        grid-template-columns: repeat(10, minmax (30px, 1fr));
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        gap: 4px 16px;
-        grid-auto-flow: row;
-        grid-template-areas:
-          ". . . . . . . . . . . . . . . . . ."
-          ". . . . . . . . . . . . . . . . . ."
-          ". . . . . . . . . . . . . . . . . ."
-          ". . . . . . . . . . . . . . . . . .";
-      
-      
+///// dashboard ///
+.dash-board{
+  padding-top: em(40px);
+  // border: 1px solid $clr7;
 }
 
+
+
+/////list/////
+
+
+
+
+
+///// preview//////
 .grid-table{
   display: grid;
   grid-template-columns: repeat(11,1fr);
-
-
+  grid-template-rows: repeat(auto-fit,1fr);
+  
 }
+  // .order-table-container{
+  //      display: grid;
+  //         grid-template-columns: repeat(10, minmax (30px, 1fr));
+  //         grid-template-rows: 1fr 1fr 1fr 1fr;
+  //         gap: 4px 16px;
+  //         grid-auto-flow: row;
+  //         grid-template-areas:
+  //           ". . . . . . . . . . . . . . . . . ."
+  //           ". . . . . . . . . . . . . . . . . ."
+  //           ". . . . . . . . . . . . . . . . . ."
+  //           ". . . . . . . . . . . . . . . . . .";
+        
+        
+  // }

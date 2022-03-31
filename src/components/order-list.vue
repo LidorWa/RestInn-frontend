@@ -1,6 +1,6 @@
 <template>
-  <section class="dash-board">
-    <div class="order-table-statistics">Rendering Months histograms?</div>
+  <section class="dash-board main-layout">
+    <!-- <div class="order-table-statistics">Rendering Months histograms?</div> -->
     <div class="grid-table">
       <li class="date">Date</li>
       <li class="booker">Booker</li>
@@ -9,7 +9,7 @@
       <li class="check-out">Check out</li>
       <li class="nights">Nights</li>
       <li class="guests">Guests</li>
-      <li class="amount">Amount</li>
+      <li class="amount">Price</li>
       <li class="total">Total</li>
       <li class="status">Status</li>
       <li class="actions">Actions</li>

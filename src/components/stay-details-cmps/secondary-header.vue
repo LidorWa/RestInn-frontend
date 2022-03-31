@@ -10,10 +10,8 @@
         <span>{{ stay.reviewScores.rating / 20 }}</span>
         <span>·</span>
         <span @click="goToReviews">{{ stay.reviews.length }} reviews</span>
-        <!-- <span @click="scrollMeTo('reviews-section')">{{ stay.reviews.length }} reviews</span> -->
-
         <span class="dot-above-pictures">·</span>
-        <span class="location-above-pictures"
+        <span class="location-above-pictures" @click="goToMap"
           >{{ stay.address.city }}, {{ stay.address.country }}</span
         >
       </div>
@@ -43,6 +41,9 @@ export default {
   methods: {
     goToReviews() {
       this.$emit("goToReviews");
+    },
+    goToMap(){
+      this.$emit("goToMap");
     },
   },
 };
