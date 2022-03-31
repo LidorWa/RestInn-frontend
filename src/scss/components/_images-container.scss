@@ -1,9 +1,9 @@
 .imgs-container-grid {
   display: grid;
-  padding: em(24px) 0px 0px;
+  padding: em(20px) 0px 0px;
   grid-template-columns: repeat(4, minmax(300px, 1fr));
-  // grid-template-rows: 150px 150px;
   gap: 8px;
+
   grid-template-areas:
     "item2 item2 item1 item3"
     "item2 item2 item4 item5";
@@ -11,7 +11,7 @@
   img {
     object-fit: cover;
     filter: brightness(100%);
-    aspect-ratio:2.4/1.8;
+    aspect-ratio:1.67/ 1.1;
   }
   img:hover {
     filter: brightness(85%);

@@ -46,20 +46,19 @@
   }
   .type-host-and-stay-properties {
     display: flex;
-    padding: em(34px) 0 em(24px);
+    padding: em(25.5px) 0 em(24px);
     justify-content: space-between;
+    align-items: center;
     .type-host-and-stay-property-text {
       display: flex;
       flex-direction: column;
     }
     .stay-type-host-name {
-      font-size: em(24px);
+      font-size: em(20px);
       font-weight: 600;
-      line-height: em(20px);
+
       @media (max-width: 880px) {
-        line-height: em(28px);
-      }
-      @media (max-width: 880px) {
+        // line-height: em(28px);
         font-size: em(18px);
       }
     }
@@ -80,9 +79,9 @@
     }
 
     img {
-      width: em(56px);
+      width: em(52px);
       border-radius: 50%;
-      align-self: center;
+      align-self: flex-start;
     }
     border-bottom: 1px solid $clr6;
   }
