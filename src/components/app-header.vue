@@ -181,49 +181,12 @@ export default {
       if (this.$route.query.destination) return this.$route.query.destination
       return ''
     },
-    //   headerClasses() {
-    //     var classObj = {}
-    //     if (this.$route.path === '/') {
-    //       //if at homepage
-    //       classObj.layout = 'main-layout-homepage' //fits explore page regarding - layout
-    //       if (this.scrollLoc > 20) {
-    //         classObj.headerStyle = 'small-search' //colors, background, height
-    //       } else {
-    //         classObj.headerStyle = 'full-search' //colors, background, height
-    //       }
-    //     } else if (this.$route.params.stayId) {
-    //       //details page
-    //       classObj.layout = 'main-layout' //details page
-    //       classObj.headerStyle = 'small-search'
-    //     } else if (this.$route.path === '/stay') {
-    //       classObj.layout = 'main-layout-homepage'
-    //       classObj.headerStyle = 'small-search'
-    //     }
-    //     if (this.$route.path === '/') {
-    //       classObj.page = 'homepage'
-    //     }
-    //     if (this.$route.path === '/') classObj.page = 'homepage'
-    //     if (this.isFullSearch) classObj.headerStyle = 'full-search'
-    //     // console.log('obj', this.isFullSearch)
-    //     return Object.values(classObj)
-    //   },
   },
   watch: {
-    // '$route.params.stayId': {
-    //   handler(newVal) {
-    //     this.isFullSearch = newVal ? false : true
-    //   },
-    //   immediate: true,
-    // },
-    // $route: {
-    //   handler(newVal) {
-    //     console.log(newVal)
-    // },
     $route() {
       // console.log(this.$route.path)
       this.updateScroll()
     },
-    // },
   },
   components: {
     mainSearch,
