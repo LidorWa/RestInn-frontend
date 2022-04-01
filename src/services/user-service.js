@@ -76,48 +76,10 @@ function _saveLocalUser(user) {
 }
 
 function getLoggedinUser() {
-  return JSON.parse(
+  const user = JSON.parse(
     sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER) || "null"
   );
+  return user;
 }
 
-async function _createUsers() {
-  const users = [
-    {
-      _id: "fds45fe3",
-      fullname: "Liran Parti",
-      username: "liran@gmail.com",
-      password: "123",
 
-      imgUrl: "../assets/user-images/liran.jpg",
-    },
-    {
-      _id: "fds45fe2",
-      fullname: "Lidor Waldman",
-      username: "lidor@gmail.com",
-      password: "123",
-
-      imgUrl: "../assets/user-images/lidor.jpg",
-    },
-    {
-      _id: "fds45fe1",
-      fullname: "Tal Itay",
-      username: "tal@gmail.com",
-      password: "123",
-
-      imgUrl: "../assets/user-images/tal.jpg",
-    },
-    {
-      _id: "fds99fe1",
-      fullname: "Guest user",
-      username: "demo@gmail.com",
-      password: "demo",
-
-      imgUrl: "../assets/user-images/tal.jpg",
-    },
-  ];
-
-  await storageService.postMany(USER_KEY, users);
-
-  return users;
-}

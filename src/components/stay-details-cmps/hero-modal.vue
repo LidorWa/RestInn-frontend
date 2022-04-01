@@ -48,7 +48,7 @@
             </div>
             <div class="block">
               <span class="demonstration">Default</span>
-              <el-date-picker
+              <el-date-picker ref="modal-date-picker"
                 v-model="dates"
                 type="daterange"
                 start-placeholder="CHECK-IN"
@@ -64,6 +64,7 @@
               {{ getGuestsForDisplay }}
             </div>
           </div>
+          <!-- <span  -->
           <div
             class="check-availability-container"
             @click="onCheckAvailability"

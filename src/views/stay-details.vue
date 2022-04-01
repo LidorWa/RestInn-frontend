@@ -46,7 +46,7 @@
         WITH THINGS TO KNOW.
             TODO IT? IN KUMBA THEY DIDNT-->
           </section>
-          <hero-modal :stay="stay" :guestsFromStore="getGuests" @onCheckAvailability="onCheckAvailability" />
+          <hero-modal ref="hero-modal" :stay="stay" :guestsFromStore="getGuests" @onCheckAvailability="onCheckAvailability" />
         </section>
         <reviews-section :stay="stay" ref="reviews-section" />
         <map-section :address="stay.address" ref="map-section" />
@@ -148,9 +148,10 @@ export default {
       const dates = this.getDates
       const guests = this.getGuests
       if (!dates) {
-        this.alertModalMessage = 'Select dates to proceed'
+        this.$refs['hero-modal'].$refs['modal-date-picker'].focus();
+        // this.alertModalMessage = 'Select dates to proceed'
         this.isOrdering = false
-        this.isOrderAlert = true
+        // this.isOrderAlert = true
         return
       }
       if (guests.adults + guests.children > this.stay.capacity) {
@@ -159,6 +160,12 @@ export default {
         this.isOrderAlert = true
         return
       }
+      // if (!(guests.adults + guests.children )) {
+      //   this.alertModalMessage = `Select guests to proceed`
+      //   this.isOrdering = false
+      //   this.isOrderAlert = true
+      //   return
+      // }
 
       const user = this.$store.getters.getLoggedInUser
       if (!user) {

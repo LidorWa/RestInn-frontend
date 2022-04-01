@@ -101,7 +101,6 @@ export default {
   },
   computed: {
     topRatedStays() {
-      console.log(this.$store.getters.getTopRatedStays);
       return this.$store.getters.getTopRatedStays;
     },
 
