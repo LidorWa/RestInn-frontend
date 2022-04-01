@@ -3,7 +3,8 @@
     <!-- <div class="order-table-statistics">Rendering Months histograms?</div> -->
     <div class="dashboard-order-cont">
       <div class="dashboard-title date">Date</div>
-      <div class="dashboard-title booker">Booker</div>
+      <div class="dashboard-title host">Host</div>
+
       <div class="dashboard-title stay">Stay</div>
       <div class="dashboard-title trip-dates">Dates</div>
       <div class="dashboard-title nights">Nights</div>
@@ -11,10 +12,10 @@
       <div class="dashboard-title price">Price</div>
       <div class="dashboard-title total">Total</div>
       <div class="dashboard-title status">Status</div>
-      <div class="dashboard-title actions">Actions</div>
+      <div class="dashboard-title trip-actions">Actions</div>
     </div>
     <trip-preview
-      v-for="trip in trips"
+      v-for="trip in trips.slice().reverse()"
       :key="trip._id"
       :trip="trip"
       @updateStatus="updateStatus"
@@ -38,15 +39,6 @@ export default {
       required: true,
     },
   },
-  created() {
-    console.log("tripList", this.trips);
-    console.log("tripList", this.trips);
-    console.log("tripList", this.trips);
-    console.log("tripList", this.trips);
-    console.log("tripList", this.trips);
-    console.log("tripList", this.trips);
-  },
-  //   data() {},
   methods: {
     updateStatus(status) {
       this.$emit("updateStatus", status);

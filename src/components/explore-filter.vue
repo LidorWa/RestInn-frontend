@@ -4,9 +4,10 @@
     <div class="price-and-type-filters-cont">
       <div
         class="explore-filter-item select-type-cont select-price flex align-center"
+        :class="{ typeSelected: isPriceSelected }"
       >
         <span @click="togglePriceModal" class="flex align-center">
-          <span>Price</span>
+          <span class="type-span">Price</span>
           <span class="material-icons-outlined" v-if="!isPriceFiltering">
             arrow_drop_down
           </span>
@@ -161,6 +162,7 @@ export default {
         "Cable TV": false,
       },
       isTypeSelected: false,
+      isPriceSelected: false,
 
       filterBy: {
         price: [],
@@ -189,9 +191,8 @@ export default {
       this.filterBy.city = this.filterByCity;
     }
 
-    if (this.filerByType.length) {
+    if (this.filerByType) {
       this.filterBy.type = this.filerByType;
-
       this.typeFromParams[this.filterBy.type[0]] = true;
       // this.setFilter();
     }
@@ -212,6 +213,8 @@ export default {
         const idx = this.filterBy.type.findIndex((t) => t === type);
         this.filterBy.type.splice(idx, 1);
       }
+
+      this.isTypeSelected = !!this.filterBy.type.length;
 
       this.setTypeFilter();
     },
@@ -249,11 +252,14 @@ export default {
     },
   },
   computed: {
+    isPriceSelected() {
+      return this.filterBy.price[0] > 1 || this.filterBy.price[1] < 1800;
+    },
     getPriceModalText() {
       return `$${this.filterBy.price[0]} - $${this.filterBy.price[1]}`;
     },
     getTypeMenuTitle() {
-      if (!this.filterBy.type) {
+      if (!this.filterBy.type.length) {
         this.isTypeSelected = false;
         return "Type of place";
       }

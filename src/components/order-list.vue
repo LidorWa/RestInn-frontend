@@ -1,5 +1,5 @@
 <template>
-  <section class="dash-board main-layout-homepage">
+  <section class="main-layout-homepage">
     <!-- <div class="order-table-statistics">Rendering Months histograms?</div> -->
     <div class="dashboard-order-cont">
       <div class="dashboard-title date">Date</div>
@@ -14,7 +14,7 @@
       <div class="dashboard-title actions">Actions</div>
     </div>
     <order-preview
-      v-for="order in orders"
+      v-for="order in orders.slice().reverse()"
       :key="order._id"
       :order="order"
       @updateStatus="updateStatus"

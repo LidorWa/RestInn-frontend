@@ -2,7 +2,7 @@
   <section class="dashboard-order-cont">
     <div class="date">{{ timeConversion(order.createdAt) }}</div>
     <div class="booker">{{ order.buyer.fullname }}</div>
-    <div class="stay">{{ formattedText }}</div>
+    <div @click="goToStay" class="stay">{{ formattedText }}</div>
     <div class="trip-dates">
       {{ timeConversion(order.startDate) }} -
       {{ timeConversion(order.endDate) }}
@@ -45,6 +45,9 @@ export default {
   },
 
   methods: {
+    goToStay() {
+      this.$router.push(`/stay/${this.trip.stay._id}`);
+    },
     getFormatedPrice(price) {
       var formatter = new Intl.NumberFormat("en-US", {
         style: "currency",

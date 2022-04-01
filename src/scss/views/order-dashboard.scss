@@ -14,9 +14,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0px;
-
+  padding: 15px 0px;
   border-bottom: 1px solid $clr5;
+
+  .stay-link {
+    color: blue;
+    cursor: pointer;
+    transition: 0.1s;
+
+    &:hover {
+      color: $clr1;
+      font-weight: 600;
+    }
+  }
 
   &.hover {
     background-color: $clr7;
@@ -27,14 +37,48 @@
     padding: 5px;
   }
 
-  .date,
-  .total,
-  .price {
-    width: 80px;
+  .host {
+    width: 120px;
+
+    @media (max-width: 1100px) {
+      display: none;
+    }
   }
 
   .booker {
-    width: 120px;
+    width: 100px;
+
+    @media (max-width: 1050px) {
+      display: none;
+    }
+  }
+
+  .date {
+    width: 80px;
+
+    @media (max-width: 960px) {
+      display: none;
+    }
+  }
+
+  .nights {
+    width: 60px;
+
+    @media (max-width: 890px) {
+      display: none;
+    }
+  }
+
+  .price {
+    width: 80px;
+
+    @media (max-width: 820px) {
+      display: none;
+    }
+  }
+
+  .total {
+    width: 80px;
   }
 
   .status {
@@ -44,15 +88,18 @@
 
   .trip-dates,
   .stay {
-    width: 150px;
+    width: 165px;
   }
   .actions {
     width: 180px;
   }
 
-  .nights,
+  .trip-actions {
+    width: 70px;
+  }
+
   .guests {
-    width: 80px;
+    width: 60px;
   }
 
   .approved {

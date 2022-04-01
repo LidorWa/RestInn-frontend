@@ -1,8 +1,9 @@
 <template>
   <section v-if="trip" class="dashboard-order-cont">
     <div class="date">{{ timeConversion(trip.createdAt) }}</div>
-    <div class="booker">{{ trip.buyer.fullname }}</div>
-    <div class="stay">{{ formattedText }}</div>
+    <div v-if="hostName" class="host">{{ hostName }}</div>
+
+    <div @click="goToStay" class="stay stay-link">{{ formattedText }}</div>
     <div class="trip-dates">
       {{ timeConversion(trip.startDate) }} -
       {{ timeConversion(trip.endDate) }}
@@ -14,7 +15,7 @@
     <div class="price">{{ getFormatedPrice(trip.stay.price) }} / n</div>
     <div class="total">{{ getFormatedPrice(trip.totalPrice) }}</div>
     <div class="status" :class="trip.status">{{ trip.status }}</div>
-    <div class="actions actions-container">
+    <div class="trip-actions actions-container">
       <button :disabled="isUnancelable" @click="updateStatus('canceled')">
         Cancel
       </button>
@@ -32,8 +33,22 @@ export default {
       required: true,
     },
   },
-
+  data() {
+    return {
+      hostName: "",
+    };
+  },
+  async created() {
+    const host = await this.$store.dispatch({
+      type: "getUserById",
+      userId: this.trip.hostId,
+    });
+    this.hostName = host.fullname;
+  },
   methods: {
+    goToStay() {
+      this.$router.push(`/stay/${this.trip.stay._id}`);
+    },
     getFormatedPrice(price) {
       var formatter = new Intl.NumberFormat("en-US", {
         style: "currency",
