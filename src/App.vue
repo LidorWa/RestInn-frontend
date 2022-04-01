@@ -46,10 +46,9 @@ export default {
       amenities: [],
       guests: 0,
     }
+    this.$store.dispatch({ type: 'getUserFromSession' })
 
     await this.$store.dispatch({ type: 'loadStays', filterBy })
-
-    this.$store.dispatch({ type: 'getUserFromSession' })
   },
   computed: {
     isSignUp() {

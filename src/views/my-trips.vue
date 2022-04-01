@@ -1,5 +1,5 @@
 <template>
-  <section class="dashboard">
+  <section class="dashboard" v-if="loggedInUser">
     <img
       class="loading-img"
       v-if="isLoading"
@@ -17,13 +17,19 @@ export default {
   name: "my-trips",
 
   date() {
-    return {};
+    return {
+      loggedInUser: {},
+    };
   },
   //   mounted() {},
   async created() {
-    const loggedInUser = this.$store.getters.getLoggedInUser;
+    console.log('created 4');
+
+    this.loggedInUser = this.$store.getters.getLoggedInUser;
+    console.log('loggedInUser', this.loggedInUser);
+    
     const filterBy = {
-      userId: loggedInUser._id,
+      userId: this.loggedInUser?._id,
     };
     try {
       await this.$store.dispatch({ type: "loadOrders", filterBy });
