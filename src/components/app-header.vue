@@ -1,59 +1,42 @@
 <template>
-  <section class="main-header-section" :class="homepageClass">
+  <section class="main-header-section">
     <!-- <div class="header-container"> -->
-    <div class="header-container">
-      <!-- <header class="main-header-container flex flex-column align-center" :class="getHeaderClass"> -->
-      <header class="main-header-container flex flex-column align-center" :class="headerClasses">
-        <!-- <header class="main-header-container flex flex-column align-center" :class="{ top: headerStatus === 'top', shrinkSearchBar: headerStatus === 'shrinkSearchBar', homepage: this.$route.path === '/', 'explore-page': this.$route.path === '/stay', 'details-page': this.$route.path === '/stay/:stayId' }"> -->
-        <!-- <header class="main-header-container flex flex-column align-center" :class="headerStatus">-->
-        <!-- <header :class="'main-header-container flex flex-column align-center ' + headerStatus"> -->
-        <div class="logo-nav-container flex space-between">
-          <div class="logo flex align-center" @click="goHome">
-            <i class="fa-brands fa-airbnb"></i>
-            <h1 class="logo-txt">RestInn</h1>
-          </div>
-          <!-- Mini search bar -->
-          <div v-show="!isFullSearch" @click="toggleMiniSearch" class="search mini-search inline-flex justify-center align-center space-between">
-            <div>{{ getSearchText }}</div>
-            <div class="search-icon-small">
-              <img src="../assets/svgs/search.svg" alt="search Icon" />
-            </div>
-          </div>
-
-          <!-- nav -->
-          <nav class="main-header-nav flex align-center">
-            <router-link to="/stay">Explore</router-link>
-            <router-link to="/host">Become a host</router-link>
-            <!-- TODO: try change svg color -->
-            <!-- <div class="language flex align-center justify-center">
-          <img src="../assets/svgs/en.svg" alt="language change icon" />
-            </div>-->
-
-            <!-- hamburger -->
-            <div class="hamburger-user-menu btn flex space-between" @click="isShowingHamburger = true">
-              <img class="hamburger-img" src="../assets/svgs/menu_black_24dp.svg" alt="menu-icon" />
-
-              <img class="hamburger-avatar" src="../assets/svgs/user-avatar.svg" alt="user avatar" />
-            </div>
-          </nav>
-          <header-user-menu :class="{ showHamburger: isShowingHamburger }" @goToDashboard="goToDashboard" @goToMyTrips="goToMyTrips" @openSignUp="openSignUp" @logout="logout" />
-          <div v-if="isShowingHamburger" class="outsideUserMenu" @click="isShowingHamburger = false"></div>
+    <header class="main-header-container flex flex-column align-center" :class="{ [headerClass]: true, [layout]: true }">
+      <div class="logo-nav-container flex space-between">
+        <div class="logo flex align-center" @click="goHome">
+          <i class="fa-brands fa-airbnb"></i>
+          <h1 class="logo-txt">RestInn</h1>
         </div>
-        <div v-show="isFullSearch" class="main-search-bar flex justify-center align-center">
-          <main-search @mainSearchClosed="mainSearchClosed" :savedLocation="getLocation" :savedDates="getDates" :savedGuests="getGuests" />
+
+        <!-- Mini search bar -->
+        <div v-show="!showMainSearch && isSearch" @click="toggleShowMainSearch" class="mini-search inline-flex justify-center align-center space-between">
+          <div>{{ getSearchText }}</div>
+          <div class="search-icon-small">
+            <img src="../assets/svgs/search.svg" alt="search Icon" />
+          </div>
         </div>
-        <!-- <sign-up
-        :class="{ showSignUp: isSignUp }"
-        @closeSignUp="closeSignUp"
-        ref="signup"
-      />
-      <div
-        v-if="isSignUp"
-        class="outsideUserMenu"
-        @click="isSignUp = false"
-        ></div>-->
-      </header>
-    </div>
+
+        <!-- nav -->
+        <nav class="main-header-nav flex align-center">
+          <router-link to="/stay">Explore</router-link>
+          <router-link to="/host" class="be-host-nav">Become a host</router-link>
+
+          <!-- hamburger -->
+          <div class="hamburger-user-menu btn flex space-between" @click="isShowingHamburger = true">
+            <img class="hamburger-img" src="../assets/svgs/menu_black_24dp.svg" alt="menu-icon" />
+
+            <img class="hamburger-avatar" src="../assets/svgs/user-avatar.svg" alt="user avatar" />
+          </div>
+          <header-user-menu :class="{ showHamburger: isShowingHamburger }" @goToDashboard="goToDashboard" @goToMyTrips="goToMyTrips" @openSignUp="openSignUp" @logout="logout" @goToExplore="goToExplore" />
+        </nav>
+        <div v-if="isShowingHamburger" class="outsideUserMenu" @click="isShowingHamburger = false"></div>
+      </div>
+      <!-- main search -->
+      <div v-show="showMainSearch && isSearch" class="main-search-bar flex justify-center align-center">
+        <main-search @mainSearchClosed="mainSearchClosed" :savedLocation="getLocation" :savedDates="getDates" :savedGuests="getGuests" />
+      </div>
+    </header>
+    <!-- </div> -->
   </section>
 </template>
 
@@ -68,16 +51,18 @@ export default {
       type: String,
       default: 'top',
     },
-    // scrollY: {
-    //   type: Number,
-    // },
   },
   data() {
     return {
-      isFullSearch: true,
       isShowingHamburger: false,
       isSignUp: false,
       scrollLoc: 0,
+      scrollStatus: 'up', // up / down
+      isFullSearch: true,
+      showMainSearch: true, // true / false
+      headerClass: '',
+      isSearch: true, // true home and explore || false in any other page
+      layout: 'main-layout-homepage',
     }
   },
   created() {
@@ -85,6 +70,7 @@ export default {
     // console.log('$route.query', this.$route)
     document.addEventListener('scroll', this.updateScroll)
   },
+
   methods: {
     goToMyTrips() {
       this.isShowingHamburger = false
@@ -94,14 +80,17 @@ export default {
       this.isShowingHamburger = false
       this.$router.push('/dashboard')
     },
+    goToExplore() {
+      this.isShowingHamburger = false
+      this.$router.push('/stay')
+    },
     updateScroll() {
-      if (this.$route.params.stayId) {
-        this.isFullSearch = false
-        this.scrollLoc = window.scrollY
-        return
+      if (window.scrollY <= 20) {
+        this.scrollStatus = 'up'
+      } else {
+        this.scrollStatus = 'down'
       }
-      this.scrollLoc = window.scrollY
-      this.isFullSearch = scrollY <= 20 ? true : false
+      this.setHeaderClass()
     },
     logout() {
       this.$store.dispatch({ type: 'logout' })
@@ -115,29 +104,53 @@ export default {
       this.$store.commit({ type: 'setLocation', location })
       this.$store.commit({ type: 'setDates', dates })
       this.$store.commit({ type: 'setGuests', guests })
-      // this.location = location;
-      // this.dates = dates;
-      // this.guests = guests;
     },
-    toggleMiniSearch() {
-      this.isFullSearch = !this.isFullSearch
+    toggleShowMainSearch() {
+      this.showMainSearch = !this.showMainSearch
     },
     goHome() {
       this.$router.push('/')
     },
+    setHeaderClass() {
+      console.log('path', this.$route.path)
+      if (this.$route.path === '/') {
+        this.layout = 'main-layout-homepage'
+        this.isSearch = true
+        if (this.scrollStatus === 'up') {
+          this.showMainSearch = true
+          this.headerClass = 'full-search-home'
+        } else {
+          // scrollStatus down
+          this.showMainSearch = false
+          this.headerClass = 'small-search'
+        }
+      } else if (this.$route.params.stayId) {
+        this.layout = 'main-layout'
+        this.isSearch = true
+        this.showMainSearch = false
+        this.headerClass = 'small-search'
+      } else if (this.$route.path === '/stay') {
+        this.layout = 'main-layout-homepage'
+        this.isSearch = true
+        this.showMainSearch = false
+        this.headerClass = 'small-search'
+      } else if (this.$route.path === '/dashboard') {
+        this.layout = 'main-layout-homepage'
+        this.isSearch = false
+        this.headerClass = 'on-dashboard'
+        this.showMainSearch = false
+      } else {
+        this.layout = 'main-layout-homepage'
+        this.isSearch = false
+        this.headerClass = 'small-search'
+      }
+    },
   },
   computed: {
-    homepageClass() {
-      let classesStr = ''
-      if (this.scrollLoc > 20) classesStr += 'scrolled '
-      if (this.$route.path === '/') classesStr += 'homepage'
-      return classesStr
-    },
     getSearchText() {
       if (this.$route.query.destination) return this.$route.query.destination
       return 'Start your search'
     },
-
     getDates() {
       return this.$store.getters.getDates
     },
@@ -148,119 +161,49 @@ export default {
       if (this.$route.query.destination) return this.$route.query.destination
       return ''
     },
-    // getHeaderClass() {
-    //   return {
-    //     top: this.headerStatus === 'top',
-    //     shrinkSearchBar: this.headerStatus === 'shrinkSearchBar',
-    //     homepage: this.$route.path === '/',
-    //     'explore-page': this.$route.path === '/stay',
-    //     'details-page': this.$route.path.length > 10,
-    //     'main-search-open': this.isMiniSearchShown && this.scrollY > 20,
-    //   }
-    //   obj = {
-    //     layout: 'main-layout',
-    //     isClose: 'close',
-    //   }
-    //   return Object.values()
-    // },
-    // checkMiniSearch() {
-    //   return (this.headerStatus === 'shrinkSearchBar' && !this.isMiniSearchShown) || (this.$route.path.length > 10 && !this.isMiniSearchShown)
-    // },
-    // checkMainSearch() {
-    //   return (this.headerStatus === 'top' && this.$route.path.length < 10 && (this.$route.path === '/' || this.$route.path.includes('/stay'))) || (this.isMiniSearchShown && (this.headerStatus === 'shrinkSearchBar' || this.$route.path.length > 10))
-    // },
-    // logoStyle() {
-    //   var color
-    //   if (this.$route.path === '/stay') {
-    //     color = '#222222'
-    //     console.log('#222222')
-    //   } else {
-    //     console.log('#FFFFFF')
-    //     color = '#FFFFFF'
-    //   }
-    //   return { color: color }
-    // },
-    // headerClasses() {
-    //   var classObj = {}
-    //   if (this.$route.path === '/') {
-    //     classObj.layout = 'home-layout' //fits explore page regarding open/close main/mini search
-    //     if (this.scrollLoc > 20) {
+    //   headerClasses() {
+    //     var classObj = {}
+    //     if (this.$route.path === '/') {
+    //       //if at homepage
+    //       classObj.layout = 'main-layout-homepage' //fits explore page regarding - layout
+    //       if (this.scrollLoc > 20) {
+    //         classObj.headerStyle = 'small-search' //colors, background, height
+    //       } else {
+    //         classObj.headerStyle = 'full-search' //colors, background, height
+    //       }
+    //     } else if (this.$route.params.stayId) {
+    //       //details page
+    //       classObj.layout = 'main-layout' //details page
     //       classObj.headerStyle = 'small-search'
-    //     } else classObj.headerStyle = 'full-search'
-    //   } else if (this.$route.path === '/stay') {
-    //     classObj.layout = 'explore-layout'
-    //     if (this.scrollLoc > 20) {
+    //     } else if (this.$route.path === '/stay') {
+    //       classObj.layout = 'main-layout-homepage'
     //       classObj.headerStyle = 'small-search'
-    //     } else {
-    //       classObj.headerStyle = 'full-search'
     //     }
-    //   } else if (this.$route.params.stayId) {
-    //     classObj.layout = 'main-layout' //details page
-    //     classObj.headerStyle = 'small-search'
-    //   }
-    //   if (this.$route.path === '/') classObj.page = 'homepage'
-    //   if (this.isFullSearch) classObj.headerStyle = 'full-search'
-    //   // console.log('obj', this.isFullSearch)
-    //   return Object.values(classObj)
-    // },
-
-    headerClasses() {
-      var classObj = {}
-      if (this.$route.params.stayId) {
-        classObj.layout = 'main-layout' //details page
-        classObj.headerStyle = 'small-search'
-      } else {
-        classObj.layout = 'main-layout-homepage' //fits explore page regarding open/close main/mini search
-        if (this.scrollLoc > 20) {
-          classObj.headerStyle = 'small-search'
-        } else {
-          classObj.headerStyle = 'full-search'
-        }
-      }
-      if (this.$route.path === '/') {
-        classObj.page = 'homepage'
-      }
-      if (this.$route.path === '/') classObj.page = 'homepage'
-      if (this.isFullSearch) classObj.headerStyle = 'full-search'
-      // console.log('obj', this.isFullSearch)
-      return Object.values(classObj)
-    },
-    headerContainerHeight() {
-      const classObj = {}
-      if (this.$route.path === '/') {
-        classObj.headerStyle = 'noHeight'
-      }
-      return Object.values(classObj)
-    },
-
-    //TODO: watch stopped working?
+    //     if (this.$route.path === '/') {
+    //       classObj.page = 'homepage'
+    //     }
+    //     if (this.$route.path === '/') classObj.page = 'homepage'
+    //     if (this.isFullSearch) classObj.headerStyle = 'full-search'
+    //     // console.log('obj', this.isFullSearch)
+    //     return Object.values(classObj)
+    //   },
   },
   watch: {
-    /*
-      // headerStatus() {
-      //   console.log('Watch ******* headerStatus is:', this.headerStatus)
-      //   switch (this.headerStatus) {
-      //     case 'top':
-      //       this.isMiniSearchShown = false
-      //       break
-      //     case 'shrinkSearchBar':
-      //       //??????
-      //       this.isMiniSearchShown = true
-      //       break
-      //   }
-      // },
-      */
-    '$route.params.stayId': {
-      handler(newVal) {
-        this.isFullSearch = newVal ? false : true
-      },
-      immediate: true,
+    // '$route.params.stayId': {
+    //   handler(newVal) {
+    //     this.isFullSearch = newVal ? false : true
+    //   },
+    //   immediate: true,
+    // },
+    // $route: {
+    //   handler(newVal) {
+    //     console.log(newVal)
+    // },
+    $route() {
+      // console.log(this.$route.path)
+      this.updateScroll()
     },
-    $route: {
-      handler(newVal) {
-        console.log(newVal)
-      },
-    },
+    // },
   },
   components: {
     mainSearch,
@@ -271,33 +214,3 @@ export default {
 </script>
 
 <style></style>
-<!--  1  2 3  ,    true  false  -->
-
-<!-- 1 2 | 3 true -->
-<!-- 3 false  -->
-<!-- function computed() {
-   //             var classObj = {}
-//             if (this.$route.params.stayId) {
-//                 obj.layout = 'main-layout'
-//                 obj.headerStyle = 'small-search'
-//             }
-//             else {
-//                 obj.layout = 'home-layout'
-//                 if (window.scrollY > 20) {
-//                     obj.headerStyle = 'small-search'
-//                 }
-//             }
-//             if (isOpen) obj.headerStyle = 'full-search'
-//             return Object.values(obj)
-//         }
-//TODO: maybe something like this?
-  //   setCurrPage() {
-  //     let { destination } = this.$route.query
-  //     let { stayId } = this.$route.params
-  //     if (destination) {
-  //       this.currPage = 'explore'
-  //     } else if (stayId) {
-  //       this.currPage = 'details'
-  //     } else this.currPage = 'home'
-  //   },
-  // }, -->

@@ -4,6 +4,7 @@
     <p v-if="!isLoggerIn" @click="signUp">Log in</p>
     <p v-if="isLoggerIn" @click="logout">Log out</p>
     <hr />
+    <p @click="goToExplorePage" class="user-menu-explore">Explore</p>
     <p v-if="isLoggerIn" @click="goToMyTrips">My trips</p>
     <p v-if="isLoggerIn" @click="goToDashBoardPage">Host Dashboard</p>
     <p>Host your home</p>
@@ -14,36 +15,39 @@
 
 <script>
 export default {
-  name: "header-user-menu",
+  name: 'header-user-menu',
 
   data() {
     return {
       user: null,
-    };
+    }
   },
 
   methods: {
     logout() {
-      this.$emit("logout");
+      this.$emit('logout')
     },
     signUp() {
-      this.$emit("openSignUp");
+      this.$emit('openSignUp')
     },
     goToAboutPage() {
-      this.$router.push("/about");
+      this.$router.push('/about')
     },
     goToMyTrips() {
-      this.$emit("goToMyTrips");
+      this.$emit('goToMyTrips')
     },
     goToDashBoardPage() {
-      this.$emit("goToDashboard");
+      this.$emit('goToDashboard')
+    },
+    goToExplorePage() {
+      this.$emit('goToExplore')
     },
   },
   computed: {
     isLoggerIn() {
-      const user = this.$store.getters.getLoggedInUser;
-      return user ? true : false;
+      const user = this.$store.getters.getLoggedInUser
+      return user ? true : false
     },
   },
-};
+}
 </script>

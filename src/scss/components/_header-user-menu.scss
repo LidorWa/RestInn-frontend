@@ -37,3 +37,12 @@
 .sign-up-option {
   font-weight: 600 !important;
 }
+
+.user-menu-explore{
+  display: none
+  ;
+  @media (max-width: 782px) {
+    display: block;
+    }
+  } 
+
