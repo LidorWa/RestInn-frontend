@@ -1,43 +1,148 @@
 ///// dashboard ///
-.dash-board{
+.dash-board {
   padding-top: em(180px);
   // border: 1px solid $clr7;
 }
 
-
-
 /////list/////
-
-
-
-
+.dashboard-title {
+  font-weight: 600;
+}
 
 ///// preview//////
-.grid-table{
-  display: grid;
-  // grid-template-columns: repeat(11,1fr);
-  grid-template-columns: 1fr 1fr 2fr 1fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 1fr 1fr;
-  grid-template-rows: repeat(auto-fit,1fr);
-  
-  .order-preview-section{
-    grid-column: 1/-1;
-    
-    display: grid;
-    // grid-template-columns: repeat(11, 1fr);
-    grid-template-columns: 1fr 1fr 2fr 1fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 1fr 1fr;
+.dashboard-order-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+
+  border-bottom: 1px solid $clr5;
+
+  &.hover {
+    background-color: $clr7;
+  }
+
+  div {
+    text-align: center;
+    padding: 5px;
+  }
+
+  .date,
+  .total,
+  .price {
+    width: 80px;
+  }
+
+  .booker {
+    width: 120px;
+  }
+
+  .status {
+    width: 120px;
+    font-weight: 600;
+  }
+
+  .trip-dates,
+  .stay {
+    width: 150px;
+  }
+  .actions {
+    width: 180px;
+  }
+
+  .nights,
+  .guests {
+    width: 80px;
+  }
+
+  .approved {
+    color: rgb(0, 131, 0);
+  }
+
+  .rejected {
+    color: rgb(180, 0, 0);
+  }
+
+  .canceled {
+    color: rgb(117, 117, 117);
+  }
+
+  .pending {
+    color: rgb(0, 0, 219);
+  }
+
+  .actions-container {
+    display: flex;
+    justify-content: space-around;
+
+    button {
+      color: $clr3;
+      padding: 5px 10px;
+      font-size: em(14px);
+      transition: 0.1s;
+      border-radius: 7px;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+  button:last-of-type {
+    border: 1px solid rgb(0, 131, 0);
+    background-color: rgb(0, 131, 0);
+
+    &:hover {
+      border: 1px solid rgb(0, 175, 0);
+      background-color: rgb(0, 175, 0);
+    }
+
+    &:active {
+      border: 1px solid rgb(0, 211, 0);
+      background-color: rgb(0, 211, 0);
+    }
+  }
+  .cancel,
+  button:first-of-type {
+    border: 1px solid #b30000;
+    background-color: #b30000;
+
+    &:hover {
+      border: 1px solid #ee0000;
+      background-color: #ee0000;
+    }
+
+    &:active {
+      border: 1px solid #ff3b3b;
+      background-color: #ff3b3b;
+    }
   }
 }
-  // .order-table-container{
-  //      display: grid;
-  //         grid-template-columns: repeat(10, minmax (30px, 1fr));
-  //         grid-template-rows: 1fr 1fr 1fr 1fr;
-  //         gap: 4px 16px;
-  //         grid-auto-flow: row;
-  //         grid-template-areas:
-  //           ". . . . . . . . . . . . . . . . . ."
-  //           ". . . . . . . . . . . . . . . . . ."
-  //           ". . . . . . . . . . . . . . . . . ."
-  //           ". . . . . . . . . . . . . . . . . .";
-        
-        
-  // }
+
+// .grid-table {
+//   display: grid;
+//   // grid-template-columns: repeat(11,1fr);
+//   grid-template-columns: 1fr 1fr 2fr 1fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 1fr 1fr;
+//   grid-template-rows: repeat(auto-fit, 1fr);
+
+//   .order-preview-section {
+//     grid-column: 1/-1;
+
+//     display: grid;
+//     // grid-template-columns: repeat(11, 1fr);
+//     grid-template-columns: 1fr 1fr 2fr 1fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 1fr 1fr;
+//   }
+// }
+// .order-table-container{
+//      display: grid;
+//         grid-template-columns: repeat(10, minmax (30px, 1fr));
+//         grid-template-rows: 1fr 1fr 1fr 1fr;
+//         gap: 4px 16px;
+//         grid-auto-flow: row;
+//         grid-template-areas:
+//           ". . . . . . . . . . . . . . . . . ."
+//           ". . . . . . . . . . . . . . . . . ."
+//           ". . . . . . . . . . . . . . . . . ."
+//           ". . . . . . . . . . . . . . . . . .";
+
+// }

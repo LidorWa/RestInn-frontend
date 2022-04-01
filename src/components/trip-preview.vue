@@ -1,18 +1,21 @@
 <template>
-  <section class="order-preview-container">
-    <!-- <li>{{ timeConversion }}</li> -->
-    <div>{{ trip.createdAt }}</div>
-    <div>{{ trip.buyer.fullname }}</div>
-    <div>{{ formattedText }}</div>
-    <div>{{ trip.startDate }}</div>
-    <div>{{ trip.endDate }}</div>
-    <div>{{ trip.totalPrice / trip.stay.price }}</div>
-    <div>{{ trip.guests.adults + trip.guests.children }}</div>
-    <div>{{ trip.stay.price }}</div>
-    <div>{{ trip.totalPrice }}</div>
-    <div>{{ trip.status }}</div>
-    <div>
-      <button :disabled="isUnancelable" @click="updateStatus('cancled')">
+  <section v-if="trip" class="dashboard-order-cont">
+    <div class="date">{{ timeConversion(trip.createdAt) }}</div>
+    <div class="booker">{{ trip.buyer.fullname }}</div>
+    <div class="stay">{{ formattedText }}</div>
+    <div class="trip-dates">
+      {{ timeConversion(trip.startDate) }} -
+      {{ timeConversion(trip.endDate) }}
+    </div>
+    <div class="nights">
+      {{ Math.round(trip.totalPrice / trip.stay.price) }}
+    </div>
+    <div class="guests">{{ trip.guests.adults + trip.guests.children }}</div>
+    <div class="price">{{ getFormatedPrice(trip.stay.price) }} / n</div>
+    <div class="total">{{ getFormatedPrice(trip.totalPrice) }}</div>
+    <div class="status" :class="trip.status">{{ trip.status }}</div>
+    <div class="actions actions-container">
+      <button :disabled="isUnancelable" @click="updateStatus('canceled')">
         Cancel
       </button>
     </div>
@@ -31,17 +34,28 @@ export default {
   },
 
   methods: {
-    updateStatus(status) {
-      this.$emit("updateStatus", { status, tripId: this.trip._id });
-    },
-    getFormatedTime(time) {
-      const now = new Date();
-      const date = new Date(time);
-      // const timePassed = now - date
+    getFormatedPrice(price) {
+      var formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0,
+      });
 
-      return `${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}/${
-        date.getMonth() < 9 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1
-      }`;
+      return formatter.format(price);
+    },
+    updateStatus(status) {
+      const id = this.trip._id;
+      this.$emit("updateStatus", { status, tripId: id });
+    },
+    timeConversion(time) {
+      let date = new Date(time).getDate();
+      date = date < 10 ? "0" + date : date;
+      let month = new Date(time).getMonth() + 1;
+      month = month < 10 ? "0" + month : month;
+      let year = new Date(time).getFullYear().toString().substring(2) + "";
+      const convertedTime = `${date}/${month}/${year}`;
+
+      return convertedTime;
     },
   },
   computed: {
@@ -49,9 +63,11 @@ export default {
       const startDate = this.trip.startDate;
       const now = Date.now();
       const threeDays = 1000 * 60 * 60 * 72;
-      console.log(startDate);
-      console.log(now);
-      return now - startDate < threeDays || this.trip.status !== "approved";
+      return (
+        startDate - now < threeDays ||
+        this.trip.status === "canceled" ||
+        this.trip.status === "rejected"
+      );
     },
     formattedText() {
       if (this.trip.stay.name.length > 15) {
