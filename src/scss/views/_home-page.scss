@@ -1,15 +1,44 @@
-// .home-page-container {
+.home-page-container {
+  .tag{
+    font-family: cereal-bold;
+    font-size: em(25px);
+    color: $clr3;
+    position: absolute;
+    letter-spacing: 0.11em;
+    // background-color: black; 
+    text-shadow: -2px -2px $clr2;
+  }
 
+  .tag-line-container{
+    transform: translate(0%, 1117%);
+  }
+  .tag-line1{
+    transform: translate(77px, 1117%);
+  }
+  .tag-line2{
+    transform: translate(65%, 1350%);
+
+  }
+}
 .main-hero-img {
+  position: relative;
   background-image: url("@/assets/system-imgs/homepage5.jpeg");
-  background-position: 50% 90%;
-  // background-position: center;
+  // background-position: 50% 90%;
+  background-position: center center;
   height: 70vh;
   width: 100%;
+  // height: auto;
   // aspect-ratio: ;
   // height: 1200px;
   background-size: cover;
   background-repeat: no-repeat;
+  // TODO:
+  aspect-ratio: 5 / 3;
+  // img{
+    // height: 50vh;
+    // width: 100%;
+
+  // }
 }
 
 //Popular destinations
