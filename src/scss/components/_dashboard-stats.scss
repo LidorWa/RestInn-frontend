@@ -1,0 +1,41 @@
+.dashboard-stats {
+  padding-bottom: 25px;
+  height: 425px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  .nights-chart {
+    height: 170px;
+    max-width: 540px;
+    align-self: flex-start;
+  }
+
+  .stats-card {
+    padding: 25px;
+    width: 270px;
+    height: 180px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+    border-radius: 15px;
+
+    h1 {
+      font-size: em(19px);
+      text-align: center;
+      padding-bottom: 25px;
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+
+      .rev-stat {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 9px;
+        font-size: em(16px);
+        font-weight: 600;
+      }
+    }
+  }
+}
