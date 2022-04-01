@@ -66,15 +66,12 @@
 </template>
 
 <script>
-// import homePageImg from '@/assets/homepage.png'
-import { stayService } from "../services/stay-service";
 export default {
   name: "home-page",
   data() {
     return {};
   },
   components: {
-    // homePageImg,
   },
   created() {},
   methods: {
@@ -107,10 +104,6 @@ export default {
     stays() {
       return this.$store.getters.getStays;
     },
-    // getImgUrl() {
-    //   const imgUrl = new URL(`../assets/home-page.png`, import.meta.url)
-    //   return imgUrl
-    // },
   },
   unmounted() {},
 };
