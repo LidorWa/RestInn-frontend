@@ -7,12 +7,10 @@
         </div>
 
         <h1 class="confirm-text">Your order has been received</h1>
-        <h1 class="confirm-text">
-          We will let you know when the host responds
-        </h1>
+        <h1 class="confirm-text">We will let you know when the host responds</h1>
         <h1 class="confirm-text">
           You can follow the order status in
-          <span @click="goToMyTrips"> My trips </span> page
+          <span @click="goToMyTrips">My trips</span> page
         </h1>
       </div>
       <div v-if="displayConfirmation" class="confirmation-details">
@@ -27,17 +25,13 @@
         <div class="trip-details">
           <div class="stay-user-details">
             <h1 class="confirm-text">Stay name: {{ stay.name }}</h1>
-            <h1 class="confirm-text">
-              {{ stay.address.city }}, {{ stay.address.country }}
-            </h1>
+            <h1 class="confirm-text">{{ stay.address.city }}, {{ stay.address.country }}</h1>
             <h1 class="confirm-text">Check in: {{ getFormatedDate(0) }}</h1>
             <h1 class="confirm-text">
               Check out:
               {{ getFormatedDate(1) }}
             </h1>
-            <h1 class="confirm-text">
-              {{ getGuestsForDisplay }}
-            </h1>
+            <h1 class="confirm-text">{{ getGuestsForDisplay }}</h1>
             <h1 class="confirm-text">Total: ${{ getTotalPrice }}</h1>
           </div>
           <div class="host-details">
@@ -52,15 +46,9 @@
         </div>
       </div>
       <div class="modal-btns-container">
-        <div v-if="!isConfirmed" class="sign-up-continue" @click="confirm">
-          Confirm
-        </div>
-        <div v-if="!isConfirmed" class="sign-up-continue" @click="closeModal">
-          Go back
-        </div>
-        <div v-if="isConfirmed" class="sign-up-continue" @click="closeModal">
-          Close
-        </div>
+        <div v-if="!isConfirmed" class="sign-up-continue" @click="confirm">Confirm</div>
+        <div v-if="!isConfirmed" class="sign-up-continue go-back" @click="closeModal">Go back</div>
+        <div v-if="isConfirmed" class="sign-up-continue" @click="closeModalAndClean">Close</div>
       </div>
     </div>
   </section>
@@ -137,13 +125,11 @@ export default {
 
       const dates = new Date(arrayDates[num]);
 
-      return `${
-        dates.getDate() < 10 ? "0" + dates.getDate() : dates.getDate()
-      }/${
-        dates.getMonth() < 9
+      return `${dates.getDate() < 10 ? "0" + dates.getDate() : dates.getDate()
+        }/${dates.getMonth() < 9
           ? "0" + (dates.getMonth() + 1)
           : dates.getMonth() + 1
-      }/${dates.getFullYear().toString().substring(2)}`;
+        }/${dates.getFullYear().toString().substring(2)}`;
     },
     goToMyTrips() {
       this.isConfirmed = false;
@@ -155,6 +141,12 @@ export default {
       this.isConfirmed = false;
       this.$emit("closeModal");
     },
+    closeModalAndClean() {
+      this.$store.commit({ type: 'clearOrderingDetails' });
+      this.isConfirmed = false;
+      this.$emit("closeModal");
+      this.$router.push('/')
+    }
   },
   computed: {
     displayConfirmation() {

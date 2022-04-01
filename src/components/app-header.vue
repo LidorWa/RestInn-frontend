@@ -95,6 +95,7 @@ export default {
     logout() {
       this.$store.dispatch({ type: 'logout' })
       this.isShowingHamburger = false
+      this.$router.push('/')
     },
     openSignUp() {
       this.$store.commit({ type: 'openSignUpModal' })
@@ -147,6 +148,25 @@ export default {
     },
   },
   computed: {
+    isLoggedIn() {
+      const user = this.$store.getters.getLoggedInUser
+
+      return !!user
+    },
+    getLoggedInUserImage() {
+      const user = this.$store.getters.getLoggedInUser
+      if (user) {
+        console.log(user)
+        const imgUrl = new URL(`@/assets/images/${user.imgUrl}`, import.meta.url)
+        return imgUrl
+      }
+    },
+    homepageClass() {
+      let classesStr = ''
+      if (this.scrollLoc > 20) classesStr += 'scrolled '
+      if (this.$route.path === '/') classesStr += 'homepage'
+      return classesStr
+    },
     getSearchText() {
       if (this.$route.query.destination) return this.$route.query.destination
       return 'Start your search'

@@ -15,7 +15,7 @@
     display: flex;
     width: 40%;
     justify-content: flex-end;
-    padding: em(48px) 0px em(183px) 0px;
+    padding: em(26px) 0px em(183px) 0px;
 
     @media (max-width: 880px) {
       padding-bottom: em(204px);
@@ -54,7 +54,7 @@
       }
 
       .hero-modal-container {
-        box-shadow: 0 em(3px) em(10px) rgb(0 0 0 / 0.2);
+        box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
         border-radius: em(15px);
         width: 100%;
         height: em(390px);
@@ -121,13 +121,16 @@
             width: 100%;
             justify-content: center;
             flex-direction: row;
-
+            
             .hero-modal-check-in {
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
               border: em(0.8px) solid rgb(176, 176, 176);
               border-top-left-radius: em(8px);
               border-bottom: unset;
               border-right: unset;
-              padding-top: em(6px);
+              // padding-top: em(6px);
               padding-left: em(8px);
               width: 45%;
               height: em(56px);
@@ -140,6 +143,9 @@
               }
             }
             .hero-modal-check-out {
+              display: flex;
+              flex-direction: column;
+              justify-content: center; 
               border: em(0.8px) solid rgb(176, 176, 176);
               border-top-right-radius: em(8px);
               border-bottom: unset;
@@ -156,12 +162,14 @@
             }
           }
           .hero-modal-guests {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             border: em(0.8px) solid rgb(176, 176, 176);
             border-bottom-left-radius: em(8px);
             border-bottom-right-radius: em(8px);
             width: 90%;
             height: em(56px);
-            padding-top: em(6px);
             padding-left: em(8px);
             label {
               font-family: circular-book;
@@ -186,7 +194,7 @@
             background-color: $clr1;
           }
           .check-availability-container:hover {
-            background-color: rgba($clr1, 0.9);
+            background-color: #e51e4f;
           }
           .hero-modal-check-in,
           .hero-modal-check-out,

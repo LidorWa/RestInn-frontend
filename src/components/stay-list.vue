@@ -1,5 +1,5 @@
 <template>
-  <section v-if="stays">
+  <section v-if="stays" class="stay-list-container">
     <img
       class="loading-img"
       v-if="isLoading"

@@ -1,28 +1,29 @@
 <template>
-  <section class="trip-list-container main-layout">
-    <!-- <div class="trip-table-statistics">Rendering Months histograms?</div> -->
-    <div class="grid-table">
-      <div class="date">Date</div>
-      <div class="booker">Booker</div>
-      <div class="stay">Stay</div>
-      <div class="check-in">Check in</div>
-      <div class="check-out">Check out</div>
-      <div class="nights">Nights</div>
-      <div class="guests">Guests</div>
-      <div class="amount">Price</div>
-      <div class="total">Total</div>
-      <div class="status">Status</div>
-      <div class="actions">Actions</div>
-      <trip-preview
-        v-for="trip in trips"
-        :key="trip._id"
-        :trip="trip"
-        @updateStatus="updateStatus"
-      />
-      <!-- <li @click="$router.push(`/trip/${trip._id}`)" class="trip-preview"></li> -->
+  <section v-if="trips" class="dash-board main-layout-homepage">
+    <!-- <div class="order-table-statistics">Rendering Months histograms?</div> -->
+    <div class="dashboard-order-cont">
+      <div class="dashboard-title date">Date</div>
+      <div class="dashboard-title host">Host</div>
+
+      <div class="dashboard-title stay">Stay</div>
+      <div class="dashboard-title trip-dates">Dates</div>
+      <div class="dashboard-title nights">Nights</div>
+      <div class="dashboard-title guests">Guests</div>
+      <div class="dashboard-title price">Price</div>
+      <div class="dashboard-title total">Total</div>
+      <div class="dashboard-title status">Status</div>
+      <div class="dashboard-title trip-actions">Actions</div>
     </div>
-    <!-- <div class="trip-table-container clean-list">
-      <ul v-if="trips" class="trip-list clean-list"></ul>
+    <trip-preview
+      v-for="trip in trips.slice().reverse()"
+      :key="trip._id"
+      :trip="trip"
+      @updateStatus="updateStatus"
+    />
+    <!-- <li @click="$router.push(`/order/${order._id}`)" class="order-preview"></li> -->
+
+    <!-- <div class="order-table-container clean-list">
+      <ul v-if="orders" class="order-list clean-list"></ul>
     </div>-->
   </section>
 </template>
@@ -38,10 +39,6 @@ export default {
       required: true,
     },
   },
-  created() {
-    // console.log('tripList', this.props.trips)
-  },
-  //   data() {},
   methods: {
     updateStatus(status) {
       this.$emit("updateStatus", status);

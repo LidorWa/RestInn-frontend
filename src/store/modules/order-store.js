@@ -5,7 +5,7 @@ export default {
     location: "",
     dates: null,
     guests: { adults: 0, children: 0 },
-    isOrdering: false,
+    // isOrdering: false,
     orders: [],
     total: 0,
   },
@@ -62,6 +62,13 @@ export default {
     removeOrder(state, { orderId }) {
       const idx = state.orders.findIndex((order) => order._id === orderId);
       state.orders.splice(idx, 1);
+    },
+    clearOrderingDetails(state) {
+      state.location = "";
+      state.dates = null;
+      state.guests = { adults: 0, children: 0 };
+      // state.isOrdering = false,
+      state.total = 0;
     },
   },
   actions: {

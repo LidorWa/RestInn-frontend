@@ -46,10 +46,10 @@
   left: 0;
   height: 100vh;
   width: 100%;
-  transform: translateY(-200%);
+  transform: translateY(-500%);
   background-color: $clr3;
   text-align: start;
-  transition: 0.3s;
+  transition: 0.35s;
   z-index: 888;
 
   confirmation-details {
@@ -131,13 +131,21 @@
     transition: 0.1s;
   }
 
+  .go-back {
+    background-color: $clr5 !important;
+  }
+
   .sign-up-continue:hover {
-    background-color: rgba($clr1, 0.9);
+    background-color: rgba($clr9, 0.9);
+  }
+
+  .go-back:hover {
+    background-color: rgba($clr4, 0.6) !important;
   }
 
   .close-sign-up {
     position: absolute;
-    left: 13px;
+    right: 13px;
     top: 10px;
     font-size: em(30px) !important;
     cursor: pointer;

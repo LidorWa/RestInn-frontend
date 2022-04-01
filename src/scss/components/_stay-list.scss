@@ -1,3 +1,9 @@
+stay-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .card-cont {
   margin: auto;
   padding: 10px 0px;
@@ -27,7 +33,7 @@
   .card-cont {
     display: grid;
     grid-template-columns: repeat(2, minmax(200px, 1fr));
-    gap: 10px;
+    gap: 15px;
     padding: 10px 0px;
   }
   .loading-img {
@@ -63,8 +69,9 @@
 //Break point
 //Break point
 
-@media (min-width: 1700px) {
+@media (min-width: 1910px) {
   .card-cont {
     grid-template-columns: repeat(5, minmax(200px, 1fr));
+    gap: 20px;
   }
 }

@@ -1,4 +1,4 @@
-.main-header-section{
+.main-header-section {
   // height: em(140px);
   position: fixed;
   width: 100%;
@@ -6,7 +6,7 @@
   // padding: em(10px) 0 0 em(10px);
   box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 11px rgb(0 0 0 / 5%);
   z-index: 880;
-  &.homepage{
+  &.homepage {
     background-color: transparent;
   }
 }
@@ -194,10 +194,17 @@
   height: em(32px);
   justify-content: flex-end;
   margin-left: em(10px);
+  border-radius: 50px;
 }
 
 .hamburger-img {
   width: em(18px);
+}
+
+.user-avater-image {
+  width: em(26.4px);
+  height: em(26.4px);
+  margin-right: em(1.8px) !important;
 }
 
 .outsideUserMenu {
@@ -224,5 +231,4 @@
     // margin-left: em(8px);
   }
 }
-
 

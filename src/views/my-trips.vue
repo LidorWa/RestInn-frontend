@@ -6,7 +6,7 @@
       src="../assets/system-imgs/loading.gif"
       alt="Loading.."
     />
-    <trip-list :trips="getTrips" @updateStatus="updateStatus" />
+    <trip-list v-else :trips="getTrips" @updateStatus="updateStatus" />
   </section>
 </template>
 
@@ -36,21 +36,19 @@ export default {
       return this.$store.getters.isLoading;
     },
     getTrips() {
-      console.log("getTrips", this.$store.getters.getOrders);
       if (!this.$store.getters.getOrders) return;
 
       return JSON.parse(JSON.stringify(this.$store.getters.getOrders));
-      //   return trips;
-      //   console.log('trip', trip)
-      //   return []
     },
   },
 
   methods: {
     updateStatus({ status, tripId }) {
-      console.log({ status, tripId });
-      const trip = this.getTrips.find((trip) => trip._id === tripId);
+      const trips = this.getTrips;
+
+      const trip = trips.find((trip) => trip._id === tripId);
       // const copy = JSON.parse(JSON.stringify(trip))
+
       const copy = { ...trip };
       copy.status = status;
       this.$store.dispatch({ type: "updateOrder", order: copy });

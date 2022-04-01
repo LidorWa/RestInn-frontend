@@ -51,7 +51,7 @@
 }
 
 .typeSelected {
-  border: 1px solid $clr2;
+  border: 1px solid $clr2 !important;
 }
 
 .select-type-cont:hover {
@@ -76,12 +76,13 @@
 .type-span {
   // font-weight: bold;
   font-size: em(15px);
+  line-height: 0px !important;
   cursor: pointer;
 }
 
 .select-price {
   position: relative !important;
-  width: 90;
+  width: 90px;
   cursor: pointer;
   margin-left: 0px !important;
 }
@@ -289,6 +290,8 @@
   cursor: pointer;
   color: $clr2;
   border: 1px solid $clr6;
+  min-width: 55px;
+  text-align: center;
   transition: 0.1s;
   padding: 0px 8px;
   border-radius: 35px;

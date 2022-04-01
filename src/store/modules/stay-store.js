@@ -30,7 +30,8 @@ export default {
     getTopRatedStays(state) {
       console.log(state.stays.length);
       if (!state.stays.length) return;
-      const stays = JSON.parse(JSON.stringify(state.stays));
+      let stays = JSON.parse(JSON.stringify(state.stays));
+      stays = stays.filter((stay) => !!stay.reviewScores.rating);
       stays.splice(4);
       return stays;
     },
