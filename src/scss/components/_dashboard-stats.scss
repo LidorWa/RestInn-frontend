@@ -1,14 +1,26 @@
 .dashboard-stats {
   padding-bottom: 25px;
-  height: 425px;
+  height: 225px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
 
+  .pending-stat {
+    color: #0000db;
+  }
+
+  .canceled-stat {
+    color: #b40000;
+  }
+
+  .total-stat {
+    color: #338300;
+  }
+
   .nights-chart {
     height: 170px;
-    max-width: 540px;
+    width: 420px;
     align-self: flex-start;
   }
 

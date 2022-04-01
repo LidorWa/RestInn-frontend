@@ -25,15 +25,15 @@
       <div class="details">
         <div class="rev-stat">
           <span class="stat-head">Cancelations</span>
-          <span>{{ cancelations }}</span>
+          <span class="canceled-stat">{{ cancelations }}</span>
         </div>
         <div class="rev-stat">
           <span class="stat-head">Total price average</span>
-          <span>{{ totalPriceAverage }}</span>
+          <span class="total-stat">{{ totalPriceAverage }}</span>
         </div>
         <div class="rev-stat">
           <span class="stat-head">Pending now</span>
-          <span>{{ pendingCount }} orders</span>
+          <span class="pending-stat">{{ pendingCount }} orders</span>
         </div>
       </div>
     </div>
