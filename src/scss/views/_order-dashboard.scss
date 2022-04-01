@@ -1,0 +1,195 @@
+///// dashboard ///
+.dash-board {
+  padding-top: em(180px);
+  // border: 1px solid $clr7;
+}
+
+/////list/////
+.dashboard-title {
+  font-weight: 600;
+}
+
+///// preview//////
+.dashboard-order-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0px;
+  border-bottom: 1px solid $clr5;
+
+  .stay-link {
+    color: blue;
+    cursor: pointer;
+    transition: 0.1s;
+
+    &:hover {
+      color: $clr1;
+      font-weight: 600;
+    }
+  }
+
+  &.hover {
+    background-color: $clr7;
+  }
+
+  div {
+    text-align: center;
+    padding: 5px;
+  }
+
+  .host {
+    width: 120px;
+
+    @media (max-width: 1100px) {
+      display: none;
+    }
+  }
+
+  .booker {
+    width: 100px;
+
+    @media (max-width: 1050px) {
+      display: none;
+    }
+  }
+
+  .date {
+    width: 80px;
+
+    @media (max-width: 960px) {
+      display: none;
+    }
+  }
+
+  .nights {
+    width: 60px;
+
+    @media (max-width: 890px) {
+      display: none;
+    }
+  }
+
+  .price {
+    width: 80px;
+
+    @media (max-width: 820px) {
+      display: none;
+    }
+  }
+
+  .total {
+    width: 80px;
+  }
+
+  .status {
+    width: 120px;
+    font-weight: 600;
+  }
+
+  .trip-dates,
+  .stay {
+    width: 165px;
+  }
+  .actions {
+    width: 180px;
+  }
+
+  .trip-actions {
+    width: 70px;
+  }
+
+  .guests {
+    width: 60px;
+  }
+
+  .approved {
+    color: rgb(0, 131, 0);
+  }
+
+  .rejected {
+    color: rgb(180, 0, 0);
+  }
+
+  .canceled {
+    color: rgb(117, 117, 117);
+  }
+
+  .pending {
+    color: rgb(0, 0, 219);
+  }
+
+  .actions-container {
+    display: flex;
+    justify-content: space-around;
+
+    button {
+      color: $clr3;
+      padding: 5px 10px;
+      font-size: em(14px);
+      transition: 0.1s;
+      border-radius: 7px;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+  button:last-of-type {
+    border: 1px solid rgb(0, 131, 0);
+    background-color: rgb(0, 131, 0);
+
+    &:hover {
+      border: 1px solid rgb(0, 175, 0);
+      background-color: rgb(0, 175, 0);
+    }
+
+    &:active {
+      border: 1px solid rgb(0, 211, 0);
+      background-color: rgb(0, 211, 0);
+    }
+  }
+  .cancel,
+  button:first-of-type {
+    border: 1px solid #b30000;
+    background-color: #b30000;
+
+    &:hover {
+      border: 1px solid #ee0000;
+      background-color: #ee0000;
+    }
+
+    &:active {
+      border: 1px solid #ff3b3b;
+      background-color: #ff3b3b;
+    }
+  }
+}
+
+// .grid-table {
+//   display: grid;
+//   // grid-template-columns: repeat(11,1fr);
+//   grid-template-columns: 1fr 1fr 2fr 1fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 1fr 1fr;
+//   grid-template-rows: repeat(auto-fit, 1fr);
+
+//   .order-preview-section {
+//     grid-column: 1/-1;
+
+//     display: grid;
+//     // grid-template-columns: repeat(11, 1fr);
+//     grid-template-columns: 1fr 1fr 2fr 1fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 1fr 1fr;
+//   }
+// }
+// .order-table-container{
+//      display: grid;
+//         grid-template-columns: repeat(10, minmax (30px, 1fr));
+//         grid-template-rows: 1fr 1fr 1fr 1fr;
+//         gap: 4px 16px;
+//         grid-auto-flow: row;
+//         grid-template-areas:
+//           ". . . . . . . . . . . . . . . . . ."
+//           ". . . . . . . . . . . . . . . . . ."
+//           ". . . . . . . . . . . . . . . . . ."
+//           ". . . . . . . . . . . . . . . . . .";
+
+// }
