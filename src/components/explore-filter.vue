@@ -4,7 +4,7 @@
     <div class="price-and-type-filters-cont">
       <div
         class="explore-filter-item select-type-cont select-price flex align-center"
-        :class="{ typeSelected: isPriceSelected }"
+        :class="{ typeSelected: priceSelected }"
       >
         <span @click="togglePriceModal" class="flex align-center">
           <span class="type-span">Price</span>
@@ -252,7 +252,7 @@ export default {
     },
   },
   computed: {
-    isPriceSelected() {
+    priceSelected() {
       return this.filterBy.price[0] > 1 || this.filterBy.price[1] < 1800;
     },
     getPriceModalText() {

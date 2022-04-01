@@ -76,6 +76,7 @@ function _saveLocalUser(user) {
 }
 
 function getLoggedinUser() {
+  console.log('user-service getLoggedinUser 2');
   const user = JSON.parse(
     sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER) || "null"
   );
