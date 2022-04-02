@@ -1,12 +1,13 @@
 <template>
   <section class="dashboard main-layout-height">
+    <user-message />
     <img
       class="loading-img"
       v-if="isLoading"
       src="../assets/system-imgs/loading.gif"
       alt="Loading.."
     />
-    <h1 class="main-layout-homepage title">Your host dashboard</h1>
+    <h1 class="main-layout-homepage title">My dashboard</h1>
     <dashboard-stats v-if="!isLoading" :orders="getOrders" />
 
     <order-list
@@ -20,12 +21,15 @@
 <script>
 import orderList from "../components/order-list.vue";
 import dashboardStats from "../components/dashboard-stats.vue";
+import userMessage from "../components/user-message.vue";
 
 export default {
   name: "dashboard",
 
-  date() {
-    return {};
+  data() {
+    return {
+      isShowingMessage: false,
+    };
   },
   //   mounted() {},
   async created() {
@@ -68,6 +72,7 @@ export default {
   components: {
     orderList,
     dashboardStats,
+    userMessage,
   },
 };
 </script>

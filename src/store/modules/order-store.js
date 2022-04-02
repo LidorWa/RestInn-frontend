@@ -77,7 +77,7 @@ export default {
       try {
         const orders = await orderService.query(filterBy);
         commit({ type: "setOrders", orders });
-        return orders;
+        // return orders;
       } catch (err) {
         console.log("err :>> ", err);
       } finally {

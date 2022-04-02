@@ -4,7 +4,7 @@
       <div class="bar-container">
         <bar-chart :orders="orders" />
       </div>
-      <div>
+      <div class="pie-container">
         <awesome-chart v-if="testData" :data="testData" />
       </div>
     </div>

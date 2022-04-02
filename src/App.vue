@@ -1,6 +1,7 @@
 <template>
   <section class="app-container">
     <!-- Sign up / Log in compo modal nent -->
+
     <sign-up
       :class="{ showSignUp: isSignUp }"
       @closeSignUp="closeSignUp"
@@ -10,9 +11,11 @@
     <div v-if="isSignUp" class="outsideUserMenu" @click="closeSignUp"></div>
     <div class="main-app-container flex flex-column app-container">
       <app-header />
+
       <!-- add prop showSearch -->
       <!-- <router-view /> -->
       <router-view class="main-layout-height" />
+
       <app-footer />
     </div>
   </section>
@@ -51,6 +54,18 @@ export default {
       guests: 0,
     };
     this.$store.dispatch({ type: "getUserFromSession" });
+    const user = this.$store.getters.getLoggedInUser;
+
+    if (user) {
+      const filterBy = {
+        hostId: user._id,
+      };
+      try {
+        await this.$store.dispatch({ type: "loadOrders", filterBy });
+      } catch (err) {
+        console.log("Error while loading orders: ", err);
+      }
+    }
 
     await this.$store.dispatch({ type: "loadStays", filterBy });
   },

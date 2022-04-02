@@ -1,33 +1,41 @@
 <template>
   <section class="dashboard" v-if="loggedInUser">
+    <user-message />
     <img
       class="loading-img"
       v-if="isLoading"
       src="../assets/system-imgs/loading.gif"
       alt="Loading.."
     />
-    <trip-list v-else :trips="getTrips" @updateStatus="updateStatus" />
+    <h1 class="main-layout-homepage title">My trips</h1>
+    <trip-list
+      v-if="!isLoading"
+      :trips="getTrips"
+      @updateStatus="updateStatus"
+    />
   </section>
 </template>
 
 <script>
 import tripList from "../components/trip-list.vue";
+import userMessage from "../components/user-message.vue";
 
 export default {
   name: "my-trips",
 
-  date() {
+  data() {
     return {
+      isShowingMessage: false,
       loggedInUser: {},
     };
   },
   //   mounted() {},
   async created() {
-    console.log('created 4');
+    console.log("created 4");
 
     this.loggedInUser = this.$store.getters.getLoggedInUser;
-    console.log('loggedInUser', this.loggedInUser);
-    
+    console.log("loggedInUser", this.loggedInUser);
+
     const filterBy = {
       userId: this.loggedInUser?._id,
     };
@@ -62,6 +70,7 @@ export default {
   },
   components: {
     tripList,
+    userMessage,
   },
 };
 </script>

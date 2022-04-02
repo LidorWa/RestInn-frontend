@@ -2,35 +2,77 @@
   padding-bottom: 25px;
   height: 225px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 5%;
 
   .charts-container {
+    width: 50%;
     display: flex;
-    gap: 20px;
-    justify-content: flex-end;
+    justify-content: space-between;
+    gap: 10%;
+
+    .pie-container {
+      box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+      border-radius: 15px;
+
+      .nights-pie {
+        height: 170px;
+        width: 300px;
+        align-self: flex-start;
+      }
+    }
+
+    .bar-container {
+      display: flex;
+      align-items: flex-start;
+      width: 45%;
+      height: 200px;
+      box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+      border-radius: 15px;
+
+      .bar-stat {
+        height: 170px;
+      }
+    }
   }
 
-  .bar-container {
+  .stat-cards-container {
+    width: 50%;
     display: flex;
-    align-items: flex-end;
-    width: 250px;
-    height: 200px;
+    justify-content: space-between;
+    gap: 10%;
+
+    .stats-card {
+      padding: 25px;
+      width: 290px;
+      height: 200px;
+      box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+      border-radius: 15px;
+
+      h1 {
+        font-size: em(19px);
+        text-align: center;
+        padding-bottom: 25px;
+      }
+
+      .details {
+        display: flex;
+        flex-direction: column;
+
+        .rev-stat {
+          display: flex;
+          justify-content: space-between;
+          padding-bottom: 9px;
+          font-size: em(16px);
+          font-weight: 600;
+        }
+      }
+    }
   }
 
   .apexcharts-menu-icon {
     display: none;
-  }
-
-  .bar-stat {
-    height: 170px;
-  }
-
-  .stat-cards-container {
-    display: flex;
-    align-items: center;
-    gap: 80px;
   }
 
   .pending-stat {
@@ -43,38 +85,5 @@
 
   .total-stat {
     color: #338300;
-  }
-
-  .nights-chart {
-    height: 170px;
-    width: 450px;
-    align-self: flex-start;
-  }
-
-  .stats-card {
-    padding: 25px;
-    width: 270px;
-    height: 180px;
-    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
-    border-radius: 15px;
-
-    h1 {
-      font-size: em(19px);
-      text-align: center;
-      padding-bottom: 25px;
-    }
-
-    .details {
-      display: flex;
-      flex-direction: column;
-
-      .rev-stat {
-        display: flex;
-        justify-content: space-between;
-        padding-bottom: 9px;
-        font-size: em(16px);
-        font-weight: 600;
-      }
-    }
   }
 }
