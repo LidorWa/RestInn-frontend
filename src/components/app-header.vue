@@ -113,7 +113,7 @@ export default {
       this.$router.push('/')
     },
     setHeaderClass() {
-      console.log('path', this.$route.path)
+      // console.log('path', this.$route.path)
       if (this.$route.path === '/') {
         this.layout = 'main-layout-homepage'
         this.isSearch = true
@@ -156,7 +156,6 @@ export default {
     getLoggedInUserImage() {
       const user = this.$store.getters.getLoggedInUser
       if (user) {
-        console.log(user)
         const imgUrl = new URL(`@/assets/images/${user.imgUrl}`, import.meta.url)
         return imgUrl
       }

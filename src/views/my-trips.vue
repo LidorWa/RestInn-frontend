@@ -23,10 +23,8 @@ export default {
   },
   //   mounted() {},
   async created() {
-    console.log('created 4');
 
     this.loggedInUser = this.$store.getters.getLoggedInUser;
-    console.log('loggedInUser', this.loggedInUser);
     
     const filterBy = {
       userId: this.loggedInUser?._id,

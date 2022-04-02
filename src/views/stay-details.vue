@@ -17,7 +17,9 @@
           <section class="general-info">
             <section class="type-host-and-stay-properties">
               <section class="type-host-and-stay-properties-text">
-                <h2 class="stay-type-host-name">{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
+                <h2
+                  class="stay-type-host-name"
+                >{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
                 <ul class="stay-properties">
                   <li>{{ stay.capacity }} guests</li>
                   <li>{{ stay.bedrooms }} bedroom</li>
@@ -25,7 +27,11 @@
                   <li>{{ stay.bathrooms }} baths</li>
                 </ul>
               </section>
-              <img :src="stay.host.thumbnailUrl" alt="Host picture" onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/image'" />
+              <img
+                :src="stay.host.thumbnailUrl"
+                alt="Host picture"
+                onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/image'"
+              />
             </section>
             <selected-popular-amenities :stay="stay" />
 
@@ -37,23 +43,41 @@
               </div>
             </section>
             <amenities-list />
-
-            <!-- TODO: HERE SHOULD COME THE CALENDAR -->
-
-            <!-- TODO: TO CHECK - HERE BENEATH THE MAP SHOULD BE SECTION WITH DETAILS ABOUT THE HOST.
-            TODO IT? IN KUMBA THEY DIDNT-->
-            <!-- TODO: TO CHECK - HERE BENEATH THE DETAILS ABOUT THE HOST SHOULD BE SECTION 
-        WITH THINGS TO KNOW.
-            TODO IT? IN KUMBA THEY DIDNT-->
           </section>
-          <hero-modal ref="hero-modal" :stay="stay" :guestsFromStore="getGuests" @onCheckAvailability="onCheckAvailability" />
+          <hero-modal
+            ref="hero-modal"
+            :stay="stay"
+            :guestsFromStore="getGuests"
+            @onCheckAvailability="onCheckAvailability"
+          />
         </section>
         <reviews-section :stay="stay" ref="reviews-section" />
         <map-section :address="stay.address" ref="map-section" />
-        <order-alert-modal v-if="isOrderAlert" @closeModal="closeAlertModal" :alertModalMessage="alertModalMessage" />
-        <login-alert-modal v-if="isLoginAlert" @closeModal="closeLoginModal" @login="loginToProceed" @demo="demoToProceed" />
-        <order-confirmation-modal :class="{ showConfirm: isOrdering && isLoggedIn }" :stay="stay" :dates="getDates" :guests="getGuests" :user="getLoggedInUser" @closeModal="closeConfirmationModal" @goToMyTrips="goToMyTrips" @addOrder="addOrder" />
-        <div v-if="isOrderAlert || isLoginAlert || (isOrdering && isLoggedIn)" class="order-alert-overlay"></div>
+        <order-alert-modal
+          v-if="isOrderAlert"
+          @closeModal="closeAlertModal"
+          :alertModalMessage="alertModalMessage"
+        />
+        <login-alert-modal
+          v-if="isLoginAlert"
+          @closeModal="closeLoginModal"
+          @login="loginToProceed"
+          @demo="demoToProceed"
+        />
+        <order-confirmation-modal
+          :class="{ showConfirm: isOrdering && isLoggedIn }"
+          :stay="stay"
+          :dates="getDates"
+          :guests="getGuests"
+          :user="getLoggedInUser"
+          @closeModal="closeConfirmationModal"
+          @goToMyTrips="goToMyTrips"
+          @addOrder="addOrder"
+        />
+        <div
+          v-if="isOrderAlert || isLoginAlert || (isOrdering && isLoggedIn)"
+          class="order-alert-overlay"
+        ></div>
       </section>
     </section>
   </section>
@@ -71,7 +95,7 @@ import mapSection from '../components/stay-details-cmps/map-section.vue'
 import orderAlertModal from '../components/stay-details-cmps/order-alert-modal.vue'
 import loginAlertModal from '../components/stay-details-cmps/login-alert-modal.vue'
 import orderConfirmationModal from '../components/stay-details-cmps/order-confirmation-modal.vue'
-
+import { socketService } from "../services/socket-service";
 export default {
   name: 'stay-details',
   components: {
@@ -106,6 +130,7 @@ export default {
     }
   },
   async created() {
+    socketService.setup()
     const stayId = this.$route.params.stayId
     this.stay = await this.$store.dispatch({
       type: 'getStayById',
@@ -115,6 +140,7 @@ export default {
 
   methods: {
     addOrder(order) {
+      socketService.emit('new order', order)
       this.$store.dispatch({ type: 'addOrder', order })
     },
     loginToProceed() {

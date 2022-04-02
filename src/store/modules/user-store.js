@@ -14,7 +14,6 @@ export default {
       return state.isSignUpModal;
     },
     getLoggedInUser(state) {
-      console.log('from getters 5')
       return state.loggedInUser;
     },
   },
@@ -26,10 +25,7 @@ export default {
       state.isSignUpModal = false;
     },
     setLoggedinUser(state, { loggedInUser }) {
-      console.log('store setLoggedinUser 3');
-
       state.loggedInUser = loggedInUser;
-      console.log(loggedInUser)
     },
 
     setUsers(state, { users }) {

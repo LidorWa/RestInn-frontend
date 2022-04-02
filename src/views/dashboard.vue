@@ -20,6 +20,7 @@
 <script>
 import orderList from "../components/order-list.vue";
 import dashboardStats from "../components/dashboard-stats.vue";
+import { socketService } from "../services/socket-service";
 
 export default {
   name: "dashboard",
@@ -27,7 +28,6 @@ export default {
   date() {
     return {};
   },
-  //   mounted() {},
   async created() {
     const loggedInUser = this.$store.getters.getLoggedInUser;
     const filterBy = {
@@ -44,7 +44,7 @@ export default {
       return this.$store.getters.isLoading;
     },
     getOrders() {
-      console.log("getOrders", this.$store.getters.getOrders);
+      // console.log("getOrders", this.$store.getters.getOrders);
       return this.$store.getters.getOrders;
       //   console.log('order', order)
       //   return []
@@ -53,7 +53,7 @@ export default {
 
   methods: {
     updateStatus({ status, orderId }) {
-      console.log({ status, orderId });
+      // console.log({ status, orderId });
       const order = this.getOrders.find((order) => order._id === orderId);
       // const copy = JSON.parse(JSON.stringify(order))
       const copy = { ...order };
