@@ -31,10 +31,10 @@ export default {
   },
   //   mounted() {},
   async created() {
-    console.log("created 4");
-
     this.loggedInUser = this.$store.getters.getLoggedInUser;
-    console.log("loggedInUser", this.loggedInUser);
+
+    socketService.emit("enter my-trips", this.loggedInUser._id);
+    socketService.on("status updated", this.statusUpdated);
 
     const filterBy = {
       userId: this.loggedInUser?._id,
@@ -66,6 +66,18 @@ export default {
       const copy = { ...trip };
       copy.status = status;
       this.$store.dispatch({ type: "updateOrder", order: copy });
+    },
+
+    async statusUpdated() {
+      this.loggedInUser = this.$store.getters.getLoggedInUser;
+      const filterBy = {
+        userId: this.loggedInUser?._id,
+      };
+      try {
+        await this.$store.dispatch({ type: "loadOrdersWithSocket", filterBy });
+      } catch (err) {
+        console.log("Error while loading orders: ", err);
+      }
     },
   },
   components: {

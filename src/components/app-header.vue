@@ -159,13 +159,13 @@ export default {
       this.$router.push("/");
     },
     setHeaderClass() {
-      console.log("path", this.$route.path);
-      if (this.$route.path === "/") {
-        this.layout = "main-layout-homepage";
-        this.isSearch = true;
-        if (this.scrollStatus === "up") {
-          this.showMainSearch = true;
-          this.headerClass = "full-search-home";
+      // console.log('path', this.$route.path)
+      if (this.$route.path === '/') {
+        this.layout = 'main-layout-homepage'
+        this.isSearch = true
+        if (this.scrollStatus === 'up') {
+          this.showMainSearch = true
+          this.headerClass = 'full-search-home'
         } else {
           // scrollStatus down
           this.showMainSearch = false;
@@ -201,12 +201,8 @@ export default {
     getLoggedInUserImage() {
       const user = this.$store.getters.getLoggedInUser;
       if (user) {
-        console.log(user);
-        const imgUrl = new URL(
-          `@/assets/images/${user.imgUrl}`,
-          import.meta.url
-        );
-        return imgUrl;
+        const imgUrl = new URL(`@/assets/images/${user.imgUrl}`, import.meta.url)
+        return imgUrl
       }
     },
     homepageClass() {

@@ -52,11 +52,11 @@ export default {
       state.orders.push(order);
     },
     updateOrder(state, { order }) {
-      console.log({ order });
+      // console.log({ order });
       const idx = state.orders.findIndex(
         (currOrder) => currOrder._id === order._id
       );
-      console.log({ idx });
+      // console.log({ idx });
       state.orders.splice(idx, 1, order);
     },
     removeOrder(state, { orderId }) {
@@ -84,13 +84,22 @@ export default {
         commit({ type: "setIsLoading", isLoading: false });
       }
     },
+    async loadOrdersWithSocket({ commit }, { filterBy }) {
+      try {
+        const orders = await orderService.query(filterBy);
+        commit({ type: "setOrders", orders });
+        return orders;
+      } catch (err) {
+        console.log("err :>> ", err);
+      }
+    },
     async addOrder({ commit }, { order }) {
       try {
-        console.log("inside store", order);
+        // console.log("inside store", order);
         const addedOrder = await orderService.addOrder(order);
         commit({ type: "addOrder", order: addedOrder });
       } catch (err) {
-        console.log("err :>> ", err);
+        // console.log("err :>> ", err);
       }
     },
     async updateOrder({ commit }, { order }) {
@@ -98,7 +107,7 @@ export default {
         const updatededOrder = await orderService.updateOrder(order);
         commit({ type: "updateOrder", order: updatededOrder });
       } catch (err) {
-        console.log("err :>> ", err);
+        // console.log("err :>> ", err);
       }
     },
     async removeOrder({ commit }, { orderId }) {
@@ -106,7 +115,7 @@ export default {
         await orderService.removeOrder(orderId);
         commit({ type: "removeOrder", orderId });
       } catch (err) {
-        console.log("err :>> ", err);
+        // console.log("err :>> ", err);
       }
     },
   },

@@ -19,7 +19,6 @@ async function getById(orderId) {
 }
 
 async function addOrder(order) {
-  console.log('front service order', order)
   return await httpService.post(ENDPOINT, order)
 }
 

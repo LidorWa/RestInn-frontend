@@ -183,7 +183,7 @@ export default {
     };
   },
   created() {
-    console.log("Filter created!");
+    // console.log("Filter created!");
     const filterFromStore = this.$store.getters.getFilterFromStore;
     this.filterBy = filterFromStore;
 

@@ -28,7 +28,7 @@ export default {
       return state.filterBy.type;
     },
     getTopRatedStays(state) {
-      console.log(state.stays.length);
+      // console.log(state.stays.length);
       if (!state.stays.length) return;
       let stays = JSON.parse(JSON.stringify(state.stays));
       stays = stays.filter((stay) => !!stay.reviewScores.rating);
