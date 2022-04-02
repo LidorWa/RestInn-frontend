@@ -14,7 +14,7 @@
   font-size: em(14px);
   height: em(66px);
   // max-width: em(850px);
-  min-width: 600px;
+  // min-width: 600px; //////////new change
   cursor: pointer;
 
   .search-space {
@@ -115,6 +115,9 @@
       background-color: inherit;
     }
   }
+  @media(max-width: 849px){
+    height: unset;
+  }
 }
 .label {
   color: $clr2;
@@ -125,6 +128,10 @@
   width: 100%;
   // position: absolute;index
   // left: 0;
+  @media(max-width: 849px){
+   width: 13vw ;
+   min-width: 60PX;
+  }
 }
 
 .input {
@@ -137,6 +144,12 @@
   // font-size: em(14px);
   text-align: start;
   cursor: pointer;
+
+  @media(max-width: 846px){
+    // width: 137px;
+    display: none;
+  }
+
 }
 
 .location-input-top {
@@ -145,6 +158,9 @@
 }
 .location-input {
   padding-left: 4px;
+  // @media(max-width: 849px){
+  
+  // }
 }
 .check-in-top, .check-out-top {
   padding: 1em 1em 1em 1em;

@@ -3,7 +3,7 @@
     <div class="main-hero-img">
       <div class="tag-line-container">
         <h1 class="tag tag-line1">Choose your Inn.</h1>
-        <h1 class="tag tag-line2">We do the rest.</h1>
+        <h1 class="tag tag-line2">We'll do the rest.</h1>
       </div>
     </div>
     <!-- <div :style="{ backgroundImage: 'url(' + homePageImg + ')' }" class="home-page-img"></div> -->
@@ -52,15 +52,10 @@
       <!-- Top rated  -->
       <h1 class="destinations-header">Top rated stays</h1>
       <div v-if="topRatedStays" class="destinations-container">
-        <a
-          :href="'/#/stay/' + stay._id"
-          v-for="stay in topRatedStays"
-          :key="stay._id"
-        >
+        <a :href="'/#/stay/' + stay._id" v-for="stay in topRatedStays" :key="stay._id">
           <img :src="getImgUrl(stay.imgUrls[0])" alt="StayImage" />
           <p class="card-preview-line">
-            <span class="material-icons-outlined star">star</span
-            ><span class="card-rate">{{ getStayRate(stay) }}</span>
+            <span class="material-icons-outlined star">star</span><span class="card-rate">{{ getStayRate(stay) }}</span>
             <span class="reviews-count">({{ getReviewCount(stay) }})</span>
           </p>
           <h4>{{ stay.name }}</h4>
@@ -72,46 +67,45 @@
 
 <script>
 export default {
-  name: "home-page",
+  name: 'home-page',
   data() {
-    return {};
+    return {}
   },
-  components: {
-  },
+  components: {},
   created() {},
   methods: {
     getImgUrl(file) {
-      const imgUrl = new URL(`../assets/images/${file}`, import.meta.url);
-      return imgUrl;
+      const imgUrl = new URL(`../assets/images/${file}`, import.meta.url)
+      return imgUrl
     },
     onCloseModal() {
-      let modal = document.getElementById("id01");
+      let modal = document.getElementById('id01')
       window.onclick = function (event) {
         if (event.target == modal) {
-          modal.style.display = "none";
+          modal.style.display = 'none'
         }
-      };
+      }
     },
     getStayRate(stay) {
-      if (!stay) return;
+      if (!stay) return
 
-      return (stay.reviewScores.rating / 20).toFixed(2);
+      return (stay.reviewScores.rating / 20).toFixed(2)
     },
     getReviewCount(stay) {
-      return stay.reviews.length + " reviews";
+      return stay.reviews.length + ' reviews'
     },
   },
   computed: {
     topRatedStays() {
-      return this.$store.getters.getTopRatedStays;
+      return this.$store.getters.getTopRatedStays
     },
 
     stays() {
-      return this.$store.getters.getStays;
+      return this.$store.getters.getStays
     },
   },
   unmounted() {},
-};
+}
 </script>
 
 <style></style>
