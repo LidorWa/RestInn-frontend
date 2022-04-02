@@ -32,6 +32,11 @@ export default {
     //   console.log(order)
     //   state.orders.push(order)
     // },
+
+    clearOrdersFromStore(state) {
+      state.orders = [];
+      console.log("orders cleared: ", state.orders);
+    },
     setTotalPrice(state, { totalPrice }) {
       state.total = totalPrice;
     },

@@ -89,11 +89,13 @@ export default {
       return nights <= 3;
     }).length;
     testData.datasets[0].data.push(nightsDetails);
+    //4-6 nights
     nightsDetails = orders.filter((order) => {
       const nights = order.totalPrice / order.stay.price;
       return nights >= 4 && nights <= 6;
     }).length;
     testData.datasets[0].data.push(nightsDetails);
+    //+7 nights
     nightsDetails = orders.filter((order) => {
       const nights = order.totalPrice / order.stay.price;
       return nights >= 7;
@@ -146,7 +148,6 @@ export default {
       const revenue = orders
         .filter((order) => {
           const month = new Date(order.createdAt).getMonth() + 1;
-
           return month === thisMonth;
         })
         .reduce((acc, order) => {

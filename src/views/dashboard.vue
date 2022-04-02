@@ -1,6 +1,9 @@
 <template>
   <section class="dashboard main-layout-height">
-    <user-message />
+    <user-message
+      :class="{ showUserMessage: isShowingMessage }"
+      :message="message"
+    />
     <img
       class="loading-img"
       v-if="isLoading"
@@ -30,6 +33,7 @@ export default {
   data() {
     return {
       isShowingMessage: false,
+      message: {},
       loggedInUser: {},
     };
   },
@@ -61,6 +65,13 @@ export default {
   },
 
   methods: {
+    showMessage(message) {
+      this.message = message;
+      this.isShowingMessage = true;
+      setTimeout(() => {
+        this.isShowingMessage = false;
+      }, 4500);
+    },
     updateStatus({ status, orderId }) {
       const order = this.getOrders.find((order) => order._id === orderId);
       const orderCopy = JSON.parse(JSON.stringify(order));
@@ -80,6 +91,11 @@ export default {
       } catch (err) {
         console.log("Error while loading orders: ", err);
       }
+      const message = {
+        text: "You have a new order",
+        from: "user",
+      };
+      this.showMessage(message);
     },
     // setFilter(filterBy) {
     //   const copyfilter = JSON.parse(JSON.stringify(filterBy))

@@ -1,6 +1,9 @@
 <template>
   <section class="dashboard" v-if="loggedInUser">
-    <user-message />
+    <user-message
+      :class="{ showUserMessage: isShowingMessage }"
+      :message="message"
+    />
     <img
       class="loading-img"
       v-if="isLoading"
@@ -26,21 +29,25 @@ export default {
   data() {
     return {
       isShowingMessage: false,
+      message: {},
       loggedInUser: {},
     };
   },
-  //   mounted() {},
   async created() {
     this.loggedInUser = this.$store.getters.getLoggedInUser;
 
     socketService.emit("enter my-trips", this.loggedInUser._id);
     socketService.on("status updated", this.statusUpdated);
 
+    this.$store.commit({ type: "clearOrdersFromStore" });
+
     const filterBy = {
-      userId: this.loggedInUser?._id,
+      userId: this.loggedInUser._id,
     };
     try {
+      console.log("loadind orders from server to store..");
       await this.$store.dispatch({ type: "loadOrders", filterBy });
+      console.log("Got orders!");
     } catch (err) {
       console.log("Error while loading trips: ", err);
     }
@@ -50,13 +57,20 @@ export default {
       return this.$store.getters.isLoading;
     },
     getTrips() {
+      console.log("Getting orders from store");
       if (!this.$store.getters.getOrders) return;
-
       return JSON.parse(JSON.stringify(this.$store.getters.getOrders));
     },
   },
 
   methods: {
+    showMessage(message) {
+      this.message = message;
+      this.isShowingMessage = true;
+      setTimeout(() => {
+        this.isShowingMessage = false;
+      }, 4500);
+    },
     updateStatus({ status, tripId }) {
       const trips = this.getTrips;
 
@@ -68,7 +82,7 @@ export default {
       this.$store.dispatch({ type: "updateOrder", order: copy });
     },
 
-    async statusUpdated() {
+    async statusUpdated(order) {
       this.loggedInUser = this.$store.getters.getLoggedInUser;
       const filterBy = {
         userId: this.loggedInUser?._id,
@@ -78,6 +92,13 @@ export default {
       } catch (err) {
         console.log("Error while loading orders: ", err);
       }
+
+      console.log(order.status);
+      const message = {
+        text: `Your order has been ${order.status}`,
+        from: "host",
+      };
+      this.showMessage(message);
     },
   },
   components: {

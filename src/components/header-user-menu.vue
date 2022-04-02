@@ -1,13 +1,13 @@
 <template>
   <section class="header-user-menu">
-    <p v-if="!isLoggerIn" class="sign-up-option" @click="signUp">Sign up</p>
-    <p v-if="!isLoggerIn" @click="signUp">Log in</p>
-    <p v-if="isLoggerIn" @click="logout">Log out</p>
+    <p v-if="!isLoggedIn" class="sign-up-option" @click="signUp">Sign up</p>
+    <p v-if="!isLoggedIn" @click="signUp">Log in</p>
+    <p v-if="isLoggedIn" @click="logout">Log out</p>
     <hr />
     <p @click="goToExplorePage" class="user-menu-explore">Explore</p>
-    <p v-if="isLoggerIn" @click="goToMyTrips">My trips</p>
-    <p v-if="isLoggerIn && isHosting" @click="goToDashBoardPage">Dashboard</p>
-    <p>Host your home</p>
+    <p v-if="isLoggedIn" @click="goToMyTrips">My trips</p>
+    <p v-if="isLoggedIn && isHosting" @click="goToDashBoardPage">Dashboard</p>
+    <p v-if="!isHosting">Host your home</p>
     <p>Help</p>
     <p @click="goToAboutPage">About</p>
   </section>
@@ -44,7 +44,7 @@ export default {
     },
   },
   computed: {
-    isLoggerIn() {
+    isLoggedIn() {
       const user = this.$store.getters.getLoggedInUser;
       return user ? true : false;
     },
