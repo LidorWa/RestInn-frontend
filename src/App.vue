@@ -1,7 +1,11 @@
 <template>
   <section class="app-container">
     <!-- Sign up / Log in compo modal nent -->
-    <sign-up :class="{ showSignUp: isSignUp }" @closeSignUp="closeSignUp" ref="signup" />
+    <sign-up
+      :class="{ showSignUp: isSignUp }"
+      @closeSignUp="closeSignUp"
+      ref="signup"
+    />
     <!-- overlay  -->
     <div v-if="isSignUp" class="outsideUserMenu" @click="closeSignUp"></div>
     <div class="main-app-container flex flex-column app-container">
@@ -15,14 +19,14 @@
 </template>
 
 <script>
-import appHeader from './components/app-header.vue'
-import appFooter from './components/app-footer.vue'
-import { propsToAttrMap } from '@vue/shared'
-import AppFooter from './components/app-footer.vue'
-import signUp from './components/sign-up.vue'
+import appHeader from "./components/app-header.vue";
+import appFooter from "./components/app-footer.vue";
+import { propsToAttrMap } from "@vue/shared";
+import AppFooter from "./components/app-footer.vue";
+import signUp from "./components/sign-up.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     appHeader,
     appFooter,
@@ -31,9 +35,9 @@ export default {
   },
   data() {
     return {
-      headerStatus: 'top',
+      headerStatus: "top",
       scrollY: 0,
-    }
+    };
   },
 
   async created() {
@@ -42,27 +46,27 @@ export default {
     const filterBy = {
       price: [1, 4000],
       type: [],
-      city: '',
+      city: "",
       amenities: [],
       guests: 0,
-    }
-    this.$store.dispatch({ type: 'getUserFromSession' })
+    };
+    this.$store.dispatch({ type: "getUserFromSession" });
 
-    await this.$store.dispatch({ type: 'loadStays', filterBy })
+    await this.$store.dispatch({ type: "loadStays", filterBy });
   },
   computed: {
     isSignUp() {
-      const isSignUpModalOpen = this.$store.getters.isSignUpModal
+      const isSignUpModalOpen = this.$store.getters.isSignUpModal;
       if (isSignUpModalOpen) {
-        this.$refs['signup'].$refs['username'].focus()
+        this.$refs["signup"].$refs["username"].focus();
       }
-      return isSignUpModalOpen
+      return isSignUpModalOpen;
     },
   },
 
   methods: {
     closeSignUp() {
-      this.$store.commit({ type: 'closeSignUpModal' })
+      this.$store.commit({ type: "closeSignUpModal" });
     },
 
     // onScroll() {
@@ -86,7 +90,7 @@ export default {
   // unmounted() {
   //   window.removeEventListener("scroll", this.onScroll);
   // },
-}
+};
 </script>
 
 <style></style>

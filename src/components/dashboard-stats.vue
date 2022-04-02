@@ -1,39 +1,46 @@
 <template>
   <section class="dashboard-stats main-layout-homepage">
-    <div>
-      <awesome-chart v-if="testData" :data="testData" />
-    </div>
-    <div class="stats-card">
-      <h1>Total revenue</h1>
-      <div class="details">
-        <div class="rev-stat">
-          <span class="stat-head">This month</span>
-          <span>{{ thisMonthRenevue }}</span>
-        </div>
-        <div class="rev-stat">
-          <span class="stat-head">This year</span>
-          <span>{{ thisYearRenevue }}</span>
-        </div>
-        <div class="rev-stat">
-          <span class="stat-head">Total summary</span>
-          <span>{{ formattedRevenue }}</span>
-        </div>
+    <div class="charts-container">
+      <div class="bar-container">
+        <bar-chart :orders="orders" />
+      </div>
+      <div>
+        <awesome-chart v-if="testData" :data="testData" />
       </div>
     </div>
-    <div class="stats-card">
-      <h1>Orders management</h1>
-      <div class="details">
-        <div class="rev-stat">
-          <span class="stat-head">Cancelations</span>
-          <span class="canceled-stat">{{ cancelations }}</span>
+    <div class="stat-cards-container">
+      <div class="stats-card">
+        <h1>Total revenue</h1>
+        <div class="details">
+          <div class="rev-stat">
+            <span class="stat-head">This month</span>
+            <span>{{ thisMonthRenevue }}</span>
+          </div>
+          <div class="rev-stat">
+            <span class="stat-head">This year</span>
+            <span>{{ thisYearRenevue }}</span>
+          </div>
+          <div class="rev-stat">
+            <span class="stat-head">Total summary</span>
+            <span>{{ formattedRevenue }}</span>
+          </div>
         </div>
-        <div class="rev-stat">
-          <span class="stat-head">Total price average</span>
-          <span class="total-stat">{{ totalPriceAverage }}</span>
-        </div>
-        <div class="rev-stat">
-          <span class="stat-head">Pending now</span>
-          <span class="pending-stat">{{ pendingCount }} orders</span>
+      </div>
+      <div class="stats-card">
+        <h1>Orders management</h1>
+        <div class="details">
+          <div class="rev-stat">
+            <span class="stat-head">Cancelations</span>
+            <span class="canceled-stat">{{ cancelations }}</span>
+          </div>
+          <div class="rev-stat">
+            <span class="stat-head">Total price average</span>
+            <span class="total-stat">{{ totalPriceAverage }}</span>
+          </div>
+          <div class="rev-stat">
+            <span class="stat-head">Pending now</span>
+            <span class="pending-stat">{{ pendingCount }} orders</span>
+          </div>
         </div>
       </div>
     </div>
@@ -42,6 +49,7 @@
 
 <script>
 import awesomeChart from "./awesome-chart.vue";
+import barChart from "./bar-chart.vue";
 
 export default {
   name: "order-list",
@@ -71,7 +79,7 @@ export default {
       datasets: [
         {
           data: [],
-          backgroundColor: ["#ff385c", "#0059AF", "#129E6B"],
+          backgroundColor: ["#b40000", "#0000db", "#338300"],
         },
       ],
     };
@@ -162,6 +170,7 @@ export default {
 
   components: {
     awesomeChart,
+    barChart,
   },
 };
 </script>

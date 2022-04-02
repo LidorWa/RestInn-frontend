@@ -1,12 +1,12 @@
 <template>
-  <section class="dash-board main-layout-height">
+  <section class="dashboard main-layout-height">
     <img
       class="loading-img"
       v-if="isLoading"
       src="../assets/system-imgs/loading.gif"
       alt="Loading.."
     />
-
+    <h1 class="main-layout-homepage title">Your host dashboard</h1>
     <dashboard-stats v-if="!isLoading" :orders="getOrders" />
 
     <order-list
