@@ -79,9 +79,18 @@ export default {
         commit({ type: "setOrders", orders });
         return orders;
       } catch (err) {
-        // console.log("err :>> ", err);
+        console.log("err :>> ", err);
       } finally {
         commit({ type: "setIsLoading", isLoading: false });
+      }
+    },
+    async loadOrdersWithSocket({ commit }, { filterBy }) {
+      try {
+        const orders = await orderService.query(filterBy);
+        commit({ type: "setOrders", orders });
+        return orders;
+      } catch (err) {
+        console.log("err :>> ", err);
       }
     },
     async addOrder({ commit }, { order }) {

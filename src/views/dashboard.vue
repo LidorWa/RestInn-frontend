@@ -9,11 +9,7 @@
     <h1 class="main-layout-homepage title">Your host dashboard</h1>
     <dashboard-stats v-if="!isLoading" :orders="getOrders" />
 
-    <order-list
-      v-if="!isLoading"
-      :orders="getOrders"
-      @updateStatus="updateStatus"
-    />
+    <order-list v-if="!isLoading" :orders="getOrders" @updateStatus="updateStatus" />
   </section>
 </template>
 
@@ -26,12 +22,18 @@ export default {
   name: "dashboard",
 
   date() {
-    return {};
+    return {
+      loggedInUser: {},
+    };
   },
   async created() {
-    const loggedInUser = this.$store.getters.getLoggedInUser;
+    this.loggedInUser = this.$store.getters.getLoggedInUser;
+
+    socketService.emit('enter dashboard', this.loggedInUser._id)
+    socketService.on('added order', this.orderAdded);
+
     const filterBy = {
-      hostId: loggedInUser._id,
+      hostId: this.loggedInUser._id,
     };
     try {
       await this.$store.dispatch({ type: "loadOrders", filterBy });
@@ -53,13 +55,26 @@ export default {
 
   methods: {
     updateStatus({ status, orderId }) {
-      // console.log({ status, orderId });
       const order = this.getOrders.find((order) => order._id === orderId);
-      // const copy = JSON.parse(JSON.stringify(order))
-      const copy = { ...order };
-      copy.status = status;
-      this.$store.dispatch({ type: "updateOrder", order: copy });
+      const orderCopy = JSON.parse(JSON.stringify(order))
+      
+      orderCopy.status = status;
+      this.$store.dispatch({ type: "updateOrder", order: orderCopy });
+
+      socketService.emit('update status', orderCopy)
+
     },
+    async orderAdded() {
+      this.loggedInUser = this.$store.getters.getLoggedInUser;
+      const filterBy = {
+        hostId: this.loggedInUser._id,
+      };
+      try {
+        await this.$store.dispatch({ type: "loadOrdersWithSocket", filterBy });
+      } catch (err) {
+        console.log("Error while loading orders: ", err);
+      }
+    }
     // setFilter(filterBy) {
     //   const copyfilter = JSON.parse(JSON.stringify(filterBy))
     //   this.$store.dispatch({ type: 'setFilter', filterBy: copyfilter })

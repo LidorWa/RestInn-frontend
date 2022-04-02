@@ -130,7 +130,6 @@ export default {
     }
   },
   async created() {
-    socketService.setup()
     const stayId = this.$route.params.stayId
     this.stay = await this.$store.dispatch({
       type: 'getStayById',
@@ -175,9 +174,8 @@ export default {
       const guests = this.getGuests
       if (!dates) {
         this.$refs['hero-modal'].$refs['modal-date-picker'].focus();
-        // this.alertModalMessage = 'Select dates to proceed'
         this.isOrdering = false
-        // this.isOrderAlert = true
+
         return
       }
       if (guests.adults + guests.children > this.stay.capacity) {
@@ -186,12 +184,6 @@ export default {
         this.isOrderAlert = true
         return
       }
-      // if (!(guests.adults + guests.children )) {
-      //   this.alertModalMessage = `Select guests to proceed`
-      //   this.isOrdering = false
-      //   this.isOrderAlert = true
-      //   return
-      // }
 
       const user = this.$store.getters.getLoggedInUser
       if (!user) {
