@@ -9,8 +9,7 @@
   top: em(55px);
   position: fixed;
   width: em(200px);
-  transform: translateX(150%);
-
+  transform: translate(150%, 5%);
   z-index: 10;
 
   p {
@@ -19,8 +18,9 @@
     margin: 0;
     transition: 0.1s;
     font-size: em(15px);
-    padding: em(2px);
+    padding: em(2px) em(3px);
     padding-left: em(13px);
+    font-weight: 500;
     color: $clr2;
     line-height: 30px;
   }
@@ -34,15 +34,17 @@
   }
 }
 
+.showHamburger {
+  transform: translatey(5%) !important;
+}
+
 .sign-up-option {
   font-weight: 600 !important;
 }
 
-.user-menu-explore{
-  display: none
-  ;
+.user-menu-explore {
+  display: none;
   @media (max-width: 782px) {
     display: block;
-    }
-  } 
-
+  }
+}

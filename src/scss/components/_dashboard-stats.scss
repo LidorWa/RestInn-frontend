@@ -2,9 +2,36 @@
   padding-bottom: 25px;
   height: 225px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  gap: 30px;
+  gap: 10px;
+
+  .charts-container {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+  }
+
+  .bar-container {
+    display: flex;
+    align-items: flex-end;
+    width: 250px;
+    height: 200px;
+  }
+
+  .apexcharts-menu-icon {
+    display: none;
+  }
+
+  .bar-stat {
+    height: 170px;
+  }
+
+  .stat-cards-container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
 
   .pending-stat {
     color: #0000db;
@@ -20,7 +47,7 @@
 
   .nights-chart {
     height: 170px;
-    width: 420px;
+    width: 450px;
     align-self: flex-start;
   }
 
