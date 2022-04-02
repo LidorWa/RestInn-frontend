@@ -1,12 +1,16 @@
 <template>
-  <section class="dash-board main-layout-height">
+  <section class="dashboard main-layout-height">
+    <user-message
+      :class="{ showUserMessage: isShowingMessage }"
+      :message="message"
+    />
     <img
       class="loading-img"
       v-if="isLoading"
       src="../assets/system-imgs/loading.gif"
       alt="Loading.."
     />
-
+    <h1 class="main-layout-homepage title">My dashboard</h1>
     <dashboard-stats v-if="!isLoading" :orders="getOrders" />
 
     <order-list
@@ -20,18 +24,27 @@
 <script>
 import orderList from "../components/order-list.vue";
 import dashboardStats from "../components/dashboard-stats.vue";
+import userMessage from "../components/user-message.vue";
+import { socketService } from "../services/socket-service";
 
 export default {
   name: "dashboard",
 
-  date() {
-    return {};
+  data() {
+    return {
+      isShowingMessage: false,
+      message: {},
+      loggedInUser: {},
+    };
   },
-  //   mounted() {},
   async created() {
-    const loggedInUser = this.$store.getters.getLoggedInUser;
+    this.loggedInUser = this.$store.getters.getLoggedInUser;
+
+    socketService.emit("enter dashboard", this.loggedInUser._id);
+    socketService.on("added order", this.orderAdded);
+
     const filterBy = {
-      hostId: loggedInUser._id,
+      hostId: this.loggedInUser._id,
     };
     try {
       await this.$store.dispatch({ type: "loadOrders", filterBy });
@@ -44,7 +57,7 @@ export default {
       return this.$store.getters.isLoading;
     },
     getOrders() {
-      console.log("getOrders", this.$store.getters.getOrders);
+      // console.log("getOrders", this.$store.getters.getOrders);
       return this.$store.getters.getOrders;
       //   console.log('order', order)
       //   return []
@@ -52,13 +65,37 @@ export default {
   },
 
   methods: {
+    showMessage(message) {
+      this.message = message;
+      this.isShowingMessage = true;
+      setTimeout(() => {
+        this.isShowingMessage = false;
+      }, 4500);
+    },
     updateStatus({ status, orderId }) {
-      console.log({ status, orderId });
       const order = this.getOrders.find((order) => order._id === orderId);
-      // const copy = JSON.parse(JSON.stringify(order))
-      const copy = { ...order };
-      copy.status = status;
-      this.$store.dispatch({ type: "updateOrder", order: copy });
+      const orderCopy = JSON.parse(JSON.stringify(order));
+
+      orderCopy.status = status;
+      this.$store.dispatch({ type: "updateOrder", order: orderCopy });
+
+      socketService.emit("update status", orderCopy);
+    },
+    async orderAdded() {
+      this.loggedInUser = this.$store.getters.getLoggedInUser;
+      const filterBy = {
+        hostId: this.loggedInUser._id,
+      };
+      try {
+        await this.$store.dispatch({ type: "loadOrdersWithSocket", filterBy });
+      } catch (err) {
+        console.log("Error while loading orders: ", err);
+      }
+      const message = {
+        text: "You have a new order",
+        from: "user",
+      };
+      this.showMessage(message);
     },
     // setFilter(filterBy) {
     //   const copyfilter = JSON.parse(JSON.stringify(filterBy))
@@ -68,6 +105,7 @@ export default {
   components: {
     orderList,
     dashboardStats,
+    userMessage,
   },
 };
 </script>

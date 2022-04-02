@@ -14,7 +14,6 @@ export default {
       return state.isSignUpModal;
     },
     getLoggedInUser(state) {
-      console.log('from getters 5')
       return state.loggedInUser;
     },
   },
@@ -26,10 +25,7 @@ export default {
       state.isSignUpModal = false;
     },
     setLoggedinUser(state, { loggedInUser }) {
-      console.log('store setLoggedinUser 3');
-
       state.loggedInUser = loggedInUser;
-      console.log(loggedInUser)
     },
 
     setUsers(state, { users }) {
@@ -45,22 +41,25 @@ export default {
     },
   },
   actions: {
-    async login({ commit }, { user }) {
+    async login({ commit, dispatch, getters }, { user }) {
       try {
         const loggedInUser = await userService.login(user);
         commit({ type: "setLoggedinUser", loggedInUser });
+        /// Load user orders (as a host) to order-store
+        const filterBy = {
+          hostId: loggedInUser._id,
+        };
+        await dispatch({ type: "loadOrders", filterBy });
       } catch (err) {
         console.log("Error while trying to log in", err);
         throw new Error("Somethig went wrong. Try again");
       }
-
-      //   if (idx === -1) return;
-      //   if (state.users[idx].password !== user.password) return;
     },
 
-    async logout({ commit }) {
+    async logout({ commit, dispatch }) {
       await userService.logout();
       commit({ type: "setLoggedinUser", loggedInUser: null });
+      commit({ type: "setOrders", orders: null });
     },
 
     async getUserById(context, { userId }) {
@@ -77,11 +76,10 @@ export default {
       dispatch({ type: "loadUsers" });
     },
     getUserFromSession({ commit }) {
-      console.log('store getUserFromSession 1');
+      console.log("store getUserFromSession 1");
 
       const user = userService.getLoggedinUser();
-      commit({ type: 'setLoggedinUser', loggedInUser: user })
-    }
-
+      commit({ type: "setLoggedinUser", loggedInUser: user });
+    },
   },
 };

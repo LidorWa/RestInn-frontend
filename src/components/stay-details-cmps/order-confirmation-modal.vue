@@ -83,6 +83,10 @@ export default {
       isConfirmed: false,
     };
   },
+  created(){
+    
+    
+  },
 
   methods: {
     async confirm() {
@@ -107,13 +111,8 @@ export default {
           fullname: this.user.fullname,
         },
       };
-      //Place the order in store, for fronend needs only
-      // this.$store.commit({ type: "setOrder", order });
-      console.log(order);
       this.$emit("addOrder", order);
-
-      // *** Uncomment when order backend service implemented ***
-      // await this.$store.commit({ type: "addOrder", order });
+      
     },
     getTimeStampDate(num) {
       const arrayDates = JSON.parse(JSON.stringify(this.dates));

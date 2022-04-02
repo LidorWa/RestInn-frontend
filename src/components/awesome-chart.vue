@@ -1,6 +1,6 @@
 <template>
   <div style="{responsive: true">
-    <PieChart :styles="myStyles" class="nights-chart" :chartData="data" />
+    <PieChart :styles="myStyles" class="nights-pie" :chartData="data" />
     <!-- <PieChart :styles="myStyles" :chartData="data" /> -->
   </div>
 </template>

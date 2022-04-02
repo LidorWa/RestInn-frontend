@@ -1,6 +1,6 @@
 import { storageService } from "./async-storage-service";
 import { httpService } from "./http-service.js";
-// import { socketService, SOCKET_EVENT_USER_UPDATED } from "./socket.service";
+// import { socketService, SOCKET_EVENT_USER_UPDATED } from "./socket-service";
 
 // import Axios from "axios";
 // var axios = Axios.create({ withCredentials: true });
@@ -33,14 +33,12 @@ async function login(userCred) {
 }
 
 async function getById(userId) {
-  // const user = await storageService.get('user', userId)
   const user = await httpService.get(`user/${userId}`);
   gWatchedUser = user;
   return user;
 }
 
 async function update(user) {
-  // await storageService.put('user', user)
   user = await httpService.put(`user/${user._id}`, user);
   // Handle case in which admin updates other user's details
   if (getLoggedinUser()._id === user._id) _saveLocalUser(user);
@@ -48,7 +46,6 @@ async function update(user) {
 }
 
 async function getUsers() {
-  // return httpService.get(`user`);
   let users = await storageService.query(USER_KEY);
   if (!users || !users.length) {
     users = await _createUsers();
@@ -57,8 +54,6 @@ async function getUsers() {
 }
 
 async function signup(userCred) {
-  // userCred.score = 10000;
-  // const user = await storageService.post('user', userCred)
   const user = await httpService.post("auth/signup", userCred);
   // socketService.emit('set-user-socket', user._id);
   return _saveLocalUser(user);
@@ -76,7 +71,6 @@ function _saveLocalUser(user) {
 }
 
 function getLoggedinUser() {
-  console.log('user-service getLoggedinUser 2');
   const user = JSON.parse(
     sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER) || "null"
   );
