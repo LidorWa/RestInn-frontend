@@ -6,9 +6,6 @@
         <h1 class="tag tag-line2">We'll do the rest.</h1>
       </div>
     </div>
-    <!-- <div :style="{ backgroundImage: 'url(' + homePageImg + ')' }" class="home-page-img"></div> -->
-    <!-- <div :style="'backgroundImage: ' + getImgUrl()" class="home-page-img"></div> -->
-    <!-- Top destinations -->
     <div class="main-layout-homepage">
       <h1 class="destinations-header">Popular destinations</h1>
       <div class="destinations-container">

@@ -40,7 +40,6 @@
       </div>
     </div>
     <div class="guests-btns-container">
-      <!-- <div class="guest-modal-btn" @click="closeGuestsModal">Cancel</div> -->
       <div class="guest-modal-btn" @click="onSelectGuests">OK</div>
     </div>
   </section>

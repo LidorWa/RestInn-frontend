@@ -1,7 +1,5 @@
 <template>
   <section class="app-container">
-    <!-- Sign up / Log in compo modal nent -->
-
     <sign-up
       :class="{ showSignUp: isSignUp }"
       @closeSignUp="closeSignUp"
@@ -11,11 +9,7 @@
     <div v-if="isSignUp" class="outsideUserMenu" @click="closeSignUp"></div>
     <div class="main-app-container flex flex-column app-container">
       <app-header />
-
-      <!-- add prop showSearch -->
-      <!-- <router-view /> -->
       <router-view class="main-layout-height" />
-
       <app-footer />
     </div>
   </section>
@@ -24,7 +18,7 @@
 <script>
 import appHeader from "./components/app-header.vue";
 import appFooter from "./components/app-footer.vue";
-import { propsToAttrMap } from "@vue/shared";
+// import { propsToAttrMap } from "@vue/shared";
 import AppFooter from "./components/app-footer.vue";
 import signUp from "./components/sign-up.vue";
 
@@ -35,6 +29,7 @@ export default {
     appFooter,
     AppFooter,
     signUp,
+    // propsToAttrMap
   },
   data() {
     return {
@@ -44,8 +39,6 @@ export default {
   },
 
   async created() {
-    // window.addEventListener('scroll', this.onScroll)
-
     const filterBy = {
       price: [1, 4000],
       type: [],
@@ -83,28 +76,7 @@ export default {
     closeSignUp() {
       this.$store.commit({ type: "closeSignUpModal" });
     },
-
-    // onScroll() {
-    //   this.scrollY = window.scrollY;
-
-    //   // if (this.$route.path === '/') {
-    //   if (window.scrollY > 20) {
-    //     // this.showSearch=false
-    //     // if (window.scrollY > 0 && window.scrollY <= 20) {
-    //     //   this.headerStatus = 'firstScroll'
-    //     // } else
-    //     this.headerStatus = "shrinkSearchBar";
-    //     // console.log('App headerStatus', this.headerStatus)
-    //   } else {
-    //     this.headerStatus = "top";
-    //     // console.log('App headerStatus', this.headerStatus)
-    //     // }
-    //   }
-    // },
   },
-  // unmounted() {
-  //   window.removeEventListener("scroll", this.onScroll);
-  // },
 };
 </script>
 

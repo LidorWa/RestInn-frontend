@@ -73,11 +73,9 @@ export default {
     },
     updateStatus({ status, tripId }) {
       const trips = this.getTrips;
-
       const trip = trips.find((trip) => trip._id === tripId);
-      // const copy = JSON.parse(JSON.stringify(trip))
-
       const copy = { ...trip };
+      
       copy.status = status;
       this.$store.dispatch({ type: "updateOrder", order: copy });
     },

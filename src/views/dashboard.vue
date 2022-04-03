@@ -57,10 +57,7 @@ export default {
       return this.$store.getters.isLoading;
     },
     getOrders() {
-      // console.log("getOrders", this.$store.getters.getOrders);
       return this.$store.getters.getOrders;
-      //   console.log('order', order)
-      //   return []
     },
   },
 
@@ -97,10 +94,6 @@ export default {
       };
       this.showMessage(message);
     },
-    // setFilter(filterBy) {
-    //   const copyfilter = JSON.parse(JSON.stringify(filterBy))
-    //   this.$store.dispatch({ type: 'setFilter', filterBy: copyfilter })
-    // },
   },
   components: {
     orderList,

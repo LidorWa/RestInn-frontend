@@ -1,6 +1,5 @@
 <template>
   <section class="main-layout-homepage">
-    <!-- <div class="order-table-statistics">Rendering Months histograms?</div> -->
     <div class="dashboard-order-cont">
       <div class="dashboard-title date">Date</div>
       <div class="dashboard-title booker">Booker</div>
@@ -19,11 +18,6 @@
       :order="order"
       @updateStatus="updateStatus"
     />
-    <!-- <li @click="$router.push(`/order/${order._id}`)" class="order-preview"></li> -->
-
-    <!-- <div class="order-table-container clean-list">
-      <ul v-if="orders" class="order-list clean-list"></ul>
-    </div>-->
   </section>
 </template>
 
@@ -38,10 +32,6 @@ export default {
       required: true,
     },
   },
-  created() {
-    // console.log('orderList', this.props.orders)
-  },
-  //   data() {},
   methods: {
     updateStatus(status) {
       this.$emit("updateStatus", status);
@@ -55,4 +45,4 @@ export default {
 </script>
 
 <style></style>
-<!-- .container { display: grid; grid-template-columns: minmax(40px, 60px) minmax(40px, 60px) minmax(60px, 90px) minmax(60px, 90px) minmax(20px, 60px) minmax(20px, 60px) minmax(20px, 60px) minmax(20px, 60px) minmax(20px, 60px); grid-template-rows: 1fr 1fr 1fr 1fr; gap: 4px 16px; grid-auto-flow: row; grid-template-areas: ". . . . . . . . ." ". . . . . . . . ." ". . . . . . . . ." ". . . . . . . . ."; } -->
+

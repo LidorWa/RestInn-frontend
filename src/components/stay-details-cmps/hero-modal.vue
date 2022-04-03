@@ -64,7 +64,6 @@
               {{ getGuestsForDisplay }}
             </div>
           </div>
-          <!-- <span  -->
           <div
             class="check-availability-container"
             @click="onCheckAvailability"
@@ -146,7 +145,6 @@ export default {
       this.isSelectingGuests = false;
     },
   },
-  // {{ getGuests.adults }} adults, {{ getGuests.children }} children
   computed: {
     getCheckDetails() {
       const dates = this.dates;

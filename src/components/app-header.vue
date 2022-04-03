@@ -1,6 +1,5 @@
 <template>
   <section class="main-header-section">
-    <!-- <div class="header-container"> -->
     <header
       class="main-header-container flex flex-column align-center"
       :class="{ [headerClass]: true, [layout]: true }"
@@ -82,7 +81,6 @@
         />
       </div>
     </header>
-    <!-- </div> -->
   </section>
 </template>
 
@@ -112,8 +110,6 @@ export default {
     };
   },
   created() {
-    // console.log('created header - headerStatus', this.headerStatus)
-    // console.log('$route.query', this.$route)
     document.addEventListener("scroll", this.updateScroll);
   },
 
@@ -159,7 +155,6 @@ export default {
       this.$router.push("/");
     },
     setHeaderClass() {
-      // console.log('path', this.$route.path)
       if (this.$route.path === '/') {
         this.layout = 'main-layout-homepage'
         this.isSearch = true
@@ -228,7 +223,6 @@ export default {
   },
   watch: {
     $route() {
-      // console.log(this.$route.path)
       this.updateScroll();
     },
   },
