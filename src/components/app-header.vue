@@ -39,11 +39,10 @@
               src="../assets/svgs/menu_black_24dp.svg"
               alt="menu-icon"
             />
-
             <img
               v-if="!isLoggedIn"
               class="hamburger-avatar"
-              src="../assets/svgs/user-avatar.svg"
+              src="@/assets/svgs/user-avatar.svg"
               alt="user avatar"
             />
             <img
@@ -193,13 +192,13 @@ export default {
       const user = this.$store.getters.getLoggedInUser;
       return !!user;
     },
-    getLoggedInUserImage() {
-      const user = this.$store.getters.getLoggedInUser;
-      if (user) {
-        const imgUrl = new URL(`@/assets/images/${user.imgUrl}`, import.meta.url)
-        return imgUrl
-      }
-    },
+    // getLoggedInUserImage() {
+    //   const user = this.$store.getters.getLoggedInUser;
+    //   if (user) {
+    //     const imgUrl = new URL(`../assets/images/${user.imgUrl}`, import.meta.url)
+    //     return imgUrl
+    //   }
+    // },
     homepageClass() {
       let classesStr = "";
       if (this.scrollLoc > 20) classesStr += "scrolled ";
