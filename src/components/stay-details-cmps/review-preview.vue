@@ -39,8 +39,6 @@ export default {
     methods: {
         spliceRandomImg(idx){
             this.guestsImages.splice(idx, 1)
-            console.log('idx', idx);
-            console.log('array length', this.guestsImages.length)
         },
     },
     computed: {
