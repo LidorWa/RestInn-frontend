@@ -1,7 +1,7 @@
 <template>
   <apexchart
     v-if="series"
-    width="280"
+    width="330"
     height="170"
     type="bar"
     :options="options"

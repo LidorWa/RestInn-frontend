@@ -45,6 +45,7 @@ export default {
 
     //// Tell the socket service about entering the dashboard ////
     socketService.emit("enter dashboard", this.loggedInUser._id);
+
     ///////////////////////////////////////////////////////
     //// Register to listening the event "added order" ////
     ///////////////////////////////////////////////////////
@@ -93,21 +94,20 @@ export default {
       const filterBy = {
         hostId: this.loggedInUser._id,
       };
-      setTimeout(async () => {
-        try {
-          await this.$store.dispatch({
-            type: "loadOrdersWithSocket",
-            filterBy,
-          });
-          const message = {
-            text: "You have a new order",
-            from: "user",
-          };
-          this.showMessage(message);
-        } catch (err) {
-          console.log("Error while loading orders: ", err);
-        }
-      }, 17000);
+
+      try {
+        await this.$store.dispatch({
+          type: "loadOrdersWithSocket",
+          filterBy,
+        });
+      } catch (err) {
+        console.log("Error while loading orders: ", err);
+      }
+      const message = {
+        text: "You have a new order",
+        from: "user",
+      };
+      this.showMessage(message);
     },
   },
   components: {

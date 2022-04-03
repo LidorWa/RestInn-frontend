@@ -1,55 +1,91 @@
 .dashboard-stats {
-  padding-bottom: 25px;
-  height: 225px;
+  padding-bottom: 35px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 5%;
+  flex-wrap: wrap;
+  gap: 20px;
 
-  .charts-container {
-    width: 50%;
+  @media (max-width: 808px) {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .cards-container {
+    // width: 45%;
     display: flex;
     justify-content: space-between;
-    gap: 10%;
+    gap: 95px;
+    margin-bottom: 35px;
 
-    .pie-container {
-      box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
-      border-radius: 15px;
-
-      .nights-pie {
-        height: 170px;
-        width: 300px;
-        align-self: flex-start;
-      }
+    @media (max-width: 808px) {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
     }
 
     .bar-container {
       display: flex;
-      align-items: flex-start;
-      width: 45%;
-      height: 200px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 350px;
+      height: 250px;
       box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
       border-radius: 15px;
-    }
-  }
 
-  .stat-cards-container {
-    width: 50%;
-    display: flex;
-    justify-content: space-between;
-    gap: 10%;
+      h1 {
+        font-size: em(19px);
+      }
+    }
+
+    .revenue {
+      width: 307px !important;
+
+      @media (max-width: 808px) {
+        width: 350px !important;
+        height: 200px !important;
+      }
+    }
+
+    .pie-container {
+      box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 250px;
+
+      @media (max-width: 808px) {
+        justify-content: center;
+        width: 350px !important;
+        height: 320px;
+        gap: 10px;
+      }
+
+      h1 {
+        font-size: em(19px);
+      }
+
+      .nights-pie {
+        height: 180px;
+        width: 307px;
+        align-self: flex-start;
+      }
+    }
 
     .stats-card {
       padding: 25px;
-      width: 290px;
-      height: 200px;
+      width: 350px;
+      height: 250px;
       box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
       border-radius: 15px;
 
       h1 {
         font-size: em(19px);
         text-align: center;
-        padding-bottom: 25px;
+        padding-bottom: 30px;
       }
 
       .details {
@@ -59,7 +95,7 @@
         .rev-stat {
           display: flex;
           justify-content: space-between;
-          padding-bottom: 9px;
+          padding-bottom: 13px;
           font-size: em(16px);
           font-weight: 600;
         }

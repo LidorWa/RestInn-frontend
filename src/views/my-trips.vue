@@ -88,21 +88,19 @@ export default {
         userId: this.loggedInUser?._id,
       };
 
-      setTimeout(async () => {
-        try {
-          await this.$store.dispatch({
-            type: "loadOrdersWithSocket",
-            filterBy,
-          });
-          const message = {
-            text: `Your order has been ${order.status}`,
-            from: "host",
-          };
-          this.showMessage(message);
-        } catch (err) {
-          console.log("Error while loading orders: ", err);
-        }
-      }, 2000);
+      try {
+        await this.$store.dispatch({
+          type: "loadOrdersWithSocket",
+          filterBy,
+        });
+        const message = {
+          text: `Your order has been ${order.status}`,
+          from: "host",
+        };
+        this.showMessage(message);
+      } catch (err) {
+        console.log("Error while loading orders: ", err);
+      }
     },
   },
   components: {

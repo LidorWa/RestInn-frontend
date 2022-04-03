@@ -1,15 +1,11 @@
 <template>
   <section class="dashboard-stats main-layout-homepage">
-    <div class="charts-container">
+    <div class="cards-container">
       <div class="bar-container">
+        <h1>Revenue per month</h1>
         <bar-chart :orders="orders" />
       </div>
-      <div class="pie-container">
-        <awesome-chart v-if="testData" :data="testData" />
-      </div>
-    </div>
-    <div class="stat-cards-container">
-      <div class="stats-card">
+      <div class="stats-card revenue">
         <h1>Total revenue</h1>
         <div class="details">
           <div class="rev-stat">
@@ -21,12 +17,19 @@
             <span>{{ thisYearRenevue }}</span>
           </div>
           <div class="rev-stat">
-            <span class="stat-head">Total summary</span>
+            <span class="stat-head">All time</span>
             <span>{{ formattedRevenue }}</span>
           </div>
         </div>
       </div>
-      <div class="stats-card">
+    </div>
+    <div class="cards-container">
+      <div class="pie-container">
+        <h1>Orders segmentation by nights</h1>
+        <awesome-chart v-if="testData" :data="testData" />
+      </div>
+
+      <div class="stats-card management">
         <h1>Orders management</h1>
         <div class="details">
           <div class="rev-stat">
