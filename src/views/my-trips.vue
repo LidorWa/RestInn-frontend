@@ -73,11 +73,9 @@ export default {
     },
     updateStatus({ status, tripId }) {
       const trips = this.getTrips;
-
       const trip = trips.find((trip) => trip._id === tripId);
-      // const copy = JSON.parse(JSON.stringify(trip))
-
       const copy = { ...trip };
+      
       copy.status = status;
       this.$store.dispatch({ type: "updateOrder", order: copy });
     },
@@ -87,18 +85,22 @@ export default {
       const filterBy = {
         userId: this.loggedInUser?._id,
       };
-      try {
-        await this.$store.dispatch({ type: "loadOrdersWithSocket", filterBy });
-      } catch (err) {
-        console.log("Error while loading orders: ", err);
-      }
 
-      console.log(order.status);
-      const message = {
-        text: `Your order has been ${order.status}`,
-        from: "host",
-      };
-      this.showMessage(message);
+      setTimeout(async () => {
+        try {
+          await this.$store.dispatch({
+            type: "loadOrdersWithSocket",
+            filterBy,
+          });
+          const message = {
+            text: `Your order has been ${order.status}`,
+            from: "host",
+          };
+          this.showMessage(message);
+        } catch (err) {
+          console.log("Error while loading orders: ", err);
+        }
+      }, 2000);
     },
   },
   components: {

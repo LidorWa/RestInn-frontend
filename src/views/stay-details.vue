@@ -100,6 +100,7 @@ import orderAlertModal from "../components/stay-details-cmps/order-alert-modal.v
 import loginAlertModal from "../components/stay-details-cmps/login-alert-modal.vue";
 import orderConfirmationModal from "../components/stay-details-cmps/order-confirmation-modal.vue";
 import { socketService } from "../services/socket-service";
+
 export default {
   name: "stay-details",
   components: {
@@ -117,12 +118,6 @@ export default {
   },
   data() {
     return {
-      // isAdding: false,
-      // reviewToAdd: {
-      //   content: '',
-      //   userId: '',
-      //   stayId: '',
-      // },
       isMobile: false,
       stay: null,
       isOrderAlert: false,
@@ -143,6 +138,9 @@ export default {
 
   methods: {
     addOrder(order) {
+      /////////////////////////////////////////////////////////
+      //// Sending the event "new order" to socket service ////
+      /////////////////////////////////////////////////////////
       socketService.emit("new order", order);
       this.$store.dispatch({ type: "addOrder", order });
     },

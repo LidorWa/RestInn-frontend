@@ -29,14 +29,14 @@ export default {
         },
         plotOptions: {
           bar: {
-            columnWidth: "80%",
+            columnWidth: "70%",
             distributed: false,
             columnColors: ["black"],
           },
         },
 
         xaxis: {
-          categories: ["January", "February", "March", "April"],
+          categories: ["Jan", "Feb", "March", "April"],
           labels: {
             style: {
               colors: ["#222222"],
@@ -58,65 +58,12 @@ export default {
     const orders = this.orders.filter((order) => order.status === "approved");
     orders.forEach((order) => {
       const month = new Date(order.createdAt).getMonth();
-      series[0].data[month] += order.totalPrice;
+      if (month < 4) {
+        series[0].data[month] += order.totalPrice;
+      }
     });
 
     this.series = series;
   },
 };
-
-//  new Vue({
-//       el: '#app',
-//       components: {
-//         apexchart: VueApexCharts,
-//       },
-//       data: {
-
-//         series: [{
-//           data: [21, 22, 10, 28, 16, 21, 13, 30]
-//         }],
-//         chartOptions: {
-//           chart: {
-//             height: 350,
-//             type: 'bar',
-//             events: {
-//               click: function(chart, w, e) {
-//                 // console.log(chart, w, e)
-//               }
-//             }
-//           },
-//           colors: colors,
-//           plotOptions: {
-//             bar: {
-//               columnWidth: '45%',
-//               distributed: true,
-//             }
-//           },
-//           dataLabels: {
-//             enabled: false
-//           },
-//           legend: {
-//             show: false
-//           },
-//           xaxis: {
-//             categories: [
-//               ['John', 'Doe'],
-//               ['Joe', 'Smith'],
-//               ['Jake', 'Williams'],
-//               'Amber',
-//               ['Peter', 'Brown'],
-//               ['Mary', 'Evans'],
-//               ['David', 'Wilson'],
-//               ['Lily', 'Roberts'],
-//             ],
-//             labels: {
-//               style: {
-//                 colors: colors,
-//                 fontSize: '12px'
-//               }
-//             }
-//           }
-//         },
-
-//       },
 </script>

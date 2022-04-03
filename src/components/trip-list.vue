@@ -20,11 +20,6 @@
       :trip="trip"
       @updateStatus="updateStatus"
     />
-    <!-- <li @click="$router.push(`/order/${order._id}`)" class="order-preview"></li> -->
-
-    <!-- <div class="order-table-container clean-list">
-      <ul v-if="orders" class="order-list clean-list"></ul>
-    </div>-->
   </section>
 </template>
 

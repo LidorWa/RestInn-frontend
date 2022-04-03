@@ -23,7 +23,7 @@ export default {
   name: "stay-app",
   data() {
     return {
-      // stays: null,
+
       filterBy: {
         price: [1, 4000],
         type: [],
@@ -34,12 +34,8 @@ export default {
     };
   },
   created() {
-    // getGuests
-
     const guests = this.$store.getters.getGuestsNumber;
     this.filterBy.guests = guests;
-    // const stays = this.$store.getters.getStays;
-    // this.stays = stays;
     if (this.$route.query.destination) {
       let city = this.$route.query.destination.split("?")[0];
       this.filterBy.city = city ? city : "";
@@ -74,9 +70,6 @@ export default {
   components: {
     stayList,
     exploreFilter,
-
-    // stayFilter,
-    // addStay,
   },
 };
 </script>

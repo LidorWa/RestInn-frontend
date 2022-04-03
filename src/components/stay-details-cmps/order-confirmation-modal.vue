@@ -56,10 +56,6 @@
 
 <script>
 export default {
-  //  :stay="stay"
-  // :dates="getDates"
-  // :guests="getGuests"
-  // :user="getLoggedInUser"
   props: {
     stay: {
       type: Object,
@@ -83,11 +79,6 @@ export default {
       isConfirmed: false,
     };
   },
-  created(){
-    
-    
-  },
-
   methods: {
     async confirm() {
       this.isConfirmed = true;
