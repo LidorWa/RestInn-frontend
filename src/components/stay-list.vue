@@ -34,12 +34,6 @@ export default {
   data() {
     return {};
   },
-  created() {
-    // if (this.$route.query.destination) {
-    //   let city = this.$route.query.destination.split("?")[0];
-    //   this.city = city;
-    // }
-  },
   components: {
     stayPreview,
   },
@@ -57,7 +51,6 @@ export default {
             return char.toLowerCase();
           })
           .join("");
-        // cityFromProps.charAt(0).toUpperCase() + cityFromProps.substring(1);
         return `${this.stays.length} stays in ${city}`;
       }
       return `${this.stays.length} stays`;

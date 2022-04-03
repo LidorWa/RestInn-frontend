@@ -72,9 +72,6 @@ export default {
     },
   },
   computed: {
-    // getStatusClass(){
-    //   if (this.order.status
-    // },
     isUndisable() {
       const startDate = this.order.startDate;
       const now = Date.now();

@@ -61,13 +61,6 @@ export default {
         this.isInvalidAlert = false;
         return;
       }
-      // if (!regex.test(this.username)) {
-      //   this.isInputAlert = false;
-      //   this.isInvalidAlert = false;
-      //   this.isUsernameAlert = true;
-      //   return;
-      // }
-
       const user = {
         username: this.username,
         password: this.password,
@@ -84,18 +77,7 @@ export default {
         this.isInvalidAlert = true;
         this.cleanData();
         throw err;
-        // return;
       }
-
-      // const loggedInUser = this.$store.getters.getLoggedInUser;
-      // if (!loggedInUser) {
-      //   this.isInputAlert = false;
-      //   this.isUsernameAlert = false;
-      //   this.isInvalidAlert = true;
-      //   return;
-      // }
-      // this.cleanData();
-      // this.$emit("closeSignUp");
     },
     closeSignUp() {
       this.cleanData();

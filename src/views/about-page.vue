@@ -1,6 +1,5 @@
 <template>
   <section class="about-page main-layout-height flex direction-column">
-    <!-- <h1>This is an about page</h1> -->
     <div class="lidor-container">
       <div class="logo-pink flex align-center" @click="goHome">
         <i class="fa-brands fa-airbnb logo-pink-i"></i>

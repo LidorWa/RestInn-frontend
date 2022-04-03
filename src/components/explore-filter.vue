@@ -183,10 +183,8 @@ export default {
     };
   },
   created() {
-    // console.log("Filter created!");
     const filterFromStore = this.$store.getters.getFilterFromStore;
     this.filterBy = filterFromStore;
-
     if (this.filterByCity) {
       this.filterBy.city = this.filterByCity;
     }
@@ -194,14 +192,8 @@ export default {
     if (this.filerByType) {
       this.filterBy.type = this.filerByType;
       this.typeFromParams[this.filterBy.type[0]] = true;
-      // this.setFilter();
     }
     this.setFilter();
-    // const stayPrices = this.stays.map((stay) => stay.price);
-    // if (stayPrices.length === 1) return;
-    // stayPrices.sort((a, b) => a - b);
-    // this.min = stayPrices[0];
-    // this.max = stayPrices[stayPrices.length - 1];
   },
   components: {},
   methods: {

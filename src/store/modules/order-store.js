@@ -5,7 +5,6 @@ export default {
     location: "",
     dates: null,
     guests: { adults: 0, children: 0 },
-    // isOrdering: false,
     orders: [],
     total: 0,
   },
@@ -27,12 +26,6 @@ export default {
     },
   },
   mutations: {
-    //Helper mutations for data communication
-    // setOrder(state, { order }) {
-    //   console.log(order)
-    //   state.orders.push(order)
-    // },
-
     clearOrdersFromStore(state) {
       state.orders = [];
       console.log("orders cleared: ", state.orders);
@@ -57,11 +50,9 @@ export default {
       state.orders.push(order);
     },
     updateOrder(state, { order }) {
-      // console.log({ order });
       const idx = state.orders.findIndex(
         (currOrder) => currOrder._id === order._id
       );
-      // console.log({ idx });
       state.orders.splice(idx, 1, order);
     },
     removeOrder(state, { orderId }) {
@@ -72,7 +63,6 @@ export default {
       state.location = "";
       state.dates = null;
       state.guests = { adults: 0, children: 0 };
-      // state.isOrdering = false,
       state.total = 0;
     },
   },
@@ -82,7 +72,6 @@ export default {
       try {
         const orders = await orderService.query(filterBy);
         commit({ type: "setOrders", orders });
-        // return orders;
       } catch (err) {
         console.log("err :>> ", err);
       } finally {
@@ -100,11 +89,10 @@ export default {
     },
     async addOrder({ commit }, { order }) {
       try {
-        // console.log("inside store", order);
         const addedOrder = await orderService.addOrder(order);
         commit({ type: "addOrder", order: addedOrder });
       } catch (err) {
-        // console.log("err :>> ", err);
+        console.log("err :>> ", err);
       }
     },
     async updateOrder({ commit }, { order }) {
@@ -112,7 +100,7 @@ export default {
         const updatededOrder = await orderService.updateOrder(order);
         commit({ type: "updateOrder", order: updatededOrder });
       } catch (err) {
-        // console.log("err :>> ", err);
+        console.log("err :>> ", err);
       }
     },
     async removeOrder({ commit }, { orderId }) {
@@ -120,7 +108,7 @@ export default {
         await orderService.removeOrder(orderId);
         commit({ type: "removeOrder", orderId });
       } catch (err) {
-        // console.log("err :>> ", err);
+        console.log("err :>> ", err);
       }
     },
   },

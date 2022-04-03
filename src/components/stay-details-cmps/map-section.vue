@@ -18,14 +18,6 @@ export default {
   data() {
     return {
       center: { lat: 32.091996, lng: 34.959813 },
-      //TODO: try to change map pin to airbnb style
-      // marker: {
-      //   id: "dfsldjl3r",
-      //   position: {
-      //     lat: 32.091996,
-      //     lng: 34.959813,
-      //   },
-      // },
     };
   },
   created() {
