@@ -12,9 +12,9 @@
         </div>
       </section>
       <section class="host-page-video">
-        <video class="host-video" autoplay muted preload="none" poster="../assets/host-video/image1.jpg" @canplay="videoLoadedFunction">
-          <source src="../assets/host-video/restinn host video.mp4" type="video/mp4" />Sorry, your browser doesn't support embedded videos.
-        </video>
+        <!-- <video class="host-video" autoplay muted preload="none" poster="../assets/host-video/image1.jpg" @canplay="videoLoadedFunction">
+          <source src="@/assets/host-video/restinn-host-video.mp4" type="video/mp4" />Sorry, your browser doesn't support embedded videos.
+        </video> -->
       </section>
     </section>
   </section>

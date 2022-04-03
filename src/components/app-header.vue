@@ -148,13 +148,13 @@ export default {
       const user = this.$store.getters.getLoggedInUser
       return !!user
     },
-    getLoggedInUserImage() {
-      const user = this.$store.getters.getLoggedInUser
-      if (user) {
-        const imgUrl = new URL(`@/assets/images/${user.imgUrl}`, import.meta.url)
-        return imgUrl
-      }
-    },
+    // getLoggedInUserImage() {
+    //   const user = this.$store.getters.getLoggedInUser;
+    //   if (user) {
+    //     const imgUrl = new URL(`../assets/images/${user.imgUrl}`, import.meta.url)
+    //     return imgUrl
+    //   }
+    // },
     homepageClass() {
       let classesStr = ''
       if (this.scrollLoc > 20) classesStr += 'scrolled '

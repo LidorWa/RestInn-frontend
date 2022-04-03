@@ -34,11 +34,11 @@ const router = createRouter({
       path: '/stay/:stayId',
       component: stayDetails,
     },
-    {
-      name: 'host-page',
-      path: '/host',
-      component: hostPage,
-    },
+    // {
+    //   name: 'host-page',
+    //   path: '/host',
+    //   component: hostPage,
+    // },
     {
       name: 'dashboard',
       path: '/dashboard',
