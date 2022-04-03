@@ -37,13 +37,17 @@ export default {
         }
     },
     methods: {
-
+        spliceRandomImg(idx){
+            this.guestsImages.splice(idx, 1)
+            console.log('idx', idx);
+            console.log('array length', this.guestsImages.length)
+        },
     },
     computed: {
         getRandomImg() {
             const idx = Math.floor(Math.random() * (15));
             const imgUrl = new URL(`../../assets/user-images/${this.guestsImages[idx]}`, import.meta.url);
-            this.guestsImages.splice(idx, 1)
+            this.spliceRandomImg(idx);
             return imgUrl;
         },
         formattedDate() {
