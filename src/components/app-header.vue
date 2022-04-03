@@ -18,7 +18,8 @@
         <!-- nav -->
         <nav class="main-header-nav flex align-center">
           <router-link to="/stay">Explore</router-link>
-          <router-link to="/host" class="be-host-nav">Become a host</router-link>
+          <a class="be-host-nav">Become a host</a>
+          <!-- <router-link to="/host" class="be-host-nav">Become a host</router-link> -->
 
           <!-- hamburger -->
           <div class="hamburger-user-menu btn flex space-between" @click="isShowingHamburger = true">
