@@ -4,13 +4,16 @@
       :class="{ showUserMessage: isShowingMessage }"
       :message="message"
     />
-    <img
-      class="loading-img"
-      v-if="isLoading"
-      src="../assets/system-imgs/loading.gif"
-      alt="Loading.."
-    />
-    <h1 class="main-layout-homepage title">My dashboard</h1>
+
+    <h1 class="main-layout-homepage title">My Dashboard</h1>
+    <div class="loading-img-container">
+      <img
+        class="loading-img"
+        v-if="isLoading"
+        src="../assets/system-imgs/loading.gif"
+        alt="Loading.."
+      />
+    </div>
     <dashboard-stats v-if="!isLoading" :orders="getOrders" />
 
     <order-list
@@ -40,8 +43,12 @@ export default {
   async created() {
     this.loggedInUser = this.$store.getters.getLoggedInUser;
 
+    //// Tell the socket service about entering the dashboard ////
     socketService.emit("enter dashboard", this.loggedInUser._id);
-    socketService.on("added order", this.orderAdded);
+    ///////////////////////////////////////////////////////
+    //// Register to listening the event "added order" ////
+    ///////////////////////////////////////////////////////
+    socketService.on("added order", this.addedNewOrder);
 
     const filterBy = {
       hostId: this.loggedInUser._id,
@@ -69,7 +76,7 @@ export default {
         this.isShowingMessage = false;
       }, 4500);
     },
-    updateStatus({ status, orderId }) {
+    async updateStatus({ status, orderId }) {
       const order = this.getOrders.find((order) => order._id === orderId);
       const orderCopy = JSON.parse(JSON.stringify(order));
 
@@ -78,21 +85,29 @@ export default {
 
       socketService.emit("update status", orderCopy);
     },
-    async orderAdded() {
+    ////////////////////////////////////////////////////////////////
+    //// Excecuted when the event "added order" is taking place ////
+    ////////////////////////////////////////////////////////////////
+    async addedNewOrder() {
       this.loggedInUser = this.$store.getters.getLoggedInUser;
       const filterBy = {
         hostId: this.loggedInUser._id,
       };
-      try {
-        await this.$store.dispatch({ type: "loadOrdersWithSocket", filterBy });
-      } catch (err) {
-        console.log("Error while loading orders: ", err);
-      }
-      const message = {
-        text: "You have a new order",
-        from: "user",
-      };
-      this.showMessage(message);
+      setTimeout(async () => {
+        try {
+          await this.$store.dispatch({
+            type: "loadOrdersWithSocket",
+            filterBy,
+          });
+          const message = {
+            text: "You have a new order",
+            from: "user",
+          };
+          this.showMessage(message);
+        } catch (err) {
+          console.log("Error while loading orders: ", err);
+        }
+      }, 17000);
     },
   },
   components: {

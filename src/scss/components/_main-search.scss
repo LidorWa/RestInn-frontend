@@ -22,7 +22,7 @@
     height: em(32px);
     background-color: $clr6;
   }
-  
+
   // transition-property: all;
   // transition-duration: 0.2s;
   // transition-timing-function: ease;
@@ -78,14 +78,15 @@
   // {
   //   display: none !important;
   // }
+  // TODO: doesn't work!!
 }
-//TODO: doesn't work!!
-// .main-search-bar{
-//   transform: translate(-13.2%, -66px) scale(0.4, 0.65);
-//   opacity: 0;
-//   transition: transform 0.6 ease 0s, opacity 0.8s ease 0s;
-// }
-
+.main-search-bar {
+  transition: transform 0.6 ease 0s, opacity 0.8s ease 0s;
+}
+.main-search-bar.close {
+  transform: translate(-13.2%, -66px) scale(0.4, 0.65);
+  opacity: 0;
+}
 
 .el-date-table-cell__text {
   color: $clr2;
@@ -107,7 +108,7 @@
     //TODO: finish hover
     background-color: #ebebeb;
     border-radius: em(32px);
-    .block{
+    .block {
       pointer-events: true;
     }
     // border-radius: 3em;
@@ -115,7 +116,7 @@
       background-color: inherit;
     }
   }
-  @media(max-width: 849px){
+  @media (max-width: 849px) {
     height: unset;
   }
 }
@@ -128,9 +129,9 @@
   width: 100%;
   // position: absolute;index
   // left: 0;
-  @media(max-width: 849px){
-   width: 13vw ;
-   min-width: 60PX;
+  @media (max-width: 849px) {
+    width: 13vw;
+    min-width: 60px;
   }
 }
 
@@ -145,11 +146,10 @@
   text-align: start;
   cursor: pointer;
 
-  @media(max-width: 846px){
+  @media (max-width: 846px) {
     // width: 137px;
     display: none;
   }
-
 }
 
 .location-input-top {
@@ -159,15 +159,15 @@
 .location-input {
   padding-left: 4px;
   // @media(max-width: 849px){
-  
+
   // }
 }
-.check-in-top, .check-out-top {
+.check-in-top,
+.check-out-top {
   padding: 1em 1em 1em 1em;
   // align-items: center;
   // width: em(180px);
 }
-
 
 .guestsInput {
   position: relative;

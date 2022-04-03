@@ -138,6 +138,9 @@ export default {
 
   methods: {
     addOrder(order) {
+      /////////////////////////////////////////////////////////
+      //// Sending the event "new order" to socket service ////
+      /////////////////////////////////////////////////////////
       socketService.emit("new order", order);
       this.$store.dispatch({ type: "addOrder", order });
     },

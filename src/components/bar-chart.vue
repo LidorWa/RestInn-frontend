@@ -29,14 +29,14 @@ export default {
         },
         plotOptions: {
           bar: {
-            columnWidth: "80%",
+            columnWidth: "70%",
             distributed: false,
             columnColors: ["black"],
           },
         },
 
         xaxis: {
-          categories: ["January", "February", "March", "April"],
+          categories: ["Jan", "Feb", "March", "April"],
           labels: {
             style: {
               colors: ["#222222"],
@@ -58,7 +58,9 @@ export default {
     const orders = this.orders.filter((order) => order.status === "approved");
     orders.forEach((order) => {
       const month = new Date(order.createdAt).getMonth();
-      series[0].data[month] += order.totalPrice;
+      if (month < 4) {
+        series[0].data[month] += order.totalPrice;
+      }
     });
 
     this.series = series;

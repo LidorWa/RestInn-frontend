@@ -1,11 +1,13 @@
 <template>
   <section v-if="stays" class="stay-list-container">
-    <img
-      class="loading-img"
-      v-if="isLoading"
-      src="../assets/system-imgs/loading.gif"
-      alt="Loading.."
-    />
+    <div class="loading-img-container">
+      <img
+        class="loading-img"
+        v-if="isLoading"
+        src="../assets/system-imgs/loading.gif"
+        alt="Loading.."
+      />
+    </div>
 
     <p v-if="stays.length && !isLoading" class="stays-count">
       {{ getStaysPreviewTitle }}
