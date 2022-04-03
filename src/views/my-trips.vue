@@ -4,13 +4,15 @@
       :class="{ showUserMessage: isShowingMessage }"
       :message="message"
     />
-    <img
-      class="loading-img"
-      v-if="isLoading"
-      src="../assets/system-imgs/loading.gif"
-      alt="Loading.."
-    />
-    <h1 class="main-layout-homepage title">My trips</h1>
+    <h1 class="main-layout-homepage title">My Trips</h1>
+    <div class="loading-img-container">
+      <img
+        class="loading-img"
+        v-if="isLoading"
+        src="../assets/system-imgs/loading.gif"
+        alt="Loading.."
+      />
+    </div>
     <trip-list
       v-if="!isLoading"
       :trips="getTrips"
@@ -75,7 +77,7 @@ export default {
       const trips = this.getTrips;
       const trip = trips.find((trip) => trip._id === tripId);
       const copy = { ...trip };
-      
+
       copy.status = status;
       this.$store.dispatch({ type: "updateOrder", order: copy });
     },

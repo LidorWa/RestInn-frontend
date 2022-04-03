@@ -1,8 +1,8 @@
 <template>
   <section class="review-list" v-if="reviews">
     <ul class="reviews-list-ul">
-      <li v-for="review in reviews" :key="review._id">
-        <review-preview :review="review" />
+      <li v-for="(review, index) in reviews" :key="review._id">
+        <review-preview :idx="index" :review="review" />
       </li>
     </ul>
   </section>

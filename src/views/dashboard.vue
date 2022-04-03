@@ -4,13 +4,16 @@
       :class="{ showUserMessage: isShowingMessage }"
       :message="message"
     />
-    <img
-      class="loading-img"
-      v-if="isLoading"
-      src="../assets/system-imgs/loading.gif"
-      alt="Loading.."
-    />
-    <h1 class="main-layout-homepage title">My dashboard</h1>
+
+    <h1 class="main-layout-homepage title">My Dashboard</h1>
+    <div class="loading-img-container">
+      <img
+        class="loading-img"
+        v-if="isLoading"
+        src="../assets/system-imgs/loading.gif"
+        alt="Loading.."
+      />
+    </div>
     <dashboard-stats v-if="!isLoading" :orders="getOrders" />
 
     <order-list

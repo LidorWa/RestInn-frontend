@@ -46,6 +46,7 @@ export default {
       amenities: [],
       guests: 0,
     };
+    await this.$store.dispatch({ type: "loadStays", filterBy });
     this.$store.dispatch({ type: "getUserFromSession" });
     const user = this.$store.getters.getLoggedInUser;
 
@@ -59,8 +60,6 @@ export default {
         console.log("Error while loading orders: ", err);
       }
     }
-
-    await this.$store.dispatch({ type: "loadStays", filterBy });
   },
   computed: {
     isSignUp() {

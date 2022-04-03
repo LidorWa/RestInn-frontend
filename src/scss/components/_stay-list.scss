@@ -1,4 +1,4 @@
-stay-list-container {
+.stay-list-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -21,8 +21,15 @@ stay-list-container {
   padding: 28px 15px;
 }
 
+.loading-img-container {
+  width: 95%;
+  display: flex;
+}
+
 .loading-img {
   width: 200px;
+  align-self: center;
+  margin: auto;
 }
 
 //Break point

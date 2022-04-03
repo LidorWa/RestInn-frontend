@@ -5,7 +5,7 @@
     <p v-if="isLoggedIn" @click="logout">Log out</p>
     <hr />
     <p @click="goToExplorePage" class="user-menu-explore">Explore</p>
-    <p v-if="isLoggedIn" @click="goToMyTrips">My trips</p>
+    <p v-if="isLoggedIn" @click="goToMyTrips">My Trips</p>
     <p v-if="isLoggedIn && isHosting" @click="goToDashBoardPage">Dashboard</p>
     <p v-if="!isHosting">Host your home</p>
     <p>Help</p>

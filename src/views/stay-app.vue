@@ -23,7 +23,6 @@ export default {
   name: "stay-app",
   data() {
     return {
-
       filterBy: {
         price: [1, 4000],
         type: [],
