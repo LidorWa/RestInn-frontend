@@ -30,4 +30,32 @@
     margin-bottom: 20px;
   }
 }
+  .el-date-table-cell__text{
+    color: $clr2 !important;
+    background-color: transparent !important;
+    &:hover{
+      background-color: transparent !important;
+      border: 1px solid $clr2  !important;
+    }
+    &:active{
+      color: $clr3 !important;
+      background-color: $clr2 !important;
+    }
+  }
+
+  td .available.in-range-start-date{
+    &:hover{
+      background-color: $clr1 !important;
+      color: $clr1 !important;
+    }
+  }
+  .el-date-table td.in-range .el-date-table-cell{
+    background-color: $clr8 !important;
+    &:hover{
+      background-color: $clr8 !important;
+    }
+    &:active{
+      background-color: $clr8 !important;
+    }
+  }
  
