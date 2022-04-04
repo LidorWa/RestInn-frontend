@@ -102,7 +102,7 @@ export default {
     onSearch() {
       if (!this.location && !this.dates && this.guests.adults === 0) {
         this.isSearchOpen = true
-        this.$refs['location-input'].focus();
+        this.$refs['location-input'].focus()
       } else {
         let path = '/stay'
         const city = this.location
@@ -129,7 +129,7 @@ export default {
   },
   computed: {
     getMainSearchText() {
-      if (!this.$route.query.destination) return 'Where are you going?'
+      if (!this.$route.query.destination) return 'Add dates'
       else return this.$route.query.destination
     },
     getGuestsNumber() {
