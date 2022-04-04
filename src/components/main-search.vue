@@ -44,6 +44,10 @@
           <img src="../assets/svgs/search.svg" class="search-btn" alt="search icon" />
           <h3>Search</h3>
         </button>
+        <!-- <magic-button @click.prevent="onSearch" class="search-icon">
+          <img src="../assets/svgs/search.svg" class="search-btn" alt="search icon" />
+          <h3>Search</h3>
+        </magic-button> -->
       </div>
     </form>
   </section>
@@ -51,6 +55,7 @@
 
 <script>
 import selectGuestsModal from '../components/select-guests-modal.vue'
+// import magicButton from '../components/magic-button.vue'
 
 export default {
   name: 'main-search',
@@ -78,6 +83,7 @@ export default {
   },
   components: {
     selectGuestsModal,
+    // magicButton,
   },
   mounted() {
     window.addEventListener('click', this.clickCheck)
