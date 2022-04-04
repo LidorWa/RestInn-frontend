@@ -1,23 +1,22 @@
 .home-page-container {
-  .tag{
+  .tag {
     font-family: cereal-bold;
     font-size: em(25px);
     color: $clr3;
     position: absolute;
     letter-spacing: 0.11em;
-    // background-color: black; 
+    // background-color: black;
     text-shadow: -2px -2px $clr2;
   }
 
-  .tag-line-container{
-    transform: translate(0%, 1117%);
+  .tag-line-container {
+    // transform: translate(0%, 1117%);
   }
-  .tag-line1{
-    transform: translate(77px, 1117%);
+  .tag-line1 {
+    transform: translate(77px, 1400%);
   }
-  .tag-line2{
-    transform: translate(65%, 1350%);
-
+  .tag-line2 {
+    transform: translate(65%, 1650%);
   }
 }
 .main-hero-img {
@@ -35,8 +34,8 @@
   // TODO:
   aspect-ratio: 5 / 3;
   // img{
-    // height: 50vh;
-    // width: 100%;
+  // height: 50vh;
+  // width: 100%;
 
   // }
 }

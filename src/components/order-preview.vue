@@ -27,18 +27,18 @@
     </div>
     <div class="detail actions actions-container">
       <button
-        :disabled="isUnrejectable"
-        class="approve-btn"
-        @click="updateStatus('rejected')"
-      >
-        Reject
-      </button>
-      <button
         :disabled="isUnapprovable"
         class="reject-btn"
         @click="updateStatus('approved')"
       >
         Approve
+      </button>
+      <button
+        :disabled="isUnrejectable"
+        class="approve-btn"
+        @click="updateStatus('rejected')"
+      >
+        Reject
       </button>
     </div>
   </section>

@@ -44,6 +44,10 @@
           <img src="../assets/svgs/search.svg" class="search-btn" alt="search icon" />
           <h3>Search</h3>
         </button>
+        <!-- <magic-button @click.prevent="onSearch" class="search-icon">
+          <img src="../assets/svgs/search.svg" class="search-btn" alt="search icon" />
+          <h3>Search</h3>
+        </magic-button> -->
       </div>
     </form>
   </section>
@@ -51,6 +55,7 @@
 
 <script>
 import selectGuestsModal from '../components/select-guests-modal.vue'
+// import magicButton from '../components/magic-button.vue'
 
 export default {
   name: 'main-search',
@@ -78,6 +83,7 @@ export default {
   },
   components: {
     selectGuestsModal,
+    // magicButton,
   },
   mounted() {
     window.addEventListener('click', this.clickCheck)
@@ -102,7 +108,7 @@ export default {
     onSearch() {
       if (!this.location && !this.dates && this.guests.adults === 0) {
         this.isSearchOpen = true
-        this.$refs['location-input'].focus();
+        this.$refs['location-input'].focus()
       } else {
         let path = '/stay'
         const city = this.location
@@ -129,7 +135,7 @@ export default {
   },
   computed: {
     getMainSearchText() {
-      if (!this.$route.query.destination) return 'Where are you going?'
+      if (!this.$route.query.destination) return 'Add dates'
       else return this.$route.query.destination
     },
     getGuestsNumber() {

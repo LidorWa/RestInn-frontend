@@ -41,7 +41,7 @@ export default {
     },
   },
   actions: {
-    async login({ commit, dispatch, getters }, { user }) {
+    async login({ commit, dispatch }, { user }) {
       try {
         const loggedInUser = await userService.login(user);
         commit({ type: "setLoggedinUser", loggedInUser });
@@ -49,6 +49,7 @@ export default {
         const filterBy = {
           hostId: loggedInUser._id,
         };
+        commit({ type: "resetIsHostLoaded" });
         await dispatch({ type: "loadOrders", filterBy });
       } catch (err) {
         console.log("Error while trying to log in", err);
@@ -60,6 +61,7 @@ export default {
       await userService.logout();
       commit({ type: "setLoggedinUser", loggedInUser: null });
       commit({ type: "setOrders", orders: null });
+      commit({ type: "resetIsHostLoaded" });
     },
 
     async getUserById(context, { userId }) {

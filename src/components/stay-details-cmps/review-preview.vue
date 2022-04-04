@@ -36,9 +36,7 @@ export default {
     return {
       isLongTxt: false,
       guestsImages: [
-        "lidor.jpg",
         "tal.jpg",
-        "liran.jpg",
         "tom.jpg",
         "image1.jpg",
         "image2.jpg",

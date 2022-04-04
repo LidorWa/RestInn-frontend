@@ -6,9 +6,14 @@ export default {
     dates: null,
     guests: { adults: 0, children: 0 },
     orders: [],
+    hostOrders: [],
+    isHostOrdersLoaded: false,
     total: 0,
   },
   getters: {
+    getHostOrders(state) {
+      return state.hostOrders;
+    },
     getOrders(state) {
       return state.orders;
     },
@@ -42,6 +47,15 @@ export default {
     setGuests(state, { guests }) {
       state.guests = guests;
     },
+    resetIsHostLoaded(state) {
+      state.isHostOrdersLoaded = false;
+    },
+    setHostOrders(state, { orders }) {
+      if (!state.isHostOrdersLoaded) {
+        state.isHostOrdersLoaded = true;
+        state.hostOrders = orders;
+      }
+    },
     //CRUD mutations
     setOrders(state, { orders }) {
       state.orders = orders;
@@ -72,6 +86,7 @@ export default {
       try {
         const orders = await orderService.query(filterBy);
         commit({ type: "setOrders", orders });
+        commit({ type: "setHostOrders", orders });
       } catch (err) {
         console.log("err :>> ", err);
       } finally {
