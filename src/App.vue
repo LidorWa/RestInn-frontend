@@ -46,9 +46,11 @@ export default {
       amenities: [],
       guests: 0,
     };
-    await this.$store.dispatch({ type: "loadStays", filterBy });
     this.$store.dispatch({ type: "getUserFromSession" });
+    
     const user = this.$store.getters.getLoggedInUser;
+
+    await this.$store.dispatch({ type: "loadStays", filterBy });
 
     if (user) {
       const filterBy = {
