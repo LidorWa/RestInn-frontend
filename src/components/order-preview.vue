@@ -2,19 +2,30 @@
   <section class="dashboard-order-cont">
     <div class="date">{{ timeConversion(order.createdAt) }}</div>
     <div class="booker">{{ order.buyer.fullname }}</div>
-    <div @click="goToStay" class="stay">{{ formattedText }}</div>
-    <div class="trip-dates">
+    <div @click="goToStay" class="detail stay">
+      <span class="mobile-title">Stay: </span> {{ order.stay.name }}
+    </div>
+    <div class="detail trip-dates">
+      <span class="mobile-title">Dates: </span>
       {{ timeConversion(order.startDate) }} -
       {{ timeConversion(order.endDate) }}
     </div>
     <div class="nights">
       {{ Math.round(order.totalPrice / order.stay.price) }}
     </div>
-    <div class="guests">{{ order.guests.adults + order.guests.children }}</div>
+    <div class="detail guests">
+      <span class="mobile-title">Guests: </span>
+      {{ order.guests.adults + order.guests.children }}
+    </div>
     <div class="price">{{ getFormatedPrice(order.stay.price) }}</div>
-    <div class="total">{{ getFormatedPrice(order.totalPrice) }}</div>
-    <div class="status" :class="order.status">{{ order.status }}</div>
-    <div class="actions actions-container">
+    <div class="detail total">
+      <span class="mobile-title">Total order: </span>
+      {{ getFormatedPrice(order.totalPrice) }}
+    </div>
+    <div class="detail status" :class="order.status">
+      <span class="mobile-title">Status: </span>{{ order.status }}
+    </div>
+    <div class="detail actions actions-container">
       <button
         :disabled="isUnrejectable"
         class="approve-btn"

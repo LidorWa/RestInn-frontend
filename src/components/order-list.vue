@@ -1,13 +1,15 @@
 <template>
   <section class="main-layout-homepage">
-    <div class="dashboard-order-cont">
+    <div class="dashboard-order-cont titles">
       <div class="dashboard-title date">Date</div>
       <div class="dashboard-title booker">Booker</div>
       <div class="dashboard-title stay">Stay</div>
       <div class="dashboard-title trip-dates">Dates</div>
       <div class="dashboard-title nights">Nights</div>
       <div class="dashboard-title guests">Guests</div>
-      <div class="dashboard-title price"><span>Price</span><span> / Night</span></div>
+      <div class="dashboard-title price">
+        <span>Price</span><span> / Night</span>
+      </div>
       <div class="dashboard-title total">Total</div>
       <div class="dashboard-title status">Status</div>
       <div class="dashboard-title actions">Actions</div>
@@ -45,4 +47,3 @@ export default {
 </script>
 
 <style></style>
-

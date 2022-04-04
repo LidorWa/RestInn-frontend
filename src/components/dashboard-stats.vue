@@ -17,7 +17,7 @@
             <span>{{ thisYearRenevue }}</span>
           </div>
           <div class="rev-stat">
-            <span class="stat-head">All time</span>
+            <span class="stat-head">Total income</span>
             <span>{{ formattedRevenue }}</span>
           </div>
         </div>
