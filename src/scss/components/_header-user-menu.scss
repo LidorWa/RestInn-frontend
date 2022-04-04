@@ -42,10 +42,9 @@
   font-weight: 600 !important;
 }
 
-.user-menu-explore{
-  display: none
-  ;
-  @media (max-width: 966px) {
+.user-menu-explore {
+  display: none;
+  @media (max-width: 760px) {
     display: block;
   }
 }
