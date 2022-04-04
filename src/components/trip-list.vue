@@ -1,7 +1,7 @@
 <template>
   <section v-if="trips" class="dash-board main-layout-homepage">
     <!-- <div class="order-table-statistics">Rendering Months histograms?</div> -->
-    <div class="dashboard-order-cont">
+    <div class="dashboard-order-cont titles">
       <div class="dashboard-title date">Date</div>
       <div class="dashboard-title host">Host</div>
 
@@ -9,7 +9,9 @@
       <div class="dashboard-title trip-dates">Dates</div>
       <div class="dashboard-title nights">Nights</div>
       <div class="dashboard-title guests">Guests</div>
-      <div class="dashboard-title price">Price</div>
+      <div class="dashboard-title price">
+        <span>Price</span><span> / Night</span>
+      </div>
       <div class="dashboard-title total">Total</div>
       <div class="dashboard-title status">Status</div>
       <div class="dashboard-title trip-actions">Actions</div>

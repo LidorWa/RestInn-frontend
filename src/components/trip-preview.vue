@@ -12,7 +12,7 @@
       {{ Math.round(trip.totalPrice / trip.stay.price) }}
     </div>
     <div class="guests">{{ trip.guests.adults + trip.guests.children }}</div>
-    <div class="price">{{ getFormatedPrice(trip.stay.price) }} / n</div>
+    <div class="price">{{ getFormatedPrice(trip.stay.price) }}</div>
     <div class="total">{{ getFormatedPrice(trip.totalPrice) }}</div>
     <div class="status" :class="trip.status">{{ trip.status }}</div>
     <div class="trip-actions actions-container">

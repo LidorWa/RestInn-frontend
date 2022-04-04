@@ -2,7 +2,7 @@
   <section class="review-preview" id="review-section">
     <div class="review-guest-name-date">
       <img
-        :src="getRandomImg"
+        :src="getImageUrl"
         alt="User picture"
         onerror="this.onerror=null; this.src='https://thispersondoesnotexist.com/image'"
       />
@@ -27,11 +27,19 @@ export default {
       type: Object,
       required: true,
     },
+    idx: {
+      type: Number,
+      required: true,
+    },
   },
   data() {
     return {
       isLongTxt: false,
       guestsImages: [
+        "lidor.jpg",
+        "tal.jpg",
+        "liran.jpg",
+        "tom.jpg",
         "image1.jpg",
         "image2.jpg",
         "image3.jpg",
@@ -47,21 +55,16 @@ export default {
         "image13.jpg",
         "image14.jpg",
         "image15.jpg",
-        "lidor.jpg",
-        "tal.jpg",
-        "liran.jpg",
       ],
     };
   },
   methods: {},
   computed: {
-    getRandomImg() {
-      const idx = Math.floor(Math.random() * 19);
+    getImageUrl() {
       const imgUrl = new URL(
-        `../../assets/user-images/${this.guestsImages[idx]}`,
+        `../../assets/user-images/${this.guestsImages[this.idx]}`,
         import.meta.url
       );
-      this.guestsImages.splice(idx, 1);
       return imgUrl;
     },
     formattedDate() {
