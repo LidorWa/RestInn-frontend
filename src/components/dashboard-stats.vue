@@ -24,11 +24,6 @@
       </div>
     </div>
     <div class="cards-container">
-      <div class="pie-container">
-        <h1>Orders segmentation by nights</h1>
-        <awesome-chart v-if="testData" :data="testData" />
-      </div>
-
       <div class="stats-card management">
         <h1>Orders management</h1>
         <div class="details">
@@ -37,7 +32,7 @@
             <span class="canceled-stat">{{ cancelations }}</span>
           </div>
           <div class="rev-stat">
-            <span class="stat-head">Total price average</span>
+            <span class="stat-head">Average order revenue</span>
             <span class="total-stat">{{ totalPriceAverage }}</span>
           </div>
           <div class="rev-stat">
@@ -45,6 +40,10 @@
             <span class="pending-stat">{{ pendingCount }} orders</span>
           </div>
         </div>
+      </div>
+      <div class="pie-container">
+        <h1>Orders segmentation by nights</h1>
+        <awesome-chart v-if="testData" :data="testData" />
       </div>
     </div>
   </section>

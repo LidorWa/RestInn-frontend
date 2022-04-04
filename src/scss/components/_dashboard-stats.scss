@@ -12,10 +12,10 @@
   }
 
   .cards-container {
-    // width: 45%;
+    width: 42vw;
     display: flex;
     justify-content: space-between;
-    gap: 95px;
+    gap: 145px;
     margin-bottom: 35px;
 
     @media (max-width: 808px) {
@@ -41,11 +41,7 @@
 
     .revenue {
       width: 307px !important;
-
-      @media (max-width: 808px) {
-        width: 350px !important;
-        height: 200px !important;
-      }
+      min-width: 252px !important;
     }
 
     .pie-container {
@@ -58,20 +54,28 @@
       height: 250px;
 
       @media (max-width: 808px) {
-        justify-content: center;
+        justify-content: space-around;
         width: 350px !important;
-        height: 320px;
+        height: 240px;
         gap: 10px;
       }
 
       h1 {
         font-size: em(19px);
+
+        @media (max-width: 808px) {
+          margin-top: 22px;
+        }
       }
 
       .nights-pie {
         height: 180px;
         width: 307px;
         align-self: flex-start;
+
+        @media (max-width: 808px) {
+          margin-bottom: 22px;
+        }
       }
     }
 
@@ -81,6 +85,11 @@
       height: 250px;
       box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
       border-radius: 15px;
+
+      @media (max-width: 808px) {
+        width: 350px !important;
+        height: 200px !important;
+      }
 
       h1 {
         font-size: em(19px);
