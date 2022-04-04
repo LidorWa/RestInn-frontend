@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import homePage from '../views/home-page.vue'
 import aboutPage from '../views/about-page.vue'
-import hostPage from '../views/host-page.vue'
+// import hostPage from '../views/host-page.vue'
 import myTrips from '../views/my-trips.vue'
 import stayDetails from '../views/stay-details.vue'
 import dashboard from '../views/dashboard.vue'
