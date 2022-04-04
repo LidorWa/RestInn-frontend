@@ -107,6 +107,7 @@ export default {
         text: "You have a new order",
         from: "user",
       };
+      this.$store.commit({ type: "setOrderStatus", status: "approved" });
       this.showMessage(message);
     },
   },
