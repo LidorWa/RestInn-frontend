@@ -64,12 +64,8 @@
               {{ getGuestsForDisplay }}
             </div>
           </div>
-          <div
-            class="check-availability-container"
-            @click="onCheckAvailability"
-          >
-            <span class="check-availability-span">Check availability</span>
-          </div>
+
+                    <magic-button/>
           <div class="summary-details-container" v-if="isDatesSet">
             <p class="no-charge">You won't be charged yet</p>
             <div class="total-price-details">
@@ -93,6 +89,7 @@
 
 <script>
 import detailsSelectGuestsModal from "./details-select-guests-modal.vue";
+import magicButton from "../magic-button.vue";
 export default {
   name: "hero-modal",
   props: {
@@ -115,6 +112,7 @@ export default {
   },
   components: {
     detailsSelectGuestsModal,
+    magicButton
   },
 
   created() {
