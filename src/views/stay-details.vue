@@ -54,7 +54,7 @@
           @goToMyTrips="goToMyTrips"
           @addOrder="addOrder"
         /> -->
-        <order-confirmation-modal-copy :class="{ showConfirm: isOrdering && isLoggedIn }" :stay="stay" :dates="getDates" :guests="getGuests" :user="getLoggedInUser" @closeModal="closeConfirmationModal" @goToMyTrips="goToMyTrips" @addOrder="addOrder" />
+        <!-- <order-confirmation-modal-copy :class="{ showConfirm: isOrdering && isLoggedIn }" :stay="stay" :dates="getDates" :guests="getGuests" :user="getLoggedInUser" @closeModal="closeConfirmationModal" @goToMyTrips="goToMyTrips" @addOrder="addOrder" /> -->
         <div v-if="isOrderAlert || isLoginAlert || (isOrdering && isLoggedIn)" class="order-alert-overlay"></div>
       </section>
     </section>
@@ -73,7 +73,7 @@ import mapSection from '../components/stay-details-cmps/map-section.vue'
 import orderAlertModal from '../components/stay-details-cmps/order-alert-modal.vue'
 import loginAlertModal from '../components/stay-details-cmps/login-alert-modal.vue'
 import orderConfirmationModal from '../components/stay-details-cmps/order-confirmation-modal.vue'
-import orderConfirmationModalCopy from '../components/stay-details-cmps/order-confirmation-modal-copy.vue'
+// import orderConfirmationModalCopy from '../components/stay-details-cmps/order-confirmation-modal-copy.vue'
 import { socketService } from '../services/socket-service'
 
 export default {
@@ -90,7 +90,7 @@ export default {
     orderAlertModal,
     loginAlertModal,
     orderConfirmationModal,
-    orderConfirmationModalCopy,
+    // orderConfirmationModalCopy,
   },
   data() {
     return {

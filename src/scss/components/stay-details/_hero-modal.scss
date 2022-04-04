@@ -125,11 +125,12 @@
              display: flex;
              flex-direction: column;
              justify-content: center;
+             gap: 4px;
               border: em(0.8px) solid rgb(176, 176, 176);
               border-top-left-radius: em(8px);
               border-bottom: unset;
               border-right: unset;
-              // padding-top: em(6px);
+              padding-top: em(6px);
               padding-left: em(8px);
               width: 45%;
               height: em(56px);
@@ -145,6 +146,7 @@
               display: flex;
               flex-direction: column;
               justify-content: center; 
+              gap: 4px;
               border: em(0.8px) solid rgb(176, 176, 176);
               border-top-right-radius: em(8px);
               border-bottom: unset;
