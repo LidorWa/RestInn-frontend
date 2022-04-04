@@ -1,5 +1,5 @@
 <template>
-    <div class="btn-container">
+    <div class="magic-btn-container ">
         <div class="cell" v-for="cell in 10" :key="cell"></div>
 
         <div class="content">
