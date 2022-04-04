@@ -46,16 +46,21 @@
         </div>
       </div>
       <div class="modal-btns-container">
-        <div v-if="!isConfirmed" class="sign-up-continue" @click="confirm">Confirm</div>
+        <magic-button v-if="!isConfirmed" class="sign-up-continue" @click="confirm" >Confirm </magic-button>
         <div v-if="!isConfirmed" class="sign-up-continue go-back" @click="closeModal">Go back</div>
-        <div v-if="isConfirmed" class="sign-up-continue" @click="closeModalAndClean">Close</div>
+        <div v-if="isConfirmed" class="sign-up-continue go-back" @click="closeModalAndClean">Close</div>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import magicButton from "../magic-button.vue";
 export default {
+  name: 'order-confirmation-modal',
+  components:{
+    magicButton,
+  },
   props: {
     stay: {
       type: Object,

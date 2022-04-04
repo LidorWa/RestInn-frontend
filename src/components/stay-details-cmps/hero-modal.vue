@@ -1,15 +1,8 @@
 <template>
   <section class="hero-modal" :class="{ heroWithDates: !isDatesSet }">
     <section class="hero-modal-wrapper">
-      <div
-        v-if="isSelectingGuests"
-        class="outsideDetailsGuests"
-        @click="isSelectingGuests = false"
-      ></div>
-      <section
-        class="hero-modal-container"
-        :class="{ showSummary: !isDatesSet }"
-      >
+      <div v-if="isSelectingGuests" class="outsideDetailsGuests" @click="isSelectingGuests = false"></div>
+      <section class="hero-modal-container" :class="{ showSummary: !isDatesSet }">
         <details-select-guests-modal
           v-if="isSelectingGuests"
           :guests="guestsFromStore"
@@ -32,23 +25,18 @@
         </section>
         <section class="hero-modal-selection">
           <div class="hero-modal-check-container">
-            <div
-              class="hero-modal-check-in"
-              @click="isSelectingDates = !isSelectingDates"
-            >
+            <div class="hero-modal-check-in" @click="isSelectingDates = !isSelectingDates">
               <div>CHECK-IN</div>
               <div>{{ formatedDate(0) }}</div>
             </div>
-            <div
-              class="hero-modal-check-out"
-              @click="isSelectingDates = !isSelectingDates"
-            >
+            <div class="hero-modal-check-out" @click="isSelectingDates = !isSelectingDates">
               <div>CHECK-OUT</div>
               <div>{{ formatedDate(1) }}</div>
             </div>
             <div class="block">
               <span class="demonstration">Default</span>
-              <el-date-picker ref="modal-date-picker"
+              <el-date-picker
+                ref="modal-date-picker"
                 v-model="dates"
                 type="daterange"
                 start-placeholder="CHECK-IN"
@@ -60,12 +48,10 @@
           </div>
           <div class="hero-modal-guests" @click="isSelectingGuests = true">
             <label for="hero-modal-guest-picker">GUESTS</label>
-            <div>
-              {{ getGuestsForDisplay }}
-            </div>
+            <div>{{ getGuestsForDisplay }}</div>
           </div>
 
-                    <magic-button/>
+          <magic-button @click="onCheckAvailability" class="check-availability-container">Check availability </magic-button>
           <div class="summary-details-container" v-if="isDatesSet">
             <p class="no-charge">You won't be charged yet</p>
             <div class="total-price-details">
@@ -132,9 +118,8 @@ export default {
     formatedDate(num) {
       if (!this.dates) return "Add dates";
       const date = new Date(this.dates[num]);
-      return `${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}/${
-        date.getMonth() < 9 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1
-      }/${date.getFullYear().toString().substring(2)}`;
+      return `${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}/${date.getMonth() < 9 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1
+        }/${date.getFullYear().toString().substring(2)}`;
     },
     onSelectGuests(guests) {
       this.$store.commit({ type: "setGuests", guests });

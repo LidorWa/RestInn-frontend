@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        <magic-button class="footer-check-availability-container"/>
+        <magic-button class="footer-check-availability-container">Check availability </magic-button>
     </section>
 </template>
 
