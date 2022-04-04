@@ -81,7 +81,7 @@
   .host {
     width: 120px;
 
-    @media (max-width: 1100px) {
+    @media (max-width: 1250px) {
       display: none;
     }
   }
@@ -89,7 +89,7 @@
   .booker {
     width: 100px;
 
-    @media (max-width: 1050px) {
+    @media (max-width: 1160px) {
       display: none;
     }
   }
@@ -97,7 +97,7 @@
   .date {
     width: 80px;
 
-    @media (max-width: 960px) {
+    @media (max-width: 1270px) {
       display: none;
     }
   }
@@ -105,7 +105,7 @@
   .nights {
     width: 60px;
 
-    @media (max-width: 890px) {
+    @media (max-width: 1350px) {
       display: none;
     }
   }
@@ -113,7 +113,7 @@
   .price {
     width: 80px;
 
-    @media (max-width: 820px) {
+    @media (max-width: 1000px) {
       display: none;
     }
   }
@@ -139,11 +139,11 @@
   }
 
   .actions {
-    width: 180px;
+    width: 160px;
   }
 
   .trip-actions {
-    width: 70px;
+    width: 80px;
   }
 
   .guests {
@@ -166,13 +166,21 @@
     color: rgb(0, 0, 219);
   }
 
+  // .trip-actions {
+  //   width: 70px;
+
+  //   @media (max-width: 760px) {
+  //     align-self: flex-start;
+  //     width: 100% !important;
+  //   }
+  // }
+
   .actions-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 10px;
 
     @media (max-width: 760px) {
-      flex-direction: column;
-
       gap: 15px;
     }
 
@@ -183,9 +191,9 @@
       transition: 0.1s;
       border-radius: 7px;
 
-      // @media (max-width: 760px) {
-      //   width: 130px;
-      // }
+      @media (max-width: 760px) {
+        width: 48%;
+      }
 
       &:disabled {
         opacity: 0.5;
@@ -198,7 +206,7 @@
       }
     }
   }
-  button:last-of-type {
+  button:first-of-type {
     border: 1px solid rgb(0, 131, 0);
     background-color: rgb(0, 131, 0);
 
@@ -213,7 +221,7 @@
     }
   }
   .cancel,
-  button:first-of-type {
+  button:last-of-type {
     border: 1px solid #b30000;
     background-color: #b30000;
 

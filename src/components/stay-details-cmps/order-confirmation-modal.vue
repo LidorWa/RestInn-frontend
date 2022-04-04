@@ -32,7 +32,7 @@
             <h1 class="confirm-text">Total: ${{ getTotalPrice }}</h1>
           </div>
           <div class="host-details">
-            <img class="host-image" :src="stay.host.thumbnailUrl" alt="host" onerror="this.onerror=null; this.src='https://blog.cpanel.com/wp-content/uploads/2019/08/user-01.png'" />
+            <img class="host-image" :src="getImageUrl" alt="host" />
             <h1 class="host-name">{{ stay.host.fullname }}</h1>
           </div>
         </div>
@@ -131,6 +131,10 @@ export default {
     },
   },
   computed: {
+    getImageUrl() {
+      const imgUrl = new URL(`../../assets/host-images/liran2.jpg`, import.meta.url)
+      return imgUrl
+    },
     displayConfirmation() {
       return this.stay && this.dates && this.user && !this.isConfirmed ? true : false
     },

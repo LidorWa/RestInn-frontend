@@ -49,7 +49,7 @@ export default {
       return user ? true : false;
     },
     isHosting() {
-      const orders = this.$store.getters.getOrders;
+      const orders = this.$store.getters.getHostOrders;
       if (orders) return !!orders.length;
       return false;
     },
