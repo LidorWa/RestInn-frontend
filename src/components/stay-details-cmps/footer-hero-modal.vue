@@ -13,16 +13,17 @@
                 </div>
             </div>
         </div>
-        <div class="footer-check-availability-container">
-            <span class="check-availability-span">Check availability</span>
-        </div>
+        <magic-button class="footer-check-availability-container"/>
     </section>
 </template>
 
 <script>
-
+import magicButton from "../magic-button.vue"
 export default {
     name: 'footer-hero-modal',
+    components: {
+        magicButton
+    },
     props: {
         stay: {
             type: Object,
@@ -37,6 +38,5 @@ export default {
     }
 }
 </script>
-
 <style>
 </style>
