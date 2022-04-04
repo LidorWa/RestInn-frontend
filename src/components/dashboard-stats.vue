@@ -1,5 +1,5 @@
 <template>
-  <section class="dashboard-stats main-layout-homepage">
+  <section v-if="orders" class="dashboard-stats main-layout-homepage">
     <div class="cards-container">
       <div class="bar-container">
         <h1>Revenue per month</h1>

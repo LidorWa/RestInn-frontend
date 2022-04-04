@@ -7,7 +7,9 @@
         </div>
 
         <h1 class="confirm-text">Your order has been received</h1>
-        <h1 class="confirm-text">We will let you know when the host responds</h1>
+        <h1 class="confirm-text">
+          We will let you know when the host responds
+        </h1>
         <h1 class="confirm-text">
           You can follow the order status in
           <span @click="goToMyTrips">My trips</span> page
@@ -25,7 +27,9 @@
         <div class="trip-details">
           <div class="stay-user-details">
             <h1 class="confirm-text">Stay name: {{ stay.name }}</h1>
-            <h1 class="confirm-text">{{ stay.address.city }}, {{ stay.address.country }}</h1>
+            <h1 class="confirm-text">
+              {{ stay.address.city }}, {{ stay.address.country }}
+            </h1>
             <h1 class="confirm-text">Check in: {{ getFormatedDate(0) }}</h1>
             <h1 class="confirm-text">
               Check out:
@@ -35,20 +39,32 @@
             <h1 class="confirm-text">Total: ${{ getTotalPrice }}</h1>
           </div>
           <div class="host-details">
-            <img
-              class="host-image"
-              :src="stay.host.thumbnailUrl"
-              alt="host"
-              onerror="this.onerror=null; this.src='https://blog.cpanel.com/wp-content/uploads/2019/08/user-01.png'"
-            />
+            <img class="host-image" :src="getImageUrl" alt="host" />
             <h1 class="host-name">{{ stay.host.fullname }}</h1>
           </div>
         </div>
       </div>
       <div class="modal-btns-container">
-        <magic-button v-if="!isConfirmed" class="sign-up-continue" @click="confirm" >Confirm </magic-button>
-        <div v-if="!isConfirmed" class="sign-up-continue go-back" @click="closeModal">Go back</div>
-        <div v-if="isConfirmed" class="sign-up-continue go-back" @click="closeModalAndClean">Close</div>
+        <magic-button
+          v-if="!isConfirmed"
+          class="sign-up-continue"
+          @click="confirm"
+          >Confirm
+        </magic-button>
+        <div
+          v-if="!isConfirmed"
+          class="sign-up-continue go-back"
+          @click="closeModal"
+        >
+          Go back
+        </div>
+        <div
+          v-if="isConfirmed"
+          class="sign-up-continue go-back"
+          @click="closeModalAndClean"
+        >
+          Close
+        </div>
       </div>
     </div>
   </section>
@@ -57,8 +73,8 @@
 <script>
 import magicButton from "../magic-button.vue";
 export default {
-  name: 'order-confirmation-modal',
-  components:{
+  name: "order-confirmation-modal",
+  components: {
     magicButton,
   },
   props: {
@@ -108,7 +124,6 @@ export default {
         },
       };
       this.$emit("addOrder", order);
-      
     },
     getTimeStampDate(num) {
       const arrayDates = JSON.parse(JSON.stringify(this.dates));
@@ -120,11 +135,13 @@ export default {
 
       const dates = new Date(arrayDates[num]);
 
-      return `${dates.getDate() < 10 ? "0" + dates.getDate() : dates.getDate()
-        }/${dates.getMonth() < 9
+      return `${
+        dates.getDate() < 10 ? "0" + dates.getDate() : dates.getDate()
+      }/${
+        dates.getMonth() < 9
           ? "0" + (dates.getMonth() + 1)
           : dates.getMonth() + 1
-        }/${dates.getFullYear().toString().substring(2)}`;
+      }/${dates.getFullYear().toString().substring(2)}`;
     },
     goToMyTrips() {
       this.isConfirmed = false;
@@ -137,13 +154,20 @@ export default {
       this.$emit("closeModal");
     },
     closeModalAndClean() {
-      this.$store.commit({ type: 'clearOrderingDetails' });
+      this.$store.commit({ type: "clearOrderingDetails" });
       this.isConfirmed = false;
       this.$emit("closeModal");
-      this.$router.push('/')
-    }
+      this.$router.push("/");
+    },
   },
   computed: {
+    getImageUrl() {
+      const imgUrl = new URL(
+        `../../assets/host-images/liran2.jpg`,
+        import.meta.url
+      );
+      return imgUrl;
+    },
     displayConfirmation() {
       return this.stay && this.dates && this.user && !this.isConfirmed
         ? true

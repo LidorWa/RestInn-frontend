@@ -185,6 +185,12 @@ export default {
         this.isOrderAlert = true;
         return;
       }
+      if (dates[0] === dates[1]) {
+        this.alertModalMessage = `Reservation must be for at least one night`;
+        this.isOrdering = false;
+        this.isOrderAlert = true;
+        return;
+      }
 
       const user = this.$store.getters.getLoggedInUser;
       if (!user) {

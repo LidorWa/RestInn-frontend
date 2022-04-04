@@ -1,21 +1,32 @@
 <template>
-  <section v-if="trip" class="dashboard-order-cont">
+  <section class="dashboard-order-cont">
     <div class="date">{{ timeConversion(trip.createdAt) }}</div>
     <div v-if="hostName" class="host">{{ hostName }}</div>
-
-    <div @click="goToStay" class="stay stay-link">{{ formattedText }}</div>
-    <div class="trip-dates">
+    <div @click="goToStay" class="stay stay-link detail">
+      <span class="mobile-title">Stay: </span> {{ trip.stay.name }}
+    </div>
+    <div class="detail trip-dates">
+      <span class="mobile-title">Dates: </span>
       {{ timeConversion(trip.startDate) }} -
       {{ timeConversion(trip.endDate) }}
     </div>
     <div class="nights">
       {{ Math.round(trip.totalPrice / trip.stay.price) }}
     </div>
-    <div class="guests">{{ trip.guests.adults + trip.guests.children }}</div>
+    <div class="detail guests">
+      <span class="mobile-title">Guests: </span>
+      {{ trip.guests.adults + trip.guests.children }}
+    </div>
     <div class="price">{{ getFormatedPrice(trip.stay.price) }}</div>
-    <div class="total">{{ getFormatedPrice(trip.totalPrice) }}</div>
-    <div class="status" :class="trip.status">{{ trip.status }}</div>
-    <div class="trip-actions actions-container">
+    <div class="detail total">
+      <span class="mobile-title">Total trip: </span>
+      {{ getFormatedPrice(trip.totalPrice) }}
+    </div>
+    <div class="detail status" :class="trip.status">
+      <span class="mobile-title">Status: </span>
+      {{ trip.status }}
+    </div>
+    <div class="detail trip-actions actions-container">
       <button :disabled="isUnancelable" @click="updateStatus('canceled')">
         Cancel
       </button>
