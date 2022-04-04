@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="details-guests-btns-container">
-      <div class="guest-modal-btn" @click="onSelectGuests">OK</div>
+      <div class="guest-modal-btn" @click="onSelectGuests">Close</div>
     </div>
   </section>
 </template>

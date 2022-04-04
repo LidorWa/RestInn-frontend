@@ -7,21 +7,38 @@
   height: 100vh;
   width: 100%;
   transform: translateY(-500%);
-  padding: 100px;
+  padding: 35px calc(40vw - 200px);
   background-color: $clr3;
   text-align: start;
   transition: 0.35s;
   z-index: 888;
 
-  .mini-trip-title {
-    font-size: em(18px);
-    font-weight: 600;
-    margin-bottom: 7px;
+  .confirm-title-container {
+    margin-bottom: 25px;
+
+    .confirm-text {
+      font-size: em(17px);
+      line-height: 24px;
+      font-weight: 400;
+    }
   }
 
-  .confirm-text {
-    font-size: em(16px);
+  .reservation-details-title {
+    font-size: em(20px);
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+
+  .mini-trip-title {
+    font-size: em(17px);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .mini-trip-detail {
+    font-size: em(15px);
     font-weight: 400;
+    margin-bottom: 30px;
   }
   .reservation-details,
   .confirmation-details {
@@ -32,6 +49,7 @@
   .trip-details {
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
   }
 
   .confirm-title {
@@ -47,10 +65,6 @@
   .confirm-secondary-title {
     border-bottom: 1px solid $clr7;
     padding-right: 35px;
-  }
-
-  .trip-details {
-    margin-top: 20px;
   }
 
   .modal-btns-container {
@@ -118,25 +132,27 @@
     font-weight: 600;
   }
 
-  .host-details {
+  .stay-details-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 35px;
-    padding-top: 0px;
-    max-width: 175px;
-  }
+    padding: 15px;
+    max-width: 275px;
+    height: 268px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+    border-radius: 10px;
 
-  .host-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 50px;
-    margin-bottom: 10px;
-  }
+    .stay-image {
+      border-radius: 5px;
+      margin-bottom: 8px;
+    }
 
-  .host-name {
-    font-size: em(15px);
-    text-align: center;
+    .stay-detail {
+      font-size: em(12px);
+      margin-bottom: 5px;
+      text-align: start;
+      align-self: flex-start;
+    }
   }
 }
 

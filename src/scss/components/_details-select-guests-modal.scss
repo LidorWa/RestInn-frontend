@@ -23,15 +23,12 @@
     justify-content: space-around;
     align-items: center;
     margin: 0;
-    padding: 15px;
-    padding-top: 10px;
-    padding-top: 1px;
+    padding: 15px !important;
   }
 
   .details-guests-type-container:first-of-type {
     border-bottom: 1px solid $clr11;
-    padding-bottom: 6px;
-    padding-top: 3px;
+    padding-top: 0px !important;
   }
 
   .details-guests-modal-title {
@@ -95,7 +92,12 @@
   padding: 5px;
   border-radius: 14px;
   font-weight: 600;
+
   cursor: pointer;
+}
+
+.guest-modal-btn {
+  width: 70px;
 }
 
 .guest-modal-btn:hover {

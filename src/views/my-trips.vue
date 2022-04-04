@@ -97,6 +97,7 @@ export default {
           text: `Your order has been ${order.status}`,
           from: "host",
         };
+        this.$store.commit({ type: "setOrderStatus", status: order.status });
         this.showMessage(message);
       } catch (err) {
         console.log("Error while loading orders: ", err);

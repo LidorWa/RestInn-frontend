@@ -20,26 +20,28 @@
         <h1 class="confirm-text">Dear {{ getUserFirstName }},</h1>
         <h1 class="confirm-text">
           In order to complete your reservation, please confirm your trip
-          details
+          details.
         </h1>
       </div>
       <div class="trip-details">
         <div class="reservation-details">
           <h1 class="reservation-details-title">Reservation details</h1>
           <span class="mini-trip-title">Trip dates:</span>
-          <h1 class="confirm-text">
+          <h1 class="mini-trip-detail">
             {{ getFormatedDate(0) }} - {{ getFormatedDate(1) }}
           </h1>
 
           <span class="mini-trip-title">Guests:</span>
-          <h1 class="confirm-text">
+          <h1 class="mini-trip-detail">
             {{ getGuestsForDisplay }}
           </h1>
-          <h1 class="confirm-text">Total: ${{ getTotalPrice }}</h1>
+          <span class="mini-trip-title">Total price:</span>
+          <h1 class="mini-trip-detail">${{ getTotalPrice }}</h1>
         </div>
-        <div class="host-details">
-          <img class="host-image" :src="getImageUrl" alt="host" />
-          <h1 class="host-name">{{ stay.host.fullname }}</h1>
+        <div class="stay-details-container">
+          <img class="stay-image" :src="getImageUrl" alt="host" />
+          <h1 class="stay-detail">{{ stay.name }}</h1>
+          <h1 class="stay-detail">{{ stay.address.street }}</h1>
         </div>
       </div>
     </div>
@@ -161,7 +163,7 @@ export default {
   computed: {
     getImageUrl() {
       const imgUrl = new URL(
-        `../../assets/host-images/liran2.jpg`,
+        `../../assets/images/${this.stay.imgUrls[0]}`,
         import.meta.url
       );
       return imgUrl;
