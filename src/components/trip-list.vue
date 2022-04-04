@@ -9,7 +9,7 @@
       <div class="dashboard-title trip-dates">Dates</div>
       <div class="dashboard-title nights">Nights</div>
       <div class="dashboard-title guests">Guests</div>
-      <div class="dashboard-title price">Price</div>
+      <div class="dashboard-title price"><span>Price</span><span> / Night</span></div>
       <div class="dashboard-title total">Total</div>
       <div class="dashboard-title status">Status</div>
       <div class="dashboard-title trip-actions">Actions</div>

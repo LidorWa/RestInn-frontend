@@ -11,7 +11,7 @@
       {{ Math.round(order.totalPrice / order.stay.price) }}
     </div>
     <div class="guests">{{ order.guests.adults + order.guests.children }}</div>
-    <div class="price">{{ getFormatedPrice(order.stay.price) }} / n</div>
+    <div class="price">{{ getFormatedPrice(order.stay.price) }}</div>
     <div class="total">{{ getFormatedPrice(order.totalPrice) }}</div>
     <div class="status" :class="order.status">{{ order.status }}</div>
     <div class="actions actions-container">
