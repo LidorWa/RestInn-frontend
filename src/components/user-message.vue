@@ -1,6 +1,9 @@
 <template>
-  <section class="user-msg" :class="getMessageClass">
-    <h1 @click="goToPage">{{ message.text }}</h1>
+  <section class="user-msg">
+    <h1 @click="goToPage" class="flex align-center">
+      <img :src="getIconUrl" :class="getImageClass" alt="icon" />
+      <h1>{{ message.text }}</h1>
+    </h1>
   </section>
 </template>
 
@@ -23,10 +26,19 @@ export default {
     },
   },
   computed: {
-    getMessageClass() {
+    getImageClass() {
       const status = this.$store.getters.getOrderStatus;
+      console.log("status status status status");
       if (status === "approved") return "success";
       return "danger";
+    },
+    getIconUrl() {
+      const status = this.$store.getters.getOrderStatus;
+      let file;
+      if (status === "approved") file = "success.png";
+      else file = "danger.png";
+      const imgUrl = new URL(`../assets/system-imgs/${file}`, import.meta.url);
+      return imgUrl;
     },
   },
 };

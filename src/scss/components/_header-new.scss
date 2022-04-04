@@ -262,27 +262,40 @@
   position: fixed;
   display: flex;
   align-items: center;
-  top: 13%;
+  top: 19%;
   right: 1%;
-  transform: translateX(700%);
+  transform: translateY(-900%);
   font-size: em(18px);
   background-color: $clr3;
-  border: 1px solid $clr2;
+  box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
   color: $clr2;
-  padding: 9px 15px;
+  padding: 9px 15px 9px 0px;
   height: 50px;
   line-height: 20px;
   border-radius: 5px;
   transition: 0.3s;
   z-index: 9999;
+
+  @media (max-width: 793px) {
+    top: 13%;
+
+    margin: auto;
+    // transform: translate(-50%, -900%);
+    width: 95%;
+    font-size: em(22px);
+    text-align: center;
+  }
 }
 
 .success {
-  color: rgb(13, 156, 0);
+  width: 23px;
+  height: 23px;
+  margin: 0px 7px 0px 7px;
 }
 
 .danger {
-  color: rgb(197, 0, 0);
+  width: 40px;
+  height: 40px;
 }
 
 .showUserMessage {
