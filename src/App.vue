@@ -47,21 +47,21 @@ export default {
       guests: 0,
     };
     this.$store.dispatch({ type: "getUserFromSession" });
-    
+
     const user = this.$store.getters.getLoggedInUser;
 
     await this.$store.dispatch({ type: "loadStays", filterBy });
 
-    if (user) {
-      const filterBy = {
-        hostId: user._id,
-      };
-      try {
-        await this.$store.dispatch({ type: "loadOrders", filterBy });
-      } catch (err) {
-        console.log("Error while loading orders: ", err);
-      }
-    }
+    // if (user) {
+    //   const filterBy = {
+    //     hostId: user._id,
+    //   };
+    //   try {
+    //     await this.$store.dispatch({ type: "loadOrders", filterBy });
+    //   } catch (err) {
+    //     console.log("Error while loading orders: ", err);
+    //   }
+    // }
   },
   computed: {
     isSignUp() {

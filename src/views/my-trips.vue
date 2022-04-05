@@ -41,13 +41,10 @@ export default {
     socketService.emit("enter my-trips", this.loggedInUser._id);
     socketService.on("status updated", this.statusUpdated);
 
-    this.$store.commit({ type: "clearOrdersFromStore" });
-
     const filterBy = {
       userId: this.loggedInUser._id,
     };
     try {
-      console.log("loadind orders from server to store..");
       await this.$store.dispatch({ type: "loadOrders", filterBy });
       console.log("Got orders!");
     } catch (err) {

@@ -262,7 +262,7 @@
   position: fixed;
   display: flex;
   align-items: center;
-  top: 19%;
+  top: 10%;
   right: 1%;
   transform: translateY(-900%);
   font-size: em(18px);
@@ -277,7 +277,7 @@
   z-index: 9999;
 
   @media (max-width: 793px) {
-    top: 13%;
+    top: 10%;
 
     margin: auto;
     // transform: translate(-50%, -900%);
