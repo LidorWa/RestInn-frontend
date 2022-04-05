@@ -1,72 +1,71 @@
 <template>
-  <section class="order-confirmation-modal">
-    <div v-if="isConfirmed" class="confirmed-container">
-      <div>
-        <div class="confirm-secondary-title">
-          <h1 class="confirm-text congrats"><span></span> Reserved Successfully!</h1>
-        </div>
-
-        <!-- <h1 class="confirm-text">Your order has been received</h1>
-        <h1 class="confirm-text">We will let you know when the host responds</h1> -->
-        <h1 class="confirm-text">
-          You can follow the order status in
-          <span @click="goToMyTrips">My trips</span> page
-        </h1>
-      </div>
-    </div>
-    <!-- ///////////////////////////////// -->
+  <section v-if="displayConfirmation" class="order-confirmation-modal">
     <div class="confirmation-details">
       <!-- upper part -->
-      <div v-if="displayConfirmation" class="confirm-title-container">
-        <p class="confirm-title">One last step</p>
+      <div v-if="!isConfirmed" class="confirm-title-container">
+        <p class="confirm-title">One last step...</p>
         <h1 class="confirm-text">Dear {{ getUserFirstName }},</h1>
         <h1 class="confirm-text">In order to complete your reservation, please confirm your trip details.</h1>
       </div>
-      <hr />
+      <!-- ///////////////////////////////// number 2 -->
+      <div v-if="isConfirmed" class="confirm-title-container">
+        <div>
+          <div class="confirm-secondary-title flex align-center">
+            <img class="success-sign confirm-title" src="../../assets/system-imgs/success.png" alt="success sign" />
+            <h1 class="confirm-title">Reserved Successfully!</h1>
+          </div>
+          <!-- <h1 class="confirm-text">Your order has been received</h1>
+        <h1 class="confirm-text">We will let you know when the host responds</h1> -->
+          <h1 class="confirm-text follow-your-trip">
+            You can follow the order status in
+            <span @click="goToMyTrips">My trips</span> page
+          </h1>
+        </div>
+      </div>
+      <!-- //////////// always on -->
       <!-- down trip + price-->
-      <h1 class="reservation-details-title">Reservation details</h1>
 
       <div class="reservation-details-container flex space-between">
         <!-- trip -->
-        <div class="trip-details-container">
+        <div class="trip-details-container flex flex-column">
+          <h1 class="reservation-details-title">Reservation details</h1>
           <span class="mini-trip-title">Trip dates:</span>
           <h1 class="mini-trip-detail">{{ getFormatedDate(0) }} - {{ getFormatedDate(1) }}</h1>
           <span class="mini-trip-title">Guests:</span>
           <h1 class="mini-trip-detail">
             {{ getGuestsForDisplay }}
           </h1>
-        </div>
-        <!-- price -->
-        <div class="orders-price-details-container flex flex-column">
-          <div class="stay-details-container">
-            <img class="stay-image" :src="getImageUrl" alt="host" />
-            <h1 class="stay-detail">{{ stay.name }}</h1>
-            <h1 class="stay-detail">{{ stay.address.street }}</h1>
-          </div>
-
+          <!-- price -->
           <div class="price-details-container flex flex-column">
-            <h1>Price Details</h1>
+            <h1 class="mini-trip-title">Price Details</h1>
             <div class="price-per-night flex space-between">
               <h1 class="mini-trip-detail">{{ getCheckDetails }}</h1>
               <!-- <span class="mini-trip-title">Total price:</span> -->
               <h1 class="mini-trip-detail">${{ getTotalPrice }}</h1>
             </div>
             <div class="service flex space-between">
-              <h1>Service fee</h1>
-              <h1>$0</h1>
+              <h1 class="mini-trip-detail">Service fee</h1>
+              <h1 class="mini-trip-detail">$0</h1>
             </div>
             <div class="total-price flex space-between">
-              <h1>Total</h1>
-              <h1>${{ getTotalPrice }}</h1>
+              <h1 class="mini-trip-detail">Total</h1>
+              <h1 class="mini-trip-detail">${{ getTotalPrice }}</h1>
             </div>
           </div>
         </div>
+        <!-- pic -->
+        <div class="order-stay-details flex flex-column">
+          <img class="order-stay-image" :src="getImageUrl" alt="host" />
+          <h1 class="stay-detail">{{ stay.name }}</h1>
+          <h1 class="stay-detail">{{ stay.address.street }}</h1>
+        </div>
       </div>
     </div>
-    <!--  -->
+
+    <!--Btns  -->
     <div class="modal-btns-container">
-      <magic-button v-if="!isConfirmed" class="sign-up-continue" @click="confirm">Confirm </magic-button>
-      <div v-if="!isConfirmed" class="sign-up-continue go-back" @click="closeModal">Go back</div>
+      <magic-button v-if="!isConfirmed" class="sign-up-continue confirm" @click="confirm">Confirm </magic-button>
+      <div v-if="!isConfirmed" class="sign-up-continue go-back" @click="closeModal">Back</div>
       <div v-if="isConfirmed" class="sign-up-continue go-back" @click="closeModalAndClean">Close</div>
     </div>
   </section>
@@ -171,7 +170,7 @@ export default {
       return imgUrl
     },
     displayConfirmation() {
-      return this.stay && this.dates && this.user && !this.isConfirmed ? true : false
+      return this.stay && this.dates && this.user ? true : false
     },
     getTotalPrice() {
       const total = this.$store.getters.getTotalPrice
