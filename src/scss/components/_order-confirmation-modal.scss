@@ -2,43 +2,52 @@
 
 .order-confirmation-modal {
   position: fixed;
+  margin: auto;
   top: 0;
-  left: 0;
+  border-radius: 40px;
+  line-height: 18px;
+  // left: 20%;
+  // transform: translateX(-50%);
   height: 100vh;
-  width: 100%;
+  width: 80%;
   transform: translateY(-500%);
-  padding: 35px calc(40vw - 200px);
+  // padding: 35px calc(40vw - 500px);
+  padding: 35px 12%;
   background-color: $clr3;
   text-align: start;
   transition: 0.35s;
   z-index: 888;
 
   .confirm-title-container {
-    margin-bottom: 25px;
+    margin-bottom: 80px;
 
     .confirm-text {
       font-size: em(17px);
-      line-height: 24px;
+      line-height: 33px;
       font-weight: 400;
     }
   }
 
   .reservation-details-title {
     font-size: em(20px);
-    font-weight: 600;
+    // font-weight: 800;
+    font-family: cereal-bold;
     margin-bottom: 30px;
   }
 
   .mini-trip-title {
     font-size: em(17px);
-    font-weight: 600;
+    // font-weight: 600;
+    font-family: cereal-bold;
     margin-bottom: 12px;
   }
 
   .mini-trip-detail {
+    // display: flex;
+    // align-items: flex-end;
     font-size: em(15px);
     font-weight: 400;
-    margin-bottom: 30px;
+    // margin-bottom: 30px;/////////////////////
   }
   .reservation-details,
   .confirmation-details {
@@ -54,17 +63,20 @@
 
   .confirm-title {
     margin-top: 50px;
-    margin-bottom: 20px;
-    text-align: center;
+    font-family: cereal-bold;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    // text-align: center;
     font-size: em(27px);
-    padding: 3px;
-    padding-bottom: 40px;
+    // padding: 3px;
+    // padding-bottom: 40px;
     font-weight: 600;
   }
 
   .confirm-secondary-title {
     border-bottom: 1px solid $clr7;
     padding-right: 35px;
+    gap: 8px;
   }
 
   .modal-btns-container {
@@ -72,8 +84,13 @@
     flex-direction: column;
     height: 130px;
     margin-top: 10px;
-    font-size: em(16px);
+    font-size: em(18px);
+    gap: 20px;
 
+    .confirm {
+      // font-size: em(18px) !important;
+      border-inline-end: 20px;
+    }
     @media (min-width: 621px) {
       margin-top: 60px;
     }
@@ -87,12 +104,13 @@
 
       height: 130px;
       margin: auto;
-      margin-top: 20px;
+      margin-top: 70px;
       width: 380px;
     }
   }
 
   .sign-up-continue {
+    font-size: 16px;
     height: 50px;
     width: 250px;
     color: $clr3;
@@ -100,13 +118,14 @@
     line-height: 10px;
     margin: auto;
     text-align: center;
-    font-size: em(20px);
+    // font-size: em(18px) !important;
     cursor: pointer;
     transition: 0.1s;
   }
 
   .go-back {
     background-color: $clr5 !important;
+    // font-size: 16px;
   }
 
   .sign-up-continue:hover {
@@ -131,19 +150,22 @@
     font-weight: 600;
   }
 
-  .stay-details-container {
+  .order-stay-details {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 15px;
-    max-width: 275px;
-    height: 268px;
+    max-width: 350px;
+    // height: 268px;
     box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
     border-radius: 10px;
 
-    .stay-image {
+    .order-stay-image {
       border-radius: 5px;
       margin-bottom: 8px;
+      img {
+        width: 400px;
+      }
     }
 
     .stay-detail {
@@ -179,6 +201,28 @@
     padding: 78px 75px 61px;
   }
 
+  // span {
+  //   cursor: pointer;
+  //   color: rgb(0, 0, 201);
+  //   transition: 0.1s;
+
+  //   &:hover {
+  //     color: $clr1;
+  //   }
+  // }
+
+  // .confirm-text {
+  //   font-size: em(25px);
+  // }
+
+  // .confirm-text:first-of-type {
+  //   margin-top: 25px;
+  // }
+}
+
+.follow-your-trip {
+  margin-top: 20px;
+
   span {
     cursor: pointer;
     color: rgb(0, 0, 201);
@@ -195,5 +239,44 @@
 
   .confirm-text:first-of-type {
     margin-top: 25px;
+  }
+}
+
+// .reservation-details-title {
+//   border: 1px solid pink;
+// }
+
+.reservation-details-container {
+  gap: 10px;
+  // border: 1px solid blue;
+}
+
+.trip-details-container {
+  width: 40%;
+  // justify-content: flex-end;
+  // border: 1px solid green;
+  // align-items: center;
+  // justify-content: center;
+}
+// .orders-price-details-container {
+//   border: 1px solid red;
+// }
+
+.success-sign {
+  width: 35px;
+  // margin-inline-end: ;
+}
+
+.price-details-container {
+  border-top: 1px solid $clr6;
+  padding-top: 25px;
+  gap: 20px;
+  height: 100%;
+  justify-content: space-between;
+
+  .total-price {
+    font-weight: 600;
+    border-top: 1px solid $clr6;
+    padding-top: 20px;
   }
 }
