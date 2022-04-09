@@ -138,8 +138,8 @@ export default {
       this.isShowingHamburger = false;
       this.$router.push("/");
     },
-    openSignUp() {
-      this.$store.commit({ type: "openSignUpModal" });
+    openSignUp(isNew) {
+      this.$store.commit({ type: "openSignUpModal", isNew });
       this.isShowingHamburger = false;
     },
     mainSearchClosed(location, dates, guests) {

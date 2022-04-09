@@ -1,7 +1,9 @@
 <template>
   <section class="header-user-menu">
-    <p v-if="!isLoggedIn" class="sign-up-option" @click="signUp">Sign up</p>
-    <p v-if="!isLoggedIn" @click="signUp">Log in</p>
+    <p v-if="!isLoggedIn" class="sign-up-option" @click="signUp(true)">
+      Sign up
+    </p>
+    <p v-if="!isLoggedIn" @click="signUp(false)">Log in</p>
     <p v-if="isLoggedIn" @click="logout">Log out</p>
     <hr />
     <p @click="goToExplorePage" class="user-menu-explore">Explore</p>
@@ -27,8 +29,8 @@ export default {
     logout() {
       this.$emit("logout");
     },
-    signUp() {
-      this.$emit("openSignUp");
+    signUp(isNew) {
+      this.$emit("openSignUp", isNew);
     },
     goToAboutPage() {
       this.$router.push("/about");

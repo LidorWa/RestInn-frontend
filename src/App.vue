@@ -3,6 +3,7 @@
     <sign-up
       :class="{ showSignUp: isSignUp }"
       @closeSignUp="closeSignUp"
+      @toggleNewUser="toggleNewUser"
       ref="signup"
     />
     <!-- overlay  -->
@@ -67,15 +68,32 @@ export default {
     isSignUp() {
       const isSignUpModalOpen = this.$store.getters.isSignUpModal;
       if (isSignUpModalOpen) {
-        this.$refs["signup"].$refs["username"].focus();
+        const isNew = this.$store.getters.isNewUser;
+        if (!isNew) this.$refs["signup"].$refs["username"].focus();
       }
       return isSignUpModalOpen;
     },
   },
 
   methods: {
+    toggleNewUser() {
+      const isNew = this.$store.getters.isNewUser;
+
+      if (isNew) {
+        this.$refs["signup"].$refs["fullname"].blur();
+        this.$store.commit({ type: "toggleNewUser" });
+        this.$refs["signup"].$refs["username"].focus();
+      } else {
+        this.$refs["signup"].$refs["username"].blur();
+        this.$store.commit({ type: "toggleNewUser" });
+        setTimeout(() => {
+          this.$refs["signup"].$refs["fullname"].focus();
+        }, 10);
+      }
+    },
     closeSignUp() {
       this.$store.commit({ type: "closeSignUpModal" });
+      this.$router.push("/");
     },
   },
 };

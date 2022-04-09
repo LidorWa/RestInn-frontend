@@ -5,8 +5,12 @@ export default {
     users: null,
     loggedInUser: null,
     isSignUpModal: false,
+    isNewUser: false,
   },
   getters: {
+    isNewUser(state) {
+      return state.isNewUser;
+    },
     getUsers(state) {
       return JSON.parse(JSON.stringify(state.users));
     },
@@ -18,8 +22,15 @@ export default {
     },
   },
   mutations: {
-    openSignUpModal(state) {
+    openSignUpModal(state, { isNew }) {
+      state.isNewUser = isNew;
       state.isSignUpModal = true;
+    },
+    toggleNewUser(state) {
+      state.isNewUser = !state.isNewUser;
+    },
+    setIsNewUser(state, { isNew }) {
+      state.isNewUser = isNew || false;
     },
     closeSignUpModal(state) {
       state.isSignUpModal = false;
@@ -49,11 +60,23 @@ export default {
         const filterBy = {
           hostId: loggedInUser._id,
         };
+
         commit({ type: "resetIsHostLoaded" });
         await dispatch({ type: "loadOrders", filterBy });
       } catch (err) {
         console.log("Error while trying to log in", err);
+        console.log(err);
         throw new Error("Somethig went wrong. Try again");
+      }
+    },
+
+    async signUp({ commit, dispatch }, { user }) {
+      try {
+        const newUser = await userService.signup(user);
+        commit({ type: "setLoggedinUser", loggedInUser: newUser });
+        commit({ type: "resetIsHostLoaded" });
+      } catch (err) {
+        console.log("Can't sign up:", err);
       }
     },
 
@@ -73,10 +96,11 @@ export default {
     },
 
     async saveUser({ commit, dispatch }, { user }) {
-      const userToSave = await userService.save(user);
+      const userToSave = await userService.saveUser(user);
       commit({ type: "saveUser", user });
       dispatch({ type: "loadUsers" });
     },
+
     getUserFromSession({ commit }) {
       console.log("store getUserFromSession 1");
 

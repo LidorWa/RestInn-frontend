@@ -32,7 +32,7 @@
       <!-- //////////// always on -->
       <!-- down trip + price-->
 
-      <div class="reservation-details-container flex space-between">
+      <div class="reservation-details-container">
         <!-- trip -->
         <div class="trip-details-container flex flex-column">
           <h1 class="reservation-details-title">Reservation details</h1>
