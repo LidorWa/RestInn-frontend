@@ -1,7 +1,7 @@
 .sign-up-modal {
   position: fixed;
   top: 0;
-  height: 100vh;
+  height: 125vh;
   width: 100%;
   transform: translateY(800%);
   background-color: $clr3;
@@ -137,6 +137,12 @@
 
 .showSignUp {
   transform: translate(0, 0) !important;
+}
+
+@media (min-width: 400px) {
+  .sign-up-modal {
+    height: 100vh;
+  }
 }
 
 @media (min-width: 551px) {

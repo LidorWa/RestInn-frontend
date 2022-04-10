@@ -1,9 +1,5 @@
 <template>
   <section class="dashboard" v-if="loggedInUser">
-    <user-message
-      :class="{ showUserMessage: isShowingMessage }"
-      :message="message"
-    />
     <h1 class="main-layout-homepage title">My Trips</h1>
     <div class="loading-img-container">
       <img
@@ -63,13 +59,6 @@ export default {
   },
 
   methods: {
-    showMessage(message) {
-      this.message = message;
-      this.isShowingMessage = true;
-      setTimeout(() => {
-        this.isShowingMessage = false;
-      }, 4500);
-    },
     updateStatus({ status, tripId }) {
       const trips = this.getTrips;
       const trip = trips.find((trip) => trip._id === tripId);
@@ -93,9 +82,12 @@ export default {
         const message = {
           text: `Your order has been ${order.status}`,
           from: "host",
+          class: order.status === "rejected" ? "danger" : "success",
         };
-        this.$store.commit({ type: "setOrderStatus", status: order.status });
-        this.showMessage(message);
+        this.$store.commit({ type: "showMessage", message });
+        setTimeout(() => {
+          this.$store.commit({ type: "hideMessage" });
+        }, 4500);
       } catch (err) {
         console.log("Error while loading orders: ", err);
       }
