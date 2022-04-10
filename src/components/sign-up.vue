@@ -72,7 +72,7 @@ export default {
       this.$emit("toggleNewUser");
     },
     async submitSignUp() {
-      const regex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
+      // const regex = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
       const isNew = this.$store.getters.isNewUser;
       if (!this.password || !this.username || (isNew && !this.fullname)) {
         this.isInputAlert = true;
