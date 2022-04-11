@@ -135,7 +135,7 @@ export default {
   },
   computed: {
     getMainSearchText() {
-      if (!this.$route.query.destination) return 'Add dates'
+      if (!this.$route.query.destination) return 'Where are you going?'
       else return this.$route.query.destination
     },
     getGuestsNumber() {
