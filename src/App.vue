@@ -3,10 +3,16 @@
     <sign-up
       :class="{ showSignUp: isSignUp }"
       @closeSignUp="closeSignUp"
+      @toggleNewUser="toggleNewUser"
       ref="signup"
     />
     <!-- overlay  -->
     <div v-if="isSignUp" class="outsideUserMenu" @click="closeSignUp"></div>
+    <!-- Notification message -->
+    <user-message
+      :class="{ showUserMessage: isShowingMessage }"
+      :message="getMessage"
+    />
     <div class="main-app-container flex flex-column app-container">
       <app-header />
       <router-view class="main-layout-height" />
@@ -21,6 +27,7 @@ import appFooter from "./components/app-footer.vue";
 // import { propsToAttrMap } from "@vue/shared";
 import AppFooter from "./components/app-footer.vue";
 import signUp from "./components/sign-up.vue";
+import userMessage from "./components/user-message.vue";
 
 export default {
   name: "app",
@@ -29,6 +36,7 @@ export default {
     appFooter,
     AppFooter,
     signUp,
+    userMessage,
     // propsToAttrMap
   },
   data() {
@@ -64,18 +72,41 @@ export default {
     // }
   },
   computed: {
+    isShowingMessage() {
+      return this.$store.getters.isShowingMessage;
+    },
+    getMessage() {
+      return this.$store.getters.getMessage;
+    },
     isSignUp() {
       const isSignUpModalOpen = this.$store.getters.isSignUpModal;
       if (isSignUpModalOpen) {
-        this.$refs["signup"].$refs["username"].focus();
+        const isNew = this.$store.getters.isNewUser;
+        if (!isNew) this.$refs["signup"].$refs["username"].focus();
       }
       return isSignUpModalOpen;
     },
   },
 
   methods: {
+    toggleNewUser() {
+      const isNew = this.$store.getters.isNewUser;
+
+      if (isNew) {
+        this.$refs["signup"].$refs["fullname"].blur();
+        this.$store.commit({ type: "toggleNewUser" });
+        this.$refs["signup"].$refs["username"].focus();
+      } else {
+        this.$refs["signup"].$refs["username"].blur();
+        this.$store.commit({ type: "toggleNewUser" });
+        setTimeout(() => {
+          this.$refs["signup"].$refs["fullname"].focus();
+        }, 10);
+      }
+    },
     closeSignUp() {
       this.$store.commit({ type: "closeSignUpModal" });
+      this.$router.push("/");
     },
   },
 };

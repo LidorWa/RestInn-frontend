@@ -13,8 +13,8 @@ export const userService = {
   getUsers,
   getById,
   update,
+  saveUser,
 };
-
 
 window.userService = userService;
 
@@ -25,6 +25,10 @@ async function login(userCred) {
   } catch (err) {
     console.log("Error while trying to login");
   }
+}
+
+async function saveUser(user) {
+  return await httpService.post("user", user);
 }
 
 async function getById(userId) {
@@ -67,5 +71,3 @@ function getLoggedinUser() {
   );
   return user;
 }
-
-

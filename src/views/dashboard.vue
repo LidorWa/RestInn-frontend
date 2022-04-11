@@ -1,10 +1,5 @@
 <template>
   <section class="dashboard main-layout-height">
-    <user-message
-      :class="{ showUserMessage: isShowingMessage }"
-      :message="message"
-    />
-
     <h1 class="main-layout-homepage title">My Dashboard</h1>
     <div class="loading-img-container">
       <img
@@ -70,13 +65,6 @@ export default {
   },
 
   methods: {
-    showMessage(message) {
-      this.message = message;
-      this.isShowingMessage = true;
-      setTimeout(() => {
-        this.isShowingMessage = false;
-      }, 4500);
-    },
     async updateStatus({ status, orderId }) {
       const order = this.getOrders.find((order) => order._id === orderId);
       const orderCopy = JSON.parse(JSON.stringify(order));
@@ -106,9 +94,12 @@ export default {
       const message = {
         text: "You have a new order",
         from: "user",
+        class: "success",
       };
-      this.$store.commit({ type: "setOrderStatus", status: "approved" });
-      this.showMessage(message);
+      this.$store.commit({ type: "showMessage", message });
+      setTimeout(() => {
+        this.$store.commit({ type: "hideMessage" });
+      }, 4500);
     },
   },
   components: {

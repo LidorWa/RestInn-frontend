@@ -8,16 +8,28 @@ const store = createStore({
   state: {
     isLoading: false,
     orderStatus: "",
+    isShowingMessage: false,
+    message: {},
   },
   getters: {
-    getOrderStatus(state) {
-      return state.orderStatus;
+    getMessage(state) {
+      return state.message;
     },
     isLoading(state) {
       return state.isLoading;
     },
+    isShowingMessage(state) {
+      return state.isShowingMessage;
+    },
   },
   mutations: {
+    showMessage(state, { message }) {
+      state.message = message;
+      state.isShowingMessage = true;
+    },
+    hideMessage(state) {
+      state.isShowingMessage = false;
+    },
     setOrderStatus(state, { status }) {
       state.orderStatus = status;
     },

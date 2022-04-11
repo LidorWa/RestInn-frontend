@@ -29,16 +29,17 @@
   .modal-btns-container {
     display: flex;
     flex-direction: column;
-    height: 55px;
+    justify-content: space-between;
+    height: 140px;
   }
 
   .sign-up-continue {
-    height: 50px;
+    height: 45px;
     padding: 20px;
-    width: 250px;
+    width: 200px;
     color: $clr3;
     background-color: $clr1;
-    line-height: 10px;
+    line-height: 7px;
     margin: auto;
     text-align: center;
     font-size: em(20px);
@@ -69,10 +70,9 @@
   .login-alert-modal {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     top: 40%;
     left: 50%;
-    height: 325px;
+    height: 265px;
     width: 300px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
     border-radius: 15px;
@@ -90,7 +90,7 @@
 
     .sign-up-welcome {
       font-size: em(13px);
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       padding-top: 10px;
       line-height: 25px;
     }

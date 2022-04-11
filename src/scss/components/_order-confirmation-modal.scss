@@ -11,18 +11,57 @@
   line-height: 18px;
   left: 50%;
   transform: translate(-50%, -500%);
-  // height: 785px;
+  height: 625px;
   width: 80%;
   max-width: 880px;
-  padding: 70px 95px;
+  padding: 40px 95px;
   background-color: $clr3;
   font-size: 17px;
   text-align: start;
   transition: 0.35s;
   z-index: 888;
 
+  @media (max-width: 1040px) {
+    font-size: 15px;
+  }
+  @media (max-width: 950px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 870px) {
+    padding: 40px 55px;
+  }
+
+  @media (max-width: 735px) {
+    top: 0;
+    border-radius: 0px;
+    height: 100vh;
+    width: 100%;
+  }
+
+  @media (max-width: 870px) {
+    padding: 40px 30px;
+  }
+
   .confirm-title-container {
     margin-bottom: 28px;
+
+    .confirm-title {
+      font-family: cereal-bold;
+      margin-bottom: 28px;
+      margin-top: 25px;
+      letter-spacing: 1px;
+      font-size: em(27px);
+      font-weight: 600;
+
+      @media (max-width: 755px) {
+        margin-top: 0px;
+      }
+
+      @media (max-width: 735px) {
+        margin-top: 40px;
+      }
+    }
 
     .confirm-text {
       font-size: em(15px);
@@ -31,9 +70,27 @@
     }
   }
 
+  .reservation-details-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    @media (max-width: 735px) {
+      margin-top: 20px;
+    }
+  }
+
   .trip-details-container {
     width: 32%;
     height: 100%;
+
+    @media (max-width: 950px) {
+      width: 37%;
+    }
+
+    @media (max-width: 610px) {
+      width: calc(100px + 15vw);
+    }
 
     .reservation-details-title {
       font-size: em(18px);
@@ -79,6 +136,56 @@
     }
   }
 
+  .order-stay-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    width: 310px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+    border-radius: 10px;
+
+    @media (max-width: 1040px) {
+      width: 280px;
+    }
+
+    @media (max-width: 950px) {
+      width: 240px;
+      height: 220px;
+    }
+
+    @media (max-width: 610px) {
+      width: calc(120px + 15vw);
+      height: 190px;
+    }
+
+    @media (max-width: 550px) {
+      width: 180px;
+      height: 172px;
+    }
+
+    @media (max-width: 510px) {
+      width: 160px;
+      height: 162px;
+    }
+
+    @media (max-width: 460px) {
+      display: none;
+    }
+
+    .order-stay-image {
+      border-radius: 5px;
+      margin-bottom: 8px;
+    }
+
+    .stay-detail {
+      font-size: em(12px);
+      margin-bottom: 5px;
+      text-align: start;
+      align-self: flex-start;
+    }
+  }
+
   .reservation-details,
   .confirmation-details {
     display: flex;
@@ -91,18 +198,6 @@
     margin-top: 20px;
   }
 
-  .confirm-title {
-    font-family: cereal-bold;
-    margin-bottom: 28px;
-    margin-top: 0px;
-    letter-spacing: 1px;
-    // text-align: center;
-    font-size: em(27px);
-    // padding: 3px;
-    // padding-bottom: 40px;
-    font-weight: 600;
-  }
-
   .confirm-secondary-title {
     border-bottom: 1px solid $clr7;
     padding-right: 35px;
@@ -111,99 +206,136 @@
 
   .modal-btns-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    gap: 45px;
     height: 55px;
-    // margin-top: 10px;
-    font-size: em(18px);
-    gap: 20px;
+    padding: 50px 0px;
+    margin: auto;
+    width: 380px;
+
+    @media (max-width: 610px) {
+      gap: 35px;
+      margin: auto;
+    }
+
+    @media (max-width: 460px) {
+      margin-top: 30px;
+      width: 350px;
+      height: 120px;
+      gap: 0px;
+    }
+    @media (max-width: 415px) {
+      width: 330px;
+      height: 50px;
+    }
+    @media (max-width: 395px) {
+      width: 280px;
+    }
+    @media (max-width: 395px) {
+      width: 240px;
+    }
 
     .confirm {
       // font-size: em(18px) !important;
       border-inline-end: 20px;
     }
-    @media (min-width: 621px) {
-      margin-top: 20px;
-    }
-    @media (min-width: 690px) {
-      margin-top: 20px;
-    }
 
-    @media (min-width: 821px) {
-      display: flex;
-      flex-direction: row-reverse;
-      padding: 50px 0px;
+    .sign-up-continue {
+      font-size: 16px;
+      height: 40px;
+      width: 200px;
+      color: $clr3;
+      background-color: $clr1;
+      line-height: 10px;
       margin: auto;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.1s;
 
-      width: 380px;
-    }
-  }
+      @media (max-width: 610px) {
+        height: 40px;
+        width: 170px;
+      }
 
-  .sign-up-continue {
-    font-size: 16px;
-    height: 50px;
-    width: 250px;
-    color: $clr3;
-    background-color: $clr1;
-    line-height: 10px;
-    margin: auto;
-    text-align: center;
-    // font-size: em(18px) !important;
-    cursor: pointer;
-    transition: 0.1s;
-  }
+      @media (max-width: 460px) {
+        width: 130px;
+      }
 
-  .go-back {
-    background-color: $clr5 !important;
-    // font-size: 16px;
-  }
+      @media (max-width: 415px) {
+        width: 110px;
+      }
 
-  .sign-up-continue:hover {
-    background-color: rgba($clr9, 0.9);
-  }
-
-  .go-back:hover {
-    background-color: rgba($clr4, 0.6) !important;
-  }
-
-  .close-sign-up {
-    position: absolute;
-    right: 13px;
-    top: 10px;
-    font-size: em(30px) !important;
-    cursor: pointer;
-    transition: 0.1s;
-    z-index: 500;
-  }
-
-  .close-sign-up:hover {
-    font-weight: 600;
-  }
-
-  .order-stay-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    max-width: 310px;
-    // height: 268px;
-    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
-    border-radius: 10px;
-
-    .order-stay-image {
-      border-radius: 5px;
-      margin-bottom: 8px;
-      img {
-        width: 400px;
+      @media (max-width: 395px) {
+        width: 90px;
       }
     }
 
-    .stay-detail {
-      font-size: em(12px);
-      margin-bottom: 5px;
-      text-align: start;
-      align-self: flex-start;
+    .go-back {
+      font-size: 16px;
+      height: 40px;
+      width: 200px;
+      color: $clr3;
+      background-color: $clr5;
+      line-height: 2px;
+      margin: auto;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.1s;
+
+      @media (max-width: 610px) {
+        width: 170px;
+      }
+
+      @media (max-width: 460px) {
+        width: 130px;
+      }
+
+      @media (max-width: 395px) {
+        width: 90px;
+      }
+    }
+
+    .sign-up-continue {
+      @media (max-width: 610px) {
+        height: 40px;
+        width: 170px;
+      }
+
+      @media (max-width: 460px) {
+        width: 130px;
+      }
+
+      @media (max-width: 415px) {
+        width: 110px;
+      }
+
+      @media (max-width: 395px) {
+        width: 90px;
+      }
+    }
+
+    .sign-up-continue:hover {
+      background-color: rgba($clr9, 0.9);
+    }
+
+    .go-back:hover {
+      background-color: rgba($clr4, 0.6) !important;
     }
   }
+
+  // .close-sign-up {
+  //   position: absolute;
+  //   right: 13px;
+  //   top: 10px;
+  //   font-size: em(30px) !important;
+  //   cursor: pointer;
+  //   transition: 0.1s;
+  //   z-index: 500;
+  // }
+
+  // .close-sign-up:hover {
+  //   font-weight: 600;
+  // }
 }
 
 //After confirmation
@@ -212,37 +344,37 @@
   padding: 94px 25px 61px;
   font-size: em(16px);
 
-  // @media (min-width: 480px) {
-  //   padding: 94px 55px 61px;
-  //   font-size: em(18px);
-  // }
-  // @media (min-width: 660px) {
-  //   padding: 94px 55px 61px;
-  // }
-  // @media (min-width: 740px) {
-  //   padding: 94px 75px 61px;
-  // }
-  // @media (min-width: 820px) {
-  //   padding: 78px 75px 61px;
-  // }
+  @media (min-width: 480px) {
+    padding: 94px 55px 61px;
+    font-size: em(18px);
+  }
+  @media (min-width: 660px) {
+    padding: 94px 55px 61px;
+  }
+  @media (min-width: 740px) {
+    padding: 94px 75px 61px;
+  }
+  @media (min-width: 820px) {
+    padding: 78px 75px 61px;
+  }
 
-  // span {
-  //   cursor: pointer;
-  //   color: rgb(0, 0, 201);
-  //   transition: 0.1s;
+  span {
+    cursor: pointer;
+    color: rgb(0, 0, 201);
+    transition: 0.1s;
 
-  //   &:hover {
-  //     color: $clr1;
-  //   }
-  // }
+    &:hover {
+      color: $clr1;
+    }
+  }
 
-  // .confirm-text {
-  //   font-size: em(25px);
-  // }
+  .confirm-text {
+    font-size: em(25px);
+  }
 
-  // .confirm-text:first-of-type {
-  //   margin-top: 25px;
-  // }
+  .confirm-text:first-of-type {
+    margin-top: 25px;
+  }
 }
 
 .follow-your-trip {
@@ -270,11 +402,6 @@
 // .reservation-details-title {
 //   border: 1px solid pink;
 // }
-
-.reservation-details-container {
-  gap: 10px;
-  // border: 1px solid blue;
-}
 
 // .orders-price-details-container {
 //   border: 1px solid red;
