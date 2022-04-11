@@ -38,14 +38,6 @@ export default {
   async created() {
     this.loggedInUser = this.$store.getters.getLoggedInUser;
 
-    //// Tell the socket service about entering the dashboard ////
-    socketService.emit("enter dashboard", this.loggedInUser._id);
-
-    ///////////////////////////////////////////////////////
-    //// Register to listening the event "added order" ////
-    ///////////////////////////////////////////////////////
-    socketService.on("added order", this.addedNewOrder);
-
     const filterBy = {
       hostId: this.loggedInUser._id,
     };
@@ -70,36 +62,9 @@ export default {
       const orderCopy = JSON.parse(JSON.stringify(order));
 
       orderCopy.status = status;
-      this.$store.dispatch({ type: "updateOrder", order: orderCopy });
+      await this.$store.dispatch({ type: "updateOrder", order: orderCopy });
 
       socketService.emit("update status", orderCopy);
-    },
-    ////////////////////////////////////////////////////////////////
-    //// Excecuted when the event "added order" is taking place ////
-    ////////////////////////////////////////////////////////////////
-    async addedNewOrder() {
-      this.loggedInUser = this.$store.getters.getLoggedInUser;
-      const filterBy = {
-        hostId: this.loggedInUser._id,
-      };
-
-      try {
-        await this.$store.dispatch({
-          type: "loadOrdersWithSocket",
-          filterBy,
-        });
-      } catch (err) {
-        console.log("Error while loading orders: ", err);
-      }
-      const message = {
-        text: "You have a new order",
-        from: "user",
-        class: "success",
-      };
-      this.$store.commit({ type: "showMessage", message });
-      setTimeout(() => {
-        this.$store.commit({ type: "hideMessage" });
-      }, 4500);
     },
   },
   components: {

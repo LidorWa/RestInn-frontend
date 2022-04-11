@@ -21,6 +21,7 @@ export default {
 
   methods: {
     goToPage() {
+      if (!this.message.from) return;
       if (this.message.from === "host") this.$router.push("/mytrips");
       else this.$router.push("/dashboard");
     },

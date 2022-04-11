@@ -28,6 +28,7 @@ import appFooter from "./components/app-footer.vue";
 import AppFooter from "./components/app-footer.vue";
 import signUp from "./components/sign-up.vue";
 import userMessage from "./components/user-message.vue";
+import { socketService } from "./services/socket-service";
 
 export default {
   name: "app",
@@ -57,6 +58,12 @@ export default {
     this.$store.dispatch({ type: "getUserFromSession" });
 
     const user = this.$store.getters.getLoggedInUser;
+    if (user) {
+      console.log("Logged in: ", user);
+      socketService.emit("logged in", user._id);
+    }
+    socketService.on("added order", this.addedNewOrder);
+    socketService.on("status updated", this.statusUpdated);
 
     await this.$store.dispatch({ type: "loadStays", filterBy });
 
@@ -89,6 +96,54 @@ export default {
   },
 
   methods: {
+    async statusUpdated(order) {
+      const loggedInUser = this.$store.getters.getLoggedInUser;
+      const filterBy = {
+        userId: loggedInUser?._id,
+      };
+
+      try {
+        await this.$store.dispatch({
+          type: "loadOrdersWithSocket",
+          filterBy,
+        });
+        const message = {
+          text: `Your order has been ${order.status}`,
+          from: "host",
+          class: order.status === "rejected" ? "danger" : "success",
+        };
+        this.$store.commit({ type: "showMessage", message });
+        setTimeout(() => {
+          this.$store.commit({ type: "hideMessage" });
+        }, 4500);
+      } catch (err) {
+        console.log("Error while loading orders: ", err);
+      }
+    },
+    async addedNewOrder() {
+      const loggedInUser = this.$store.getters.getLoggedInUser;
+      const filterBy = {
+        hostId: loggedInUser._id,
+      };
+
+      try {
+        await this.$store.dispatch({
+          type: "loadOrdersWithSocket",
+          filterBy,
+        });
+      } catch (err) {
+        console.log("Error while loading orders: ", err);
+      }
+      const message = {
+        text: "You have a new order",
+        from: "user",
+        class: "success",
+      };
+      this.$store.commit({ type: "showMessage", message });
+      setTimeout(() => {
+        this.$store.commit({ type: "hideMessage" });
+      }, 4500);
+    },
     toggleNewUser() {
       const isNew = this.$store.getters.isNewUser;
 

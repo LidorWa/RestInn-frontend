@@ -56,6 +56,7 @@ export default {
       try {
         const loggedInUser = await userService.login(user);
         commit({ type: "setLoggedinUser", loggedInUser });
+        socketService.emit("logged in", loggedInUser._id);
         /// Load user orders (as a host) to order-store
         const filterBy = {
           hostId: loggedInUser._id,
@@ -70,6 +71,14 @@ export default {
       }
     },
 
+    async logout({ commit, dispatch }) {
+      await userService.logout();
+      commit({ type: "setLoggedinUser", loggedInUser: null });
+      commit({ type: "setOrders", orders: null });
+      commit({ type: "resetIsHostLoaded" });
+      socketService.emit("log out");
+    },
+
     async signUp({ commit, dispatch }, { user }) {
       try {
         const newUser = await userService.signup(user);
@@ -78,13 +87,6 @@ export default {
       } catch (err) {
         console.log("Can't sign up:", err);
       }
-    },
-
-    async logout({ commit, dispatch }) {
-      await userService.logout();
-      commit({ type: "setLoggedinUser", loggedInUser: null });
-      commit({ type: "setOrders", orders: null });
-      commit({ type: "resetIsHostLoaded" });
     },
 
     async getUserById(context, { userId }) {

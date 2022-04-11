@@ -34,9 +34,6 @@ export default {
   async created() {
     this.loggedInUser = this.$store.getters.getLoggedInUser;
 
-    socketService.emit("enter my-trips", this.loggedInUser._id);
-    socketService.on("status updated", this.statusUpdated);
-
     const filterBy = {
       userId: this.loggedInUser._id,
     };
@@ -66,31 +63,6 @@ export default {
 
       copy.status = status;
       this.$store.dispatch({ type: "updateOrder", order: copy });
-    },
-
-    async statusUpdated(order) {
-      this.loggedInUser = this.$store.getters.getLoggedInUser;
-      const filterBy = {
-        userId: this.loggedInUser?._id,
-      };
-
-      try {
-        await this.$store.dispatch({
-          type: "loadOrdersWithSocket",
-          filterBy,
-        });
-        const message = {
-          text: `Your order has been ${order.status}`,
-          from: "host",
-          class: order.status === "rejected" ? "danger" : "success",
-        };
-        this.$store.commit({ type: "showMessage", message });
-        setTimeout(() => {
-          this.$store.commit({ type: "hideMessage" });
-        }, 4500);
-      } catch (err) {
-        console.log("Error while loading orders: ", err);
-      }
     },
   },
   components: {
