@@ -33,7 +33,6 @@ export default {
   mutations: {
     clearOrdersFromStore(state) {
       state.orders = [];
-      console.log("orders cleared: ", state.orders);
     },
     setTotalPrice(state, { totalPrice }) {
       state.total = totalPrice;

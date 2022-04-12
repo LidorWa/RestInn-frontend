@@ -59,24 +59,12 @@ export default {
 
     const user = this.$store.getters.getLoggedInUser;
     if (user) {
-      console.log("Logged in: ", user);
       socketService.emit("logged in", user._id);
     }
     socketService.on("added order", this.addedNewOrder);
     socketService.on("status updated", this.statusUpdated);
 
     await this.$store.dispatch({ type: "loadStays", filterBy });
-
-    // if (user) {
-    //   const filterBy = {
-    //     hostId: user._id,
-    //   };
-    //   try {
-    //     await this.$store.dispatch({ type: "loadOrders", filterBy });
-    //   } catch (err) {
-    //     console.log("Error while loading orders: ", err);
-    //   }
-    // }
   },
   computed: {
     isShowingMessage() {

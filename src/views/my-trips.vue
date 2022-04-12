@@ -39,7 +39,6 @@ export default {
     };
     try {
       await this.$store.dispatch({ type: "loadOrders", filterBy });
-      console.log("Got orders!");
     } catch (err) {
       console.log("Error while loading trips: ", err);
     }
@@ -49,7 +48,6 @@ export default {
       return this.$store.getters.isLoading;
     },
     getTrips() {
-      console.log("Getting orders from store");
       if (!this.$store.getters.getOrders) return;
       return JSON.parse(JSON.stringify(this.$store.getters.getOrders));
     },

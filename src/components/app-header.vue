@@ -191,7 +191,6 @@ export default {
     getImageUrl() {
       const user = this.$store.getters.getLoggedInUser;
       if (user?.username === "111") {
-        console.log("111 is looged in!");
         const imgUrl = new URL(
           `../assets/host-images/liran2.jpg`,
           import.meta.url
@@ -201,25 +200,13 @@ export default {
 
       return "https://thispersondoesnotexist.com/image";
 
-      //   const path =
-      //   user?.username === "111"
-      //     ? "../../assets/host-images/liran.jpg"
-      //     : "../assets/svgs/menu_black_24dp.svg";
-      // console.log("111 is looged in!");
-      // const imgUrl = new URL(path, import.meta.url);
-      // return imgUrl;
+
     },
     isLoggedIn() {
       const user = this.$store.getters.getLoggedInUser;
       return !!user;
     },
-    // getLoggedInUserImage() {
-    //   const user = this.$store.getters.getLoggedInUser;
-    //   if (user) {
-    //     const imgUrl = new URL(`../assets/images/${user.imgUrl}`, import.meta.url)
-    //     return imgUrl
-    //   }
-    // },
+
     homepageClass() {
       let classesStr = "";
       if (this.scrollLoc > 20) classesStr += "scrolled ";

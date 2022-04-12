@@ -104,8 +104,6 @@ export default {
     },
 
     getUserFromSession({ commit }) {
-      console.log("store getUserFromSession 1");
-
       const user = userService.getLoggedinUser();
       commit({ type: "setLoggedinUser", loggedInUser: user });
     },
