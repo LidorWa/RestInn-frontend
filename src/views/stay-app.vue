@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       filterBy: {
-        price: [1, 4000],
+        price: [1, 1800],
         type: [],
         city: "",
         amenities: [],
@@ -34,6 +34,7 @@ export default {
   },
   created() {
     const guests = this.$store.getters.getGuestsNumber;
+    console.log("page created");
     this.filterBy.guests = guests;
     if (this.$route.query.destination) {
       let city = this.$route.query.destination.split("?")[0];
@@ -62,7 +63,7 @@ export default {
   methods: {
     setFilter(filterBy) {
       this.$store.commit({ type: "setFilter", filterBy });
-      this.$store.dispatch({ type: "loadStays", filterBy });
+      this.$store.dispatch({ type: "loadStays" });
     },
   },
 

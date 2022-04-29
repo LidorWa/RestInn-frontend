@@ -4,7 +4,7 @@ export default {
   state: {
     stays: [],
     filterBy: {
-      price: [],
+      price: [1, 1800],
       type: [],
       city: "",
       amenities: [],
@@ -39,38 +39,38 @@ export default {
       if (!stays.length) return;
       return stays;
 
-      stays = stays.filter((stay) => stay.capacity >= state.filterBy.guests);
+      // stays = stays.filter((stay) => stay.capacity >= state.filterBy.guests);
 
-      if (state.filterBy.type.length) {
-        stays = stays.filter((stay) =>
-          state.filterBy.type.includes(stay.propertyType)
-        );
-      }
+      // if (state.filterBy.type.length) {
+      //   stays = stays.filter((stay) =>
+      //     state.filterBy.type.includes(stay.propertyType)
+      //   );
+      // }
 
-      stays = stays.filter(
-        (stay) =>
-          stay.price >= state.filterBy.price[0] &&
-          stay.price <= state.filterBy.price[1]
-      );
+      // stays = stays.filter(
+      //   (stay) =>
+      //     stay.price >= state.filterBy.price[0] &&
+      //     stay.price <= state.filterBy.price[1]
+      // );
 
-      if (state.filterBy.amenities.length) {
-        stays = stays.filter((stay) =>
-          state.filterBy.amenities.every((amenity) =>
-            stay.amenities.includes(amenity)
-          )
-        );
-      }
+      // if (state.filterBy.amenities.length) {
+      //   stays = stays.filter((stay) =>
+      //     state.filterBy.amenities.every((amenity) =>
+      //       stay.amenities.includes(amenity)
+      //     )
+      //   );
+      // }
 
-      if (state.filterBy.city) {
-        let city = state.filterBy.city;
+      // if (state.filterBy.city) {
+      //   let city = state.filterBy.city;
 
-        const regex = new RegExp(city, "i");
-        stays = stays.filter((stay) => regex.test(stay.address.city));
-      }
+      //   const regex = new RegExp(city, "i");
+      //   stays = stays.filter((stay) => regex.test(stay.address.city));
+      // }
 
-      if (stays.length > 50) return stays.slice(0, 50);
+      // if (stays.length > 50) return stays.slice(0, 50);
 
-      return stays;
+      // return stays;
     },
   },
   mutations: {
@@ -79,7 +79,12 @@ export default {
     },
 
     setCityFilter(state, { city }) {
+      console.log("heyyyy");
       state.filterBy.city = city;
+    },
+
+    setTypeFilter(state, { stayType }) {
+      state.filterBy.type.push(stayType);
     },
 
     setFilter(state, { filterBy }) {
@@ -97,10 +102,10 @@ export default {
         return stay;
       } catch (err) {}
     },
-    async loadStays({ commit, state }, { filterBy }) {
+    async loadStays({ commit, state }) {
       commit({ type: "setIsLoading", isLoading: true });
       try {
-        const stays = await stayService.query(filterBy);
+        const stays = await stayService.query(state.filterBy);
         commit({ type: "setStays", stays });
       } catch (err) {
         console.log("Error while loading stays: ", err);

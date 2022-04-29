@@ -165,7 +165,7 @@ export default {
       isPriceSelected: false,
 
       filterBy: {
-        price: [],
+        price: [1, 1800],
         type: [],
         city: "",
         amenities: [],

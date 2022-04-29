@@ -48,13 +48,6 @@ export default {
   },
 
   async created() {
-    const filterBy = {
-      price: [1, 4000],
-      type: [],
-      city: "",
-      amenities: [],
-      guests: 0,
-    };
     this.$store.dispatch({ type: "getUserFromSession" });
 
     const user = this.$store.getters.getLoggedInUser;
@@ -64,7 +57,7 @@ export default {
     socketService.on("added order", this.addedNewOrder);
     socketService.on("status updated", this.statusUpdated);
 
-    await this.$store.dispatch({ type: "loadStays", filterBy });
+    await this.$store.dispatch({ type: "loadStays" });
   },
   computed: {
     isShowingMessage() {
