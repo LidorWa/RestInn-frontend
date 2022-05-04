@@ -7,6 +7,13 @@
     letter-spacing: 0.11em;
     // background-color: black;
     text-shadow: -2px -2px $clr2;
+
+    @media (max-width: 405px) {
+      font-size: em(23px);
+    }
+    @media (max-width: 365px) {
+      font-size: em(21px);
+    }
   }
 
   .tag-line-container {
