@@ -14,9 +14,35 @@
   }
   .tag-line1 {
     transform: translate(77px, 1400%);
+
+    @media (max-width: 950px) {
+      transform: translate(110px, 1200%);
+    }
+    @media (max-width: 840px) {
+      transform: translate(110px, 1050%);
+    }
+    @media (max-width: 550px) {
+      transform: translate(58px, 1080%);
+    }
+    @media (max-width: 405px) {
+      transform: translate(24px, 1160%);
+    }
   }
   .tag-line2 {
     transform: translate(65%, 1650%);
+
+    @media (max-width: 950px) {
+      transform: translate(75%, 1400%);
+    }
+    @media (max-width: 840px) {
+      transform: translate(65%, 1250%);
+    }
+    @media (max-width: 550px) {
+      transform: translate(45%, 1250%);
+    }
+    @media (max-width: 405px) {
+      transform: translate(25%, 1320%);
+    }
   }
 }
 .main-hero-img {
