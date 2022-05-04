@@ -1,51 +1,54 @@
 <template>
-  <section v-if="orders" class="dashboard-stats main-layout-homepage">
-    <div class="cards-container">
-      <div class="bar-container">
-        <h1>Revenue per month</h1>
-        <bar-chart :orders="orders" />
-      </div>
-      <div class="stats-card revenue">
-        <h1>Total revenue</h1>
-        <div class="details">
-          <div class="rev-stat">
-            <span class="stat-head">This month</span>
-            <span>{{ thisMonthRenevue }}</span>
-          </div>
-          <div class="rev-stat">
-            <span class="stat-head">This year</span>
-            <span>{{ thisYearRenevue }}</span>
-          </div>
-          <div class="rev-stat">
-            <span class="stat-head">Total income</span>
-            <span>{{ formattedRevenue }}</span>
+  <section class="main-layout-homepage">
+    <section v-if="orders.length" class="dashboard-stats">
+      <div class="cards-container">
+        <div class="bar-container">
+          <h1>Revenue per month</h1>
+          <bar-chart :orders="orders" />
+        </div>
+        <div class="stats-card revenue">
+          <h1>Total revenue</h1>
+          <div class="details">
+            <div class="rev-stat">
+              <span class="stat-head">This month</span>
+              <span>{{ thisMonthRenevue }}</span>
+            </div>
+            <div class="rev-stat">
+              <span class="stat-head">This year</span>
+              <span>{{ thisYearRenevue }}</span>
+            </div>
+            <div class="rev-stat">
+              <span class="stat-head">Total income</span>
+              <span>{{ formattedRevenue }}</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="cards-container">
-      <div class="stats-card management">
-        <h1>Orders management</h1>
-        <div class="details">
-          <div class="rev-stat">
-            <span class="stat-head">Cancelations</span>
-            <span class="canceled-stat">{{ cancelations }}</span>
-          </div>
-          <div class="rev-stat">
-            <span class="stat-head">Average order revenue</span>
-            <span class="total-stat">{{ totalPriceAverage }}</span>
-          </div>
-          <div class="rev-stat">
-            <span class="stat-head">Pending now</span>
-            <span class="pending-stat">{{ pendingCount }} orders</span>
+      <div class="cards-container">
+        <div class="stats-card management">
+          <h1>Orders management</h1>
+          <div class="details">
+            <div class="rev-stat">
+              <span class="stat-head">Cancelations</span>
+              <span class="canceled-stat">{{ cancelations }}</span>
+            </div>
+            <div class="rev-stat">
+              <span class="stat-head">Average order revenue</span>
+              <span class="total-stat">{{ totalPriceAverage }}</span>
+            </div>
+            <div class="rev-stat">
+              <span class="stat-head">Pending now</span>
+              <span class="pending-stat">{{ pendingCount }} orders</span>
+            </div>
           </div>
         </div>
+        <div class="pie-container">
+          <h1>Orders segmentation by nights</h1>
+          <awesome-chart v-if="testData" :data="testData" />
+        </div>
       </div>
-      <div class="pie-container">
-        <h1>Orders segmentation by nights</h1>
-        <awesome-chart v-if="testData" :data="testData" />
-      </div>
-    </div>
+    </section>
+    <h1 v-else class="no-orders">No orders to display</h1>
   </section>
 </template>
 

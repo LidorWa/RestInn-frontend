@@ -92,6 +92,14 @@
       width: calc(100px + 15vw);
     }
 
+    @media (max-width: 450px) {
+      width: 60%;
+    }
+
+    @media (max-width: 370px) {
+      width: 80%;
+    }
+
     .reservation-details-title {
       font-size: em(18px);
       // font-weight: 800;
@@ -160,22 +168,22 @@
     }
 
     @media (max-width: 550px) {
-      width: 180px;
-      height: 172px;
-    }
-
-    @media (max-width: 510px) {
-      width: 160px;
-      height: 162px;
-    }
-
-    @media (max-width: 460px) {
       display: none;
     }
 
     .order-stay-image {
       border-radius: 5px;
       margin-bottom: 8px;
+      height: 200px;
+      object-fit: cover;
+
+      @media (max-width: 950px) {
+        height: 145px;
+      }
+
+      @media (max-width: 610px) {
+        height: 115px;
+      }
     }
 
     .stay-detail {
@@ -225,14 +233,18 @@
       gap: 0px;
     }
     @media (max-width: 415px) {
-      width: 330px;
+      width: 275px;
       height: 50px;
     }
-    @media (max-width: 395px) {
-      width: 280px;
-    }
-    @media (max-width: 395px) {
-      width: 240px;
+    // @media (max-width: 395px) {
+    //   width: 280px;
+    // }
+    // @media (max-width: 395px) {
+    //   width: 240px;
+    // }
+
+    @media (max-width: 365px) {
+      margin-top: 10px;
     }
 
     .confirm {

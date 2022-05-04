@@ -1,6 +1,7 @@
 <template>
   <section class="dashboard" v-if="loggedInUser">
     <h1 class="main-layout-homepage title">My Trips</h1>
+
     <div class="loading-img-container">
       <img
         class="loading-img"

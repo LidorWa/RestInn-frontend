@@ -1,6 +1,7 @@
 <template>
   <section v-if="trips" class="main-layout-homepage">
-    <div class="dashboard-order-cont titles">
+    <h1 v-if="!trips.length" class="no-orders">No orders to display</h1>
+    <div v-else class="dashboard-order-cont titles">
       <div class="dashboard-title date">Date</div>
       <div class="dashboard-title host">Host</div>
       <div class="dashboard-title stay">Stay</div>

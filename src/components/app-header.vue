@@ -134,9 +134,18 @@ export default {
       this.setHeaderClass();
     },
     logout() {
+      const path = window.location.href.split("/");
       this.$store.dispatch({ type: "logout" });
       this.isShowingHamburger = false;
-      this.$router.push("/");
+
+      if (path[4] === "dashboard") {
+        this.$router.push("/");
+        setTimeout(() => {
+          location.reload();
+        }, 20);
+      } else {
+        this.$router.push("/");
+      }
     },
     openSignUp(isNew) {
       this.$store.commit({ type: "openSignUpModal", isNew });
@@ -199,8 +208,6 @@ export default {
       }
 
       return "https://thispersondoesnotexist.com/image";
-
-
     },
     isLoggedIn() {
       const user = this.$store.getters.getLoggedInUser;
