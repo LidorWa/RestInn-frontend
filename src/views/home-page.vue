@@ -82,7 +82,9 @@ export default {
     return {};
   },
   components: {},
-  created() {},
+  created() {
+    console.log("hey");
+  },
   methods: {
     getImgUrl(file) {
       const imgUrl = new URL(`../assets/images/${file}`, import.meta.url);
