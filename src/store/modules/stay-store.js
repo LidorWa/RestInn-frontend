@@ -38,39 +38,6 @@ export default {
       let stays = JSON.parse(JSON.stringify(state.stays));
       if (!stays.length) return;
       return stays;
-
-      // stays = stays.filter((stay) => stay.capacity >= state.filterBy.guests);
-
-      // if (state.filterBy.type.length) {
-      //   stays = stays.filter((stay) =>
-      //     state.filterBy.type.includes(stay.propertyType)
-      //   );
-      // }
-
-      // stays = stays.filter(
-      //   (stay) =>
-      //     stay.price >= state.filterBy.price[0] &&
-      //     stay.price <= state.filterBy.price[1]
-      // );
-
-      // if (state.filterBy.amenities.length) {
-      //   stays = stays.filter((stay) =>
-      //     state.filterBy.amenities.every((amenity) =>
-      //       stay.amenities.includes(amenity)
-      //     )
-      //   );
-      // }
-
-      // if (state.filterBy.city) {
-      //   let city = state.filterBy.city;
-
-      //   const regex = new RegExp(city, "i");
-      //   stays = stays.filter((stay) => regex.test(stay.address.city));
-      // }
-
-      // if (stays.length > 50) return stays.slice(0, 50);
-
-      // return stays;
     },
   },
   mutations: {
@@ -79,7 +46,6 @@ export default {
     },
 
     setCityFilter(state, { city }) {
-      console.log("heyyyy");
       state.filterBy.city = city;
     },
 
