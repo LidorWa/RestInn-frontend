@@ -142,7 +142,6 @@ export default {
     },
     closeSignUp() {
       this.$store.commit({ type: "closeSignUpModal" });
-      this.$router.push("/");
     },
   },
 };
