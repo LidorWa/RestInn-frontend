@@ -34,7 +34,7 @@ export default {
   },
   created() {
     const guests = this.$store.getters.getGuestsNumber;
-    console.log("page created");
+
     this.filterBy.guests = guests;
     if (this.$route.query.destination) {
       let city = this.$route.query.destination.split("?")[0];
