@@ -134,18 +134,12 @@ export default {
       this.setHeaderClass();
     },
     logout() {
-      const path = window.location.href.split("/");
-      this.$store.dispatch({ type: "logout" });
+      this.$router.push("/");
       this.isShowingHamburger = false;
 
-      if (path[4] === "dashboard") {
-        this.$router.push("/");
-        setTimeout(() => {
-          location.reload();
-        }, 20);
-      } else {
-        this.$router.push("/");
-      }
+      // setTimeout(() => {
+      this.$store.dispatch({ type: "logout" });
+      // }, 100);
     },
     openSignUp(isNew) {
       this.$store.commit({ type: "openSignUpModal", isNew });

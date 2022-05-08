@@ -1,5 +1,5 @@
 <template>
-  <section v-if="orders.length" class="main-layout-homepage">
+  <section v-if="orders?.length" class="main-layout-homepage">
     <div class="dashboard-order-cont titles">
       <div class="dashboard-title date">Date</div>
       <div class="dashboard-title booker">Booker</div>

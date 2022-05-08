@@ -1,6 +1,6 @@
 <template>
   <section class="main-layout-homepage">
-    <section v-if="orders.length" class="dashboard-stats">
+    <section v-if="orders?.length" class="dashboard-stats">
       <div class="cards-container">
         <div class="bar-container">
           <h1>Revenue per month</h1>

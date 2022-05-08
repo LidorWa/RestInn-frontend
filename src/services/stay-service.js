@@ -1,17 +1,17 @@
-import { storageService } from './async-storage-service'
-import { httpService } from './http-service'
+import { storageService } from "./async-storage-service";
+import { httpService } from "./http-service";
 
-const KEY = 'stay_db'
+const KEY = "stay_db";
 
 export const stayService = {
   query,
   getById,
   save,
   remove,
-}
+};
 
 async function query(filterBy = null) {
-  return await httpService.get(`stay`, filterBy)
+  return await httpService.get(`stay`, filterBy);
   // return httpService.get(`query`)
   // let stays = await storageService.query(KEY);
 
@@ -23,7 +23,7 @@ async function query(filterBy = null) {
 }
 
 async function getById(stayId) {
-  return await httpService.get(`stay/${stayId}`)
+  return await httpService.get(`stay/${stayId}`);
   // return await httpService.get(`stay/getById/${stayId}`)
 
   // let stay = await storageService.get(KEY, stayId);
@@ -31,14 +31,14 @@ async function getById(stayId) {
 }
 
 async function remove(stayId) {
-  return await httpService.delete(`stay/${stayId}`)
+  return await httpService.delete(`stay/${stayId}`);
 }
 
 async function save(stay) {
   if (toy._id) {
-    return await httpService.put(`stay/${stay._id}`, stay)
+    return await httpService.put(`stay/${stay._id}`, stay);
   } else {
-    return await httpService.post('stay', stay)
+    return await httpService.post("stay", stay);
   }
 }
 

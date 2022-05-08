@@ -71,12 +71,16 @@ export default {
       }
     },
 
-    async logout({ commit, dispatch }) {
-      await userService.logout();
-      commit({ type: "setLoggedinUser", loggedInUser: null });
-      commit({ type: "setOrders", orders: null });
-      commit({ type: "resetIsHostLoaded" });
-      socketService.emit("log out");
+    async logout({ commit }) {
+      try {
+        await userService.logout();
+        commit({ type: "setLoggedinUser", loggedInUser: null });
+        commit({ type: "setOrders", orders: [] });
+        commit({ type: "resetIsHostLoaded" });
+        socketService.emit("log out");
+      } catch (err) {
+        console.log("Error while trying to log out:", err);
+      }
     },
 
     async signUp({ commit, dispatch }, { user }) {
