@@ -10,7 +10,7 @@
     <p v-if="isNewUser" class="sign-up-title">Sign up</p>
     <p v-else class="sign-up-title">Log in</p>
     <h1 class="sign-up-welcome">Welcome to RestInn</h1>
-    <p class="input-alert" v-if="isInputAlert">All fields are required</p>
+    <p class="input-alert" v-if="isInputAlert">All fields are required!</p>
     <p class="input-alert" v-if="isUsernameAlert">
       Please enter a valid username address
     </p>
