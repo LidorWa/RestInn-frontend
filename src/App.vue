@@ -23,9 +23,8 @@
 
 <script>
 import appHeader from "./components/app-header.vue";
-import appFooter from "./components/app-footer.vue";
 // import { propsToAttrMap } from "@vue/shared";
-import AppFooter from "./components/app-footer.vue";
+import appFooter from "./components/app-footer.vue";
 import signUp from "./components/sign-up.vue";
 import userMessage from "./components/user-message.vue";
 import { socketService } from "./services/socket-service";
@@ -35,7 +34,6 @@ export default {
   components: {
     appHeader,
     appFooter,
-    AppFooter,
     signUp,
     userMessage,
     // propsToAttrMap
